@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.model;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -15,13 +15,14 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Ambiente {
+public class CheckList {
 
 	private Long ID;
-	private List<Usuario> guardiões;
-	private String nome;
-	private String descricao;
-	private String localizacao;
-	private String imagem;
-	
+	private LocalDateTime dataHoraInicio;
+	private LocalDateTime dataHoraFim;
+	private Usuario responsavelInicio;
+	private Usuario executorInicio;
+	private Usuario responsavelFim;
+	private Usuario executorFim;
+	private Ambiente ambiente;
 }

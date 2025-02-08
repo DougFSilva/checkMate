@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.model;
+package com.DougFSiva.checkMate.exception;
 
 public class SenhaDeUsuarioInvalidaException extends RuntimeException {
 

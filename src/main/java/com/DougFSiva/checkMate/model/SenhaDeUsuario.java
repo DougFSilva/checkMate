@@ -1,5 +1,7 @@
 package com.DougFSiva.checkMate.model;
 
+import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
