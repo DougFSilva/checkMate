@@ -1,5 +1,7 @@
 package com.DougFSiva.checkMate.model;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,10 +15,10 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class CheckList {
+public class CheckListInicio {
 
-	private Long ID;
-	private Ambiente ambiente;
-	private CheckListInicio checkListInicio;
-	private CheckListFim checkListFim;
+	private LocalDateTime dataHora;
+	private Usuario responsavel;
+	private Usuario executor;
+	private String observacao;
 }
