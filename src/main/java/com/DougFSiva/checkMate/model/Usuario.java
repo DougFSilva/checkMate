@@ -1,5 +1,11 @@
 package com.DougFSiva.checkMate.model;
 
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,8 +19,9 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Usuario {
+public class Usuario implements UserDetails{
 
+	private static final long serialVersionUID = 1L;
 	private String ID;
 	private String nome;
 	private String CPF;
@@ -33,6 +40,26 @@ public class Usuario {
 		this.senhaAlterada = senhaAlterada;
 		this.perfil = perfil;
 		this.foto = foto;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+	    return this.perfil != null ? Collections.singletonList(this.perfil) : Collections.emptyList();
+	}
+
+	@Override
+	public String getPassword() {
+		return this.senha.getSenha();
+	}
+
+	@Override
+	public String getUsername() {
+		return this.CPF;
+	}
+	
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return this.senhaAlterada;
 	}
 	
 }

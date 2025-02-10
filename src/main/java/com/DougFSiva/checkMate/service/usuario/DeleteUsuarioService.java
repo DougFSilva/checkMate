@@ -2,6 +2,7 @@ package com.DougFSiva.checkMate.service.usuario;
 
 import org.springframework.stereotype.Service;
 
+import com.DougFSiva.checkMate.model.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 
 @Service
@@ -14,7 +15,7 @@ public class DeleteUsuarioService {
 	}
 	
 	public void deletar(Long ID) {
-		repository.findById(ID)
+		Usuario usuario = repository.findByIdOrElseThrow(ID);
 	}
 	
 }
