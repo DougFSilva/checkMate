@@ -1,0 +1,1 @@
+- Apagar usuario automaticamentr com Schedule

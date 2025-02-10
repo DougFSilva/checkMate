@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.model;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -29,9 +30,10 @@ public class Usuario implements UserDetails{
 	private SenhaDeUsuario senha;
 	private Boolean senhaAlterada;
 	private Perfil perfil;
+	private LocalDate dataValidade;
 	private String foto;
 	
-	public Usuario(String nome, String CPF, String email, SenhaDeUsuario senha, Boolean senhaAlterada, Perfil perfil,
+	public Usuario(String nome, String CPF, String email, SenhaDeUsuario senha, Boolean senhaAlterada, Perfil perfil, LocalDate dataValidade,
 			String foto) {
 		this.nome = nome;
 		this.CPF = CPF;
@@ -39,6 +41,7 @@ public class Usuario implements UserDetails{
 		this.senha = senha;
 		this.senhaAlterada = senhaAlterada;
 		this.perfil = perfil;
+		this.dataValidade = dataValidade;
 		this.foto = foto;
 	}
 
