@@ -1,3 +1,3 @@
 - Apagar usuario automaticamentr com Schedule
-- Adicionar foto padrão
 - Concluir ImagemService
+- Garantir atributos unicos com spring data

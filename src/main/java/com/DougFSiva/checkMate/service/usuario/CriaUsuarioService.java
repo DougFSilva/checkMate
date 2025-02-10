@@ -2,7 +2,7 @@ package com.DougFSiva.checkMate.service.usuario;
 
 import org.springframework.stereotype.Service;
 
-import com.DougFSiva.checkMate.dto.CriaUsuarioForm;
+import com.DougFSiva.checkMate.dto.form.CriaUsuarioForm;
 import com.DougFSiva.checkMate.model.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.Perfil;
 import com.DougFSiva.checkMate.model.SenhaDeUsuario;

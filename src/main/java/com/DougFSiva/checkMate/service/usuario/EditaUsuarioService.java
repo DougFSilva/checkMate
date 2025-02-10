@@ -4,7 +4,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import com.DougFSiva.checkMate.dto.EditaUsuarioForm;
+import com.DougFSiva.checkMate.dto.form.EditaUsuarioForm;
 import com.DougFSiva.checkMate.model.Perfil;
 import com.DougFSiva.checkMate.model.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;

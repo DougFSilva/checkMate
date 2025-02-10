@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.dto;
+package com.DougFSiva.checkMate.dto.form;
 
 import java.time.LocalDate;
 
@@ -12,7 +12,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public record CriaUsuarioForm(
+public record EditaUsuarioForm(
+		
+		@NotNull(message = "O IDl deve ser informado.")
+		Long ID,
 		
 		@NotBlank(message = "O nome não pode estar vazio.")
 	    @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 50 caracteres.")
@@ -25,9 +28,6 @@ public record CriaUsuarioForm(
 		@NotBlank(message = "O e-mail não pode estar vazio.")
 	    @Email(message = "E-mail inválido.")
 		String email,
-		
-		@NotBlank(message = "A senha não pode estar vazia.")
-		String senha,
 		
 		@NotNull(message = "O tipo de perfil deve ser informado.")
 		TipoPerfil tipoPerfil,
