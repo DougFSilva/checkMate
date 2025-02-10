@@ -5,6 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.form.EditaUsuarioForm;
+import com.DougFSiva.checkMate.dto.resposta.UsuarioResposta;
 import com.DougFSiva.checkMate.model.Perfil;
 import com.DougFSiva.checkMate.model.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
@@ -23,13 +24,13 @@ public class EditaUsuarioService {
 		this.imagemService = imagemService;
 	}
 	
-	public Usuario editar(EditaUsuarioForm form) {
+	public UsuarioResposta editar(EditaUsuarioForm form) {
 		validarUsuarioAutenticado(form.ID());
 		Usuario usuario = repository.findByIdOrElseThrow(form.ID());
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
 		logger.infoComUsuario(String.format("Usuário com ID %d editado!", form.ID()));
-		return usuarioSalvo;
+		return new UsuarioResposta(usuarioSalvo);
 	}
 	
 	private Usuario atualizarDadosDoUsuario(Usuario usuario, EditaUsuarioForm form) {

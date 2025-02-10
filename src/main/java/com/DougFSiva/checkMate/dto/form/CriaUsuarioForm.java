@@ -26,9 +26,6 @@ public record CriaUsuarioForm(
 	    @Email(message = "E-mail inválido.")
 		String email,
 		
-		@NotBlank(message = "A senha não pode estar vazia.")
-		String senha,
-		
 		@NotNull(message = "O tipo de perfil deve ser informado.")
 		TipoPerfil tipoPerfil,
 		

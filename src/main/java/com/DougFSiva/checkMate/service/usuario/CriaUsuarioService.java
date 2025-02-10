@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.usuario;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.form.CriaUsuarioForm;
+import com.DougFSiva.checkMate.dto.resposta.UsuarioResposta;
 import com.DougFSiva.checkMate.model.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.Perfil;
 import com.DougFSiva.checkMate.model.SenhaDeUsuario;
@@ -25,8 +26,8 @@ public class CriaUsuarioService {
 		this.imagemService = imagemService;
 	}
 
-	public Usuario criar(CriaUsuarioForm form) {
-		SenhaDeUsuario senha = new SenhaDeUsuario(form.senha(), codificadorDeSenha);
+	public UsuarioResposta criar(CriaUsuarioForm form) {
+		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);
 		Perfil perfil = new Perfil(form.tipoPerfil());
 		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());
 		String foto = form.foto() != null 
@@ -35,7 +36,7 @@ public class CriaUsuarioService {
 		usuario.setFoto(foto);
 		Usuario usuarioSalvo = repository.save(usuario);
 		logger.infoComUsuario(String.format("Usuário %s criado", usuarioSalvo));
-		return usuarioSalvo;
+		return new UsuarioResposta(usuarioSalvo);
 	}
 	
 }

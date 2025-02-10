@@ -20,7 +20,7 @@ public class SenhaDeUsuario {
 	public SenhaDeUsuario(String senha, CodificadorDeSenha codificador) {
 
 		if (!senha.matches("^(.*[0-9]).*$")) {
-			throw new SenhaDeUsuarioInvalidaException("A senha precisa conter ao menos dígito");
+			throw new SenhaDeUsuarioInvalidaException("A senha precisa conter ao menos um dígito");
 		}
 		if (!senha.matches("^(?=.*[A-Z]).*$")) {
 			throw new SenhaDeUsuarioInvalidaException("A senha precisa conter ao menos uma letra maiúscula");
