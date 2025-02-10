@@ -5,7 +5,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.form.EditaUsuarioForm;
-import com.DougFSiva.checkMate.dto.resposta.UsuarioResposta;
+import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
+import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
+import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 import com.DougFSiva.checkMate.model.Perfil;
 import com.DougFSiva.checkMate.model.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
@@ -24,13 +26,13 @@ public class EditaUsuarioService {
 		this.imagemService = imagemService;
 	}
 	
-	public UsuarioResposta editar(EditaUsuarioForm form) {
+	public UsuarioResponse editar(EditaUsuarioForm form) {
 		validarUsuarioAutenticado(form.ID());
 		Usuario usuario = repository.findByIdOrElseThrow(form.ID());
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
-		logger.infoComUsuario(String.format("Usuário com ID %d editado!", form.ID()));
-		return new UsuarioResposta(usuarioSalvo);
+		logger.infoComUsuario(String.format("Usuário %s editado para %s!", usuario.infoParaLog(), usuarioSalvo));
+		return new UsuarioResponse(usuarioSalvo);
 	}
 	
 	private Usuario atualizarDadosDoUsuario(Usuario usuario, EditaUsuarioForm form) {
@@ -50,9 +52,9 @@ public class EditaUsuarioService {
 	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 	    String emailUsuarioAutenticado = authentication.getName();
         Usuario usuarioAutenticado = repository.findByEmail(emailUsuarioAutenticado)
-           .orElseThrow(() -> new SecurityException(String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
+           .orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
         if (!usuarioAutenticado.getID().equals(ID)) {
-           throw new SecurityException("Você não tem permissão para editar este usuário!");
+           throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
         }
     }
 

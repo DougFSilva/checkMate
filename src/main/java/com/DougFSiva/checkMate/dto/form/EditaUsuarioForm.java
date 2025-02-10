@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 
 public record EditaUsuarioForm(
 		
-		@NotNull(message = "O IDl deve ser informado.")
+		@NotNull(message = "O ID deve ser informado.")
 		Long ID,
 		
 		@NotBlank(message = "O nome não pode estar vazio.")

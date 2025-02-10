@@ -42,6 +42,10 @@ public class Usuario implements UserDetails{
 		this.perfil = perfil;
 		this.dataValidade = dataValidade;
 	}
+	
+	public String infoParaLog() {
+		return String.format("(%d) %s", this.ID, this.nome);
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -62,5 +66,6 @@ public class Usuario implements UserDetails{
 	public boolean isCredentialsNonExpired() {
 		return this.senhaAlterada;
 	}
+	
 	
 }

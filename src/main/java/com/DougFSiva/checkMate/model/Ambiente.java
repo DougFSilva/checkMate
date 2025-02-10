@@ -24,4 +24,22 @@ public class Ambiente {
 	private String localizacao;
 	private String imagem;
 	
+	public Ambiente(String nome, String descricao, String localizacao) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.localizacao = localizacao;
+	}
+	
+	public void adicionarGuardiao(Usuario usuario) {
+		this.guardioes.add(usuario);
+	}
+	
+	public void removerGuardiao(Usuario usuario) {
+		this.guardioes.removeIf(guardiao -> guardiao.equals(usuario));
+	}
+	
+	public String infoParaLog() {
+		return String.format("(%d) %s", this.ID, this.nome);
+	}
+
 }

@@ -1,4 +1,4 @@
 - Apagar usuario automaticamentr com Schedule
 - Concluir ImagemService
 - Garantir atributos unicos com spring data
-- Criar usuario com senha padrão
+- Adicionar guardiões

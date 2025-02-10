@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.dto.resposta;
+package com.DougFSiva.checkMate.dto.response;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class UsuarioResposta {
+public class UsuarioResponse {
 
 	private Long ID;
 	private String nome;
@@ -21,7 +21,7 @@ public class UsuarioResposta {
 	private LocalDate dataValidade;
 	private String foto;
 	
-	public UsuarioResposta(Usuario usuario) {
+	public UsuarioResponse(Usuario usuario) {
 		this.ID = usuario.getID();
 		this.nome = usuario.getNome();
 		this.CPF = usuario.getCPF();

@@ -31,7 +31,7 @@ public class DeleteUsuarioService {
 		}
 		repository.delete(usuario);
 		imagemService.deletarFotoDeUsuario(usuario);
-		logger.infoComUsuario(String.format("Usuário com ID %d deletado", ID));
+		logger.infoComUsuario(String.format("Usuário %s deletado", usuario.infoParaLog()));
 	}
 	
 }
