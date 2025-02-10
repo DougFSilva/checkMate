@@ -33,8 +33,7 @@ public class Usuario implements UserDetails{
 	private LocalDate dataValidade;
 	private String foto;
 	
-	public Usuario(String nome, String CPF, String email, SenhaDeUsuario senha, Boolean senhaAlterada, Perfil perfil, LocalDate dataValidade,
-			String foto) {
+	public Usuario(String nome, String CPF, String email, SenhaDeUsuario senha, Boolean senhaAlterada, Perfil perfil, LocalDate dataValidade) {
 		this.nome = nome;
 		this.CPF = CPF;
 		this.email = email;
@@ -42,7 +41,6 @@ public class Usuario implements UserDetails{
 		this.senhaAlterada = senhaAlterada;
 		this.perfil = perfil;
 		this.dataValidade = dataValidade;
-		this.foto = foto;
 	}
 
 	@Override

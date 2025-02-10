@@ -28,12 +28,14 @@ public class CriaUsuarioService {
 	public Usuario criar(CriaUsuarioForm form) {
 		SenhaDeUsuario senha = new SenhaDeUsuario(form.senha(), codificadorDeSenha);
 		Perfil perfil = new Perfil(form.tipoPerfil());
+		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());
 		String foto = form.foto() != null 
-				? imagemService.salvarFotoDeUsuario(form.foto(), form.CPF()) 
+				? imagemService.salvarFotoDeUsuario(form.foto(), usuario) 
 				: imagemService.buscarFotoDefaultDeUsuario();
-		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade(), foto);
-		logger.infoComUsuario(String.format("Usuario %s criado", usuario));
-		return repository.save(usuario);
+		usuario.setFoto(foto);
+		Usuario usuarioSalvo = repository.save(usuario);
+		logger.infoComUsuario(String.format("Usuário %s criado", usuarioSalvo));
+		return usuarioSalvo;
 	}
 	
 }

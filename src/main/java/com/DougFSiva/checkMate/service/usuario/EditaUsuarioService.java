@@ -39,7 +39,7 @@ public class EditaUsuarioService {
 		usuario.setPerfil(new Perfil(form.tipoPerfil()));
 		usuario.setDataValidade(form.dataValidade());
 		String foto = form.foto() != null 
-				? imagemService.salvarFotoDeUsuario(form.foto(), form.CPF()) 
+				? imagemService.salvarFotoDeUsuario(form.foto(), usuario) 
 				: imagemService.buscarFotoDefaultDeUsuario();
 		usuario.setFoto(foto);
 		return usuario;
