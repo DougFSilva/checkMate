@@ -1,5 +1,7 @@
 package com.DougFSiva.checkMate.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
@@ -10,4 +12,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	default Usuario findByIdOrElseThrow(Long ID) {
 		return findById(ID).orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Usuário com ID %d não encontrado!", ID)));
 	}
+	
+	Optional<Usuario> findByEmail(String email);
 }

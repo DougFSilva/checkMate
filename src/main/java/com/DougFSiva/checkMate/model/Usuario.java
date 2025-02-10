@@ -23,7 +23,7 @@ import lombok.ToString;
 public class Usuario implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
-	private String ID;
+	private Long ID;
 	private String nome;
 	private String CPF;
 	private String email;

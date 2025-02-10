@@ -18,7 +18,7 @@ import lombok.ToString;
 public class Ambiente {
 
 	private Long ID;
-	private List<Usuario> guardiões;
+	private List<Usuario> guardioes;
 	private String nome;
 	private String descricao;
 	private String localizacao;

@@ -19,6 +19,6 @@ public class CheckListInicio {
 
 	private LocalDateTime dataHora;
 	private Usuario responsavel;
-	private Usuario executor;
+	private String executor;
 	private String observacao;
 }
