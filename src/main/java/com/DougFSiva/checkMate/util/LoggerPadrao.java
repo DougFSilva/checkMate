@@ -2,6 +2,7 @@ package com.DougFSiva.checkMate.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public class LoggerPadrao {
@@ -23,22 +24,9 @@ public class LoggerPadrao {
 	public void errorComUsuario(String mensagem) {
 		logger.error(adicionarUsuarioNaMensagem(mensagem));
 	}
-	
-	public void infoSemUsuario(String mensagem) {
-		logger.info(mensagem);
-	}
-
-	public void warnSemUsuario(String mensagem) {
-		logger.warn(mensagem);
-	}
-
-	public void errorSemUsuario(String mensagem) {
-		logger.error(mensagem);
-	}
 
 	private String adicionarUsuarioNaMensagem(String mensagem) {
-		String usuarioLogado = SecurityContextHolder.getContext().getAuthentication().getName();
-		return String.format("[%s] %s", usuarioLogado, mensagem);
+		Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
+		return authentication != null ? authentication.getName() : "Usuário não autenticado";
 	}
-
 }
