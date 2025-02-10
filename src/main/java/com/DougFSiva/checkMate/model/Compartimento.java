@@ -18,6 +18,20 @@ public class Compartimento {
 	private String ID;
 	private Ambiente ambiente;
 	private String codigo;
+	private String nome;
 	private String descricao;
 	private String imagem;
+	
+	public Compartimento(Ambiente ambiente, String nome, String codigo, String descricao) {
+		this.ambiente = ambiente;
+		this.nome = nome;
+		this.codigo = codigo;
+		this.descricao = descricao;
+	}
+	
+	public String infoParaLog() {
+		return String.format("(%d) %s", this.ID, this.nome);
+	}
+
+	
 }

@@ -1,4 +1,4 @@
 - Apagar usuario automaticamentr com Schedule
 - Concluir ImagemService
 - Garantir atributos unicos com spring data
-- Adicionar guardiões
+- O log está slvando a senha do usuario
