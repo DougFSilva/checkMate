@@ -11,28 +11,28 @@ import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
 @Service
-public class AdicionaGuardiaoAoAmbienteService {
-
-	private static final LoggerPadrao logger = new LoggerPadrao(AdicionaGuardiaoAoAmbienteService.class);
+public class RemoveGuardiaoDoAmbiente {
+	
+	private static final LoggerPadrao logger = new LoggerPadrao(RemoveGuardiaoDoAmbiente.class);
 	private final AmbienteRepository repository;
 	private final UsuarioRepository usuarioRepository;
 	
-	public AdicionaGuardiaoAoAmbienteService(AmbienteRepository repository, UsuarioRepository usuarioRepository) {
+	public RemoveGuardiaoDoAmbiente(AmbienteRepository repository, UsuarioRepository usuarioRepository) {
 		this.repository = repository;
 		this.usuarioRepository = usuarioRepository;
 	}
 	
-	public AmbienteResponse adicionar(Long IDUsuario, Long ambienteID) {
+	public AmbienteResponse remover(Long IDUsuario, Long ambienteID) {
 		Usuario usuario = usuarioRepository.findByIdOrElseThrow(IDUsuario);
 		Ambiente ambiente = repository.findByIdOrElseThrow(ambienteID);
-		if (ambiente.getGuardioes().contains(usuario)) {
+		if (!ambiente.getGuardioes().contains(usuario)) {
 			throw new ErroDeOperacaoComAmbienteException(String.format(
-					"O usuário %s já foi adicionado ao ambiente %s", usuario.infoParaLog(), ambiente.infoParaLog()));
+					"O ambiente %s não contém o guardião %s", ambiente.infoParaLog(), usuario.infoParaLog()));
 		}
-		ambiente.adicionarGuardiao(usuario);
+		ambiente.removerGuardiao(usuario);
 		Ambiente ambienteSalvo = repository.save(ambiente);
 		logger.infoComUsuario(String.format(
-				"Adicionado guardião %s para o ambiente %s", usuario.infoParaLog(), ambiente.infoParaLog()));
+				"Removido guardião %s do ambiente %s", usuario.infoParaLog(), ambiente.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}
 }
