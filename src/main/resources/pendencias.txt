@@ -3,4 +3,3 @@
 - Garantir atributos unicos com spring data
 - Empréstimo de ferramentas
 - Pensar em alguma estratégia para questão de banco de dados muito grande
-- Deletar imagem de ambeinte ao deletar ambiente

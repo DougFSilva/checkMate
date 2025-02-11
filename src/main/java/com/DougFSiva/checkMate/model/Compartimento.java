@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 public class Compartimento {
 
-	private String ID;
+	private Long ID;
 	private Ambiente ambiente;
 	private String codigo;
 	private String nome;
@@ -32,6 +32,5 @@ public class Compartimento {
 	public String infoParaLog() {
 		return String.format("(%d) %s", this.ID, this.nome);
 	}
-
 	
 }

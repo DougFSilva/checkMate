@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class CompartimentoResponse {
 
-	private String ID;
+	private Long ID;
 	private AmbienteResponse ambiente;
 	private String codigo;
 	private String descricao;

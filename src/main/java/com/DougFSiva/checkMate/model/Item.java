@@ -26,4 +26,7 @@ public class Item {
 		this.quantidade = quantidade;
 	}
 	
+	public String infoParaLog() {
+		return String.format("(%d) %s", this.ID, this.descricao);
+	}
 }
