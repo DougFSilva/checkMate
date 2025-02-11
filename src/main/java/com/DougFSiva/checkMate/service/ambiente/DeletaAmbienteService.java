@@ -7,6 +7,7 @@ import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListRepository;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
+import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
 @Service
@@ -16,12 +17,14 @@ public class DeletaAmbienteService {
 	private final AmbienteRepository repository;
 	private final CheckListRepository checkListRepository;
 	private final CompartimentoRepository compartimentoRepository;
+	private final ImagemService imagemService;
 	
 	public DeletaAmbienteService(AmbienteRepository repository, CheckListRepository checkListRepository,
-			CompartimentoRepository compartimentoRepository) {
+			CompartimentoRepository compartimentoRepository, ImagemService imagemService) {
 		this.repository = repository;
 		this.checkListRepository = checkListRepository;
 		this.compartimentoRepository = compartimentoRepository;
+		this.imagemService = imagemService;
 	}
 
 	public void deletar(Long ID) {
@@ -35,6 +38,7 @@ public class DeletaAmbienteService {
 					"Não é possível deletar ambiente, pois existema compartimentos associados a ele!");
 		}
 		repository.delete(ambiente);
+		imagemService.deletarImagemDeAmbiente(ambiente);
 		logger.infoComUsuario(String.format("Deletado Ambiente %s", ambiente.infoParaLog()));
 	}
 }
