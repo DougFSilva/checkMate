@@ -17,8 +17,13 @@ public class Item {
 
 	private Long ID;
 	private Compartimento compartimento;
-	private String codigo;
 	private String descricao;
 	private Integer quantidade;
-	private String imagem;
+	
+	public Item(Compartimento compartimento, String descricao, Integer quantidade) {
+		this.compartimento = compartimento;
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+	}
+	
 }

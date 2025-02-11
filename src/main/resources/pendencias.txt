@@ -1,4 +1,5 @@
 - Apagar usuario automaticamentr com Schedule
 - Concluir ImagemService
 - Garantir atributos unicos com spring data
-- O log está slvando a senha do usuario
+- Empréstimo de ferramentas
+- Pensar em alguma estratégia para questão de banco de dados muito grande

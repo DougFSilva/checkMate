@@ -9,10 +9,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ItemStatus {
+public class ItemCheckList {
 
 	private Long ID;
+	private CheckList checkList;
 	private Item item;
-	private boolean status;
+	private Integer quantidadeEncontrada;
+	private boolean statusInicio;
+	private boolean statusFim;
+	private String observacao;
 	
 }
