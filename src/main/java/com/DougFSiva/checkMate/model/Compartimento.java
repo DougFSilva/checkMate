@@ -33,4 +33,8 @@ public class Compartimento {
 		return String.format("(%d) %s", this.ID, this.nome);
 	}
 	
+	public String infoParaItemCheckList() {
+		return String.format("(%d) %s - %s", this.ID, this.codigo, this.nome);
+	}
+	
 }

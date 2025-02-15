@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ import lombok.ToString;
 public class Ambiente {
 
 	private Long ID;
-	private List<Usuario> guardioes;
+	private List<Usuario> guardioes = new ArrayList<>();
 	private String nome;
 	private String descricao;
 	private String localizacao;

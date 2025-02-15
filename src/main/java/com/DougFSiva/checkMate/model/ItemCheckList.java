@@ -13,10 +13,20 @@ public class ItemCheckList {
 
 	private Long ID;
 	private CheckList checkList;
-	private Item item;
+	private String compartimento;
+	private String descricao;
+	private Integer quantidadeTotal;
 	private Integer quantidadeEncontrada;
-	private boolean statusInicio;
-	private boolean statusFim;
+	private ItemCheckListStatus status;
+	private boolean avariado;
 	private String observacao;
+	
+	public ItemCheckList(CheckList checkList, Item item) {
+		this.checkList = checkList;
+		this.compartimento = item.getCompartimento().infoParaItemCheckList();
+		this.descricao = item.getDescricao();
+		this.quantidadeTotal = item.getQuantidade();
+		this.status = ItemCheckListStatus.NAO_VERIFICADO;
+	}
 	
 }

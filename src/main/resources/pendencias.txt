@@ -3,3 +3,4 @@
 - Garantir atributos unicos com spring data
 - Empréstimo de ferramentas
 - Pensar em alguma estratégia para questão de banco de dados muito grande
+- Talvez avaliar condição do item

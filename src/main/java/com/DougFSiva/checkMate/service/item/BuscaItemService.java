@@ -26,7 +26,7 @@ public class BuscaItemService {
 	
 	public Page<ItemResponse> buscarPeloCompartimento(Long compartimentoID, Pageable paginacao) {
 		Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(compartimentoID);
-		return repository.buscarPeloCompartimento(compartimento, paginacao).map(ItemResponse::new);
+		return repository.findByCompartimento(compartimento, paginacao).map(ItemResponse::new);
 	}
 	
 	public Page<ItemResponse> buscarTodos(Pageable paginacao) {
