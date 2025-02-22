@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
-import com.DougFSiva.checkMate.model.Usuario;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 @Service
 public class ImagemService {

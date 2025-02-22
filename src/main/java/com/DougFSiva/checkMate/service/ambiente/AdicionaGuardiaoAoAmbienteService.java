@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComAmbienteException;
 import com.DougFSiva.checkMate.model.Ambiente;
-import com.DougFSiva.checkMate.model.Usuario;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;

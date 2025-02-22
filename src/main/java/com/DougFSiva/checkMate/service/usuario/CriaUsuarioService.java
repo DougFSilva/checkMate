@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.form.CriaUsuarioForm;
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
-import com.DougFSiva.checkMate.model.CodificadorDeSenha;
-import com.DougFSiva.checkMate.model.Perfil;
-import com.DougFSiva.checkMate.model.SenhaDeUsuario;
-import com.DougFSiva.checkMate.model.Usuario;
+import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
+import com.DougFSiva.checkMate.model.usuario.Perfil;
+import com.DougFSiva.checkMate.model.usuario.SenhaDeUsuario;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;

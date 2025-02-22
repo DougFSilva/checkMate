@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
-import com.DougFSiva.checkMate.model.TipoPerfil;
-import com.DougFSiva.checkMate.model.Usuario;
+import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 

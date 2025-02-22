@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
 import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
-import com.DougFSiva.checkMate.model.CodificadorDeSenha;
-import com.DougFSiva.checkMate.model.SenhaDeUsuario;
-import com.DougFSiva.checkMate.model.Usuario;
+import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
+import com.DougFSiva.checkMate.model.usuario.SenhaDeUsuario;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 

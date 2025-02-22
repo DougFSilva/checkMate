@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.model;
+package com.DougFSiva.checkMate.model.usuario;
 
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
 

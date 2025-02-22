@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.model.Ambiente;
-import com.DougFSiva.checkMate.model.CheckList;
+import com.DougFSiva.checkMate.model.checklist.CheckList;
 
 public interface CheckListRepository extends JpaRepository<CheckList, Long> {
 

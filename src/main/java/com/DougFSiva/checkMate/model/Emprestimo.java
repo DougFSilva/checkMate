@@ -2,6 +2,8 @@ package com.DougFSiva.checkMate.model;
 
 import java.time.LocalDateTime;
 
+import com.DougFSiva.checkMate.model.usuario.Usuario;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

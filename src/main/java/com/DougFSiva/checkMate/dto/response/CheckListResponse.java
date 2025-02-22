@@ -2,8 +2,8 @@ package com.DougFSiva.checkMate.dto.response;
 
 import java.time.LocalDateTime;
 
-import com.DougFSiva.checkMate.model.CheckList;
-import com.DougFSiva.checkMate.model.CheckListStatus;
+import com.DougFSiva.checkMate.model.checklist.CheckList;
+import com.DougFSiva.checkMate.model.checklist.CheckListStatus;
 
 import lombok.Getter;
 import lombok.ToString;

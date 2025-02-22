@@ -5,7 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
-import com.DougFSiva.checkMate.model.TipoPerfil;
+import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 
 @Service

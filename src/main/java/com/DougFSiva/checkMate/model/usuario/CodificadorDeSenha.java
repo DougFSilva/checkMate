@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.model;
+package com.DougFSiva.checkMate.model.usuario;
 
 public interface CodificadorDeSenha {
 

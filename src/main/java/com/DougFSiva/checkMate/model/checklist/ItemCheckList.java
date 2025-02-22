@@ -1,4 +1,6 @@
-package com.DougFSiva.checkMate.model;
+package com.DougFSiva.checkMate.model.checklist;
+
+import com.DougFSiva.checkMate.model.Item;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

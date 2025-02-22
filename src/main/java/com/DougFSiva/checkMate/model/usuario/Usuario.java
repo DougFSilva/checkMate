@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.model;
+package com.DougFSiva.checkMate.model.usuario;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -44,6 +44,10 @@ public class Usuario implements UserDetails{
 	}
 	
 	public String infoParaLog() {
+		return String.format("(%d) %s", this.ID, this.nome);
+	}
+	
+	public String infoParaExecutorCheckList() {
 		return String.format("(%d) %s", this.ID, this.nome);
 	}
 

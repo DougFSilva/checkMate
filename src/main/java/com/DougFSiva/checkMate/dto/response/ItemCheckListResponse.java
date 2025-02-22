@@ -1,7 +1,7 @@
 package com.DougFSiva.checkMate.dto.response;
 
-import com.DougFSiva.checkMate.model.ItemCheckList;
-import com.DougFSiva.checkMate.model.ItemCheckListStatus;
+import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
+import com.DougFSiva.checkMate.model.checklist.ItemCheckListStatus;
 
 import lombok.Getter;
 import lombok.ToString;

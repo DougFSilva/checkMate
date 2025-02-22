@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.model;
+package com.DougFSiva.checkMate.model.usuario;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.CheckListResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
-import com.DougFSiva.checkMate.model.CheckList;
 import com.DougFSiva.checkMate.model.Item;
-import com.DougFSiva.checkMate.model.ItemCheckList;
+import com.DougFSiva.checkMate.model.checklist.CheckList;
+import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
@@ -39,7 +39,7 @@ public class AbreCheckListService {
 		CheckList checkListSalvo = repository.save(checkList);
 		gerarListaDeItens(checkListSalvo);
 		logger.infoComUsuario(String.format(
-				"Criado CheckList %s para o ambiente %s", checkListSalvo.getID(), checkList.getAmbiente().infoParaLog()));
+				"Criado check-list %s para o ambiente %s", checkListSalvo.getID(), checkList.getAmbiente().infoParaLog()));
 		return new CheckListResponse(checkListSalvo);
 	}
 	

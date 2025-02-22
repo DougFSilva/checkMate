@@ -3,7 +3,7 @@ package com.DougFSiva.checkMate.service.usuario;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComUsuarioException;
-import com.DougFSiva.checkMate.model.Usuario;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.service.ImagemService;

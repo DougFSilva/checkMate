@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.DougFSiva.checkMate.model.TipoPerfil;
+import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
