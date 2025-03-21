@@ -1,6 +1,13 @@
-- Apagar usuario automaticamentr com Schedule
+- Apagar usuario automaticamente com Schedule
 - Concluir ImagemService
 - Garantir atributos unicos com spring data
 - Empréstimo de ferramentas
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 - Talvez avaliar condição do item
+- Alterar os updates form para optional e atualizar os services para essa abordagem
+- Passar imagem dos forms de criar usuario e outros para Optional<Multipartfile> e alterar os services
+- Remover um MultipartFile dos forms e criar requisiçoies separadas
+- Só pode liberar checklist quando tudo estiver verificado
+- Configurar models com spring data e verificar equalshashcode
+
+*** Pode dar erro no spring se o ID estiver com letras maiúsculas???

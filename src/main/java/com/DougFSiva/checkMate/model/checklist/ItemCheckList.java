@@ -17,18 +17,21 @@ public class ItemCheckList {
 	private CheckList checkList;
 	private String compartimento;
 	private String descricao;
-	private Integer quantidadeTotal;
-	private Integer quantidadeEncontrada;
-	private ItemCheckListStatus status;
-	private boolean avariado;
-	private String observacao;
+	private Integer quantidade;
+	private ItemCheckListStatus statusEntrada;
+	private ItemCheckListStatus statusSaida;
+	private String observacaoEntrada;
+	private String observacaoSaida;
+
 	
 	public ItemCheckList(CheckList checkList, Item item) {
 		this.checkList = checkList;
 		this.compartimento = item.getCompartimento().infoParaItemCheckList();
 		this.descricao = item.getDescricao();
-		this.quantidadeTotal = item.getQuantidade();
-		this.status = ItemCheckListStatus.NAO_VERIFICADO;
+		this.quantidade = item.getQuantidade();
+		this.statusEntrada = ItemCheckListStatus.NAO_VERIFICADO;
+		this.statusSaida = ItemCheckListStatus.NAO_VERIFICADO;
+	
 	}
 	
 }
