@@ -34,21 +34,11 @@ public class AbreCheckListService {
 	}
 
 	public CheckListResponse abrir(Long ambienteID) {
-		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
-		CheckList checkList = new CheckList(ambiente);
-		CheckList checkListSalvo = repository.save(checkList);
-		gerarListaDeItens(checkListSalvo);
 		logger.infoComUsuario(String.format(
 				"Criado check-list %s para o ambiente %s", checkListSalvo.getID(), checkList.getAmbiente().infoParaLog()));
-		return new CheckListResponse(checkListSalvo);
 	}
 	
 	private void gerarListaDeItens(CheckList checkList) {
-		List<Item> itens = itemRepository.findByCompartimento_Ambiente(checkList.getAmbiente());
-		List<ItemCheckList> itensCheckList = itens.stream()
-				.map(item -> new ItemCheckList(checkList, item))
-				.collect(Collectors.toList());
-		itemCheckListRepository.saveAll(itensCheckList);
 	}
 
 }
