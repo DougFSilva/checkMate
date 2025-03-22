@@ -9,5 +9,6 @@
 - Remover um MultipartFile dos forms e criar requisiçoies separadas
 - Só pode liberar checklist quando tudo estiver verificado
 - Configurar models com spring data e verificar equalshashcode
+- Talvez implementar Optional para editar os itens
 
 *** Pode dar erro no spring se o ID estiver com letras maiúsculas???

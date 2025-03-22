@@ -2,6 +2,7 @@ package com.DougFSiva.checkMate.model.checklist;
 
 import java.time.LocalDateTime;
 
+import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 import lombok.EqualsAndHashCode;
@@ -18,7 +19,7 @@ import lombok.ToString;
 public class CheckList {
 
 	private Long ID;
-	private String ambiente;
+	private Ambiente ambiente;
 	private LocalDateTime dataHoraPreenchimentoEntrada;
 	private LocalDateTime dataHoraLiberacao;
 	private LocalDateTime dataHoraPreenchimentoSaida;
@@ -31,7 +32,7 @@ public class CheckList {
 	private CheckListStatus status;
 	private String observacoes;
 	
-	public CheckList(String ambiente,Usuario responsavelAbertura) {
+	public CheckList(Ambiente ambiente, Usuario responsavelAbertura) {
 		this.ambiente = ambiente;
 		this.responsavelAbertura = responsavelAbertura;
 	}

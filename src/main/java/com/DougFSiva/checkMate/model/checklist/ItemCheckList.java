@@ -22,7 +22,6 @@ public class ItemCheckList {
 	private ItemCheckListStatus statusSaida;
 	private String observacaoEntrada;
 	private String observacaoSaida;
-
 	
 	public ItemCheckList(CheckList checkList, Item item) {
 		this.checkList = checkList;

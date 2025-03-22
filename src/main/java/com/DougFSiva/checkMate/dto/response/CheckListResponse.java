@@ -12,7 +12,7 @@ import lombok.ToString;
 public class CheckListResponse {
 
 	private Long ID;
-	private String ambiente;
+	private AmbienteResponse ambiente;
 	private LocalDateTime dataHoraPreenchimentoEntrada;
 	private LocalDateTime dataHoraLiberacao;
 	private LocalDateTime dataHoraPreenchimentoSaida;
@@ -25,19 +25,19 @@ public class CheckListResponse {
 	private String status;
 	private String observacoes;
 	
-	public CheckListResponse(CheckList checklist) {
-		this.ID = checklist.getID();
-		this.ambiente = checklist.getAmbiente();
-		this.dataHoraPreenchimentoEntrada = checklist.getDataHoraPreenchimentoEntrada();
-		this.dataHoraLiberacao = checklist.getDataHoraLiberacao();
-		this.dataHoraPreenchimentoSaida = checklist.getDataHoraPreenchimentoSaida();
-		this.dataHoraEncerramento = checklist.getDataHoraEncerramento();
-		this.responsavelAbertura = new UsuarioResponse(checklist.getResponsavelAbertura());
-		this.executorPreenchimentoEntrada = checklist.getExecutorPreenchimentoEntrada();
-		this.responsavelLiberacao = new UsuarioResponse(checklist.getResponsavelLiberacao());
-		this.executorPreenchimentoSaida = checklist.getExecutorPreenchimentoSaida();
-		this.responsavelEncerramento = new UsuarioResponse(checklist.getResponsavelEncerramento());
-		this.status = checklist.getStatus().getDescricao();
-		this.observacoes = checklist.getObservacoes();
+	public CheckListResponse(CheckList checkList) {
+		this.ID = checkList.getID();
+		this.ambiente = new AmbienteResponse(checkList.getAmbiente());
+		this.dataHoraPreenchimentoEntrada = checkList.getDataHoraPreenchimentoEntrada();
+		this.dataHoraLiberacao = checkList.getDataHoraLiberacao();
+		this.dataHoraPreenchimentoSaida = checkList.getDataHoraPreenchimentoSaida();
+		this.dataHoraEncerramento = checkList.getDataHoraEncerramento();
+		this.responsavelAbertura = new UsuarioResponse(checkList.getResponsavelAbertura());
+		this.executorPreenchimentoEntrada = checkList.getExecutorPreenchimentoEntrada();
+		this.responsavelLiberacao = new UsuarioResponse(checkList.getResponsavelLiberacao());
+		this.executorPreenchimentoSaida = checkList.getExecutorPreenchimentoSaida();
+		this.responsavelEncerramento = new UsuarioResponse(checkList.getResponsavelEncerramento());
+		this.status = checkList.getStatus().getDescricao();
+		this.observacoes = checkList.getObservacoes();
 	}
 }

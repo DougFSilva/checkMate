@@ -31,7 +31,6 @@ public class Ocorrencia {
 		this.dataHora = dataHora;
 		this.emissor = emissor;
 		this.itemCheckList = itemCheckList;
-		this.encerrada = false;
 	}
 	
 }
