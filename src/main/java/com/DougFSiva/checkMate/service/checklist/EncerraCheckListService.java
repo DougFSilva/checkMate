@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCheckListException;
 import com.DougFSiva.checkMate.model.PublicadorMqtt;
@@ -16,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class LiberaCheckListService {
+public class EncerraCheckListService {
 	
 	@Value("${mqtt.topico.root}")
 	private String topicoRoot;
@@ -25,22 +26,22 @@ public class LiberaCheckListService {
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 	private final PublicadorMqtt publicadorMqtt;
 	
-	public void liberarCheckList(Long ID) {
+	@Transactional
+	public void encerrar(Long ID) {
 		CheckList checkList = repository.findByIdOrElseThrow(ID);
-		validarCheckListEntradaPreenchido(checkList);
-		checkList.setDataHoraLiberacao(LocalDateTime.now());
-		checkList.setResponsavelLiberacao(buscaUsuarioAutenticado.buscar());
-		checkList.setStatus(CheckListStatus.LIBERADO);
+		validarCheckListSaidaPreenchido(checkList);
+		checkList.setDataHoraEncerramento(LocalDateTime.now());
+		checkList.setResponsavelEncerramento(buscaUsuarioAutenticado.buscar());
+		checkList.setStatus(CheckListStatus.ENCERRADO);
 		repository.save(checkList);
 		publicadorMqtt.enviarMensagem(
-				topicoRoot + checkList.getAmbiente().getDescricao(), "LIBERADO");
-		
+				topicoRoot + checkList.getAmbiente().getDescricao(), "ENCERRADO");
 	}
 	
-	private void validarCheckListEntradaPreenchido(CheckList checkList) {
-		if (checkList.getStatus() != CheckListStatus.ENTRADA_PREENCHIDO) {
+	private void validarCheckListSaidaPreenchido(CheckList checkList) {
+		if (checkList.getStatus() != CheckListStatus.SAIDA_PREENCHIDO) {
 			throw new ErroDeOperacaoComCheckListException(
-					"O check-list só pode ser liberado se tiver status de preenchimento de entrada");
+					"O check-list só pode ser encerrado se tiver status de preenchimento de saída");
 		}
 	}
 }
