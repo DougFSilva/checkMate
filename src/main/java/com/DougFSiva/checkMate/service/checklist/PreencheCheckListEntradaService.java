@@ -6,47 +6,48 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.ItemCheckListForm;
-import com.DougFSiva.checkMate.dto.form.PreencheCheckListForm;
+import com.DougFSiva.checkMate.dto.form.PreencheCheckListEntradaForm;
 import com.DougFSiva.checkMate.dto.response.CheckListResponse;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCheckListException;
 import com.DougFSiva.checkMate.model.checklist.CheckList;
 import com.DougFSiva.checkMate.model.checklist.CheckListStatus;
 import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.model.checklist.ItemCheckListStatus;
+import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
 import com.DougFSiva.checkMate.repository.CheckListRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
+import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioAutenticado;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
-@Service
-public class PreencheCheckListService {
+import lombok.RequiredArgsConstructor;
 
-	private static final LoggerPadrao logger = new LoggerPadrao(PreencheCheckListService.class);
+@Service
+@RequiredArgsConstructor
+public class PreencheCheckListEntradaService {
+
+	private static final LoggerPadrao logger = new LoggerPadrao(PreencheCheckListEntradaService.class);
 	private final CheckListRepository repository;
 	private final ItemCheckListRepository itemCheckListRepository;
-	private final BuscaUsuarioAutenticado buscaUsuario;
+	private final OcorrenciaRepository ocorrenciaRepository;
+	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 
-	public PreencheCheckListService(CheckListRepository repository, ItemCheckListRepository itemCheckListRepository,
-			BuscaUsuarioAutenticado buscaUsuario) {
-		this.repository = repository;
-		this.itemCheckListRepository = itemCheckListRepository;
-		this.buscaUsuario = buscaUsuario;
-	}
-
-	public CheckListResponse preencher(PreencheCheckListForm form) {
+	@Transactional
+	public CheckListResponse preencher(PreencheCheckListEntradaForm form) {
 		CheckList checkList = repository.findByIdOrElseThrow(form.ID());
 		validarCheckListAberto(checkList);
-		List<ItemCheckList> itens = itemCheckListRepository.findByCheckList(checkList);
 		validarItens(form.itens());
+		List<ItemCheckList> itens = itemCheckListRepository.findByCheckList(checkList);
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
 		itemCheckListRepository.saveAll(itensAtualizados);
-		checkList.setDesvio(identificarDesvio(itensAtualizados));
+		gerarOcorrenciaSeAnormalidade(itensAtualizados);
 		checkList.setDataHoraPreenchimentoEntrada(LocalDateTime.now());
-		checkList.setObservacoes(form.observacao());
-		checkList.setExecutorPreenchimentoEntrada(buscaUsuario.buscar().infoParaExecutorCheckList());
-		checkList.setStatus(CheckListStatus.CHECKLIST_ENTRADA_PREENCHIDO);
+		checkList.setObservacao(form.observacao());
+		checkList.setExecutorPreenchimentoEntrada(buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList());
+		checkList.setStatus(CheckListStatus.ENTRADA_PREENCHIDO);
 		CheckList checkListSalvo = repository.save(checkList);
 		logger.infoComUsuario(String.format("Preenchimento de entrada para check-list ID %s", checkList.getID()));
 		return new CheckListResponse(checkListSalvo);
@@ -80,19 +81,28 @@ public class PreencheCheckListService {
 				throw new ErroDeOperacaoComCheckListException(
 						"Item com ID " + item.getID() + " não foi encontrado no checklist.");
 			}
-			item.setQuantidadeEncontrada(form.quantidadeEncontrada());
-			item.setStatus(form.status());
-			item.setAvariado(form.avariado());
-			item.setObservacao(form.observacao());
+			item.setStatusEntrada(form.status());
+			item.setObservacaoEntrada(form.observacao());
 		});
 
 		return itens;
 	}
+	
+	private void gerarOcorrenciaSeAnormalidade(List<ItemCheckList> itens) {
+	    List<Ocorrencia> ocorrencias = itens.stream()
+	        .filter(item -> item.getStatusEntrada() != ItemCheckListStatus.OK)
+	        .map(this::criarOcorrencia)
+	        .collect(Collectors.toList());
+	    
+	    ocorrenciaRepository.saveAll(ocorrencias);
+	}
 
-	private boolean identificarDesvio(List<ItemCheckList> itens) {
-		return itens.stream()
-                .map(ItemCheckList::getStatus)
-                .anyMatch(status -> status == ItemCheckListStatus.NAO_ENCONTRADO);
+	private Ocorrencia criarOcorrencia(ItemCheckList item) {
+	    return new Ocorrencia(
+	        LocalDateTime.now(),
+	        buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList(),
+	        item
+	    );
 	}
 
 }
