@@ -35,4 +35,8 @@ public class Ocorrencia {
 		this.itemCheckList = itemCheckList;
 	}
 	
+	public void addTratamento(TratamentoOcorrencia tratamento) {
+		this.tratamentos.add(tratamento);
+	}
+	
 }

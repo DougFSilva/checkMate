@@ -15,5 +15,7 @@
 - Formatar os responses se necessário
 - Buscar CheckLsits?
 - Verificar a real necessidade dos guardiões
+- Adicionar @Transactional nos services
+- Verificar o uso de cacadetype ao inves de fazer tudo manualmente
 
 *** Pode dar erro no spring se o ID estiver com letras maiúsculas???
