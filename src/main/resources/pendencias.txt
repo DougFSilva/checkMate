@@ -14,5 +14,6 @@
 - Salvar imagem e buscar imagem
 - Formatar os responses se necessário
 - Buscar CheckLsits?
+- Verificar a real necessidade dos guardiões
 
 *** Pode dar erro no spring se o ID estiver com letras maiúsculas???

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.model.ocorrrencia;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -25,6 +26,7 @@ public class Ocorrencia {
 	private String emissor;
 	private ItemCheckList itemCheckList;
 	private Usuario responsavelEncerramento;
+	private List<TratamentoOcorrencia> tratamentos;
 	private boolean encerrada;
 	
 	public Ocorrencia(LocalDateTime dataHora, String emissor, ItemCheckList itemCheckList) {

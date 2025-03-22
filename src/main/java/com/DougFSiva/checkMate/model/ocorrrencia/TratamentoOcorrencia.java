@@ -15,15 +15,13 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class AnotacaoOcorrencia {
+public class TratamentoOcorrencia {
 
 	private Long id;
-	private Ocorrencia ocorrencia;
 	private Usuario autor;
 	private String descricao;
 	
-	public AnotacaoOcorrencia(Ocorrencia ocorrencia, Usuario autor, String descricao) {
-		this.ocorrencia = ocorrencia;
+	public TratamentoOcorrencia(Usuario autor, String descricao) {
 		this.autor = autor;
 		this.descricao = descricao;
 	}
