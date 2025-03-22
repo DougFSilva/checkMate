@@ -11,21 +11,17 @@ import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
-import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class EditaUsuarioService {
 
 	private final static LoggerPadrao logger = new LoggerPadrao(EditaUsuarioService.class);
 	private final UsuarioRepository repository;
-	private final ImagemService imagemService;
 
-	public EditaUsuarioService(UsuarioRepository repository, ImagemService imagemService) {
-		this.repository = repository;
-		this.imagemService = imagemService;
-	}
-	
 	public UsuarioResponse editar(EditaUsuarioForm form) {
 		validarUsuarioAutenticado(form.ID());
 		Usuario usuario = repository.findByIdOrElseThrow(form.ID());
@@ -41,10 +37,6 @@ public class EditaUsuarioService {
 		usuario.setEmail(form.email());
 		usuario.setPerfil(new Perfil(form.tipoPerfil()));
 		usuario.setDataValidade(form.dataValidade());
-		String foto = form.foto() != null 
-				? imagemService.salvarFotoDeUsuario(form.foto(), usuario) 
-				: imagemService.buscarFotoDefaultDeUsuario();
-		usuario.setFoto(foto);
 		return usuario;
 	}
 	

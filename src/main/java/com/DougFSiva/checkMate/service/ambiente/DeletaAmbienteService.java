@@ -10,7 +10,10 @@ import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class DeletaAmbienteService {
 
 	private static final LoggerPadrao logger = new LoggerPadrao(DeletaAmbienteService.class);
@@ -19,14 +22,6 @@ public class DeletaAmbienteService {
 	private final CompartimentoRepository compartimentoRepository;
 	private final ImagemService imagemService;
 	
-	public DeletaAmbienteService(AmbienteRepository repository, CheckListRepository checkListRepository,
-			CompartimentoRepository compartimentoRepository, ImagemService imagemService) {
-		this.repository = repository;
-		this.checkListRepository = checkListRepository;
-		this.compartimentoRepository = compartimentoRepository;
-		this.imagemService = imagemService;
-	}
-
 	public void deletar(Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (checkListRepository.existsByAmbiente(ambiente)) {

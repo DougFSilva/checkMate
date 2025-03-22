@@ -12,16 +12,14 @@ import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BuscaCompartimentoService {
 
 	private final CompartimentoRepository repository;
 	private final AmbienteRepository ambienteRepository;
-	
-	public BuscaCompartimentoService(CompartimentoRepository repository, AmbienteRepository ambienteRepository) {
-		this.repository = repository;
-		this.ambienteRepository = ambienteRepository;
-	}
 	
 	public CompartimentoResponse buscarPeloID(Long ID) {
 		return new CompartimentoResponse(repository.findByIdOrElseThrow(ID));

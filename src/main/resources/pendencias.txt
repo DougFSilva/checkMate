@@ -6,9 +6,13 @@
 - Talvez avaliar condição do item
 - Alterar os updates form para optional e atualizar os services para essa abordagem
 - Passar imagem dos forms de criar usuario e outros para Optional<Multipartfile> e alterar os services
-- Remover um MultipartFile dos forms e criar requisiçoies separadas
-- Só pode liberar checklist quando tudo estiver verificado
+- Remover um MultipartFile dos forms e criar requisições separadas
 - Configurar models com spring data e verificar equalshashcode
 - Talvez implementar Optional para editar os itens
+- Adicionar @RequiredArgsConstructor Lombok nos services
+- Só deletar a imagem dos componentes se não for a padrão
+- Salvar imagem e buscar imagem
+- Formatar os responses se necessário
+- Buscar CheckLsits?
 
 *** Pode dar erro no spring se o ID estiver com letras maiúsculas???

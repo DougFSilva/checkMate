@@ -2,8 +2,6 @@ package com.DougFSiva.checkMate.dto.form;
 
 import java.time.LocalDate;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 
 import jakarta.validation.constraints.Email;
@@ -33,8 +31,7 @@ public record EditaUsuarioForm(
 		TipoPerfil tipoPerfil,
 		
 		@NotNull(message = "A data de validade deve ser informada")
-		LocalDate dataValidade,
-		
-		MultipartFile foto) {
+		LocalDate dataValidade
+		) {
 
 }

@@ -13,18 +13,16 @@ import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class AlteraSenhaDeUsuarioService {
 
     private static final LoggerPadrao logger = new LoggerPadrao(AlteraSenhaDeUsuarioService.class);
 	private final UsuarioRepository repository;
 	private final CodificadorDeSenha codificadorDeSenha;
 	
-	public AlteraSenhaDeUsuarioService(UsuarioRepository repository, CodificadorDeSenha codificadorDeSenha) {
-		this.repository = repository;
-		this.codificadorDeSenha = codificadorDeSenha;
-	}
-
 	public void alterar(Long ID, String senhaAntiga, String novaSenha) {
 		validarUsuarioAutenticado(ID);
 		Usuario usuario = repository.findByIdOrElseThrow(ID);

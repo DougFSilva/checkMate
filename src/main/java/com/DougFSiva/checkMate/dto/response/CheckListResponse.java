@@ -23,7 +23,6 @@ public class CheckListResponse {
 	private String executorPreenchimentoSaida;
 	private UsuarioResponse responsavelEncerramento;
 	private String status;
-	private String observacoes;
 	
 	public CheckListResponse(CheckList checkList) {
 		this.ID = checkList.getID();
@@ -38,6 +37,5 @@ public class CheckListResponse {
 		this.executorPreenchimentoSaida = checkList.getExecutorPreenchimentoSaida();
 		this.responsavelEncerramento = new UsuarioResponse(checkList.getResponsavelEncerramento());
 		this.status = checkList.getStatus().getDescricao();
-		this.observacoes = checkList.getObservacoes();
 	}
 }

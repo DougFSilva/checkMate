@@ -9,23 +9,19 @@ import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CriaAmbienteService {
 
     private static final LoggerPadrao logger = new LoggerPadrao(CriaAmbienteService.class);
 	private final AmbienteRepository repository;
 	private final ImagemService imagemService;
 	
-	public CriaAmbienteService(AmbienteRepository repository, ImagemService imagemService) {
-		this.repository = repository;
-		this.imagemService = imagemService;
-	}
-
 	public AmbienteResponse criar(CriaAmbienteForm form) {
 		Ambiente ambiente = new Ambiente(form.nome(), form.descricao(), form.localizacao());
-		String imagem = form.imagem() != null 
-				? imagemService.salvarImagemDeAmbiente(form.imagem(), ambiente)
-				: imagemService.buscarImagemDefaultDeAmbiente();
+		String imagem = imagemService.buscarImagemDefaultDeAmbiente();
 		ambiente.setImagem(imagem);
 		Ambiente ambienteSalvo = repository.save(ambiente);
 		logger.infoComUsuario(String.format("Ambiente %s criado", ambienteSalvo.infoParaLog()));

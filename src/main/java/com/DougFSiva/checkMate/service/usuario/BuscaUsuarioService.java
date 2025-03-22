@@ -8,15 +8,14 @@ import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BuscaUsuarioService {
 
 	private final UsuarioRepository repository;
 
-	public BuscaUsuarioService(UsuarioRepository repository) {
-		this.repository = repository;
-	}
-	
 	public UsuarioResponse buscarPeloID(Long ID) {
 		return new UsuarioResponse(repository.findByIdOrElseThrow(ID));
 	}

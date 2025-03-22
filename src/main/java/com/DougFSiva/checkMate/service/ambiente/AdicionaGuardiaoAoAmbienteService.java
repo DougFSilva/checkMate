@@ -10,17 +10,15 @@ import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class AdicionaGuardiaoAoAmbienteService {
 
 	private static final LoggerPadrao logger = new LoggerPadrao(AdicionaGuardiaoAoAmbienteService.class);
 	private final AmbienteRepository repository;
 	private final UsuarioRepository usuarioRepository;
-	
-	public AdicionaGuardiaoAoAmbienteService(AmbienteRepository repository, UsuarioRepository usuarioRepository) {
-		this.repository = repository;
-		this.usuarioRepository = usuarioRepository;
-	}
 	
 	public AmbienteResponse adicionar(Long IDUsuario, Long ambienteID) {
 		Usuario usuario = usuarioRepository.findByIdOrElseThrow(IDUsuario);

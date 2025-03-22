@@ -9,20 +9,16 @@ import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class DeleteUsuarioService {
 
 	private final static LoggerPadrao logger = new LoggerPadrao(DeleteUsuarioService.class);
 	private final UsuarioRepository repository;
 	private final AmbienteRepository ambienteRepository;
 	private final ImagemService imagemService;
-
-
-	public DeleteUsuarioService(UsuarioRepository repository, AmbienteRepository ambienteRepository, ImagemService imagemService) {
-		this.repository = repository;
-		this.ambienteRepository = ambienteRepository;
-		this.imagemService = imagemService;
-	}
 
 	public void deletar(Long ID) {
 		Usuario usuario = repository.findByIdOrElseThrow(ID);

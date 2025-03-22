@@ -12,7 +12,7 @@ public class ItemCheckListResponse {
 
 	private Long ID;
 	private CheckList checkList;
-	private String compartimento;
+	private CompartimentoResponse compartimento;
 	private String descricao;
 	private Integer quantidade;
 	private String statusEntrada;
@@ -23,7 +23,7 @@ public class ItemCheckListResponse {
 	public ItemCheckListResponse(ItemCheckList item) {
 		this.ID = item.getID();
 		this.checkList = item.getCheckList();
-		this.compartimento = item.getCompartimento();
+		this.compartimento = new CompartimentoResponse(item.getCompartimento());
 		this.descricao = item.getDescricao();
 		this.quantidade = item.getQuantidade();
 		this.statusEntrada = item.getStatusEntrada().getDescricao();

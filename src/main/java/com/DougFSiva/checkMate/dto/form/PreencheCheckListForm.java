@@ -13,6 +13,6 @@ public record PreencheCheckListForm(
 
 		String observacao
 
-) {
+		) {
 
 }

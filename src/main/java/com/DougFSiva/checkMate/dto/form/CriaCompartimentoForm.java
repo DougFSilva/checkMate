@@ -1,7 +1,5 @@
 package com.DougFSiva.checkMate.dto.form;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -15,7 +13,6 @@ public record CriaCompartimentoForm(
 		@NotBlank(message = "O nome não pode ser vazio.")
 		String nome,
 		
-		String descricao,
-		
-		MultipartFile imagem) {
+		String descricao
+		) {
 }

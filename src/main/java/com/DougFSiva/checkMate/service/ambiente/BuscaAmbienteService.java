@@ -8,15 +8,14 @@ import org.springframework.stereotype.Service;
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BuscaAmbienteService {
 
 	private final AmbienteRepository repository;
 	
-	public BuscaAmbienteService(AmbienteRepository repository) {
-		this.repository = repository;
-	}
-
 	public AmbienteResponse buscarPeloID(Long ID) {
 		return new AmbienteResponse(repository.findByIdOrElseThrow(ID));
 	}

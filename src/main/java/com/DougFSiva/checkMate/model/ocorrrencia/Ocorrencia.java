@@ -20,7 +20,7 @@ import lombok.ToString;
 @ToString
 public class Ocorrencia {
 
-	private Long id;
+	private Long ID;
 	private LocalDateTime dataHora;
 	private String emissor;
 	private ItemCheckList itemCheckList;

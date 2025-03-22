@@ -10,18 +10,16 @@ import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CriaItemService {
 
     private static final LoggerPadrao logger = new LoggerPadrao(CriaItemService.class);
     private final ItemRepository repository;
     private final CompartimentoRepository compartimentoRepository;
     
-    public CriaItemService(ItemRepository repository, CompartimentoRepository compartimentoRepository) {
-		this.repository = repository;
-		this.compartimentoRepository = compartimentoRepository;
-	}
-
 	public ItemResponse criar(CriaItemForm form) {
     	Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
     	Item item = new Item(compartimento, form.descricao(), form.quantidade());

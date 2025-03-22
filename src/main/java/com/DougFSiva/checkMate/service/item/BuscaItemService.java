@@ -9,16 +9,14 @@ import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BuscaItemService {
 
 	private final ItemRepository repository;
 	private final CompartimentoRepository compartimentoRepository;
-	
-	public BuscaItemService(ItemRepository repository, CompartimentoRepository compartimentoRepository) {
-		this.repository = repository;
-		this.compartimentoRepository = compartimentoRepository;
-	}
 	
 	public ItemResponse buscarPeloID(Long ID) {
 		return new ItemResponse(repository.findByIdOrElseThrow(ID));

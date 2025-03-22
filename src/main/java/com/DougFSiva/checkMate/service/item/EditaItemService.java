@@ -10,17 +10,15 @@ import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class EditaItemService {
 
     private static final LoggerPadrao logger = new LoggerPadrao(EditaItemService.class);
     private final ItemRepository repository;
     private final CompartimentoRepository compartimentoRepository;
-    
-	public EditaItemService(ItemRepository repository, CompartimentoRepository compartimentoRepository) {
-		this.repository = repository;
-		this.compartimentoRepository = compartimentoRepository;
-	}
     
     public ItemResponse editar(EditaItemForm form) {
     	Item item = repository.findByIdOrElseThrow(form.ID());

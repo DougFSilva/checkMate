@@ -9,7 +9,10 @@ import com.DougFSiva.checkMate.repository.ItemRepository;
 import com.DougFSiva.checkMate.service.ImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class DeletaCompartimentoService {
 
 	private static final LoggerPadrao logger = new LoggerPadrao(EditaCompartimentoService.class);
@@ -17,12 +20,6 @@ public class DeletaCompartimentoService {
 	private final ItemRepository itemRepository;
 	private final ImagemService imagemService;
 	
-	public DeletaCompartimentoService(CompartimentoRepository repository, ItemRepository itemRepository, ImagemService imagemService) {
-		this.repository = repository;
-		this.itemRepository = itemRepository;
-		this.imagemService = imagemService;
-	}
-
 	public void deletar(Long ID) {
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		if (itemRepository.existsByCompartimento(compartimento)) {
