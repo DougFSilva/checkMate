@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class PreencheCheckListEntradaService {
+public class PreencheCheckListSaidaService {
 
 	private final CheckListRepository repository;
 	private final ItemCheckListRepository itemCheckListRepository;
@@ -35,23 +35,23 @@ public class PreencheCheckListEntradaService {
 	@Transactional
 	public void preencher(PreencheCheckListForm form) {
 		CheckList checkList = repository.findByIdOrElseThrow(form.ID());
-		validarCheckListAberto(checkList);
+		validarCheckListLiberado(checkList);
 		validarItens(form.itens());
 		List<ItemCheckList> itens = itemCheckListRepository.findByCheckList(checkList);
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
 		itemCheckListRepository.saveAll(itensAtualizados);
 		gerarOcorrenciaSeAnormalidade(itensAtualizados);
-		checkList.setDataHoraPreenchimentoEntrada(LocalDateTime.now());
-		checkList.setExecutorPreenchimentoEntrada(buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList());
-		checkList.setStatus(CheckListStatus.ENTRADA_PREENCHIDO);
+		checkList.setDataHoraPreenchimentoSaida(LocalDateTime.now());
+		checkList.setExecutorPreenchimentoSaida(buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList());
+		checkList.setStatus(CheckListStatus.SAIDA_PREENCHIDO);
 		repository.save(checkList);
 
 	}
 
-	private void validarCheckListAberto(CheckList checkList) {
-		if (checkList.getStatus() != CheckListStatus.ABERTO) {
+	private void validarCheckListLiberado(CheckList checkList) {
+		if (checkList.getStatus() != CheckListStatus.LIBERADO) {
 			throw new ErroDeOperacaoComCheckListException(
-					"O check-list de entrada só pode ser preenchido se estiver com o status 'Aberto'.");
+					"O check-list de saída só pode ser preenchido se estiver com o status 'Liberado'.");
 		}
 	}
 
@@ -75,8 +75,8 @@ public class PreencheCheckListEntradaService {
 				throw new ErroDeOperacaoComCheckListException(
 						"Item com ID " + item.getID() + " não foi encontrado no checklist.");
 			}
-			item.setStatusEntrada(form.status());
-			item.setObservacaoEntrada(form.observacao());
+			item.setStatusSaida(form.status());
+			item.setObservacaoSaida(form.observacao());
 		});
 
 		return itens;

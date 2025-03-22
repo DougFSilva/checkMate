@@ -4,7 +4,7 @@ import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
 
-public record PreencheCheckListEntradaForm(
+public record PreencheCheckListForm(
 
 		@NotNull(message = "O ID deve ser informado.") 
 		Long ID,

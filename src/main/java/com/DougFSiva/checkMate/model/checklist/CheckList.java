@@ -30,7 +30,6 @@ public class CheckList {
 	private String executorPreenchimentoSaida;
 	private Usuario responsavelEncerramento;
 	private CheckListStatus status;
-	private String observacao;
 	
 	public CheckList(Ambiente ambiente, Usuario responsavelAbertura) {
 		this.ambiente = ambiente;
