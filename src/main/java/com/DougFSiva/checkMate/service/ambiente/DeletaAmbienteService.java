@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.ambiente;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComAmbienteException;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -35,7 +36,13 @@ public class DeletaAmbienteService {
 					"Não é possível deletar ambiente, pois existema compartimentos associados a ele!");
 		}
 		repository.delete(ambiente);
-		imagemService.deletarImagemDeAmbiente(ambiente);
+		deletarImagem(ambiente);
 		logger.infoComUsuario(String.format("Deletado Ambiente %s", ambiente.infoParaLog()));
+	}
+	
+	private void deletarImagem(Ambiente ambiente) {
+		if (!ambiente.getImagem().equals(ImagemConfig.getNomeImagemAmbienteDefault())) {
+			imagemService.deletarImagem(ambiente.getImagem());
+		}
 	}
 }

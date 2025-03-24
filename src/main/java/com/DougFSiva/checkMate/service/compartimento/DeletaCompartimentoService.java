@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.compartimento;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCompartimentoException;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
@@ -29,8 +30,14 @@ public class DeletaCompartimentoService {
 					"Não é possível deletar compartimento, pois há itens associados a ele");
 		}
 		repository.delete(compartimento);
-		imagemService.deletarImagemDeCompartimento(compartimento);
+		deletarImagem(compartimento);
 		logger.infoComUsuario(String.format("Deletado compartimento %s", compartimento.infoParaLog()));
+	}
+	
+	private void deletarImagem(Compartimento compartimento) {
+		if (!compartimento.getImagem().equals(ImagemConfig.getNomeImagemCompartimentoDefault())) {
+			imagemService.deletarImagem(compartimento.getImagem());
+		}
 	}
 	
 }

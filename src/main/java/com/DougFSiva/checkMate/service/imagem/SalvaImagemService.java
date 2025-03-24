@@ -23,20 +23,22 @@ public class SalvaImagemService {
 
 	private static final Set<String> TIPOS_PERMITIDOS = Set.of("image/jpeg", "image/png");
 
-	public void salvarImagem(MultipartFile imagem, String nomeImagem) {
+	public String salvarImagem(MultipartFile imagem, String nomeImagem) {
 		validarImagemNaoVazia(imagem);
 		validarTamanhoDaImagem(imagem);
 		validarFormatoDaImagem(imagem);
 		nomeImagem = removerExtensaoDoNomeDaImagem(nomeImagem.strip());
 		nomeImagem = normalizarNome(nomeImagem);
 		String extensao = obterExtensaoPorMimeType(imagem);
-		Path caminhoDestino = Path.of(diretorioBase, nomeImagem + extensao);
+		nomeImagem = nomeImagem + extensao;
+		Path caminhoDestino = Path.of(diretorioBase, nomeImagem);
 		try {
 			Files.createDirectories(caminhoDestino.getParent());
 			Files.copy(imagem.getInputStream(), caminhoDestino, StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException e) {
 			throw new ErroDeOperacaoComImagemException("Erro ao salvar a imagem.", e);
 		}
+		return nomeImagem;
 	}
 
 	private void validarImagemNaoVazia(MultipartFile imagem) {

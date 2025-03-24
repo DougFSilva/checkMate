@@ -19,7 +19,6 @@ public class UsuarioResponse {
 	private String email;
 	private String perfil;
 	private LocalDate dataValidade;
-	private String foto;
 	
 	public UsuarioResponse(Usuario usuario) {
 		this.ID = usuario.getID();
@@ -28,7 +27,6 @@ public class UsuarioResponse {
 		this.email = usuario.getEmail();
 		this.perfil = usuario.getPerfil().getTipo().name();
 		this.dataValidade = usuario.getDataValidade();
-		this.foto = usuario.getFoto();
 	}
 	
 }

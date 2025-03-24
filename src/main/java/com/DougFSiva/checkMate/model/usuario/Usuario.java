@@ -31,7 +31,6 @@ public class Usuario implements UserDetails{
 	private Boolean senhaAlterada;
 	private Perfil perfil;
 	private LocalDate dataValidade;
-	private String foto;
 	
 	public Usuario(String nome, String CPF, String email, SenhaDeUsuario senha, Boolean senhaAlterada, Perfil perfil, LocalDate dataValidade) {
 		this.nome = nome;
