@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.item;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.CriaItemForm;
 import com.DougFSiva.checkMate.dto.response.ItemResponse;
@@ -20,6 +21,7 @@ public class CriaItemService {
     private final ItemRepository repository;
     private final CompartimentoRepository compartimentoRepository;
     
+    @Transactional
 	public ItemResponse criar(CriaItemForm form) {
     	Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
     	Item item = new Item(compartimento, form.descricao(), form.quantidade());

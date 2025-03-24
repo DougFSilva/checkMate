@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComAmbienteException;
@@ -20,6 +21,7 @@ public class RemoveGuardiaoDoAmbiente {
 	private final AmbienteRepository repository;
 	private final UsuarioRepository usuarioRepository;
 	
+	@Transactional
 	public AmbienteResponse remover(Long IDUsuario, Long ambienteID) {
 		Usuario usuario = usuarioRepository.findByIdOrElseThrow(IDUsuario);
 		Ambiente ambiente = repository.findByIdOrElseThrow(ambienteID);

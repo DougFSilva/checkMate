@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.usuario;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
@@ -23,6 +24,7 @@ public class AlteraSenhaDeUsuarioService {
 	private final UsuarioRepository repository;
 	private final CodificadorDeSenha codificadorDeSenha;
 	
+	@Transactional
 	public void alterar(Long ID, String senhaAntiga, String novaSenha) {
 		validarUsuarioAutenticado(ID);
 		Usuario usuario = repository.findByIdOrElseThrow(ID);

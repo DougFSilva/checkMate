@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCheckListException;
 import com.DougFSiva.checkMate.model.PublicadorMqtt;
@@ -25,6 +26,7 @@ public class LiberaCheckListService {
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 	private final PublicadorMqtt publicadorMqtt;
 	
+	@Transactional
 	public void liberarCheckList(Long ID) {
 		CheckList checkList = repository.findByIdOrElseThrow(ID);
 		validarCheckListEntradaPreenchido(checkList);

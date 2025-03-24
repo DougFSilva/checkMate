@@ -1,13 +1,14 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComAmbienteException;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListRepository;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
-import com.DougFSiva.checkMate.service.ImagemService;
+import com.DougFSiva.checkMate.service.imagem.DeletaImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,9 @@ public class DeletaAmbienteService {
 	private final AmbienteRepository repository;
 	private final CheckListRepository checkListRepository;
 	private final CompartimentoRepository compartimentoRepository;
-	private final ImagemService imagemService;
+	private final DeletaImagemService imagemService;
 	
+	@Transactional
 	public void deletar(Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (checkListRepository.existsByAmbiente(ambiente)) {

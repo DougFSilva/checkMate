@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.EditaAmbienteForm;
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
@@ -17,6 +18,7 @@ public class EditaAmbienteService {
 	private static final LoggerPadrao logger = new LoggerPadrao(EditaAmbienteService.class);
 	private final AmbienteRepository repository;
 		
+	@Transactional
 	public AmbienteResponse editar(EditaAmbienteForm form) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(form.ID());
 		ambiente.setNome(form.nome());

@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.usuario;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.EditaUsuarioForm;
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
@@ -22,6 +23,7 @@ public class EditaUsuarioService {
 	private final static LoggerPadrao logger = new LoggerPadrao(EditaUsuarioService.class);
 	private final UsuarioRepository repository;
 
+	@Transactional
 	public UsuarioResponse editar(EditaUsuarioForm form) {
 		validarUsuarioAutenticado(form.ID());
 		Usuario usuario = repository.findByIdOrElseThrow(form.ID());

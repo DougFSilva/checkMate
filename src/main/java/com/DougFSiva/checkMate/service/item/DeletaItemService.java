@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.item;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.repository.ItemRepository;
@@ -15,6 +16,7 @@ public class DeletaItemService {
     private static final LoggerPadrao logger = new LoggerPadrao(DeletaItemService.class);
     private final ItemRepository repository;
     
+    @Transactional
 	public void deletar(Long ID) {
     	Item item = repository.findByIdOrElseThrow(ID);
     	repository.delete(item);

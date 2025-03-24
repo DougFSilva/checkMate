@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.item;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.EditaItemForm;
 import com.DougFSiva.checkMate.dto.response.ItemResponse;
@@ -20,6 +21,7 @@ public class EditaItemService {
     private final ItemRepository repository;
     private final CompartimentoRepository compartimentoRepository;
     
+    @Transactional
     public ItemResponse editar(EditaItemForm form) {
     	Item item = repository.findByIdOrElseThrow(form.ID());
     	if (form.compartimentoID() != item.getCompartimento().getID()) {
