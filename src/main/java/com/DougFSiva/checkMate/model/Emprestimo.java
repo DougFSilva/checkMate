@@ -21,7 +21,19 @@ public class Emprestimo {
 
 	private Long ID;
 	private Item item;
+	private Usuario emprestador;
 	private Usuario receptor;
 	private LocalDateTime dataHoraEmprestimo;
 	private LocalDateTime dataHoraDevolucao;
+	private boolean devolvido;
+	
+	public Emprestimo(Item item, Usuario emprestador, Usuario receptor, LocalDateTime dataHoraEmprestimo) {
+		this.item = item;
+		this.emprestador = emprestador;
+		this.receptor = receptor;
+		this.dataHoraEmprestimo = dataHoraEmprestimo;
+		this.devolvido = false;
+	}
+	
+	
 }

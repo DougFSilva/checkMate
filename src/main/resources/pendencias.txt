@@ -4,11 +4,8 @@
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 - Configurar models com spring data e verificar equalshashcode
 - Talvez implementar Optional para editar os itens
-- Só deletar a imagem dos componentes se não for a padrão
-- Salvar imagem e buscar imagem
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Verificar o uso de cacadetype ao inves de fazer tudo manualmente
-- Somente usuário pode mudar imagem de usuário
 
 - Comentários em aplication.properties
