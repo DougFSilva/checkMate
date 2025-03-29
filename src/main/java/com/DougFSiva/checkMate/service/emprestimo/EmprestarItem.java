@@ -22,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class EmprestarItem {
 
 	private static final LoggerPadrao logger = new LoggerPadrao(EmprestarItem.class);
+	
 	private final EmprestimoRepository repository;
 	private final ItemRepository itemRepository;
 	private final UsuarioRepository usuarioRepository;

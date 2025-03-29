@@ -23,6 +23,7 @@ public class Emprestimo {
 	private Item item;
 	private Usuario emprestador;
 	private Usuario solicitante;
+	private Usuario recebedor;
 	private LocalDateTime dataHoraEmprestimo;
 	private LocalDateTime dataHoraDevolucao;
 	private boolean devolvido;

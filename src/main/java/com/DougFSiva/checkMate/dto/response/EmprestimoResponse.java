@@ -15,6 +15,7 @@ public class EmprestimoResponse {
 	private ItemResponse item;
 	private UsuarioResponse emprestador;
 	private UsuarioResponse solicitante;
+	private UsuarioResponse recebedor;
 	private LocalDateTime dataHoraEmprestimo;
 	private LocalDateTime dataHoraDevolucao;
 	private boolean devolvido;
@@ -23,6 +24,7 @@ public class EmprestimoResponse {
 		this.ID = emprestimo.getID();
 		this.item = new ItemResponse(emprestimo.getItem());
 		this.emprestador = new UsuarioResponse(emprestimo.getEmprestador());
+		this.recebedor = new UsuarioResponse(emprestimo.getRecebedor());
 		this.solicitante = new UsuarioResponse(emprestimo.getSolicitante());
 		this.dataHoraEmprestimo = emprestimo.getDataHoraEmprestimo();
 		this.devolvido = emprestimo.isDevolvido();
