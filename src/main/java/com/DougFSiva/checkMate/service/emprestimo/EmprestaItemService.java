@@ -19,9 +19,9 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class EmprestarItem {
+public class EmprestaItemService {
 
-	private static final LoggerPadrao logger = new LoggerPadrao(EmprestarItem.class);
+	private static final LoggerPadrao logger = new LoggerPadrao(EmprestaItemService.class);
 	
 	private final EmprestimoRepository repository;
 	private final ItemRepository itemRepository;

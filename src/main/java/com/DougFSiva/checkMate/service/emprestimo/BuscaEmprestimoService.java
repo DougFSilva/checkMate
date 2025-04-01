@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class BuscaEmprestimo {
+public class BuscaEmprestimoService {
 
 	private final EmprestimoRepository repository;
 	private final AmbienteRepository ambienteRepository;

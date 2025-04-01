@@ -1,11 +1,10 @@
 - Apagar usuario automaticamente com Schedule
 - Garantir atributos unicos com spring data
-- Empréstimo de ferramentas
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 - Configurar models com spring data e verificar equalshashcode
 - Talvez implementar Optional para editar os itens
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Verificar o uso de cacadetype ao inves de fazer tudo manualmente
-
+- Verificar @Transactional
 - Comentários em aplication.properties

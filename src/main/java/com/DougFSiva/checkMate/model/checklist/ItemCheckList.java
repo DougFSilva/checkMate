@@ -23,6 +23,7 @@ public class ItemCheckList {
 	private ItemCheckListStatus statusSaida;
 	private String observacaoEntrada;
 	private String observacaoSaida;
+	private String imagem;
 	
 	public ItemCheckList(CheckList checkList, Item item) {
 		this.checkList = checkList;
@@ -31,7 +32,7 @@ public class ItemCheckList {
 		this.quantidade = item.getQuantidade();
 		this.statusEntrada = ItemCheckListStatus.NAO_VERIFICADO;
 		this.statusSaida = ItemCheckListStatus.NAO_VERIFICADO;
-	
+		this.imagem = item.getImagem();
 	}
 	
 }

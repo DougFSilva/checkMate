@@ -16,9 +16,9 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class DevolverItem {
+public class DevolveItemService {
 
-	private static final LoggerPadrao logger = new LoggerPadrao(DevolverItem.class);
+	private static final LoggerPadrao logger = new LoggerPadrao(DevolveItemService.class);
 	
 	private final EmprestimoRepository repository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;

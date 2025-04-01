@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.item;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
 import com.DougFSiva.checkMate.dto.form.CriaItemForm;
 import com.DougFSiva.checkMate.dto.response.ItemResponse;
 import com.DougFSiva.checkMate.model.Compartimento;
@@ -25,6 +26,7 @@ public class CriaItemService {
 	public ItemResponse criar(CriaItemForm form) {
     	Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
     	Item item = new Item(compartimento, form.descricao(), form.quantidade());
+    	item.setImagem(ImagemConfig.getNomeImagemItemDefault());
     	Item itemSalvo = repository.save(item);
     	logger.infoComUsuario(String.format("Criado item %s", item.infoParaLog()));
     	return new ItemResponse(itemSalvo);

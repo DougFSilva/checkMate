@@ -19,6 +19,7 @@ public class Item {
 	private Compartimento compartimento;
 	private String descricao;
 	private Integer quantidade;
+	private String imagem;
 	
 	public Item(Compartimento compartimento, String descricao, Integer quantidade) {
 		this.compartimento = compartimento;
