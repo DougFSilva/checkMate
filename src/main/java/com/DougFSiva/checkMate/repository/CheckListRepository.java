@@ -23,7 +23,7 @@ public interface CheckListRepository extends JpaRepository<CheckList, Long> {
 	
 	Page<CheckList> findByDataHoraEncerramento(LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
 	
-	Page<CheckList> findByCheckListStatus(CheckListStatus status, Pageable paginacao);
+	Page<CheckList> findByStatus(CheckListStatus status, Pageable paginacao);
 	
 	Page<CheckList> findAll(Pageable paginacao);
 }

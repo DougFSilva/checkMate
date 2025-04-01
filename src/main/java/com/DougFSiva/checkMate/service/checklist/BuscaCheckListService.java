@@ -36,7 +36,7 @@ public class BuscaCheckListService {
 	}
 
 	public Page<CheckListResponse> buscarPeloCheckListStatus(CheckListStatus status, Pageable paginacao) {
-		return repository.findByCheckListStatus(status, paginacao).map(CheckListResponse::new);
+		return repository.findByStatus(status, paginacao).map(CheckListResponse::new);
 	}
 
 	public Page<CheckListResponse> buscarTodos(Pageable paginacao) {

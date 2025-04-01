@@ -15,9 +15,9 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class RemoveGuardiaoDoAmbiente {
+public class RemoveGuardiaoDoAmbienteService {
 	
-	private static final LoggerPadrao logger = new LoggerPadrao(RemoveGuardiaoDoAmbiente.class);
+	private static final LoggerPadrao logger = new LoggerPadrao(RemoveGuardiaoDoAmbienteService.class);
 	private final AmbienteRepository repository;
 	private final UsuarioRepository usuarioRepository;
 	

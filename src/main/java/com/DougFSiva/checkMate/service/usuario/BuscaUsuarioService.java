@@ -25,7 +25,7 @@ public class BuscaUsuarioService {
 	}
 	
 	public Page<UsuarioResponse> buscarPeloTipoPerfil(TipoPerfil tipoPerfil, Pageable paginacao) {
-		return repository.findByPerfilTipoPerfil(tipoPerfil, paginacao).map(UsuarioResponse::new);
+		return repository.findByPerfil_Tipo(tipoPerfil, paginacao).map(UsuarioResponse::new);
 	}
 	
 	public Page<UsuarioResponse> buscarTodos(Pageable paginacao) {
