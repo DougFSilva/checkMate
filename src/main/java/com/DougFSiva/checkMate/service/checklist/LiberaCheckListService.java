@@ -35,7 +35,7 @@ public class LiberaCheckListService {
 		checkList.setStatus(CheckListStatus.LIBERADO);
 		repository.save(checkList);
 		publicadorMqtt.enviarMensagem(
-				topicoRoot + checkList.getAmbiente().getDescricao(), "LIBERADO");
+				topicoRoot + "/" + checkList.getAmbiente().getDescricao(), "LIBERADO");
 		
 	}
 	

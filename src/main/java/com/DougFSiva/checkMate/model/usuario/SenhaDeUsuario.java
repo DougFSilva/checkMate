@@ -2,12 +2,14 @@ package com.DougFSiva.checkMate.model.usuario;
 
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Embeddable
 @AllArgsConstructor
 @Getter
 @Setter

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.compartimento;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
@@ -21,6 +22,7 @@ public class SalvaImagemCompartimentoService {
 	private final CompartimentoRepository repository;
 	private final SalvaImagemService salvaImagemService;
 	
+	@Transactional
 	public CompartimentoResponse salvar(MultipartFile imagem, Long ID) {
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 

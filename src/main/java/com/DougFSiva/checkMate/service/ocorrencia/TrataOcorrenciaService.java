@@ -25,7 +25,7 @@ public class TrataOcorrenciaService {
 	@Transactional
 	public OcorrenciaResponse tratar(TrataOcorrenciaForm form) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(form.ocorrenciaID());
-		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(buscaUsuarioAutenticado.buscar(), form.descricao());
+		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(ocorrencia, buscaUsuarioAutenticado.buscar(), form.descricao());
 		validarOcorrenciaAberta(ocorrencia);
 		ocorrencia.addTratamento(tratamento);
 		Ocorrencia ocorrenciaSalva = repository.save(ocorrencia);

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
@@ -21,6 +22,7 @@ public class SalvaImagemAmbienteService {
 	private final AmbienteRepository repository;
 	private final SalvaImagemService salvaImagemService;
 
+	@Transactional
 	public AmbienteResponse salvar(MultipartFile imagem, Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 

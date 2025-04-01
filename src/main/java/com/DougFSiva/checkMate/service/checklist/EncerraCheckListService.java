@@ -35,7 +35,7 @@ public class EncerraCheckListService {
 		checkList.setStatus(CheckListStatus.ENCERRADO);
 		repository.save(checkList);
 		publicadorMqtt.enviarMensagem(
-				topicoRoot + checkList.getAmbiente().getDescricao(), "ENCERRADO");
+				topicoRoot + "/" + checkList.getAmbiente().getDescricao(), "ENCERRADO");
 	}
 	
 	private void validarCheckListSaidaPreenchido(CheckList checkList) {

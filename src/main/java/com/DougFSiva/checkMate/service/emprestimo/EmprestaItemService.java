@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.emprestimo;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.EmprestaItemForm;
 import com.DougFSiva.checkMate.dto.response.EmprestimoResponse;
@@ -28,7 +29,7 @@ public class EmprestaItemService {
 	private final UsuarioRepository usuarioRepository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 	
-	
+	@Transactional
 	public EmprestimoResponse emprestar(EmprestaItemForm form) {
 		Item item = itemRepository.findByIdOrElseThrow(form.itemID());
 		Usuario solicitante = usuarioRepository.findByIdOrElseThrow(form.solicitanteID());

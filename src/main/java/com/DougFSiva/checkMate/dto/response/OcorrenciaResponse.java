@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.dto.response;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
 
@@ -16,6 +17,7 @@ public class OcorrenciaResponse {
 	private String emissor;
 	private ItemCheckListResponse itemCheckList;
 	private UsuarioResponse responsavelEncerramento;
+	private List<TratamentoOcorrenciaResponse> tratamento;
 	private boolean encerrada;
 	
 	public OcorrenciaResponse(Ocorrencia ocorrencia) {
@@ -24,6 +26,10 @@ public class OcorrenciaResponse {
 		this.emissor = ocorrencia.getEmissor();
 		this.itemCheckList = new ItemCheckListResponse(ocorrencia.getItemCheckList());
 		this.responsavelEncerramento = new UsuarioResponse(ocorrencia.getResponsavelEncerramento());
+		this.tratamento = ocorrencia.getTratamentos()
+				.stream()
+				.map(TratamentoOcorrenciaResponse::new)
+				.toList();
 		this.encerrada = ocorrencia.isEncerrada();
 	}
 }

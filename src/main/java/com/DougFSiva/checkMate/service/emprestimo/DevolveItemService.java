@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.emprestimo;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.EmprestimoResponse;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComEmprestimoException;
@@ -23,6 +24,7 @@ public class DevolveItemService {
 	private final EmprestimoRepository repository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 	
+	@Transactional
 	public EmprestimoResponse devolver(Long ID) {
 		Emprestimo emprestimo = repository.findByIdOrElseThrow(ID);
 		validarEmprestimoConcluido(emprestimo);
