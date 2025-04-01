@@ -42,6 +42,4 @@ public class DevolverItem {
 					"Não é possível devolver o item pois ele já foi devolvido!");
 		}
 	}
-	
-
 }

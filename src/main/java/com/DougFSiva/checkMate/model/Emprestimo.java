@@ -36,5 +36,4 @@ public class Emprestimo {
 		this.devolvido = false;
 	}
 	
-	
 }
