@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
-import com.DougFSiva.checkMate.dto.form.CriaAmbienteForm;
+import com.DougFSiva.checkMate.dto.form.AmbienteForm;
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -21,7 +21,7 @@ public class CriaAmbienteService {
 	private final ValidaAmbienteService validaAmbiente;
 	
 	@Transactional
-	public AmbienteResponse criar(CriaAmbienteForm form) {
+	public AmbienteResponse criar(AmbienteForm form) {
 		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = new Ambiente(form.nome(), form.descricao(), form.localizacao());
 		String imagem = ImagemConfig.getNomeImagemAmbienteDefault();

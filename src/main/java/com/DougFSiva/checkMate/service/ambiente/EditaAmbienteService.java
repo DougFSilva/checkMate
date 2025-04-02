@@ -3,7 +3,7 @@ package com.DougFSiva.checkMate.service.ambiente;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.form.EditaAmbienteForm;
+import com.DougFSiva.checkMate.dto.form.AmbienteForm;
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -20,9 +20,9 @@ public class EditaAmbienteService {
 	private final ValidaAmbienteService validaAmbiente;
 		
 	@Transactional
-	public AmbienteResponse editar(EditaAmbienteForm form) {
+	public AmbienteResponse editar(Long ID, AmbienteForm form) {
 		validaAmbiente.validarUnicoNome(form.nome());
-		Ambiente ambiente = repository.findByIdOrElseThrow(form.ID());
+		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		ambiente.setNome(form.nome());
 		ambiente.setDescricao(form.descricao());
 		ambiente.setLocalizacao(form.localizacao());

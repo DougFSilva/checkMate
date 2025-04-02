@@ -1,12 +1,8 @@
 package com.DougFSiva.checkMate.dto.form;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-public record EditaAmbienteForm(
-		
-		@NotNull(message = "O ID deve ser informado.")
-		Long ID,
+public record AmbienteForm(
 		
 		@NotBlank(message = "O nome não pode estar vazio.")
 		String nome,
@@ -15,6 +11,7 @@ public record EditaAmbienteForm(
 		
 		@NotBlank(message = "A localização não pode estar vazia.")
 		String localizacao
+		
 		) {
 
 }
