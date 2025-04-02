@@ -17,4 +17,6 @@ public interface AmbienteRepository extends JpaRepository<Ambiente, Long> {
 	List<Ambiente> findByNomeContainingIgnoreCase(String nome);
 	
 	boolean existsByGuardioes(Usuario guardiao);
+	
+	boolean existsByNome(String nome);
 }

@@ -18,9 +18,11 @@ public class CriaAmbienteService {
 
     private static final LoggerPadrao logger = new LoggerPadrao(CriaAmbienteService.class);
 	private final AmbienteRepository repository;
+	private final ValidaAmbienteService validaAmbiente;
 	
 	@Transactional
 	public AmbienteResponse criar(CriaAmbienteForm form) {
+		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = new Ambiente(form.nome(), form.descricao(), form.localizacao());
 		String imagem = ImagemConfig.getNomeImagemAmbienteDefault();
 		ambiente.setImagem(imagem);
@@ -28,4 +30,5 @@ public class CriaAmbienteService {
 		logger.infoComUsuario(String.format("Ambiente %s criado", ambienteSalvo.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}
+	
 }

@@ -17,9 +17,11 @@ public class EditaAmbienteService {
 
 	private static final LoggerPadrao logger = new LoggerPadrao(EditaAmbienteService.class);
 	private final AmbienteRepository repository;
+	private final ValidaAmbienteService validaAmbiente;
 		
 	@Transactional
 	public AmbienteResponse editar(EditaAmbienteForm form) {
+		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = repository.findByIdOrElseThrow(form.ID());
 		ambiente.setNome(form.nome());
 		ambiente.setDescricao(form.descricao());

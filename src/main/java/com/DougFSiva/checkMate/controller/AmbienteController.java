@@ -3,6 +3,8 @@ package com.DougFSiva.checkMate.controller;
 import java.net.URI;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,4 +45,12 @@ public class AmbienteController {
 				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deletarAmbiente(@PathVariable Long ID) {
+		deletaAmbienteService.deletar(ID);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@
 }
