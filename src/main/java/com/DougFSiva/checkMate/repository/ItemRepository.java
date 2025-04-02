@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
-import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.Item;
 
@@ -19,7 +18,7 @@ public interface ItemRepository extends JpaRepository<Item, Long>{
 	
 	Page<Item> findByCompartimento(Compartimento compartimento, Pageable paginacao);
 	
-	List<Item> findByCompartimento_Ambiente(Ambiente ambiente);
+	List<Item> findByCompartimento(Compartimento compartimento);
 	
 	boolean existsByCompartimento(Compartimento compartimento);
 }

@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.dto.response;
 
-import com.DougFSiva.checkMate.model.checklist.CheckList;
+import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
 import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 
 import lombok.Getter;
@@ -11,7 +11,7 @@ import lombok.ToString;
 public class ItemCheckListResponse {
 
 	private Long ID;
-	private CheckList checkList;
+	private CheckListCompartimento checkListCompartimento;
 	private CompartimentoResponse compartimento;
 	private String descricao;
 	private Integer quantidade;
@@ -22,7 +22,7 @@ public class ItemCheckListResponse {
 	
 	public ItemCheckListResponse(ItemCheckList item) {
 		this.ID = item.getID();
-		this.checkList = item.getCheckList();
+		this.checkListCompartimento = item.getCheckListCompartimento();
 		this.compartimento = new CompartimentoResponse(item.getCompartimento());
 		this.descricao = item.getDescricao();
 		this.quantidade = item.getQuantidade();

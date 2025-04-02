@@ -32,8 +32,8 @@ public class ItemCheckList {
 	private Long ID;
 	
 	@ManyToOne
-	@JoinColumn(name = "checklist_id", nullable = false)
-	private CheckList checkList;
+	@JoinColumn(name = "checklist_compartimento_id", nullable = false)
+	private CheckListCompartimento checkListCompartimento;
 	
 	@ManyToOne
 	@JoinColumn(name = "compartimento_id", nullable = false)
@@ -52,8 +52,8 @@ public class ItemCheckList {
 	private String observacaoSaida;
 	private String imagem;
 	
-	public ItemCheckList(CheckList checkList, Item item) {
-		this.checkList = checkList;
+	public ItemCheckList(CheckListCompartimento checkListCompartimento, Item item) {
+		this.checkListCompartimento = checkListCompartimento;
 		this.compartimento = item.getCompartimento();
 		this.descricao = item.getDescricao();
 		this.quantidade = item.getQuantidade();

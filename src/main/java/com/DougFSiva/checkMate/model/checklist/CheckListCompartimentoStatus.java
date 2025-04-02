@@ -5,17 +5,15 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public enum CheckListStatus {
+public enum CheckListCompartimentoStatus {
 
-	ABERTO("Aberto"), 
+	NAO_PREENCHIDO("Não Preenchido"),
 	ENTRADA_PREENCHIDO("Preenchido na entrada"), 
-	LIBERADO("Liberado"), 
-	SAIDA_PREENCHIDO("Preenchido na saída"), 
-	ENCERRADO("Encerrado");
+	SAIDA_PREENCHIDO("Preenchido na saída");
 	
 	private final String descricao;
 
-	private CheckListStatus(String descricao) {
+	private CheckListCompartimentoStatus(String descricao) {
 		this.descricao = descricao;
 	}
 	

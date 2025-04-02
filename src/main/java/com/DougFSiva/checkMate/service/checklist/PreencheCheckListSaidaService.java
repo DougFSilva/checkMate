@@ -11,12 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.DougFSiva.checkMate.dto.form.ItemCheckListForm;
 import com.DougFSiva.checkMate.dto.form.PreencheCheckListForm;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCheckListException;
-import com.DougFSiva.checkMate.model.checklist.CheckList;
-import com.DougFSiva.checkMate.model.checklist.CheckListStatus;
+import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
+import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
+import com.DougFSiva.checkMate.model.checklist.CheckListCompartimentoStatus;
 import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.model.checklist.ItemCheckListStatus;
 import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
-import com.DougFSiva.checkMate.repository.CheckListRepository;
+import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
 import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioAutenticado;
@@ -27,31 +28,32 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PreencheCheckListSaidaService {
 
-	private final CheckListRepository repository;
+	private final CheckListCompartimentoRepository repository;
 	private final ItemCheckListRepository itemCheckListRepository;
 	private final OcorrenciaRepository ocorrenciaRepository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 
 	@Transactional
 	public void preencher(PreencheCheckListForm form) {
-		CheckList checkList = repository.findByIdOrElseThrow(form.ID());
+		CheckListCompartimento checkList = repository.findByIdOrElseThrow(form.ID());
 		validarCheckListLiberado(checkList);
 		validarItens(form.itens());
-		List<ItemCheckList> itens = itemCheckListRepository.findByCheckList(checkList);
+		List<ItemCheckList> itens = itemCheckListRepository.findByCheckListCompartimento(checkList);
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
 		itemCheckListRepository.saveAll(itensAtualizados);
 		gerarOcorrenciaSeAnormalidade(itensAtualizados);
 		checkList.setDataHoraPreenchimentoSaida(LocalDateTime.now());
 		checkList.setExecutorPreenchimentoSaida(buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList());
-		checkList.setStatus(CheckListStatus.SAIDA_PREENCHIDO);
+		checkList.setStatus(CheckListCompartimentoStatus.SAIDA_PREENCHIDO);
 		repository.save(checkList);
 
 	}
 
-	private void validarCheckListLiberado(CheckList checkList) {
-		if (checkList.getStatus() != CheckListStatus.LIBERADO) {
+	private void validarCheckListLiberado(CheckListCompartimento checkList) {
+		if (checkList.getCheckListAmbiente().getStatus() != CheckListAmbienteStatus.LIBERADO) {
 			throw new ErroDeOperacaoComCheckListException(
-					"O check-list de saída só pode ser preenchido se estiver com o status 'Liberado'.");
+					"O check-list de compartimento de saída só pode ser preenchido se "
+					+ "o check-list do ambiente estiver com o status 'Liberado'.");
 		}
 	}
 

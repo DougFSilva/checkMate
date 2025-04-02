@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.OcorrenciaResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
-import com.DougFSiva.checkMate.model.checklist.CheckList;
+import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
-import com.DougFSiva.checkMate.repository.CheckListRepository;
+import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 
@@ -23,7 +23,7 @@ public class BuscaOcorrenciaService {
 
 	private final OcorrenciaRepository repository;
 	private final AmbienteRepository ambienteRepository;
-	private final CheckListRepository checkListRepository;
+	private final CheckListCompartimentoRepository checkListRepository;
 	private final UsuarioRepository usuarioRepository;
 
 	public OcorrenciaResponse buscarPeloID(Long ID) {
@@ -44,8 +44,8 @@ public class BuscaOcorrenciaService {
 	}
 	
 	public Page<OcorrenciaResponse> buscarPeloCheckList(Long checkListID, Pageable paginacao) {
-		CheckList checkList = checkListRepository.findByIdOrElseThrow(checkListID);
-		return repository.findByItemCheckList_CheckList(checkList, paginacao)
+		CheckListCompartimento checkList = checkListRepository.findByIdOrElseThrow(checkListID);
+		return repository.findByItemCheckList_CheckListCompartimento(checkList, paginacao)
 				.map(OcorrenciaResponse::new);
 	}
 	

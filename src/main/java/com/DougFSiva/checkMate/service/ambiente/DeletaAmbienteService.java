@@ -7,7 +7,7 @@ import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComAmbienteException;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
-import com.DougFSiva.checkMate.repository.CheckListRepository;
+import com.DougFSiva.checkMate.repository.CheckListAmbienteRepository;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 import com.DougFSiva.checkMate.service.imagem.DeletaImagemService;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
@@ -20,7 +20,7 @@ public class DeletaAmbienteService {
 
 	private static final LoggerPadrao logger = new LoggerPadrao(DeletaAmbienteService.class);
 	private final AmbienteRepository repository;
-	private final CheckListRepository checkListRepository;
+	private final CheckListAmbienteRepository checkListRepository;
 	private final CompartimentoRepository compartimentoRepository;
 	private final DeletaImagemService imagemService;
 	
