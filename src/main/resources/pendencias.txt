@@ -5,3 +5,4 @@
 - Verificar a real necessidade dos guardiões
 - Conexão MQTT
 - Comentários em aplication.properties
+- Adicionar @Unique e outras validações nos models

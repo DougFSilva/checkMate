@@ -22,9 +22,11 @@ public class CriaCompartimentoService {
 	private static final LoggerPadrao logger = new LoggerPadrao(CriaAmbienteService.class);
 	private final CompartimentoRepository repository;
 	private final AmbienteRepository ambienteRepository;
+	private final ValidaCompartimentoService validaCompartimento;
 	
 	@Transactional
 	public CompartimentoResponse criar(CriaCompartimentoForm form) {
+		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());
 		Compartimento compartimento = new Compartimento(ambiente,form.nome(), form.codigo(), form.descricao());
 		String imagem = ImagemConfig.getNomeImagemCompartimentoDefault();

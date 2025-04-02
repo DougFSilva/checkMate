@@ -17,4 +17,6 @@ public interface CompartimentoRepository extends JpaRepository<Compartimento, Lo
 	List<Compartimento> findByAmbiente(Ambiente ambiente);
 	
 	boolean existsByAmbiente(Ambiente ambiente);
+	
+	boolean existsByCodigo(String codigo);
 }

@@ -20,9 +20,11 @@ public class EditaCompartimentoService {
 	private static final LoggerPadrao logger = new LoggerPadrao(EditaCompartimentoService.class);
 	private final CompartimentoRepository repository;
 	private final AmbienteRepository ambienteRepository;
+	private final ValidaCompartimentoService validaCompartimento;
 	
 	@Transactional
 	public CompartimentoResponse editar(EditaCompartimentoForm form) {
+		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Compartimento compartimento = repository.findByIdOrElseThrow(form.ID());
 		if (form.ambienteID() != compartimento.getAmbiente().getID()) {
 			Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());
