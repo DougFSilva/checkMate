@@ -51,7 +51,7 @@ public class BuscaEmprestimoService {
 		return repository.findByDataHoraDevolucaoBetween(dataInicial, dataFinal, paginacao).map(EmprestimoResponse::new);
 	}
 	
-	public Page<EmprestimoResponse> buscarTodas(Pageable pagimacao) {
+	public Page<EmprestimoResponse> buscarTodos(Pageable pagimacao) {
 		return repository.findAll(pagimacao).map(EmprestimoResponse::new);
 	}
 

@@ -25,9 +25,9 @@ import com.DougFSiva.checkMate.service.checklist.LiberaCheckListAmbienteService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(value = "/checklist")
+@RequestMapping(value = "/checklist-ambiente")
 @RequiredArgsConstructor
-public class CheckListController {
+public class CheckListAmbienteController {
 
 	private final AbreCheckListAmbienteService abreCheckListAmbienteService;
 	private final LiberaCheckListAmbienteService liberaCheckListAmbienteService;
