@@ -67,7 +67,7 @@ public class AmbienteController {
 	}
 	
 	@PostMapping("/imagem/{ID}")
-	public ResponseEntity<AmbienteResponse> salvaImagemDeAmbiente(
+	public ResponseEntity<AmbienteResponse> salvarImagemDeAmbiente(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
 		AmbienteResponse ambiente = salvaImagemAmbienteService.salvar(imagem, ID);

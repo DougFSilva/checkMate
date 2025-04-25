@@ -6,4 +6,3 @@
 - Conexão MQTT
 - Comentários em aplication.properties
 - Adicionar @Unique e outras validações nos models
-- Alterar todos os Editar e criar para usar um unico formulário

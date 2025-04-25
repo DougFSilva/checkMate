@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.DougFSiva.checkMate.dto.form.CompartimentoForm;
@@ -22,6 +24,7 @@ import com.DougFSiva.checkMate.service.compartimento.BuscaCompartimentoService;
 import com.DougFSiva.checkMate.service.compartimento.CriaCompartimentoService;
 import com.DougFSiva.checkMate.service.compartimento.DeletaCompartimentoService;
 import com.DougFSiva.checkMate.service.compartimento.EditaCompartimentoService;
+import com.DougFSiva.checkMate.service.compartimento.SalvaImagemCompartimentoService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +38,7 @@ public class CompartimentoController {
 	private final CriaCompartimentoService criaCompartimentoService;
 	private final DeletaCompartimentoService deletaCompartimentoService;
 	private final EditaCompartimentoService editaCompartimentoService;
+	private final SalvaImagemCompartimentoService salvaImagemCompartimentoService;
 	
 	@PostMapping
 	public ResponseEntity<CompartimentoResponse> criarCompartimento(@Valid @RequestBody CompartimentoForm form) {
@@ -57,6 +61,14 @@ public class CompartimentoController {
 			@PathVariable Long ID, 
 			@Valid @RequestBody CompartimentoForm form) {
 		CompartimentoResponse compartimento = editaCompartimentoService.editar(ID, form);
+		return ResponseEntity.ok().body(compartimento);
+	}
+	
+	@PostMapping("/imagem/{ID}")
+	public ResponseEntity<CompartimentoResponse> salvarImagemDeCompartimento(
+			@PathVariable Long ID,
+			@RequestParam("file") MultipartFile imagem) {
+		CompartimentoResponse compartimento = salvaImagemCompartimentoService.salvar(imagem, ID);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
