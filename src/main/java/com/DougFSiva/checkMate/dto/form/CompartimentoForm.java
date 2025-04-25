@@ -3,7 +3,7 @@ package com.DougFSiva.checkMate.dto.form;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record CriaCompartimentoForm(
+public record CompartimentoForm(
 		
 		@NotNull(message = "O ID do ambiente deve ser informado.")
 		Long ambienteID,

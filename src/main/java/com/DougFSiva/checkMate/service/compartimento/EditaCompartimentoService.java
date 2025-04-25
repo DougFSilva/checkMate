@@ -3,7 +3,7 @@ package com.DougFSiva.checkMate.service.compartimento;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.form.EditaCompartimentoForm;
+import com.DougFSiva.checkMate.dto.form.CompartimentoForm;
 import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
@@ -23,9 +23,9 @@ public class EditaCompartimentoService {
 	private final ValidaCompartimentoService validaCompartimento;
 	
 	@Transactional
-	public CompartimentoResponse editar(EditaCompartimentoForm form) {
+	public CompartimentoResponse editar(Long ID, CompartimentoForm form) {
 		validaCompartimento.validarUnicoCodigo(form.codigo());
-		Compartimento compartimento = repository.findByIdOrElseThrow(form.ID());
+		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		if (form.ambienteID() != compartimento.getAmbiente().getID()) {
 			Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());
 			compartimento.setAmbiente(ambiente);

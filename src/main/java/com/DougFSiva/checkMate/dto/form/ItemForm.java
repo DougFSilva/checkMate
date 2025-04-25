@@ -3,7 +3,7 @@ package com.DougFSiva.checkMate.dto.form;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record CriaItemForm(
+public record ItemForm(
 		
 		@NotNull(message = "O ID do compartimento deve ser informado")
 		Long compartimentoID,

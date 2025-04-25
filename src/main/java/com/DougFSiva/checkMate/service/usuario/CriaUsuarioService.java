@@ -3,7 +3,7 @@ package com.DougFSiva.checkMate.service.usuario;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.form.CriaUsuarioForm;
+import com.DougFSiva.checkMate.dto.form.UsuarioForm;
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
@@ -23,7 +23,7 @@ public class CriaUsuarioService {
 	private final CodificadorDeSenha codificadorDeSenha;
 	
 	@Transactional
-	public UsuarioResponse criar(CriaUsuarioForm form) {
+	public UsuarioResponse criar(UsuarioForm form) {
 		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);
 		Perfil perfil = new Perfil(form.tipoPerfil());
 		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());

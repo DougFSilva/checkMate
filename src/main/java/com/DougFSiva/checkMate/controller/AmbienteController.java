@@ -97,13 +97,13 @@ public class AmbienteController {
 	}
 
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<AmbienteResponse>> buscarAmbientePeloNome(@PathVariable String nome) {
+	public ResponseEntity<List<AmbienteResponse>> buscarAmbientesPeloNome(@PathVariable String nome) {
 		List<AmbienteResponse> ambientes = buscaAmbienteService.buscarPeloNome(nome);
 		return ResponseEntity.ok().body(ambientes);
 	}
 
 	@GetMapping
-	public ResponseEntity<List<AmbienteResponse>> buscarAmbientePeloNome() {
+	public ResponseEntity<List<AmbienteResponse>> buscarTodosAmbientes() {
 		List<AmbienteResponse> ambientes = buscaAmbienteService.buscarTodos();
 		return ResponseEntity.ok().body(ambientes);
 	}

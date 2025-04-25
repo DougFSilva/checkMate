@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
-import com.DougFSiva.checkMate.dto.form.CriaCompartimentoForm;
+import com.DougFSiva.checkMate.dto.form.CompartimentoForm;
 import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
@@ -25,7 +25,7 @@ public class CriaCompartimentoService {
 	private final ValidaCompartimentoService validaCompartimento;
 	
 	@Transactional
-	public CompartimentoResponse criar(CriaCompartimentoForm form) {
+	public CompartimentoResponse criar(CompartimentoForm form) {
 		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());
 		Compartimento compartimento = new Compartimento(ambiente,form.nome(), form.codigo(), form.descricao());

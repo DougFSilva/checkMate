@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.form.EditaUsuarioForm;
+import com.DougFSiva.checkMate.dto.form.UsuarioForm;
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
@@ -24,16 +24,16 @@ public class EditaUsuarioService {
 	private final UsuarioRepository repository;
 
 	@Transactional
-	public UsuarioResponse editar(EditaUsuarioForm form) {
-		validarUsuarioAutenticado(form.ID());
-		Usuario usuario = repository.findByIdOrElseThrow(form.ID());
+	public UsuarioResponse editar(Long ID, UsuarioForm form) {
+		validarUsuarioAutenticado(ID);
+		Usuario usuario = repository.findByIdOrElseThrow(ID);
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
 		logger.infoComUsuario(String.format("Usuário %s editado para %s!", usuario.infoParaLog(), usuarioSalvo));
 		return new UsuarioResponse(usuarioSalvo);
 	}
 	
-	private Usuario atualizarDadosDoUsuario(Usuario usuario, EditaUsuarioForm form) {
+	private Usuario atualizarDadosDoUsuario(Usuario usuario, UsuarioForm form) {
 		usuario.setNome(form.nome());
 		usuario.setCPF(form.CPF());
 		usuario.setEmail(form.email());
