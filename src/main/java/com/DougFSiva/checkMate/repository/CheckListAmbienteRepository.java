@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
-import com.DougFSiva.checkMate.model.checklist.CheckListCompartimentoStatus;
+import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 
 public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbiente, Long> {
 
@@ -23,7 +23,7 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	Page<CheckListAmbiente> findByDataHoraEncerramento(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao);
 	
-	Page<CheckListAmbiente> findByStatus(CheckListCompartimentoStatus status, Pageable paginacao);
+	Page<CheckListAmbiente> findByStatus(CheckListAmbienteStatus status, Pageable paginacao);
 	
 	boolean existsByAmbiente(Ambiente ambiente);
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
-import com.DougFSiva.checkMate.model.checklist.CheckListCompartimentoStatus;
+import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListAmbienteRepository;
 
@@ -35,7 +35,7 @@ public class BuscaCheckListAmbienteService {
 		return repository.findByDataHoraEncerramento(dataInicial, dataFinal, paginacao).map(CheckListAmbienteResponse::new);
 	}
 
-	public Page<CheckListAmbienteResponse> buscarPeloCheckListStatus(CheckListCompartimentoStatus status, Pageable paginacao) {
+	public Page<CheckListAmbienteResponse> buscarPeloCheckListStatus(CheckListAmbienteStatus status, Pageable paginacao) {
 		return repository.findByStatus(status, paginacao).map(CheckListAmbienteResponse::new);
 	}
 
