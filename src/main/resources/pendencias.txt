@@ -6,3 +6,5 @@
 - Conexão MQTT
 - Comentários em aplication.properties
 - Adicionar @Unique e outras validações nos models
+
+- Parei fazendo OcorrenciaController

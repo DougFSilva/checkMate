@@ -8,12 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.OcorrenciaResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
-import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
-import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
-import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
-import com.DougFSiva.checkMate.repository.UsuarioRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,8 +19,6 @@ public class BuscaOcorrenciaService {
 
 	private final OcorrenciaRepository repository;
 	private final AmbienteRepository ambienteRepository;
-	private final CheckListCompartimentoRepository checkListRepository;
-	private final UsuarioRepository usuarioRepository;
 
 	public OcorrenciaResponse buscarPeloID(Long ID) {
 		return new OcorrenciaResponse(repository.findByIdOrElseThrow(ID));
@@ -40,18 +34,6 @@ public class BuscaOcorrenciaService {
 	public Page<OcorrenciaResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByItemCheckList_Compartimento_Ambiente(ambiente, paginacao)
-				.map(OcorrenciaResponse::new);
-	}
-	
-	public Page<OcorrenciaResponse> buscarPeloCheckList(Long checkListID, Pageable paginacao) {
-		CheckListCompartimento checkList = checkListRepository.findByIdOrElseThrow(checkListID);
-		return repository.findByItemCheckList_CheckListCompartimento(checkList, paginacao)
-				.map(OcorrenciaResponse::new);
-	}
-	
-	public Page<OcorrenciaResponse> buscarPeloResponsavelEncerramento(Long responsavelID, Pageable paginacao) {
-		Usuario usuario = usuarioRepository.findByIdOrElseThrow(responsavelID);
-		return repository.findByResponsavelEncerramento(usuario, paginacao)
 				.map(OcorrenciaResponse::new);
 	}
 	
