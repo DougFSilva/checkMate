@@ -5,9 +5,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.DougFSiva.checkMate.dto.form.AlteraSenhaUsuarioForm;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
-import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.usuario.SenhaDeUsuario;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -25,26 +25,24 @@ public class AlteraSenhaDeUsuarioService {
 	private final CodificadorDeSenha codificadorDeSenha;
 	
 	@Transactional
-	public void alterar(Long ID, String senhaAntiga, String novaSenha) {
-		validarUsuarioAutenticado(ID);
-		Usuario usuario = repository.findByIdOrElseThrow(ID);
-		if (!codificadorDeSenha.comparar(senhaAntiga, usuario.getSenha().getSenha())) {
+	public void alterar(AlteraSenhaUsuarioForm form) {
+		Usuario usuario = buscarUsuarioAutenticado();
+		if (!codificadorDeSenha.comparar(form.senhaAtual(), usuario.getSenha().getSenha())) {
 			throw new SenhaDeUsuarioInvalidaException("A senha antiga não confere com a senha atual do usuário!");
 		}
-		SenhaDeUsuario senhaDeUsuario = new SenhaDeUsuario(novaSenha, codificadorDeSenha);
+		SenhaDeUsuario senhaDeUsuario = new SenhaDeUsuario(form.novaSenha(), codificadorDeSenha);
 		usuario.setSenha(senhaDeUsuario);
 		usuario.setSenhaAlterada(true);
 		repository.save(usuario);
 		logger.infoComUsuario(String.format("Alterada senha do usuário %s!", usuario.infoParaLog()));
 	}
 	
-	 private void validarUsuarioAutenticado(Long ID) {
-		    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	private Usuario buscarUsuarioAutenticado() {
+		  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		    String emailUsuarioAutenticado = authentication.getName();
-	        Usuario usuarioAutenticado = repository.findByEmail(emailUsuarioAutenticado)
-	           .orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
-	        if (!usuarioAutenticado.getID().equals(ID)) {
-	           throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
-	        }
-	    }
+		    return repository.findByEmail(emailUsuarioAutenticado)
+			           .orElseThrow(() -> new ObjetoNaoEncontradoException(
+			        		   String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
+	}
+	
 }

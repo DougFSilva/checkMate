@@ -13,9 +13,9 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class DeleteUsuarioService {
+public class DeletaUsuarioService {
 
-	private final static LoggerPadrao logger = new LoggerPadrao(DeleteUsuarioService.class);
+	private final static LoggerPadrao logger = new LoggerPadrao(DeletaUsuarioService.class);
 	private final UsuarioRepository repository;
 	private final AmbienteRepository ambienteRepository;
 
