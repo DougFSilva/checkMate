@@ -7,3 +7,5 @@
 - Comentários em aplication.properties
 - Adicionar @Unique e outras validações nos models
 - A alteração de senha de usuário deve surtir efeito quando não alterada
+- Melhorar as exceções sobre security
+- Criar usuário padrão ao iniciar aplicação
