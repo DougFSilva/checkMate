@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ocorrencia;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class TrataOcorrenciaService {
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 
 	@Transactional
+	@PreAuthorize("isAuthenticated()")
 	public OcorrenciaResponse tratar(TrataOcorrenciaForm form) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(form.ocorrenciaID());
 		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(ocorrencia, buscaUsuarioAutenticado.buscar(), form.descricao());

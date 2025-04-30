@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ public class DeletaUsuarioService {
 	private final AmbienteRepository ambienteRepository;
 
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public void deletar(Long ID) {
 		Usuario usuario = repository.findByIdOrElseThrow(ID);
 		if (ambienteRepository.existsByGuardioes(usuario)) {

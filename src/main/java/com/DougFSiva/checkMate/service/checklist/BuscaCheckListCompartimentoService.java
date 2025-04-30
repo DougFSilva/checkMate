@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoResponse;
@@ -20,10 +21,12 @@ public class BuscaCheckListCompartimentoService {
 	private final CheckListCompartimentoRepository repository;
 	private final CheckListAmbienteRepository checkListAmbienteRepository;
 	
+	@PreAuthorize("isAuthenticated()")
 	public CheckListCompartimentoResponse buscarPeloID(Long ID) {
 		return new CheckListCompartimentoResponse(repository.findByIdOrElseThrow(ID));
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	public List<CheckListCompartimentoResponse> buscarPeloCheckListAmbiente(Long checkListAmbienteID) {
 		CheckListAmbiente checkListAmbiente = checkListAmbienteRepository.findByIdOrElseThrow(checkListAmbienteID);
 		return repository.findByCheckListAmbiente(checkListAmbiente)
@@ -31,6 +34,7 @@ public class BuscaCheckListCompartimentoService {
 				.map(CheckListCompartimentoResponse::new).toList();
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	public Page<CheckListCompartimentoResponse> buscarTodos(Pageable paginacao) {
 		return repository.findAll(paginacao).map(CheckListCompartimentoResponse::new);
 	}

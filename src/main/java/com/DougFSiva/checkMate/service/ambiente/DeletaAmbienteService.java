@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class DeletaAmbienteService {
 	private final DeletaImagemService imagemService;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public void deletar(Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (checkListRepository.existsByAmbiente(ambiente)) {

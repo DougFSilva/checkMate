@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class AlteraSenhaDeUsuarioService {
 	private final CodificadorDeSenha codificadorDeSenha;
 	
 	@Transactional
+	@PreAuthorize("isAuthenticated()")
 	public void alterar(AlteraSenhaUsuarioForm form) {
 		Usuario usuario = buscarUsuarioAutenticado();
 		if (!codificadorDeSenha.comparar(form.senhaAtual(), usuario.getSenha().getSenha())) {

@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.item;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ public class DeletaItemService {
     private final DeletaImagemService imagemService;
     
     @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
 	public void deletar(Long ID) {
     	Item item = repository.findByIdOrElseThrow(ID);
     	repository.delete(item);

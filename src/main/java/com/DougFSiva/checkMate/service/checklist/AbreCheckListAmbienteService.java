@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.checklist;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +39,7 @@ public class AbreCheckListAmbienteService {
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN', 'PROFESSOR')")
 	public CheckListAmbienteResponse abrir(Long ambienteID) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		Usuario usuario = buscaUsuarioAutenticado.buscar();

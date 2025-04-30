@@ -7,6 +7,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +24,7 @@ public class SalvaImagemService {
 
 	private static final Set<String> TIPOS_PERMITIDOS = Set.of("image/jpeg", "image/png");
 
+	@PreAuthorize("hasRole('ADMIN')")
 	public String salvarImagem(MultipartFile imagem, String nomeImagem) {
 		validarImagemNaoVazia(imagem);
 		validarTamanhoDaImagem(imagem);

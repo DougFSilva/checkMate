@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.checklist;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,6 +34,7 @@ public class EncerraCheckListAmbienteService {
 	private final PublicadorMqtt publicadorMqtt;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN', 'PROFESSOR')")
 	public void encerrar(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validarCheckListSaidaPreenchido(checkList);

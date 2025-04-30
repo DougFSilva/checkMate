@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class RemoveGuardiaoDoAmbienteService {
 	private final UsuarioRepository usuarioRepository;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public AmbienteResponse remover(Long IDUsuario, Long ambienteID) {
 		Usuario usuario = usuarioRepository.findByIdOrElseThrow(IDUsuario);
 		Ambiente ambiente = repository.findByIdOrElseThrow(ambienteID);

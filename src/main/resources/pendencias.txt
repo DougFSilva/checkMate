@@ -5,10 +5,5 @@
 - Conexão MQTT
 - Comentários em aplication.properties
 - A alteração de senha de usuário deve surtir efeito quando não alterada
-- Criar usuário padrão ao iniciar aplicação
-
 
 Onde parei:
-- Concluir application.properties, verificando a possibilidade do usuario nao ter validade. Ou quando for
-excluir o usuario não permitir caso este seja admin
-- Concluir a criação do admin na classe principal

@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.compartimento;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class CriaCompartimentoService {
 	private final ValidaCompartimentoService validaCompartimento;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public CompartimentoResponse criar(CompartimentoForm form) {
 		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());

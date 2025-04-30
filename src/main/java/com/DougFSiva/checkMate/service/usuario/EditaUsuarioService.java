@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
+import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
@@ -25,6 +27,7 @@ public class EditaUsuarioService {
 	private final ValidaUsuarioService validaUsuarioService;
 
 	@Transactional
+	@PreAuthorize("isAuthenticated()")
 	public UsuarioResponse editar(Long ID, UsuarioForm form) {
 		validaUsuarioService.validarUnicoEmail(form.email());
 		validarUsuarioAutenticado(ID);
@@ -49,8 +52,11 @@ public class EditaUsuarioService {
 	    String emailUsuarioAutenticado = authentication.getName();
         Usuario usuarioAutenticado = repository.findByEmail(emailUsuarioAutenticado)
            .orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
-        if (!usuarioAutenticado.getID().equals(ID)) {
-           throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
+        boolean mesmoUsuario = usuarioAutenticado.getID().equals(ID);
+        boolean ehAdmin = usuarioAutenticado.getPerfil().getTipo() == TipoPerfil.ADMIN;
+
+        if (!mesmoUsuario && !ehAdmin) {
+            throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
         }
     }
 

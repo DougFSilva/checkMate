@@ -10,10 +10,9 @@ import lombok.ToString;
 public enum TipoPerfil {
 
 	ADMIN(1, "ROLE_ADMIN"), 
-	GESTOR(2, "ROLE_GESTOR"), 
-	PROFESSOR(3, "ROLE_PROFESSOR"),
-	FUNCIONARIO(4, "ROLE_FUNCIONARIO"), 
-	ALUNO(5, "ROLE_ALUNO");
+	PROFESSOR(2, "ROLE_PROFESSOR"),
+	FUNCIONARIO(3, "ROLE_FUNCIONARIO"), 
+	ALUNO(4, "ROLE_ALUNO");
 
 	private long codigo;
 	private String descricao;

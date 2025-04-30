@@ -38,7 +38,6 @@ public class AutenticacaoController {
 			return ResponseEntity.ok().body(tokenResponse);
 		} catch (AuthenticationException e) {
 			throw new ErroDeAutenticacaoDeUsuarioException("Usuário ou senha inválidos");
-		}
-		
+		}	
 	}
 }

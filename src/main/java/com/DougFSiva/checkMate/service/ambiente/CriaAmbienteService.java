@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,7 @@ public class CriaAmbienteService {
 	private final ValidaAmbienteService validaAmbiente;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public AmbienteResponse criar(AmbienteForm form) {
 		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = new Ambiente(form.nome(), form.descricao(), form.localizacao());

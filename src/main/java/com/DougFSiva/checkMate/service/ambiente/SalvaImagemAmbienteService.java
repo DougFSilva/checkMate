@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +24,7 @@ public class SalvaImagemAmbienteService {
 	private final SalvaImagemService salvaImagemService;
 
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public AmbienteResponse salvar(MultipartFile imagem, Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 

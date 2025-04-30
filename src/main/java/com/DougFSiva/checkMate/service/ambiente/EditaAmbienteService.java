@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ public class EditaAmbienteService {
 	private final ValidaAmbienteService validaAmbiente;
 		
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public AmbienteResponse editar(Long ID, AmbienteForm form) {
 		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);

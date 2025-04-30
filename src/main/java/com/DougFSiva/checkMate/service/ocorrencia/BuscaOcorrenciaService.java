@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.dto.response.OcorrenciaResponse;
@@ -20,10 +21,12 @@ public class BuscaOcorrenciaService {
 	private final OcorrenciaRepository repository;
 	private final AmbienteRepository ambienteRepository;
 
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public OcorrenciaResponse buscarPeloID(Long ID) {
 		return new OcorrenciaResponse(repository.findByIdOrElseThrow(ID));
 	}
 
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public Page<OcorrenciaResponse> buscarPelaDataHora(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao) {
 		return repository
@@ -31,12 +34,14 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResponse::new);
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public Page<OcorrenciaResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByItemCheckList_Compartimento_Ambiente(ambiente, paginacao)
 				.map(OcorrenciaResponse::new);
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public Page<OcorrenciaResponse> buscarTodas(Pageable paginacao) {
 		return repository.findAll(paginacao)
 				.map(OcorrenciaResponse::new);

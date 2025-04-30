@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.item;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class EditaItemService {
     private final CompartimentoRepository compartimentoRepository;
     
     @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
     public ItemResponse editar(Long ID, ItemForm form) {
     	Item item = repository.findByIdOrElseThrow(ID);
     	if (form.compartimentoID() != item.getCompartimento().getID()) {

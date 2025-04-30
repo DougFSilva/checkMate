@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,7 @@ public class CriaUsuarioService {
 	private final ValidaUsuarioService validaUsuarioService;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public UsuarioResponse criar(UsuarioForm form) {
 		validaUsuarioService.validarUnicoEmail(form.email());
 		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);

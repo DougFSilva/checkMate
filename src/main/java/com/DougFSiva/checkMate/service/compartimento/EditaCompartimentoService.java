@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.compartimento;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class EditaCompartimentoService {
 	private final ValidaCompartimentoService validaCompartimento;
 	
 	@Transactional
+	@PreAuthorize("hasRole('ADMIN')")
 	public CompartimentoResponse editar(Long ID, CompartimentoForm form) {
 		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
