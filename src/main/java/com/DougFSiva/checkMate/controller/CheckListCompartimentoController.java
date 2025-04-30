@@ -22,7 +22,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(value = "/checklist-compartimento")
+@RequestMapping(value = "/checklists-compartimento")
 @RequiredArgsConstructor
 public class CheckListCompartimentoController {
 	

@@ -29,7 +29,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(value = "/item")
+@RequestMapping(value = "/itens")
 @RequiredArgsConstructor
 public class ItemController {
 

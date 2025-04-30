@@ -1,5 +1,7 @@
 package com.DougFSiva.checkMate.repository;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -21,6 +23,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	Page<Usuario> findByNomeContainingIgnoreCase(String nome, Pageable paginacao);
 	
 	Page<Usuario> findByPerfil_Tipo(TipoPerfil tipoPerfil, Pageable paginacao);
+	
+	List<Usuario> findByDataValidadeBefore(LocalDate data);
 	
 	boolean existsByEmail(String email);
 }

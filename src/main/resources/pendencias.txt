@@ -4,6 +4,5 @@
 - Verificar a real necessidade dos guardiões
 - Conexão MQTT
 - Comentários em aplication.properties
-- A alteração de senha de usuário deve surtir efeito quando não alterada
 
 Onde parei:
