@@ -31,7 +31,7 @@ public class RemoveGuardiaoDoAmbienteService {
 		}
 		ambiente.removerGuardiao(usuario);
 		Ambiente ambienteSalvo = repository.save(ambiente);
-		logger.infoComUsuario(String.format(
+		logger.info(String.format(
 				"Removido guardião %s do ambiente %s", usuario.infoParaLog(), ambiente.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}

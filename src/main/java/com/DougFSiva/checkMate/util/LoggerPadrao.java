@@ -13,20 +13,21 @@ public class LoggerPadrao {
 		this.logger = LoggerFactory.getLogger(clazz);
 	}
 
-	public void infoComUsuario(String mensagem) {
+	public void info(String mensagem) {
 		logger.info(adicionarUsuarioNaMensagem(mensagem));
 	}
-
-	public void warnComUsuario(String mensagem) {
+	
+	public void warno(String mensagem) {
 		logger.warn(adicionarUsuarioNaMensagem(mensagem));
 	}
 
-	public void errorComUsuario(String mensagem) {
+	public void error(String mensagem) {
 		logger.error(adicionarUsuarioNaMensagem(mensagem));
 	}
 
 	private String adicionarUsuarioNaMensagem(String mensagem) {
 		Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
-		return authentication != null ? authentication.getName() : "Usuário não autenticado";
+		String usuario =  authentication != null ? authentication.getName() : "Sistema";
+		return usuario + ": " + mensagem;
 	}
 }

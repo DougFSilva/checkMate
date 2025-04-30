@@ -33,7 +33,7 @@ public class DevolveItemService {
 		emprestimo.setDevolvido(true);
 		emprestimo.setRecebedor(recebedor);
 		Emprestimo emprestimoSalvo = repository.save(emprestimo);
-		logger.infoComUsuario(String.format(
+		logger.info(String.format(
 				"Empréstimo %d concluído por %s", emprestimo.getID(), recebedor.infoParaLog()));
 		return new EmprestimoResponse(emprestimoSalvo);
 	}

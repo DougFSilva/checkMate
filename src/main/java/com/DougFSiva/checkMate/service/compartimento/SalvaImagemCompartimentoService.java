@@ -32,7 +32,7 @@ public class SalvaImagemCompartimentoService {
 		String nomeImagemSalva = salvaImagemService.salvarImagem(imagem, nomeImagem);
 		compartimento.setImagem(nomeImagemSalva);
 		Compartimento compartimentoSalvo = repository.save(compartimento);
-		logger.infoComUsuario(String.format("Alterada imagem de compartimento %s", compartimento.infoParaLog()));
+		logger.info(String.format("Alterada imagem de compartimento %s", compartimento.infoParaLog()));
 		return new CompartimentoResponse(compartimentoSalvo);
 	}
 	

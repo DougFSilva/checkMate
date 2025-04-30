@@ -28,7 +28,7 @@ public class CriaItemService {
     	Item item = new Item(compartimento, form.descricao(), form.quantidade());
     	item.setImagem(ImagemConfig.getNomeImagemItemDefault());
     	Item itemSalvo = repository.save(item);
-    	logger.infoComUsuario(String.format("Criado item %s", item.infoParaLog()));
+    	logger.info(String.format("Criado item %s", item.infoParaLog()));
     	return new ItemResponse(itemSalvo);
     }
 }

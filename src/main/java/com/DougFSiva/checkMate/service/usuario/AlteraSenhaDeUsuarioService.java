@@ -34,7 +34,7 @@ public class AlteraSenhaDeUsuarioService {
 		usuario.setSenha(senhaDeUsuario);
 		usuario.setSenhaAlterada(true);
 		repository.save(usuario);
-		logger.infoComUsuario(String.format("Alterada senha do usuário %s!", usuario.infoParaLog()));
+		logger.info(String.format("Alterada senha do usuário %s!", usuario.infoParaLog()));
 	}
 	
 	private Usuario buscarUsuarioAutenticado() {

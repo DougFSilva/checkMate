@@ -31,7 +31,7 @@ public class AdicionaGuardiaoAoAmbienteService {
 		}
 		ambiente.adicionarGuardiao(usuario);
 		Ambiente ambienteSalvo = repository.save(ambiente);
-		logger.infoComUsuario(String.format(
+		logger.info(String.format(
 				"Adicionado guardião %s para o ambiente %s", usuario.infoParaLog(), ambiente.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}

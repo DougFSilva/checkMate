@@ -27,7 +27,7 @@ public class DeletaUsuarioService {
 					"Não é possível excluir o usuário, pois há ambientes associados a ele!");
 		}
 		repository.delete(usuario);
-		logger.infoComUsuario(String.format("Usuário %s deletado", usuario.infoParaLog()));
+		logger.info(String.format("Usuário %s deletado", usuario.infoParaLog()));
 	}
 
 }

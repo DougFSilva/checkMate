@@ -21,14 +21,16 @@ public class CriaUsuarioService {
     private static final LoggerPadrao logger = new LoggerPadrao(CriaUsuarioService.class);
 	private final UsuarioRepository repository;
 	private final CodificadorDeSenha codificadorDeSenha;
+	private final ValidaUsuarioService validaUsuarioService;
 	
 	@Transactional
 	public UsuarioResponse criar(UsuarioForm form) {
+		validaUsuarioService.validarUnicoEmail(form.email());
 		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);
 		Perfil perfil = new Perfil(form.tipoPerfil());
 		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());
 		Usuario usuarioSalvo = repository.save(usuario);
-		logger.infoComUsuario(String.format("Usuário %s criado", usuarioSalvo.infoParaLog()));
+		logger.info(String.format("Usuário %s criado", usuarioSalvo.infoParaLog()));
 		return new UsuarioResponse(usuarioSalvo);
 	}
 	

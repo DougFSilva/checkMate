@@ -34,7 +34,7 @@ public class EditaCompartimentoService {
 		compartimento.setNome(form.nome());
 		compartimento.setDescricao(form.descricao());
 		Compartimento compartimentoSalvo = repository.save(compartimento);
-		logger.infoComUsuario(String.format("Editado comaprtimento %s", compartimento.infoParaLog()));
+		logger.info(String.format("Editado comaprtimento %s", compartimento.infoParaLog()));
 		return new CompartimentoResponse(compartimentoSalvo);
 	}
 }

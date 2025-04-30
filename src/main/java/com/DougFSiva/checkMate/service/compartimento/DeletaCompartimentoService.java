@@ -31,7 +31,7 @@ public class DeletaCompartimentoService {
 		}
 		repository.delete(compartimento);
 		deletarImagem(compartimento);
-		logger.infoComUsuario(String.format("Deletado compartimento %s", compartimento.infoParaLog()));
+		logger.info(String.format("Deletado compartimento %s", compartimento.infoParaLog()));
 	}
 	
 	private void deletarImagem(Compartimento compartimento) {

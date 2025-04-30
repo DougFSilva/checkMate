@@ -27,7 +27,7 @@ public class CriaAmbienteService {
 		String imagem = ImagemConfig.getNomeImagemAmbienteDefault();
 		ambiente.setImagem(imagem);
 		Ambiente ambienteSalvo = repository.save(ambiente);
-		logger.infoComUsuario(String.format("Ambiente %s criado", ambienteSalvo.infoParaLog()));
+		logger.info(String.format("Ambiente %s criado", ambienteSalvo.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}
 	

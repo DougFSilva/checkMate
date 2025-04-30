@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,6 +41,7 @@ public class Ambiente {
 	)
 	private List<Usuario> guardioes = new ArrayList<>();
 	
+	@Column(unique = true)
 	private String nome;
 	private String descricao;
 	private String localizacao;

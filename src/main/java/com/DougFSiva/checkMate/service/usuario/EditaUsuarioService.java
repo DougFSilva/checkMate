@@ -22,14 +22,16 @@ public class EditaUsuarioService {
 
 	private final static LoggerPadrao logger = new LoggerPadrao(EditaUsuarioService.class);
 	private final UsuarioRepository repository;
+	private final ValidaUsuarioService validaUsuarioService;
 
 	@Transactional
 	public UsuarioResponse editar(Long ID, UsuarioForm form) {
+		validaUsuarioService.validarUnicoEmail(form.email());
 		validarUsuarioAutenticado(ID);
 		Usuario usuario = repository.findByIdOrElseThrow(ID);
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
-		logger.infoComUsuario(String.format("Usuário %s editado para %s!", usuario.infoParaLog(), usuarioSalvo));
+		logger.info(String.format("Usuário %s editado para %s!", usuario.infoParaLog(), usuarioSalvo));
 		return new UsuarioResponse(usuarioSalvo);
 	}
 	

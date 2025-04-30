@@ -27,7 +27,7 @@ public class EditaAmbienteService {
 		ambiente.setDescricao(form.descricao());
 		ambiente.setLocalizacao(form.localizacao());
 		Ambiente ambienteSalvo = repository.save(ambiente);
-		logger.infoComUsuario(String.format("Editado ambiente %s", ambiente.infoParaLog()));
+		logger.info(String.format("Editado ambiente %s", ambiente.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}
 	

@@ -1,11 +1,14 @@
 - Apagar usuario automaticamente com Schedule
-- Garantir atributos unicos com spring data
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Conexão MQTT
 - Comentários em aplication.properties
-- Adicionar @Unique e outras validações nos models
 - A alteração de senha de usuário deve surtir efeito quando não alterada
-- Melhorar as exceções sobre security
 - Criar usuário padrão ao iniciar aplicação
+
+
+Onde parei:
+- Concluir application.properties, verificando a possibilidade do usuario nao ter validade. Ou quando for
+excluir o usuario não permitir caso este seja admin
+- Concluir a criação do admin na classe principal

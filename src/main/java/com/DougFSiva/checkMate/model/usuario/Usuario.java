@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.DougFSiva.checkMate.model.Ambiente;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,6 +44,8 @@ public class Usuario implements UserDetails{
 	
 	private String nome;
 	private String CPF;
+	
+	@Column(unique = true)
 	private String email;
 	
 	@Embedded

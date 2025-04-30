@@ -32,7 +32,7 @@ public class SalvaImagemItemService {
 		String nomeImagemSalva = salvaImagemService.salvarImagem(imagem, nomeImagem);
 		item.setImagem(nomeImagemSalva);
 		Item itemSalvo = repository.save(item);
-		logger.infoComUsuario(String.format("Alterada imagem de Item %s", item.infoParaLog()));
+		logger.info(String.format("Alterada imagem de Item %s", item.infoParaLog()));
 		return new ItemResponse(itemSalvo);
 	}
 	

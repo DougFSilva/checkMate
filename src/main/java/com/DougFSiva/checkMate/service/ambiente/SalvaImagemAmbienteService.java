@@ -32,7 +32,7 @@ public class SalvaImagemAmbienteService {
 		String nomeImagemSalva = salvaImagemService.salvarImagem(imagem, nomeImagem);
 		ambiente.setImagem(nomeImagemSalva);
 		Ambiente ambienteSalvo = repository.save(ambiente);
-		logger.infoComUsuario(String.format("Alterada imagem de ambiente %s", ambiente.infoParaLog()));
+		logger.info(String.format("Alterada imagem de ambiente %s", ambiente.infoParaLog()));
 		return new AmbienteResponse(ambienteSalvo);
 	}
 

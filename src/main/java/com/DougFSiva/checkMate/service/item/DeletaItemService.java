@@ -24,7 +24,7 @@ public class DeletaItemService {
     	Item item = repository.findByIdOrElseThrow(ID);
     	repository.delete(item);
     	deletarImagem(item);
-    	logger.infoComUsuario(String.format("Deletado item %s", item.infoParaLog()));
+    	logger.info(String.format("Deletado item %s", item.infoParaLog()));
     }
     
     private void deletarImagem(Item item) {

@@ -26,7 +26,7 @@ public class EncerraOcorrenciaService {
 		ocorrencia.setEncerrada(true);
 		ocorrencia.setResponsavelEncerramento(buscaUsuarioAutenticado.buscar());
 		repository.save(ocorrencia);
-		logger.infoComUsuario(String.format("Ocorrência com ID %d encerrada", id));
+		logger.info(String.format("Ocorrência com ID %d encerrada", id));
 	}
 	
 	private void validarOcorrenciaTratada(Ocorrencia ocorrencia) {

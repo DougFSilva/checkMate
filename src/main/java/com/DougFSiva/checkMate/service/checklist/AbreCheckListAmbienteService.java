@@ -45,7 +45,7 @@ public class AbreCheckListAmbienteService {
 		checkList.setResponsavelAbertura(usuario);
 		CheckListAmbiente checkListSalvo = checkListAmbienteRepository.save(checkList);
 		criarChecklistsPorCompartimento (checkListSalvo);
-		logger.infoComUsuario(String.format("Aberto check-list para ambiente %s", ambiente.infoParaLog()));
+		logger.info(String.format("Aberto check-list para ambiente %s", ambiente.infoParaLog()));
 		return new CheckListAmbienteResponse(checkListSalvo);
 	}
 	

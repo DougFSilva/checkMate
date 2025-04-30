@@ -31,7 +31,7 @@ public class EditaItemService {
     	item.setDescricao(form.descricao());
     	item.setQuantidade(form.quantidade());
     	Item itemSalvo = repository.save(item);
-    	logger.infoComUsuario(String.format("Item %s editado", item.infoParaLog()));
+    	logger.info(String.format("Item %s editado", item.infoParaLog()));
     	return new ItemResponse(itemSalvo);
     }
 

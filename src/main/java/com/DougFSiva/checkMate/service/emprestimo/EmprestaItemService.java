@@ -36,7 +36,7 @@ public class EmprestaItemService {
 		Usuario emprestador = buscaUsuarioAutenticado.buscar();
 		Emprestimo emprestimo = new Emprestimo(item, emprestador, solicitante, LocalDateTime.now());
 		Emprestimo EmprestimoSalvo = repository.save(emprestimo);
-		logger.infoComUsuario(String.format("Item %s emprestado por %s para %s", 
+		logger.info(String.format("Item %s emprestado por %s para %s", 
 				item.infoParaLog(), emprestador.infoParaLog(), solicitante.infoParaLog()));
 		return new EmprestimoResponse(EmprestimoSalvo);
 	}
