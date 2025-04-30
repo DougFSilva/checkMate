@@ -31,7 +31,8 @@ public class SegurancaConfig {
 	@Value("${cors.frontend.origin}")
 	private String frontendOrigin;
 
-	private final FiltroAutenticacaoJWT filtroDeAutenticacao;
+	private final FiltroAutenticacaoJWT filtroJWT;
+	private final VerificaSenhaAlteradaFilter senhaAlteradaFilter;
 
 	@Bean
 	AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder,
@@ -50,7 +51,8 @@ public class SegurancaConfig {
 				.anyRequest().authenticated())
 				.sessionManagement(sessionManagement -> 
 			sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.addFilterBefore(filtroDeAutenticacao, UsernamePasswordAuthenticationFilter.class);
+				.addFilterBefore(filtroJWT, UsernamePasswordAuthenticationFilter.class)
+				.addFilterAfter(senhaAlteradaFilter, FiltroAutenticacaoJWT.class);
 		return http.build();
     }
 	

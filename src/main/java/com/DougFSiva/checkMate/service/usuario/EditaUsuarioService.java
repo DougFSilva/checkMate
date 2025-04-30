@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.UsuarioForm;
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
-import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
 import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
@@ -47,18 +46,15 @@ public class EditaUsuarioService {
 		return usuario;
 	}
 	
-	 private void validarUsuarioAutenticado(Long ID) {
-	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	    String emailUsuarioAutenticado = authentication.getName();
-        Usuario usuarioAutenticado = repository.findByEmail(emailUsuarioAutenticado)
-           .orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
-        boolean mesmoUsuario = usuarioAutenticado.getID().equals(ID);
-        boolean ehAdmin = usuarioAutenticado.getPerfil().getTipo() == TipoPerfil.ADMIN;
+	private void validarUsuarioAutenticado(Long ID) {
+		Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
+	    Usuario usuarioAutenticado = (Usuario) autenticacao.getPrincipal();
+	    boolean mesmoUsuario = usuarioAutenticado.getID().equals(ID);
+	    boolean ehAdmin = usuarioAutenticado.getPerfil().getTipo() == TipoPerfil.ADMIN;
 
-        if (!mesmoUsuario && !ehAdmin) {
-            throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
-        }
-    }
-
+	    if (!mesmoUsuario && !ehAdmin) {
+	        throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
+	    }
+	}
 	
 }
