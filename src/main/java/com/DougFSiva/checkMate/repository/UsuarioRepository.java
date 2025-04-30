@@ -24,7 +24,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
 	Page<Usuario> findByPerfil_Tipo(TipoPerfil tipoPerfil, Pageable paginacao);
 	
-	List<Usuario> findByDataValidadeBefore(LocalDate data);
+	List<Usuario> findByPerfil_TipoAndDataValidadeBefore(TipoPerfil tipoPerfil, LocalDate data);
 	
 	boolean existsByEmail(String email);
 }
