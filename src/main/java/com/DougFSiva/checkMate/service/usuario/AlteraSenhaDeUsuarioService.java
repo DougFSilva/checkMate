@@ -40,8 +40,8 @@ public class AlteraSenhaDeUsuarioService {
 	}
 	
 	private Usuario buscarUsuarioAutenticado() {
-		  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		    String emailUsuarioAutenticado = authentication.getName();
+		  Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
+		    String emailUsuarioAutenticado = autenticacao.getName();
 		    return repository.findByEmail(emailUsuarioAutenticado)
 			           .orElseThrow(() -> new ObjetoNaoEncontradoException(
 			        		   String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));

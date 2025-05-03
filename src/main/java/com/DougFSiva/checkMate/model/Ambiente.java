@@ -1,18 +1,10 @@
 package com.DougFSiva.checkMate.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.DougFSiva.checkMate.model.usuario.Usuario;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -33,14 +25,6 @@ public class Ambiente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 	
-	@ManyToMany
-	@JoinTable(
-		name = "ambiente_guardiao", 
-		joinColumns = @JoinColumn(name = "ambiente_id"), 
-		inverseJoinColumns = @JoinColumn(name = "usuario_id")
-	)
-	private List<Usuario> guardioes = new ArrayList<>();
-	
 	@Column(unique = true)
 	private String nome;
 	private String descricao;
@@ -51,14 +35,6 @@ public class Ambiente {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.localizacao = localizacao;
-	}
-	
-	public void adicionarGuardiao(Usuario usuario) {
-		this.guardioes.add(usuario);
-	}
-	
-	public void removerGuardiao(Usuario usuario) {
-		this.guardioes.removeIf(guardiao -> guardiao.equals(usuario));
 	}
 	
 	public String infoParaLog() {

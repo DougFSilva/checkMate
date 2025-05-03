@@ -18,12 +18,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.DougFSiva.checkMate.dto.form.AmbienteForm;
 import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
-import com.DougFSiva.checkMate.service.ambiente.AdicionaGuardiaoAoAmbienteService;
 import com.DougFSiva.checkMate.service.ambiente.BuscaAmbienteService;
 import com.DougFSiva.checkMate.service.ambiente.CriaAmbienteService;
 import com.DougFSiva.checkMate.service.ambiente.DeletaAmbienteService;
 import com.DougFSiva.checkMate.service.ambiente.EditaAmbienteService;
-import com.DougFSiva.checkMate.service.ambiente.RemoveGuardiaoDoAmbienteService;
 import com.DougFSiva.checkMate.service.ambiente.SalvaImagemAmbienteService;
 
 import jakarta.validation.Valid;
@@ -34,12 +32,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AmbienteController {
 
-	private final AdicionaGuardiaoAoAmbienteService adicionaGuardiaoService;
 	private final BuscaAmbienteService buscaAmbienteService;
 	private final CriaAmbienteService criaAmbienteService;
 	private final DeletaAmbienteService deletaAmbienteService;
 	private final EditaAmbienteService editaAmbienteService;
-	private final RemoveGuardiaoDoAmbienteService removeGuardiaoService;
 	private final SalvaImagemAmbienteService salvaImagemAmbienteService;
 
 	@PostMapping
@@ -71,22 +67,6 @@ public class AmbienteController {
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
 		AmbienteResponse ambiente = salvaImagemAmbienteService.salvar(imagem, ID);
-		return ResponseEntity.ok().body(ambiente);
-	}
-	
-	@PostMapping("/{ID}/guardiao/{guardiaoID}")
-	public ResponseEntity<AmbienteResponse> adicionarGuardiaoAoAmbiente(
-			@PathVariable Long ID,
-			@PathVariable Long guardiaoID){
-		AmbienteResponse ambiente = adicionaGuardiaoService.adicionar(guardiaoID, ID);
-		return ResponseEntity.ok().body(ambiente);
-	}
-	
-	@DeleteMapping("/{ID}/guardiao/{guardiaoID}")
-	public ResponseEntity<AmbienteResponse> removerGuardiaoDoAmbiente(
-			@PathVariable Long ID,
-			@PathVariable Long guardiaoID) {
-		AmbienteResponse ambiente = removeGuardiaoService.remover(guardiaoID, ID);
 		return ResponseEntity.ok().body(ambiente);
 	}
 	

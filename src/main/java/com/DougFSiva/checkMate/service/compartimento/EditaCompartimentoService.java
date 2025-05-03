@@ -26,8 +26,10 @@ public class EditaCompartimentoService {
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
 	public CompartimentoResponse editar(Long ID, CompartimentoForm form) {
-		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
+		if (!form.codigo().equals(compartimento.getCodigo())) {
+			validaCompartimento.validarUnicoCodigo(form.codigo());
+		}
 		if (form.ambienteID() != compartimento.getAmbiente().getID()) {
 			Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());
 			compartimento.setAmbiente(ambiente);

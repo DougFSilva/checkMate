@@ -28,6 +28,7 @@ public class CriaUsuarioService {
 	@PreAuthorize("hasRole('ADMIN')")
 	public UsuarioResponse criar(UsuarioForm form) {
 		validaUsuarioService.validarUnicoEmail(form.email());
+		validaUsuarioService.validarUnicoCPF(form.CPF());
 		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);
 		Perfil perfil = new Perfil(form.tipoPerfil());
 		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());

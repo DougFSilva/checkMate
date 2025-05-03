@@ -1,8 +1,17 @@
 
 - Pensar em alguma estratégia para questão de banco de dados muito grande
-- Formatar os responses se necessário
-- Verificar a real necessidade dos guardiões
+
 - Comentários em aplication.properties
 - Adicionar outros exceptions comun em excepetionHandler
 - Configurar tamanho maximo de imagem
+- Não permitir Criar usuário com CPF igual
+- Editar Usuario vai dar errado porque recebe o mesmo email e cpf e a validacao sempre vai dar erro
+
+
+
+
+Analisar
+- Alterar cpf para email como username?
+- Formatar os responses se necessário
+- Verificar a real necessidade dos guardiões
 - Melhorar validação de CPF

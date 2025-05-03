@@ -28,9 +28,14 @@ public class EditaUsuarioService {
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
 	public UsuarioResponse editar(Long ID, UsuarioForm form) {
-		validaUsuarioService.validarUnicoEmail(form.email());
-		validarUsuarioAutenticado(ID);
 		Usuario usuario = repository.findByIdOrElseThrow(ID);
+		validarUsuarioAutenticado(usuario);
+		if (!form.email().equals(usuario.getEmail())) {
+			validaUsuarioService.validarUnicoEmail(form.email());
+		}
+		if (!form.CPF().equals(usuario.getCPF())) {
+			validaUsuarioService.validarUnicoCPF(form.CPF());
+		}
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
 		logger.info(String.format("Usuário %s editado para %s!", usuario.infoParaLog(), usuarioSalvo));
@@ -46,10 +51,10 @@ public class EditaUsuarioService {
 		return usuario;
 	}
 	
-	private void validarUsuarioAutenticado(Long ID) {
+	private void validarUsuarioAutenticado(Usuario usuario) {
 		Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
 	    Usuario usuarioAutenticado = (Usuario) autenticacao.getPrincipal();
-	    boolean mesmoUsuario = usuarioAutenticado.getID().equals(ID);
+	    boolean mesmoUsuario = usuarioAutenticado.getID().equals(usuario.getID());
 	    boolean ehAdmin = usuarioAutenticado.getPerfil().getTipo() == TipoPerfil.ADMIN;
 
 	    if (!mesmoUsuario && !ehAdmin) {

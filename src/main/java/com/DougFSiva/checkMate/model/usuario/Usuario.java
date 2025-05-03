@@ -1,15 +1,11 @@
 package com.DougFSiva.checkMate.model.usuario;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.DougFSiva.checkMate.model.Ambiente;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,7 +15,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -60,9 +55,6 @@ public class Usuario implements UserDetails{
 	
 	private LocalDate dataValidade;
 	
-	@ManyToMany(mappedBy = "guardioes")
-	private List<Ambiente> ambientes = new ArrayList<>();
-	
 	public Usuario(String nome, String CPF, String email, SenhaDeUsuario senha, Boolean senhaAlterada, Perfil perfil, LocalDate dataValidade) {
 		this.nome = nome;
 		this.CPF = CPF;
@@ -93,7 +85,7 @@ public class Usuario implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return this.CPF;
+		return this.email;
 	}
 	
 }

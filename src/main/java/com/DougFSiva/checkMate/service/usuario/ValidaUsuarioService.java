@@ -19,4 +19,11 @@ public class ValidaUsuarioService {
 					String.format("Usuário com email %s já existente", email));
 		}
 	}
+	
+	public void validarUnicoCPF(String CPF) {
+		if (repository.existsByCPF(CPF)) {
+			throw new ErroDeOperacaoComUsuarioException(
+					String.format("Usuário com CPF %s já existente", CPF));
+		}
+	}
 }
