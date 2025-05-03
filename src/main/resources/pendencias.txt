@@ -3,7 +3,3 @@
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Comentários em aplication.properties
-
-- Verificar a anotação 
-
- fazer algum tipo de pre configuração no sistema
