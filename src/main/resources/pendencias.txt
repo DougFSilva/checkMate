@@ -1,8 +1,9 @@
-- Apagar usuario automaticamente com Schedule
+
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
-- Conexão MQTT
 - Comentários em aplication.properties
 
-Onde parei:
+- Verificar a anotação 
+
+ fazer algum tipo de pre configuração no sistema

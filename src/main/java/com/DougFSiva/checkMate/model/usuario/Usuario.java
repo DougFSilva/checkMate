@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.DougFSiva.checkMate.model.Ambiente;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -53,7 +54,7 @@ public class Usuario implements UserDetails{
 	
 	private Boolean senhaAlterada;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "perfil_id", nullable = false)
 	private Perfil perfil;
 	
