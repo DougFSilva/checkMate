@@ -96,10 +96,4 @@ public class Usuario implements UserDetails{
 		return this.CPF;
 	}
 	
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return this.senhaAlterada;
-	}
-	
-	
 }

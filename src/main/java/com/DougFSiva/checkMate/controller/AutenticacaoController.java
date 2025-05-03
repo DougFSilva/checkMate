@@ -37,7 +37,7 @@ public class AutenticacaoController {
 			TokenResponse tokenResponse = new TokenResponse(token, "Bearer ", usuario, usuario.getPerfil());
 			return ResponseEntity.ok().body(tokenResponse);
 		} catch (AuthenticationException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			throw new ErroDeAutenticacaoDeUsuarioException("Usuário ou senha inválidos", e);
 		}	
 	}

@@ -34,13 +34,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AmbienteController {
 
-	private AdicionaGuardiaoAoAmbienteService adicionaGuardiaoService;
-	private BuscaAmbienteService buscaAmbienteService;
-	private CriaAmbienteService criaAmbienteService;
-	private DeletaAmbienteService deletaAmbienteService;
-	private EditaAmbienteService editaAmbienteService;
-	private RemoveGuardiaoDoAmbienteService removeGuardiaoService;
-	private SalvaImagemAmbienteService salvaImagemAmbienteService;
+	private final AdicionaGuardiaoAoAmbienteService adicionaGuardiaoService;
+	private final BuscaAmbienteService buscaAmbienteService;
+	private final CriaAmbienteService criaAmbienteService;
+	private final DeletaAmbienteService deletaAmbienteService;
+	private final EditaAmbienteService editaAmbienteService;
+	private final RemoveGuardiaoDoAmbienteService removeGuardiaoService;
+	private final SalvaImagemAmbienteService salvaImagemAmbienteService;
 
 	@PostMapping
 	public ResponseEntity<AmbienteResponse> criarAmbiente(@Valid @RequestBody AmbienteForm form) {

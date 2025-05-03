@@ -13,6 +13,6 @@ public class ErroResponse {
 
 	private LocalDateTime timestamp;
 	private int status;
-	private String message;
+	private String mensagens;
 	private String path;
 }

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -20,6 +21,7 @@ import com.DougFSiva.checkMate.exception.ErroDeOperacaoComOcorrenciaException;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComUsuarioException;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
+import com.DougFSiva.checkMate.exception.SenhaNaoAlteradaException;
 import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -168,6 +170,33 @@ public class ExceptionHandlerController {
 				request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(erro);
 	}
+	
+	@ExceptionHandler(SenhaNaoAlteradaException.class)
+	public ResponseEntity<ErroResponse> senhaNaoAlteradaException(SenhaNaoAlteradaException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.FORBIDDEN.value(), 
+				e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(erro);
+	}
+	
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<ErroResponse> methodArgumentNotValidException(MethodArgumentNotValidException e,
+			HttpServletRequest request) {
+		 StringBuilder erros = new StringBuilder();
 
+		    e.getBindingResult().getAllErrors().forEach(error -> {
+		        String msg = error.getDefaultMessage();
+		        erros.append(msg).append(" ");
+		    });
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.BAD_REQUEST.value(), 
+				erros.toString(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+	}
 
 }

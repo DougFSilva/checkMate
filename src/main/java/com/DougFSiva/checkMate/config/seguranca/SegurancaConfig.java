@@ -32,7 +32,7 @@ public class SegurancaConfig {
 	private String frontendOrigin;
 
 	private final FiltroAutenticacaoJWT filtroJWT;
-	private final VerificaSenhaAlteradaFilter senhaAlteradaFilter;
+	private final SenhaAlteradaFilter senhaAlteradaFilter;
 
 	@Bean
 	AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder,

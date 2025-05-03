@@ -3,3 +3,6 @@
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Comentários em aplication.properties
+- Adicionar outros exceptions comun em excepetionHandler
+- Configurar tamanho maximo de imagem
+- Melhorar validação de CPF
