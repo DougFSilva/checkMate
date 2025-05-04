@@ -16,14 +16,20 @@ public class BuscaImagemService {
 
 	@Value("${app.dir.imagens}")
 	private String diretorioBase;
-	
+
 	@PreAuthorize("isAuthenticated()")
 	public Resource buscar(String nomeImagem) {
-		 Path path = Path.of(diretorioBase, nomeImagem);
-		    try {
-		        return new UrlResource(path.toUri());
-		    } catch (MalformedURLException e) {
-		        throw new ErroDeOperacaoComImagemException("Erro ao buscar imagem", e);
-		    }
+		if (nomeImagem.contains("..")) {
+			throw new ErroDeOperacaoComImagemException("Nome de imagem inválido");
+		}
+		Path path = Path.of(diretorioBase, nomeImagem);
+		try {
+			if (!path.toFile().exists()) {
+				throw new ErroDeOperacaoComImagemException("Imagem não encontrada: " + nomeImagem);
+			}
+			return new UrlResource(path.toUri());
+		} catch (MalformedURLException e) {
+			throw new ErroDeOperacaoComImagemException("Erro ao buscar imagem", e);
+		}
 	}
 }

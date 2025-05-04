@@ -23,8 +23,10 @@ public class EditaAmbienteService {
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
 	public AmbienteResponse editar(Long ID, AmbienteForm form) {
-		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
+		if (!form.nome().equals(ambiente.getNome())) {
+			validaAmbiente.validarUnicoNome(form.nome());
+		}
 		ambiente.setNome(form.nome());
 		ambiente.setDescricao(form.descricao());
 		ambiente.setLocalizacao(form.localizacao());

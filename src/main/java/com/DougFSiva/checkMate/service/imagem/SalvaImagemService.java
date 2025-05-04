@@ -81,7 +81,7 @@ public class SalvaImagemService {
 	}
 
 	private String normalizarNome(String nome) {
-		String nomeNormalizado = nome.toLowerCase().replaceAll("\\s+", "_").replaceAll("[^a-z0-9_.-]", "");
+		String nomeNormalizado = nome.toLowerCase().replaceAll("\\s+", "_").replaceAll("[^a-z0-9_.\\-/]", "");
 
 		if (nomeNormalizado.isBlank()) {
 			throw new ErroDeOperacaoComImagemException(

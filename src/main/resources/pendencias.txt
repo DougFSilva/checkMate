@@ -4,14 +4,17 @@
 - Comentários em aplication.properties
 - Adicionar outros exceptions comun em excepetionHandler
 - Configurar tamanho maximo de imagem
-- Não permitir Criar usuário com CPF igual
-- Editar Usuario vai dar errado porque recebe o mesmo email e cpf e a validacao sempre vai dar erro
-
-
-
+- Buscar imagens já foi feito?
+- Adicionar cache
 
 Analisar
 - Alterar cpf para email como username?
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Melhorar validação de CPF
+
+
+
+Testar:
+- Logs
+- MQTT

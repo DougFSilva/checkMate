@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.DougFSiva.checkMate.dto.response.ErroResponse;
 import com.DougFSiva.checkMate.exception.EmailInvalidoException;
@@ -199,4 +200,37 @@ public class ExceptionHandlerController {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 	}
 
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<ErroResponse> illegalArgumentException(IllegalArgumentException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.BAD_REQUEST.value(), 
+				e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+	}
+	
+	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
+	public ResponseEntity<ErroResponse> methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.BAD_REQUEST.value(), 
+				e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErroResponse> exception(Exception e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.INTERNAL_SERVER_ERROR.value(), 
+				"Erro inesperado: " + e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(erro);
+	}
+	
 }
