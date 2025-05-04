@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
-import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
 import com.DougFSiva.checkMate.service.imagem.SalvaImagemService;
@@ -25,7 +25,7 @@ public class SalvaImagemCompartimentoService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	public CompartimentoResponse salvar(MultipartFile imagem, Long ID) {
+	public CompartimentoDetalhadoResponse salvar(MultipartFile imagem, Long ID) {
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 
 				ImagemConfig.PASTA_IMAGEM_COMPARTIMENTO, 
@@ -35,7 +35,7 @@ public class SalvaImagemCompartimentoService {
 		compartimento.setImagem(nomeImagemSalva);
 		Compartimento compartimentoSalvo = repository.save(compartimento);
 		logger.info(String.format("Alterada imagem de compartimento %s", compartimento.infoParaLog()));
-		return new CompartimentoResponse(compartimentoSalvo);
+		return new CompartimentoDetalhadoResponse(compartimentoSalvo);
 	}
 	
 }

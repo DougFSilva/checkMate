@@ -19,7 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.DougFSiva.checkMate.dto.form.CompartimentoForm;
-import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoResumoResponse;
 import com.DougFSiva.checkMate.service.compartimento.BuscaCompartimentoService;
 import com.DougFSiva.checkMate.service.compartimento.CriaCompartimentoService;
 import com.DougFSiva.checkMate.service.compartimento.DeletaCompartimentoService;
@@ -41,8 +42,8 @@ public class CompartimentoController {
 	private final SalvaImagemCompartimentoService salvaImagemCompartimentoService;
 	
 	@PostMapping
-	public ResponseEntity<CompartimentoResponse> criarCompartimento(@Valid @RequestBody CompartimentoForm form) {
-		CompartimentoResponse compartimento = criaCompartimentoService.criar(form);
+	public ResponseEntity<CompartimentoDetalhadoResponse> criarCompartimento(@Valid @RequestBody CompartimentoForm form) {
+		CompartimentoDetalhadoResponse compartimento = criaCompartimentoService.criar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}")
 				.buildAndExpand(compartimento.getID())
@@ -57,36 +58,36 @@ public class CompartimentoController {
 	}
 	
 	@PutMapping("/{ID}")
-	public ResponseEntity<CompartimentoResponse> editarCompartimento(
+	public ResponseEntity<CompartimentoDetalhadoResponse> editarCompartimento(
 			@PathVariable Long ID, 
 			@Valid @RequestBody CompartimentoForm form) {
-		CompartimentoResponse compartimento = editaCompartimentoService.editar(ID, form);
+		CompartimentoDetalhadoResponse compartimento = editaCompartimentoService.editar(ID, form);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
 	@PostMapping("/imagem/{ID}")
-	public ResponseEntity<CompartimentoResponse> salvarImagemDeCompartimento(
+	public ResponseEntity<CompartimentoDetalhadoResponse> salvarImagemDeCompartimento(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
-		CompartimentoResponse compartimento = salvaImagemCompartimentoService.salvar(imagem, ID);
+		CompartimentoDetalhadoResponse compartimento = salvaImagemCompartimentoService.salvar(imagem, ID);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
 	@GetMapping("/{ID}")
-	public ResponseEntity<CompartimentoResponse> buscarCompartimentoPeloID(@PathVariable Long ID) {
-		CompartimentoResponse compartimento = buscaCompartimentoService.buscarPeloID(ID);
+	public ResponseEntity<CompartimentoDetalhadoResponse> buscarCompartimentoPeloID(@PathVariable Long ID) {
+		CompartimentoDetalhadoResponse compartimento = buscaCompartimentoService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
 	@GetMapping("/ambiente/{ambienteID}")
-	public ResponseEntity<List<CompartimentoResponse>> buscarCompartimentosPeloAmbiente(@PathVariable Long ambienteID) {
-		List<CompartimentoResponse> compartimentos = buscaCompartimentoService.buscarPeloAmbiente(ambienteID);
+	public ResponseEntity<List<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(@PathVariable Long ambienteID) {
+		List<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService.buscarPeloAmbiente(ambienteID);
 		return ResponseEntity.ok().body(compartimentos);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<CompartimentoResponse>> buscarTodosCompartimentos(Pageable paginacao) {
-		Page<CompartimentoResponse> compartimentos = buscaCompartimentoService.buscarTodos(paginacao);
+	public ResponseEntity<Page<CompartimentoResumoResponse>> buscarTodosCompartimentos(Pageable paginacao) {
+		Page<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(compartimentos);
 	}
 }

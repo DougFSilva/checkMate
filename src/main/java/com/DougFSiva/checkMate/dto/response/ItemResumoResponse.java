@@ -7,17 +7,15 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class ItemResponse {
+public class ItemResumoResponse {
 
 	private Long ID;
-	private CompartimentoResponse compartimento;
 	private String descricao;
 	private Integer quantidade;
 	private String imagem;
 	
-	public ItemResponse(Item item) {
+	public ItemResumoResponse(Item item) {
 		this.ID = item.getID();
-		this.compartimento = new CompartimentoResponse(item.getCompartimento());
 		this.descricao = item.getDescricao();
 		this.quantidade = item.getQuantidade();
 		this.imagem = item.getImagem();

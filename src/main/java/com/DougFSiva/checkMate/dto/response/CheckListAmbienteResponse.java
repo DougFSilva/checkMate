@@ -27,8 +27,12 @@ public class CheckListAmbienteResponse {
 		this.dataHoraLiberacao = checklist.getDataHoraLiberacao();
 		this.dataHoraEncerramento = checklist.getDataHoraEncerramento();
 		this.responsavelAbertura = new UsuarioResponse(checklist.getResponsavelAbertura());
-		this.responsavelLiberacao = new UsuarioResponse(checklist.getResponsavelLiberacao());
-		this.responsavelEncerramento = new UsuarioResponse(checklist.getResponsavelEncerramento());
+		if (checklist.getResponsavelLiberacao() != null) {
+			this.responsavelLiberacao = new UsuarioResponse(checklist.getResponsavelLiberacao());
+		}
+		if (checklist.getResponsavelEncerramento() != null) {
+			this.responsavelEncerramento = new UsuarioResponse(checklist.getResponsavelEncerramento());
+		}
 		this.status = checklist.getStatus();
 	}
 }

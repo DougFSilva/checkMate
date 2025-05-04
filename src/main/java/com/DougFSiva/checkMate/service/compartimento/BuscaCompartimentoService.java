@@ -8,7 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoResumoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
@@ -23,18 +24,18 @@ public class BuscaCompartimentoService {
 	private final AmbienteRepository ambienteRepository;
 	
 	@PreAuthorize("isAuthenticated()")
-	public CompartimentoResponse buscarPeloID(Long ID) {
-		return new CompartimentoResponse(repository.findByIdOrElseThrow(ID));
+	public CompartimentoDetalhadoResponse buscarPeloID(Long ID) {
+		return new CompartimentoDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 	
 	@PreAuthorize("isAuthenticated()")
-	public List<CompartimentoResponse> buscarPeloAmbiente(Long ambienteID) {
+	public List<CompartimentoResumoResponse> buscarPeloAmbiente(Long ambienteID) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
-		return repository.findByAmbiente(ambiente).stream().map(CompartimentoResponse::new).collect(Collectors.toList());
+		return repository.findByAmbiente(ambiente).stream().map(CompartimentoResumoResponse::new).collect(Collectors.toList());
 	}
 	
 	@PreAuthorize("isAuthenticated()")
-	public Page<CompartimentoResponse> buscarTodos(Pageable paginacao) {
-		return repository.findAll(paginacao).map(CompartimentoResponse::new);
+	public Page<CompartimentoResumoResponse> buscarTodos(Pageable paginacao) {
+		return repository.findAll(paginacao).map(CompartimentoResumoResponse::new);
 	}
 }

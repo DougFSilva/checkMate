@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.ItemForm;
-import com.DougFSiva.checkMate.dto.response.ItemResponse;
+import com.DougFSiva.checkMate.dto.response.ItemDetalhadoResponse;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
@@ -24,7 +24,7 @@ public class EditaItemService {
     
     @Transactional
     @PreAuthorize("hasRole('ADMIN')")
-    public ItemResponse editar(Long ID, ItemForm form) {
+    public ItemDetalhadoResponse editar(Long ID, ItemForm form) {
     	Item item = repository.findByIdOrElseThrow(ID);
     	if (form.compartimentoID() != item.getCompartimento().getID()) {
     		Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
@@ -34,7 +34,7 @@ public class EditaItemService {
     	item.setQuantidade(form.quantidade());
     	Item itemSalvo = repository.save(item);
     	logger.info(String.format("Item %s editado", item.infoParaLog()));
-    	return new ItemResponse(itemSalvo);
+    	return new ItemDetalhadoResponse(itemSalvo);
     }
 
 }

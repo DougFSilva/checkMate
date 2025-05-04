@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.CompartimentoForm;
-import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -25,7 +25,7 @@ public class EditaCompartimentoService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	public CompartimentoResponse editar(Long ID, CompartimentoForm form) {
+	public CompartimentoDetalhadoResponse editar(Long ID, CompartimentoForm form) {
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		if (!form.codigo().equals(compartimento.getCodigo())) {
 			validaCompartimento.validarUnicoCodigo(form.codigo());
@@ -39,6 +39,6 @@ public class EditaCompartimentoService {
 		compartimento.setDescricao(form.descricao());
 		Compartimento compartimentoSalvo = repository.save(compartimento);
 		logger.info(String.format("Editado comaprtimento %s", compartimento.infoParaLog()));
-		return new CompartimentoResponse(compartimentoSalvo);
+		return new CompartimentoDetalhadoResponse(compartimentoSalvo);
 	}
 }

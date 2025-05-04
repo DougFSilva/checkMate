@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
 import com.DougFSiva.checkMate.dto.form.CompartimentoForm;
-import com.DougFSiva.checkMate.dto.response.CompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -27,7 +27,7 @@ public class CriaCompartimentoService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	public CompartimentoResponse criar(CompartimentoForm form) {
+	public CompartimentoDetalhadoResponse criar(CompartimentoForm form) {
 		validaCompartimento.validarUnicoCodigo(form.codigo());
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(form.ambienteID());
 		Compartimento compartimento = new Compartimento(ambiente,form.nome(), form.codigo(), form.descricao());
@@ -35,7 +35,7 @@ public class CriaCompartimentoService {
 		compartimento.setImagem(imagem);
 		Compartimento compartimentoSalvo = repository.save(compartimento);
 		logger.info(String.format("Criado compartimento %s", compartimento.infoParaLog()));
-		return new CompartimentoResponse(compartimentoSalvo);
+		return new CompartimentoDetalhadoResponse(compartimentoSalvo);
 	}
 	
 }

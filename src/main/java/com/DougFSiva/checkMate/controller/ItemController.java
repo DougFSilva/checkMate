@@ -18,7 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.DougFSiva.checkMate.dto.form.ItemForm;
-import com.DougFSiva.checkMate.dto.response.ItemResponse;
+import com.DougFSiva.checkMate.dto.response.ItemDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.ItemResumoResponse;
 import com.DougFSiva.checkMate.service.item.BuscaItemService;
 import com.DougFSiva.checkMate.service.item.CriaItemService;
 import com.DougFSiva.checkMate.service.item.DeletaItemService;
@@ -40,8 +41,8 @@ public class ItemController {
 	private final SalvaImagemItemService salvaImagemItemService;
 	
 	@PostMapping
-	public ResponseEntity<ItemResponse> criarItem(@Valid @RequestBody ItemForm form) {
-		ItemResponse item = criaItemService.criar(form);
+	public ResponseEntity<ItemDetalhadoResponse> criarItem(@Valid @RequestBody ItemForm form) {
+		ItemDetalhadoResponse item = criaItemService.criar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{ID}")
 				.buildAndExpand(item.getID())
@@ -56,38 +57,38 @@ public class ItemController {
 	}
 	
 	@PutMapping("/{ID}")
-	public ResponseEntity<ItemResponse> editarItem(
+	public ResponseEntity<ItemDetalhadoResponse> editarItem(
 			@PathVariable Long ID, 
 			@Valid @RequestBody ItemForm form) {
-		ItemResponse item = editaItemService.editar(ID, form);
+		ItemDetalhadoResponse item = editaItemService.editar(ID, form);
 		return ResponseEntity.ok().body(item);
 	}
 	
 	@PostMapping("/imagem/{ID}")
-	public ResponseEntity<ItemResponse> salvarImagemDeItem(
+	public ResponseEntity<ItemDetalhadoResponse> salvarImagemDeItem(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
-		ItemResponse item = salvaImagemItemService.salvar(imagem, ID);
+		ItemDetalhadoResponse item = salvaImagemItemService.salvar(imagem, ID);
 		return ResponseEntity.ok().body(item);
 	}
 	
 	@GetMapping("/{ID}")
-	public ResponseEntity<ItemResponse> buscarItemPeloID(@PathVariable Long ID) {
-		ItemResponse item = buscaItemService.buscarPeloID(ID);
+	public ResponseEntity<ItemDetalhadoResponse> buscarItemPeloID(@PathVariable Long ID) {
+		ItemDetalhadoResponse item = buscaItemService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(item);
 	}
 	
-	@GetMapping("/{compartimentoID}")
-	public ResponseEntity<Page<ItemResponse>> buscarItensPeloCompartimento(
+	@GetMapping("/compartimento/{compartimentoID}")
+	public ResponseEntity<Page<ItemResumoResponse>> buscarItensPeloCompartimento(
 			@PathVariable Long compartimentoID,
 			Pageable paginacao) {
-		Page<ItemResponse> itens = buscaItemService.buscarPeloCompartimento(compartimentoID, paginacao);
+		Page<ItemResumoResponse> itens = buscaItemService.buscarPeloCompartimento(compartimentoID, paginacao);
 		return ResponseEntity.ok().body(itens);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<ItemResponse>> buscarTodosItens(Pageable paginacao) {
-		Page<ItemResponse> itens = buscaItemService.buscarTodos(paginacao);
+	public ResponseEntity<Page<ItemResumoResponse>> buscarTodosItens(Pageable paginacao) {
+		Page<ItemResumoResponse> itens = buscaItemService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(itens);
 
 	}

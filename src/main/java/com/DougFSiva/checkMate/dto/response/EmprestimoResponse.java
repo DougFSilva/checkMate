@@ -12,7 +12,7 @@ import lombok.ToString;
 public class EmprestimoResponse {
 
 	private Long ID;
-	private ItemResponse item;
+	private ItemDetalhadoResponse item;
 	private UsuarioResponse emprestador;
 	private UsuarioResponse solicitante;
 	private UsuarioResponse recebedor;
@@ -22,7 +22,7 @@ public class EmprestimoResponse {
 	
 	public EmprestimoResponse(Emprestimo emprestimo) {
 		this.ID = emprestimo.getID();
-		this.item = new ItemResponse(emprestimo.getItem());
+		this.item = new ItemDetalhadoResponse(emprestimo.getItem());
 		this.emprestador = new UsuarioResponse(emprestimo.getEmprestador());
 		this.recebedor = new UsuarioResponse(emprestimo.getRecebedor());
 		this.solicitante = new UsuarioResponse(emprestimo.getSolicitante());

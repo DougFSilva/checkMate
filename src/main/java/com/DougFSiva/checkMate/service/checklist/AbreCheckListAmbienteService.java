@@ -39,7 +39,7 @@ public class AbreCheckListAmbienteService {
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 
 	@Transactional
-	@PreAuthorize("hasRole('ADMIN', 'PROFESSOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
 	public CheckListAmbienteResponse abrir(Long ambienteID) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		Usuario usuario = buscaUsuarioAutenticado.buscar();
@@ -57,8 +57,8 @@ public class AbreCheckListAmbienteService {
 				.stream()
 				.map(compartimento -> new CheckListCompartimento(checkListAmbiente, compartimento))
 				.collect(Collectors.toList());
-		checkListCompartimentoRepository.saveAll(checkListsCompartimento);
-		checkListsCompartimento.forEach(this::criarItensDoChecklist);
+		List<CheckListCompartimento> checkListsCompartimentoSalvos = checkListCompartimentoRepository.saveAll(checkListsCompartimento);
+		checkListsCompartimentoSalvos.forEach(this::criarItensDoChecklist);
 	}
 
 	private void criarItensDoChecklist(CheckListCompartimento checkListCompartimento) {
@@ -68,7 +68,6 @@ public class AbreCheckListAmbienteService {
 				.map(item -> new ItemCheckList(checkListCompartimento, item))
 				.collect(Collectors.toList());
 		itemCheckListRepository.saveAll(itensCheckList);
-		
 	}
 	
 

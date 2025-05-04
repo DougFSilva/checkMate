@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,15 +35,15 @@ public class Emprestimo {
 	@JoinColumn(name = "item_id", nullable = false)
 	private Item item;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "emprestador_id", nullable = false)
 	private Usuario emprestador;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "solicitante_id", nullable = false)
 	private Usuario solicitante;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "recebedor_id", nullable = false)
 	private Usuario recebedor;
 	

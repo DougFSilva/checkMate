@@ -44,11 +44,11 @@ public class CheckListAmbiente {
 	private Usuario responsavelAbertura;
 	
 	@ManyToOne
-	@JoinColumn(name = "responsavel_liberacao_id", nullable = false)
+	@JoinColumn(name = "responsavel_liberacao_id")
 	private Usuario responsavelLiberacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "responsavel_encerramento_id", nullable = false)
+	@JoinColumn(name = "responsavel_encerramento_id")
 	private Usuario responsavelEncerramento;
 	
 	@Enumerated(EnumType.STRING)

@@ -34,7 +34,7 @@ public class LiberaCheckListAmbienteService {
 	private final PublicadorMqtt publicadorMqtt;
 	
 	@Transactional
-	@PreAuthorize("hasRole('ADMIN', 'PROFESSOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
 	public void liberarCheckList(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validarCheckListEntradaPreenchido(checkList);

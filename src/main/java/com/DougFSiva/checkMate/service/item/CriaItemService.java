@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
 import com.DougFSiva.checkMate.dto.form.ItemForm;
-import com.DougFSiva.checkMate.dto.response.ItemResponse;
+import com.DougFSiva.checkMate.dto.response.ItemDetalhadoResponse;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
@@ -25,12 +25,12 @@ public class CriaItemService {
     
     @Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	public ItemResponse criar(ItemForm form) {
+	public ItemDetalhadoResponse criar(ItemForm form) {
     	Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
     	Item item = new Item(compartimento, form.descricao(), form.quantidade());
     	item.setImagem(ImagemConfig.getNomeImagemItemDefault());
     	Item itemSalvo = repository.save(item);
     	logger.info(String.format("Criado item %s", item.infoParaLog()));
-    	return new ItemResponse(itemSalvo);
+    	return new ItemDetalhadoResponse(itemSalvo);
     }
 }
