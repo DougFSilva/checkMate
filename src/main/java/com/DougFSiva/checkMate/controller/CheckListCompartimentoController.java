@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DougFSiva.checkMate.dto.form.PreencheCheckListForm;
-import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoResumoResponse;
 import com.DougFSiva.checkMate.service.checklist.BuscaCheckListCompartimentoService;
 import com.DougFSiva.checkMate.service.checklist.PreencheCheckListEntradaService;
 import com.DougFSiva.checkMate.service.checklist.PreencheCheckListSaidaService;
@@ -30,33 +31,33 @@ public class CheckListCompartimentoController {
 	private final PreencheCheckListSaidaService preencheCheckListSaidaService;
 	private final BuscaCheckListCompartimentoService buscaCheckListCompartimentoService;
 
-	@PostMapping("/compartimento/preencher-entrada")
+	@PostMapping("/preencher-entrada")
 	public ResponseEntity<Void> preencherCheckListDeEntrada(@Valid @RequestBody PreencheCheckListForm form) {
 		preencheCheckListEntradaService.preencher(form);
 		return ResponseEntity.ok().build();
 	}
 	
-	@PostMapping("/compartimento/preencher-saida")
+	@PostMapping("/preencher-saida")
 	public ResponseEntity<Void> preencherCheckListDeSaida(@Valid @RequestBody PreencheCheckListForm form) {
 		preencheCheckListSaidaService.preencher(form);
 		return ResponseEntity.ok().build();
 	}
 	
-	@GetMapping("/compartimento/{compartimentoID}")
-	public ResponseEntity<CheckListCompartimentoResponse> buscarCheckListDeCompartimentoPeloID(@PathVariable Long compartimentoID) {
-		CheckListCompartimentoResponse checkList = buscaCheckListCompartimentoService.buscarPeloID(compartimentoID);
+	@GetMapping("/{ID}")
+	public ResponseEntity<CheckListCompartimentoDetalhadoResponse> buscarCheckListDeCompartimentoPeloID(@PathVariable Long ID) {
+		CheckListCompartimentoDetalhadoResponse checkList = buscaCheckListCompartimentoService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(checkList);
 	}
 	
-	@GetMapping("/compartimento/ambiente/{ambienteID}")
-	public ResponseEntity<List<CheckListCompartimentoResponse>> buscarCheckListDeCompartimentoPeloAmbiente(@PathVariable Long ambienteID) {
-		List<CheckListCompartimentoResponse> checkLists = buscaCheckListCompartimentoService.buscarPeloCheckListAmbiente(ambienteID);
+	@GetMapping("/check-list-ambiente/{checkListAmbienteID}")
+	public ResponseEntity<List<CheckListCompartimentoResumoResponse>> buscarCheckListDeCompartimentoPeloCheckListAmbiente(@PathVariable Long checkListAmbienteID) {
+		List<CheckListCompartimentoResumoResponse> checkLists = buscaCheckListCompartimentoService.buscarPeloCheckListAmbiente(checkListAmbienteID);
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
-	@GetMapping("/compartimento")
-	public ResponseEntity<Page<CheckListCompartimentoResponse>> buscarTodosCheckListsDeCompartimento(Pageable paginacao) {
-		Page<CheckListCompartimentoResponse> checkLists = buscaCheckListCompartimentoService.buscarTodos(paginacao);
+	@GetMapping
+	public ResponseEntity<Page<CheckListCompartimentoResumoResponse>> buscarTodosCheckListsDeCompartimento(Pageable paginacao) {
+		Page<CheckListCompartimentoResumoResponse> checkLists = buscaCheckListCompartimentoService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(checkLists);
 
 	}

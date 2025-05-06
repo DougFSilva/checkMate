@@ -1,4 +1,3 @@
-
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 
 - Comentários em aplication.properties
@@ -8,16 +7,14 @@
 - Adicionar cache
 - Achar alguma forma de diferenciar itens ???
 - Atualizar DTO's para LAZY
-- Adicionar readOnly = true nas consultas
 - Criar outras DTO's para buscas com detalhes
+- Falta Service BuscaItemCheckList
 
 Analisar
 - Alterar cpf para email como username?
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Melhorar validação de CPF
-- Alguma buscas retornar o item por exemplo com uma copia do corpartimento, ou seja muitos dados atoa
-
 
 Testar:
 - Logs

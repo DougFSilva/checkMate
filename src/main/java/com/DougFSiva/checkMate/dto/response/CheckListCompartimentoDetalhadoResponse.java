@@ -2,7 +2,6 @@ package com.DougFSiva.checkMate.dto.response;
 
 import java.time.LocalDateTime;
 
-import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimentoStatus;
 
@@ -11,19 +10,20 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class CheckListCompartimentoResponse {
+public class CheckListCompartimentoDetalhadoResponse {
 
 	private Long ID;
 	private CheckListAmbienteResponse checkListAmbiente;
-	private Compartimento compartimento;
+	private CompartimentoResumoResponse compartimento;
 	private LocalDateTime dataHoraPreenchimentoEntrada;
 	private LocalDateTime dataHoraPreenchimentoSaida;
 	private String executorPreenchimentoEntrada;
 	private String executorPreenchimentoSaida;
 	private CheckListCompartimentoStatus status;
 	
-	public CheckListCompartimentoResponse(CheckListCompartimento checkList) {
+	public CheckListCompartimentoDetalhadoResponse(CheckListCompartimento checkList) {
 		this.ID = checkList.getID();
+		this.compartimento = new CompartimentoResumoResponse(checkList.getCompartimento());
 		this.checkListAmbiente = new CheckListAmbienteResponse(checkList.getCheckListAmbiente());
 		this.dataHoraPreenchimentoEntrada = checkList.getDataHoraPreenchimentoEntrada();
 		this.dataHoraPreenchimentoSaida = checkList.getDataHoraPreenchimentoSaida();

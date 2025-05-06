@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.OcorrenciaResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
@@ -22,11 +23,13 @@ public class BuscaOcorrenciaService {
 	private final AmbienteRepository ambienteRepository;
 
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@Transactional(readOnly = true)
 	public OcorrenciaResponse buscarPeloID(Long ID) {
 		return new OcorrenciaResponse(repository.findByIdOrElseThrow(ID));
 	}
 
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@Transactional(readOnly = true)
 	public Page<OcorrenciaResponse> buscarPelaDataHora(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao) {
 		return repository
@@ -35,6 +38,7 @@ public class BuscaOcorrenciaService {
 	}
 	
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@Transactional(readOnly = true)
 	public Page<OcorrenciaResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByItemCheckList_Compartimento_Ambiente(ambiente, paginacao)

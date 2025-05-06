@@ -6,8 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListCompartimentoResumoResponse;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
 import com.DougFSiva.checkMate.repository.CheckListAmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
@@ -22,20 +24,23 @@ public class BuscaCheckListCompartimentoService {
 	private final CheckListAmbienteRepository checkListAmbienteRepository;
 	
 	@PreAuthorize("isAuthenticated()")
-	public CheckListCompartimentoResponse buscarPeloID(Long ID) {
-		return new CheckListCompartimentoResponse(repository.findByIdOrElseThrow(ID));
+	@Transactional(readOnly = true)
+	public CheckListCompartimentoDetalhadoResponse buscarPeloID(Long ID) {
+		return new CheckListCompartimentoDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 	
 	@PreAuthorize("isAuthenticated()")
-	public List<CheckListCompartimentoResponse> buscarPeloCheckListAmbiente(Long checkListAmbienteID) {
+	@Transactional(readOnly = true)
+	public List<CheckListCompartimentoResumoResponse> buscarPeloCheckListAmbiente(Long checkListAmbienteID) {
 		CheckListAmbiente checkListAmbiente = checkListAmbienteRepository.findByIdOrElseThrow(checkListAmbienteID);
 		return repository.findByCheckListAmbiente(checkListAmbiente)
 				.stream()
-				.map(CheckListCompartimentoResponse::new).toList();
+				.map(CheckListCompartimentoResumoResponse::new).toList();
 	}
 	
 	@PreAuthorize("isAuthenticated()")
-	public Page<CheckListCompartimentoResponse> buscarTodos(Pageable paginacao) {
-		return repository.findAll(paginacao).map(CheckListCompartimentoResponse::new);
+	@Transactional(readOnly = true)
+	public Page<CheckListCompartimentoResumoResponse> buscarTodos(Pageable paginacao) {
+		return repository.findAll(paginacao).map(CheckListCompartimentoResumoResponse::new);
 	}
 }

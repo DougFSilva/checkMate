@@ -37,7 +37,7 @@ public class PreencheCheckListSaidaService {
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
 	public void preencher(PreencheCheckListForm form) {
-		CheckListCompartimento checkList = repository.findByIdOrElseThrow(form.ID());
+		CheckListCompartimento checkList = repository.findByIdOrElseThrow(form.checkListCompartimentoID());
 		validarCheckListLiberado(checkList);
 		validarItens(form.itens());
 		List<ItemCheckList> itens = itemCheckListRepository.findByCheckListCompartimento(checkList);

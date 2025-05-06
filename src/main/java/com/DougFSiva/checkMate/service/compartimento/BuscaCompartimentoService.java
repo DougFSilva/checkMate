@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.CompartimentoResumoResponse;
@@ -24,17 +25,20 @@ public class BuscaCompartimentoService {
 	private final AmbienteRepository ambienteRepository;
 	
 	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public CompartimentoDetalhadoResponse buscarPeloID(Long ID) {
 		return new CompartimentoDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 	
 	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public List<CompartimentoResumoResponse> buscarPeloAmbiente(Long ambienteID) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByAmbiente(ambiente).stream().map(CompartimentoResumoResponse::new).collect(Collectors.toList());
 	}
 	
 	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public Page<CompartimentoResumoResponse> buscarTodos(Pageable paginacao) {
 		return repository.findAll(paginacao).map(CompartimentoResumoResponse::new);
 	}
