@@ -1,12 +1,11 @@
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 
 - Comentários em aplication.properties
-- Adicionar outros exceptions comun em excepetionHandler
+- Adicionar outros exceptions comum em excepetionHandler
 - Configurar tamanho maximo de imagem
 - Adicionar cache
 - Achar alguma forma de diferenciar itens ???
 - Atualizar DTO's para LAZY
-- Reenviar mensagem MQTT para liberar checklist e encerrar
 - Verificar todos os DTO's
 
 Analisar

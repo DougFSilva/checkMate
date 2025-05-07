@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.dto.response;
 import java.time.LocalDate;
 
 import com.DougFSiva.checkMate.model.usuario.Usuario;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -18,6 +19,8 @@ public class UsuarioResponse {
 	private String CPF;
 	private String email;
 	private String perfil;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataValidade;
 	
 	public UsuarioResponse(Usuario usuario) {

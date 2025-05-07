@@ -26577,3 +26577,737 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2025-05-07 15:39:16 [Thread-696] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-07 15:39:16 [Thread-696] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-78 - Shutdown initiated...
 2025-05-07 15:39:16 [Thread-696] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-78 - Shutdown completed.
+2025-05-07 15:39:17 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:39:17 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:39:17 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:39:17 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:39:17 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:39:17 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 297 ms
+2025-05-07 15:39:17 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:39:17 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:39:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-79 - Starting...
+2025-05-07 15:39:17 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-79 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4430c570
+2025-05-07 15:39:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-79 - Start completed.
+2025-05-07 15:39:17 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:39:17 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-79)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:39:17 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:39:17 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:39:17 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:39:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:39:18 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:39:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:39:18 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.201 seconds (process running for 21969.187)
+2025-05-07 15:39:18 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:40:30 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:40:30 [Thread-705] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:40:30 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:30 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:40:30 [Thread-705] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:30 [Thread-705] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:40:30 [Thread-705] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:40:30 [Thread-705] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-79 - Shutdown initiated...
+2025-05-07 15:40:30 [Thread-705] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-79 - Shutdown completed.
+2025-05-07 15:40:31 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:40:31 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:40:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:31 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:40:31 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:40:31 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 277 ms
+2025-05-07 15:40:31 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:40:31 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:40:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-80 - Starting...
+2025-05-07 15:40:31 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-80 - Added connection com.mysql.cj.jdbc.ConnectionImpl@740e6250
+2025-05-07 15:40:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-80 - Start completed.
+2025-05-07 15:40:31 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:40:31 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-80)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:40:31 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:40:31 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:40:31 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:40:32 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:40:32 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:32 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:40:32 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.253 seconds (process running for 22043.182)
+2025-05-07 15:40:32 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:40:37 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:40:37 [Thread-714] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:40:37 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:37 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:40:37 [Thread-714] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:37 [Thread-714] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:40:37 [Thread-714] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:40:37 [Thread-714] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-80 - Shutdown initiated...
+2025-05-07 15:40:37 [Thread-714] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-80 - Shutdown completed.
+2025-05-07 15:40:38 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:40:38 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:40:38 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:38 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:40:38 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:40:38 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 310 ms
+2025-05-07 15:40:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:40:38 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:40:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-81 - Starting...
+2025-05-07 15:40:38 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-81 - Added connection com.mysql.cj.jdbc.ConnectionImpl@314c60a5
+2025-05-07 15:40:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-81 - Start completed.
+2025-05-07 15:40:38 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:40:38 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-81)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:40:38 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:40:38 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:40:38 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:40:39 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:40:39 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:40:39 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:40:39 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.209 seconds (process running for 22050.154)
+2025-05-07 15:40:39 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:42:47 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:42:47 [Thread-723] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:42:47 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:42:47 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:42:47 [Thread-723] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:42:47 [Thread-723] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:42:47 [Thread-723] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:42:47 [Thread-723] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-81 - Shutdown initiated...
+2025-05-07 15:42:47 [Thread-723] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-81 - Shutdown completed.
+2025-05-07 15:42:47 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:42:47 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:42:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:42:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:42:48 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:42:48 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:42:48 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:42:48 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:42:48 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:42:48 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 305 ms
+2025-05-07 15:42:48 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:42:48 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:42:48 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:42:48 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-82 - Starting...
+2025-05-07 15:42:48 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-82 - Added connection com.mysql.cj.jdbc.ConnectionImpl@20dd8dcc
+2025-05-07 15:42:48 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-82 - Start completed.
+2025-05-07 15:42:48 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:42:48 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-82)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:42:48 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:42:48 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:42:48 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:42:48 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:42:49 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:42:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:42:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:42:49 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.337 seconds (process running for 22180.016)
+2025-05-07 15:42:49 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:43:00 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-07 15:43:00 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-07 15:43:00 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-07 15:43:49 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:43:49 [Thread-732] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:43:49 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:49 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:43:49 [Thread-732] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:49 [Thread-732] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:43:49 [Thread-732] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:43:49 [Thread-732] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-82 - Shutdown initiated...
+2025-05-07 15:43:49 [Thread-732] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-82 - Shutdown completed.
+2025-05-07 15:43:49 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:43:49 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:43:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:43:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:43:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 362 ms
+2025-05-07 15:43:49 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:43:49 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:43:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-83 - Starting...
+2025-05-07 15:43:49 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-83 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a42d134
+2025-05-07 15:43:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-83 - Start completed.
+2025-05-07 15:43:49 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:43:49 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-83)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:43:49 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:43:49 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:43:49 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:43:50 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:43:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:43:50 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.31 seconds (process running for 22241.54)
+2025-05-07 15:43:50 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:43:58 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:43:58 [Thread-741] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:43:58 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:58 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:43:58 [Thread-741] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:58 [Thread-741] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:43:58 [Thread-741] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:43:58 [Thread-741] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-83 - Shutdown initiated...
+2025-05-07 15:43:58 [Thread-741] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-83 - Shutdown completed.
+2025-05-07 15:43:58 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:43:58 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:43:58 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:43:58 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:43:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:43:58 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:58 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:43:58 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:43:58 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:43:58 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 290 ms
+2025-05-07 15:43:58 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:43:58 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:43:58 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:43:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-84 - Starting...
+2025-05-07 15:43:58 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-84 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e315eee
+2025-05-07 15:43:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-84 - Start completed.
+2025-05-07 15:43:58 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:43:58 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-84)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:43:58 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:43:58 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:43:59 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:43:59 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:43:59 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:43:59 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:43:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:43:59 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.243 seconds (process running for 22250.648)
+2025-05-07 15:43:59 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:06 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:06 [Thread-750] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:06 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:06 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:06 [Thread-750] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:06 [Thread-750] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:06 [Thread-750] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:06 [Thread-750] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-84 - Shutdown initiated...
+2025-05-07 15:44:06 [Thread-750] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-84 - Shutdown completed.
+2025-05-07 15:44:06 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:06 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:06 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:06 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:06 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:06 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:06 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:06 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 282 ms
+2025-05-07 15:44:06 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:06 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:06 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-85 - Starting...
+2025-05-07 15:44:06 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-85 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57db8487
+2025-05-07 15:44:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-85 - Start completed.
+2025-05-07 15:44:06 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:06 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-85)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:06 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:07 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:07 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:07 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:07 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:07 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:07 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.119 seconds (process running for 22258.607)
+2025-05-07 15:44:07 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:15 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:15 [Thread-759] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:15 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:15 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:15 [Thread-759] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:15 [Thread-759] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:15 [Thread-759] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:15 [Thread-759] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-85 - Shutdown initiated...
+2025-05-07 15:44:15 [Thread-759] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-85 - Shutdown completed.
+2025-05-07 15:44:15 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:15 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:15 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:15 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:15 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:15 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:15 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:15 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:15 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 312 ms
+2025-05-07 15:44:15 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:15 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:15 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-86 - Starting...
+2025-05-07 15:44:15 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-86 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42bfb44d
+2025-05-07 15:44:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-86 - Start completed.
+2025-05-07 15:44:15 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:15 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-86)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:16 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:16 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:16 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:16 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:16 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:16 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:16 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:16 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.212 seconds (process running for 22267.68)
+2025-05-07 15:44:16 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:19 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:19 [Thread-768] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:19 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:19 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:19 [Thread-768] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:19 [Thread-768] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:19 [Thread-768] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:19 [Thread-768] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-86 - Shutdown initiated...
+2025-05-07 15:44:19 [Thread-768] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-86 - Shutdown completed.
+2025-05-07 15:44:19 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:19 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:19 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:19 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:19 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:19 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 294 ms
+2025-05-07 15:44:19 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:19 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-87 - Starting...
+2025-05-07 15:44:19 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-87 - Added connection com.mysql.cj.jdbc.ConnectionImpl@292a8577
+2025-05-07 15:44:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-87 - Start completed.
+2025-05-07 15:44:19 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:19 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-87)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:19 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:19 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:19 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:20 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:20 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:20 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.156 seconds (process running for 22271.479)
+2025-05-07 15:44:20 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:35 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:35 [Thread-777] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:35 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:35 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:35 [Thread-777] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:35 [Thread-777] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:35 [Thread-777] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:35 [Thread-777] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-87 - Shutdown initiated...
+2025-05-07 15:44:35 [Thread-777] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-87 - Shutdown completed.
+2025-05-07 15:44:35 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:35 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:35 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:36 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:36 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:36 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:36 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:36 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 276 ms
+2025-05-07 15:44:36 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:36 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:36 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-88 - Starting...
+2025-05-07 15:44:36 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-88 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e3790fc
+2025-05-07 15:44:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-88 - Start completed.
+2025-05-07 15:44:36 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:36 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-88)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:36 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:36 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:36 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:36 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:37 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:37 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:37 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.27 seconds (process running for 22287.971)
+2025-05-07 15:44:37 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:38 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:38 [Thread-786] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:38 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:38 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:38 [Thread-786] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:38 [Thread-786] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:38 [Thread-786] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:38 [Thread-786] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-88 - Shutdown initiated...
+2025-05-07 15:44:38 [Thread-786] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-88 - Shutdown completed.
+2025-05-07 15:44:38 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:38 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:38 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:38 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:38 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:38 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:38 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 295 ms
+2025-05-07 15:44:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:38 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:38 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-89 - Starting...
+2025-05-07 15:44:38 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-89 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a772c65
+2025-05-07 15:44:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-89 - Start completed.
+2025-05-07 15:44:38 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:38 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-89)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:39 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:39 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:39 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:39 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:39 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:39 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:39 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:39 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.142 seconds (process running for 22290.693)
+2025-05-07 15:44:39 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:45 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:45 [Thread-795] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:45 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:45 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:45 [Thread-795] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:45 [Thread-795] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:45 [Thread-795] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:45 [Thread-795] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-89 - Shutdown initiated...
+2025-05-07 15:44:45 [Thread-795] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-89 - Shutdown completed.
+2025-05-07 15:44:45 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:45 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:45 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:45 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:45 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:45 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:45 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:45 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:45 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 275 ms
+2025-05-07 15:44:45 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:45 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:45 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-90 - Starting...
+2025-05-07 15:44:45 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-90 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ac758eb
+2025-05-07 15:44:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-90 - Start completed.
+2025-05-07 15:44:45 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:45 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-90)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:45 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:46 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:46 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:46 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:46 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:46 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:46 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.127 seconds (process running for 22297.603)
+2025-05-07 15:44:46 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:44:52 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:44:52 [Thread-804] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:44:52 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:52 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:44:52 [Thread-804] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:52 [Thread-804] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:44:52 [Thread-804] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:52 [Thread-804] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-90 - Shutdown initiated...
+2025-05-07 15:44:52 [Thread-804] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-90 - Shutdown completed.
+2025-05-07 15:44:52 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:44:52 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:44:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:44:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:44:52 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:44:52 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:52 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:44:52 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:44:52 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:44:52 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 308 ms
+2025-05-07 15:44:52 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:44:52 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:44:52 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:44:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-91 - Starting...
+2025-05-07 15:44:52 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-91 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a5c1e42
+2025-05-07 15:44:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-91 - Start completed.
+2025-05-07 15:44:52 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:44:52 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-91)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:44:52 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:44:52 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:44:53 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:44:53 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:44:53 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:44:53 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:44:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:44:53 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.188 seconds (process running for 22304.49)
+2025-05-07 15:44:53 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:45:01 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:45:01 [Thread-813] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:45:01 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:01 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:45:01 [Thread-813] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:01 [Thread-813] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:45:01 [Thread-813] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:01 [Thread-813] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-91 - Shutdown initiated...
+2025-05-07 15:45:01 [Thread-813] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-91 - Shutdown completed.
+2025-05-07 15:45:01 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:45:01 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:45:01 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:01 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:45:01 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:45:01 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 303 ms
+2025-05-07 15:45:01 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:45:01 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:45:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-92 - Starting...
+2025-05-07 15:45:01 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-92 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b58671e
+2025-05-07 15:45:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-92 - Start completed.
+2025-05-07 15:45:01 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:45:01 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-92)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:45:01 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:01 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:45:01 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:45:02 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:45:02 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:02 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:45:02 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.144 seconds (process running for 22313.406)
+2025-05-07 15:45:02 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:45:15 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:45:15 [Thread-822] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:45:15 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:15 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:45:15 [Thread-822] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:15 [Thread-822] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:45:15 [Thread-822] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:15 [Thread-822] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-92 - Shutdown initiated...
+2025-05-07 15:45:15 [Thread-822] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-92 - Shutdown completed.
+2025-05-07 15:45:15 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:45:15 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:45:15 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:45:15 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:45:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:45:15 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:15 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:45:15 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:45:15 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:45:15 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 292 ms
+2025-05-07 15:45:15 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:45:15 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:45:15 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:45:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-93 - Starting...
+2025-05-07 15:45:15 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-93 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51e58d34
+2025-05-07 15:45:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-93 - Start completed.
+2025-05-07 15:45:15 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:45:15 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-93)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:45:16 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:45:16 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:16 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:45:16 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:45:16 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:45:16 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:16 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:45:16 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.15 seconds (process running for 22327.663)
+2025-05-07 15:45:16 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:45:29 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:45:29 [Thread-831] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:45:29 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:29 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:45:29 [Thread-831] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:29 [Thread-831] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:45:29 [Thread-831] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:29 [Thread-831] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-93 - Shutdown initiated...
+2025-05-07 15:45:29 [Thread-831] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-93 - Shutdown completed.
+2025-05-07 15:45:29 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:45:29 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:45:30 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:30 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:45:30 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:45:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 277 ms
+2025-05-07 15:45:30 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:45:30 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:45:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-94 - Starting...
+2025-05-07 15:45:30 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-94 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d3f6ef9
+2025-05-07 15:45:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-94 - Start completed.
+2025-05-07 15:45:30 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:45:30 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-94)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:45:30 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:30 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:45:30 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:45:31 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:45:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:45:31 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.24 seconds (process running for 22342.019)
+2025-05-07 15:45:31 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:45:33 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:45:33 [Thread-840] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:45:33 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:33 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:45:33 [Thread-840] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:33 [Thread-840] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:45:33 [Thread-840] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:33 [Thread-840] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-94 - Shutdown initiated...
+2025-05-07 15:45:33 [Thread-840] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-94 - Shutdown completed.
+2025-05-07 15:45:33 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 20928 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-05-07 15:45:33 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-07 15:45:33 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-07 15:45:33 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 10 JPA repository interfaces.
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-07 15:45:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:34 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-07 15:45:34 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-07 15:45:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 319 ms
+2025-05-07 15:45:34 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-07 15:45:34 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-07 15:45:34 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-95 - Starting...
+2025-05-07 15:45:34 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-95 - Added connection com.mysql.cj.jdbc.ConnectionImpl@738893ee
+2025-05-07 15:45:34 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-95 - Start completed.
+2025-05-07 15:45:34 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-07 15:45:34 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-95)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-07 15:45:34 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:34 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-07 15:45:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-05-07 15:45:34 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.19 seconds (process running for 22345.847)
+2025-05-07 15:45:34 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-07 15:45:53 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-07 15:45:53 [Thread-849] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-07 15:45:53 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:53 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-05-07 15:45:53 [Thread-849] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-07 15:45:53 [Thread-849] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-05-07 15:45:53 [Thread-849] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-07 15:45:53 [Thread-849] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-95 - Shutdown initiated...
+2025-05-07 15:45:53 [Thread-849] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-95 - Shutdown completed.

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimentoStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -15,7 +16,11 @@ public class CheckListCompartimentoDetalhadoResponse {
 	private Long ID;
 	private CheckListAmbienteDetalhadoResponse checkListAmbiente;
 	private CompartimentoResumoResponse compartimento;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraPreenchimentoEntrada;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraPreenchimentoSaida;
 	private String executorPreenchimentoEntrada;
 	private String executorPreenchimentoSaida;
