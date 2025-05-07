@@ -63,7 +63,7 @@ public class AbreCheckListAmbienteService {
 
 	private void criarItensDoChecklist(CheckListCompartimento checkListCompartimento) {
 		List<ItemCheckList> itensCheckList = itemRepository
-				.findByCompartimento(checkListCompartimento.getCompartimento())
+				.findByCompartimentoAndVerificavel(checkListCompartimento.getCompartimento(), true)
 				.stream()
 				.map(item -> new ItemCheckList(checkListCompartimento, item))
 				.collect(Collectors.toList());

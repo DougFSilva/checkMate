@@ -13,6 +13,7 @@ public class ItemDetalhadoResponse {
 	private CompartimentoDetalhadoResponse compartimento;
 	private String descricao;
 	private Integer quantidade;
+	private boolean verificavel;
 	private String imagem;
 	
 	public ItemDetalhadoResponse(Item item) {
@@ -20,6 +21,7 @@ public class ItemDetalhadoResponse {
 		this.compartimento = new CompartimentoDetalhadoResponse(item.getCompartimento());
 		this.descricao = item.getDescricao();
 		this.quantidade = item.getQuantidade();
+		this.verificavel = item.isVerificavel();
 		this.imagem = item.getImagem();
 	}
 	

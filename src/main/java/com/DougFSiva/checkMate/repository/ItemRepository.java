@@ -20,5 +20,7 @@ public interface ItemRepository extends JpaRepository<Item, Long>{
 	
 	List<Item> findByCompartimento(Compartimento compartimento);
 	
+	List<Item> findByCompartimentoAndVerificavel(Compartimento compartimento, boolean verificavel);
+	
 	boolean existsByCompartimento(Compartimento compartimento);
 }

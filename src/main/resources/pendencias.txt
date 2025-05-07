@@ -15,6 +15,7 @@
    esse itemCheckList ou então, não permitir deletar item mas sim mudar algum status, ou então
    não permitir deletar o item se tiver checklist dele e então ao extrair os dados ao final do tempo
    daí sim apagar todos itens checkList e ocorrências
+ - Endpoint para mudar status verificavel do item
 
 Analisar
 - Alterar cpf para email como username?

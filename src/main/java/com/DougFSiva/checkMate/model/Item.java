@@ -34,11 +34,13 @@ public class Item {
 	private String descricao;
 	private Integer quantidade;
 	private String imagem;
+	private boolean verificavel;
 	
 	public Item(Compartimento compartimento, String descricao, Integer quantidade) {
 		this.compartimento = compartimento;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
+		this.verificavel = true;
 	}
 	
 	public String infoParaLog() {
