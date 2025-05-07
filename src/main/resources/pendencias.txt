@@ -11,8 +11,6 @@
 - Falta Service BuscaItemCheckList
 - Melhorar mensagem de erro se o usuário tentar liberar um checklist que esteja encerrado
 - Refazer testes de geração e fluxo de checklists com um unico checklist para garantir
-- E se chechar um ItemCheckList por vez??
-- Não deixar fazer preenchimento de entrada ou saída duas vezes
 - Ao deletar item, deve se deletar também todo itemCheckList com esse item, e as ocorrencias para 
    esse itemCheckList ou então, não permitir deletar item mas sim mudar algum status, ou então
    não permitir deletar o item se tiver checklist dele e então ao extrair os dados ao final do tempo
