@@ -38,7 +38,8 @@ public class PreencheCheckListSaidaService {
 	@PreAuthorize("isAuthenticated()")
 	public void preencher(PreencheCheckListForm form) {
 		CheckListCompartimento checkList = repository.findByIdOrElseThrow(form.checkListCompartimentoID());
-		validarCheckListLiberado(checkList);
+		validarCheckListAmbienteLiberado(checkList);
+		validarCheckListNaoPreenchido(checkList);
 		validarItens(form.itens());
 		List<ItemCheckList> itens = itemCheckListRepository.findByCheckListCompartimento(checkList);
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
@@ -51,12 +52,30 @@ public class PreencheCheckListSaidaService {
 
 	}
 
-	private void validarCheckListLiberado(CheckListCompartimento checkList) {
+	private void validarCheckListAmbienteLiberado(CheckListCompartimento checkList) {
 		if (checkList.getCheckListAmbiente().getStatus() != CheckListAmbienteStatus.LIBERADO) {
 			throw new ErroDeOperacaoComCheckListException(
 					"O check-list de compartimento de saída só pode ser preenchido se "
 					+ "o check-list do ambiente estiver com o status 'Liberado'.");
 		}
+	}
+	
+	private void validarCheckListNaoPreenchido(CheckListCompartimento checkList) {
+		switch (checkList.getStatus()) {
+			case NAO_PREENCHIDO: {
+				throw new ErroDeOperacaoComCheckListException(
+						"O check-list de compartimento de entrada ainda não foi preenchido");
+			}
+			case SAIDA_PREENCHIDO: {
+				throw new ErroDeOperacaoComCheckListException(
+						"O check-list de compartimento de saída já foi preenchido");
+			}
+			case ENTRADA_PREENCHIDO: {
+				return;
+			}
+		
+		}
+		
 	}
 
 	private void validarItens(List<ItemCheckListForm> itens) {
