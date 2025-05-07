@@ -37,7 +37,8 @@ public class EncerraCheckListAmbienteService {
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
 	public void encerrar(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
-		validarCheckListSaidaPreenchido(checkList);
+		validarStatusCheckList(checkList);
+		validarTodosCheckListsSaidaPreenchidos(checkList);
 		checkList.setDataHoraEncerramento(LocalDateTime.now());
 		checkList.setResponsavelEncerramento(buscaUsuarioAutenticado.buscar());
 		checkList.setStatus(CheckListAmbienteStatus.ENCERRADO);
@@ -49,7 +50,7 @@ public class EncerraCheckListAmbienteService {
 
 	}
 	
-	private void validarCheckListSaidaPreenchido(CheckListAmbiente checkListAmbiente) {
+	private void validarTodosCheckListsSaidaPreenchidos(CheckListAmbiente checkListAmbiente) {
 		boolean existeNaoPreenchido = checkListCompartimentoRepository.findByCheckListAmbiente(checkListAmbiente)
 		.stream()
 		.anyMatch(checkListCompartimento -> 
@@ -58,6 +59,26 @@ public class EncerraCheckListAmbienteService {
 			throw new ErroDeOperacaoComCheckListException(
 					"O check-list do ambiente só pode ser encerrado se todos os check-lists"
 					+ " de saída dos compartimentos estiverem concluídos");
+		}
+	}
+	
+	private void validarStatusCheckList(CheckListAmbiente checklist) {
+		switch (checklist.getStatus()) {
+			case LIBERADO: {
+				return;
+				
+			}
+			case ABERTO: {
+				throw new ErroDeOperacaoComCheckListException(
+						"O check-list do ambiente só pode ser encerrado se estiver liberado");
+				
+			}
+			
+			case ENCERRADO: {
+				throw new ErroDeOperacaoComCheckListException(
+						"O check-list do ambiente já foi encerrado");
+				
+			}
 		}
 	}
 	

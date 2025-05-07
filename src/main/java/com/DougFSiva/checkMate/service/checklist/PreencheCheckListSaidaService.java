@@ -62,6 +62,9 @@ public class PreencheCheckListSaidaService {
 	
 	private void validarCheckListNaoPreenchido(CheckListCompartimento checkList) {
 		switch (checkList.getStatus()) {
+			case ENTRADA_PREENCHIDO: {
+				return;
+			}
 			case NAO_PREENCHIDO: {
 				throw new ErroDeOperacaoComCheckListException(
 						"O check-list de compartimento de entrada ainda não foi preenchido");
@@ -70,10 +73,7 @@ public class PreencheCheckListSaidaService {
 				throw new ErroDeOperacaoComCheckListException(
 						"O check-list de compartimento de saída já foi preenchido");
 			}
-			case ENTRADA_PREENCHIDO: {
-				return;
-			}
-		
+			
 		}
 		
 	}

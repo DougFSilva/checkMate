@@ -9,13 +9,11 @@
 - Atualizar DTO's para LAZY
 - Criar outras DTO's para buscas com detalhes
 - Falta Service BuscaItemCheckList
+- Só permitir encerrar uma vez o checklist
 - Melhorar mensagem de erro se o usuário tentar liberar um checklist que esteja encerrado
 - Refazer testes de geração e fluxo de checklists com um unico checklist para garantir
-- Ao deletar item, deve se deletar também todo itemCheckList com esse item, e as ocorrencias para 
-   esse itemCheckList ou então, não permitir deletar item mas sim mudar algum status, ou então
-   não permitir deletar o item se tiver checklist dele e então ao extrair os dados ao final do tempo
-   daí sim apagar todos itens checkList e ocorrências
- - Endpoint para mudar status verificavel do item
+- Reenviar mensagem MQTT para liberar checklist e encerrar
+
 
 Analisar
 - Alterar cpf para email como username?

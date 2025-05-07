@@ -32,6 +32,7 @@ public class EditaItemService {
     	}
     	item.setDescricao(form.descricao());
     	item.setQuantidade(form.quantidade());
+    	item.setVerificavel(form.verificavel());
     	Item itemSalvo = repository.save(item);
     	logger.info(String.format("Item %s editado", item.infoParaLog()));
     	return new ItemDetalhadoResponse(itemSalvo);

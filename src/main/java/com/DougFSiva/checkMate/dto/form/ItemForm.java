@@ -12,6 +12,9 @@ public record ItemForm(
 		String descricao,
 		
 		@NotNull(message = "A quantidade não pode ser vazia")
-		Integer quantidade) {
+		Integer quantidade,
+	
+		@NotNull(message = "O campo verificável não pode ser vazio")
+		boolean verificavel) {
 
 }

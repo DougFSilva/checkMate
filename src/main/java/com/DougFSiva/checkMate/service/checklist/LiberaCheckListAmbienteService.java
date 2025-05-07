@@ -37,6 +37,7 @@ public class LiberaCheckListAmbienteService {
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
 	public void liberarCheckList(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
+		validaCheckListAberto(checkList);
 		validarCheckListEntradaPreenchido(checkList);
 		checkList.setDataHoraLiberacao(LocalDateTime.now());
 		checkList.setResponsavelLiberacao(buscaUsuarioAutenticado.buscar());
@@ -57,6 +58,23 @@ public class LiberaCheckListAmbienteService {
 			throw new ErroDeOperacaoComCheckListException(
 					"O check-list do ambiente só pode ser liberado se todos os check-lists"
 					+ " de entrada dos compartimentos estiverem concluídos");
+		}
+	}
+	
+	private void validaCheckListAberto(CheckListAmbiente checklist) {
+		switch (checklist.getStatus()) {
+			case ABERTO: {
+				return;
+			}	
+			case LIBERADO: {
+				throw new ErroDeOperacaoComCheckListException(
+						"O check-list do ambiente já foi liberado");
+			}
+			case ENCERRADO: {
+				throw new ErroDeOperacaoComCheckListException(
+						"Não é possível liberar o checklist de ambiente pois o mesmo já foi encerrado");
+			}
+		
 		}
 	}
 }
