@@ -24,12 +24,11 @@ public class PublisherMosquitto implements PublicadorMqtt {
 		try {
 			MqttMessage mensagemMqtt = new MqttMessage(mensagem.getBytes());
 			mensagemMqtt.setQos(2);
+			mensagemMqtt.setRetained(true);
 			mqttClient.publish(topico, mensagemMqtt);
-			System.out.println("Enviando mensagem MQTT " + mensagem + " para tópico " + topico);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

@@ -44,19 +44,23 @@ public class CheckListCompartimentoController {
 	}
 	
 	@GetMapping("/{ID}")
-	public ResponseEntity<CheckListCompartimentoDetalhadoResponse> buscarCheckListDeCompartimentoPeloID(@PathVariable Long ID) {
+	public ResponseEntity<CheckListCompartimentoDetalhadoResponse> buscarCheckListDeCompartimentoPeloID(
+			@PathVariable Long ID) {
 		CheckListCompartimentoDetalhadoResponse checkList = buscaCheckListCompartimentoService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(checkList);
 	}
 	
 	@GetMapping("/check-list-ambiente/{checkListAmbienteID}")
-	public ResponseEntity<List<CheckListCompartimentoResumoResponse>> buscarCheckListDeCompartimentoPeloCheckListAmbiente(@PathVariable Long checkListAmbienteID) {
-		List<CheckListCompartimentoResumoResponse> checkLists = buscaCheckListCompartimentoService.buscarPeloCheckListAmbiente(checkListAmbienteID);
+	public ResponseEntity<List<CheckListCompartimentoResumoResponse>> buscarCheckListDeCompartimentoPeloCheckListAmbiente(
+			@PathVariable Long checkListAmbienteID) {
+		List<CheckListCompartimentoResumoResponse> checkLists = buscaCheckListCompartimentoService
+				.buscarPeloCheckListAmbiente(checkListAmbienteID);
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<CheckListCompartimentoResumoResponse>> buscarTodosCheckListsDeCompartimento(Pageable paginacao) {
+	public ResponseEntity<Page<CheckListCompartimentoResumoResponse>> buscarTodosCheckListsDeCompartimento(
+			Pageable paginacao) {
 		Page<CheckListCompartimentoResumoResponse> checkLists = buscaCheckListCompartimentoService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(checkLists);
 

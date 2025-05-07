@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.EmprestaItemForm;
-import com.DougFSiva.checkMate.dto.response.EmprestimoResponse;
+import com.DougFSiva.checkMate.dto.response.EmprestimoResumoResponse;
 import com.DougFSiva.checkMate.model.Emprestimo;
 import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -32,7 +32,7 @@ public class EmprestaItemService {
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN','PROFESSOR', 'FUNCIONARIO')")
-	public EmprestimoResponse emprestar(EmprestaItemForm form) {
+	public EmprestimoResumoResponse emprestar(EmprestaItemForm form) {
 		Item item = itemRepository.findByIdOrElseThrow(form.itemID());
 		Usuario solicitante = usuarioRepository.findByIdOrElseThrow(form.solicitanteID());
 		Usuario emprestador = buscaUsuarioAutenticado.buscar();
@@ -40,7 +40,7 @@ public class EmprestaItemService {
 		Emprestimo EmprestimoSalvo = repository.save(emprestimo);
 		logger.info(String.format("Item %s emprestado por %s para %s", 
 				item.infoParaLog(), emprestador.infoParaLog(), solicitante.infoParaLog()));
-		return new EmprestimoResponse(EmprestimoSalvo);
+		return new EmprestimoResumoResponse(EmprestimoSalvo);
 	}
 	
 }

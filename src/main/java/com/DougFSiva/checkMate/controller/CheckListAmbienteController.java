@@ -59,7 +59,8 @@ public class CheckListAmbienteController {
 	}
 	
 	@GetMapping("/{ID}")
-	public ResponseEntity<CheckListAmbienteDetalhadoResponse> buscarCheckListDeAmbientePeloID(@PathVariable Long ID) {
+	public ResponseEntity<CheckListAmbienteDetalhadoResponse> buscarCheckListDeAmbientePeloID(
+			@PathVariable Long ID) {
 		CheckListAmbienteDetalhadoResponse checkList = buscaCheckListAmbienteService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(checkList);
 	}
@@ -68,17 +69,18 @@ public class CheckListAmbienteController {
 	public ResponseEntity<Page<CheckListAmbienteResumoSemAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbiente(
 			@PathVariable Long ambienteID,
 			Pageable paginacao) {
-		Page<CheckListAmbienteResumoSemAmbienteResponse> checkLists = buscaCheckListAmbienteService.buscarPeloAmbiente(ambienteID, paginacao);
+		Page<CheckListAmbienteResumoSemAmbienteResponse> checkLists = buscaCheckListAmbienteService
+				.buscarPeloAmbiente(ambienteID, paginacao);
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
 	@GetMapping("/data-hora-encerramento")
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorDataHoraEncerramento(
-	        @RequestParam("dataInicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
-	        @RequestParam("dataFinal") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
+	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
+	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
 	        Pageable paginacao) {
-
-	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService.buscarPelaDataHoraEncerramento(dataInicial, dataFinal, paginacao);
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
+	    		.buscarPelaDataHoraEncerramento(dataInicial, dataFinal, paginacao);
 	    return ResponseEntity.ok(checkLists);
 	}
 	
@@ -87,7 +89,8 @@ public class CheckListAmbienteController {
 	        @PathVariable CheckListAmbienteStatus status,
 	        Pageable paginacao) {
 
-	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService.buscarPeloCheckListStatus(status, paginacao);
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
+	    		.buscarPeloCheckListStatus(status, paginacao);
 	    return ResponseEntity.ok(checkLists);
 	}
 	
@@ -95,7 +98,8 @@ public class CheckListAmbienteController {
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarTodosCheckListsDeAmbiente(
 	        Pageable paginacao) {
 
-	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService.buscarTodos(paginacao);
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
+	    		.buscarTodos(paginacao);
 	    return ResponseEntity.ok(checkLists);
 	}
 	

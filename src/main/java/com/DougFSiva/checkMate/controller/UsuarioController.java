@@ -57,7 +57,8 @@ public class UsuarioController {
 	}
 	
 	@PutMapping("/{ID}")
-	public ResponseEntity<UsuarioResponse> editarUsuario(@PathVariable Long ID, @Valid @RequestBody UsuarioForm form) {
+	public ResponseEntity<UsuarioResponse> editarUsuario(@PathVariable Long ID, 
+			@Valid @RequestBody UsuarioForm form) {
 		UsuarioResponse usuario = editaUsuarioService.editar(ID, form);
 		return ResponseEntity.ok().body(usuario);
 	}
@@ -75,7 +76,8 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloNome(@PathVariable String nome, Pageable paginacao){
+	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloNome(@PathVariable String nome, 
+			Pageable paginacao){
 		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloNome(nome, paginacao);
 		return ResponseEntity.ok().body(usuarios);
 	}

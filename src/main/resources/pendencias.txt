@@ -3,23 +3,18 @@
 - Comentários em aplication.properties
 - Adicionar outros exceptions comun em excepetionHandler
 - Configurar tamanho maximo de imagem
-- Buscar imagens já foi feito?
 - Adicionar cache
 - Achar alguma forma de diferenciar itens ???
 - Atualizar DTO's para LAZY
-- Criar outras DTO's para buscas com detalhes
-- Falta Service BuscaItemCheckList
-- Só permitir encerrar uma vez o checklist
-- Melhorar mensagem de erro se o usuário tentar liberar um checklist que esteja encerrado
-- Refazer testes de geração e fluxo de checklists com um unico checklist para garantir
 - Reenviar mensagem MQTT para liberar checklist e encerrar
-
+- Verificar todos os DTO's
 
 Analisar
 - Alterar cpf para email como username?
 - Formatar os responses se necessário
 - Verificar a real necessidade dos guardiões
 - Melhorar validação de CPF
+- Formatar DTO de datahora
 
 Testar:
 - Logs

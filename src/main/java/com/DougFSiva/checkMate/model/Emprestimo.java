@@ -44,7 +44,7 @@ public class Emprestimo {
 	private Usuario solicitante;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "recebedor_id", nullable = false)
+	@JoinColumn(name = "recebedor_id")
 	private Usuario recebedor;
 	
 	private LocalDateTime dataHoraEmprestimo;

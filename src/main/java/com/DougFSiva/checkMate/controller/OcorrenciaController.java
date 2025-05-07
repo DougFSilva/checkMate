@@ -1,15 +1,12 @@
 package com.DougFSiva.checkMate.controller;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,14 +32,14 @@ public class OcorrenciaController {
 	private final EncerraOcorrenciaService encerraOcorrenciaService;
 	private final BuscaOcorrenciaService buscaOcorrenciaService;
 	
-	@PatchMapping("/{ID}")
+	@PostMapping("/tratar/{ID}")
 	public ResponseEntity<OcorrenciaResponse> tratarOcorrencia(@Valid @RequestBody TrataOcorrenciaForm form, 
 			@PathVariable Long ID) {
 		OcorrenciaResponse ocorrencia = trataOcorrenciaService.tratar(ID, form);
 		return ResponseEntity.ok().body(ocorrencia);
 	}
 	
-	@PostMapping("/{ID}")
+	@PostMapping("/encerrar/{ID}")
 	public ResponseEntity<OcorrenciaResponse> encerrarOcorrencia(@PathVariable Long ID) {
 		encerraOcorrenciaService.encerrar(ID);
 		return ResponseEntity.ok().build();
@@ -56,30 +53,22 @@ public class OcorrenciaController {
 	
 	@GetMapping("/data")
 	public ResponseEntity<Page<OcorrenciaResponse>> buscarOcorrenciasPelaData(
-			@RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicial,
-			@RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFinal,
+			@RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataInicial,
+			@RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataFinal,
 			Pageable paginacao
 			){
-		LocalDateTime dataHoraInicial = dataInicial.atStartOfDay();
-	    LocalDateTime dataHoraFinal = dataFinal.atTime(LocalTime.MAX);
 		Page<OcorrenciaResponse> ocorrencias = buscaOcorrenciaService.buscarPelaDataHora(
-				dataHoraInicial, dataHoraFinal, paginacao);
+				dataInicial, dataFinal, paginacao);
 		return ResponseEntity.ok().body(ocorrencias);
-
 	}
 	
-	@GetMapping("/ambiente")
+	@GetMapping("/ambiente/{ambienteID}")
 	public ResponseEntity<Page<OcorrenciaResponse>> buscarOcorrenciasPeloAmbiente(
-			@RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicial,
-			@RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFinal,
+			@PathVariable Long ambienteID,
 			Pageable paginacao
 			){
-		LocalDateTime dataHoraInicial = dataInicial.atStartOfDay();
-	    LocalDateTime dataHoraFinal = dataFinal.atTime(LocalTime.MAX);
-		Page<OcorrenciaResponse> ocorrencias = buscaOcorrenciaService.buscarPelaDataHora(
-				dataHoraInicial, dataHoraFinal, paginacao);
+		Page<OcorrenciaResponse> ocorrencias = buscaOcorrenciaService.buscarPeloAmbiente(ambienteID, paginacao);
 		return ResponseEntity.ok().body(ocorrencias);
-
 	}
 	
 	@GetMapping

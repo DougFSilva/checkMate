@@ -9,10 +9,10 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class EmprestimoResponse {
+public class EmprestimoDetalhadoResponse {
 
 	private Long ID;
-	private ItemDetalhadoResponse item;
+	private ItemResumoResponse item;
 	private UsuarioResponse emprestador;
 	private UsuarioResponse solicitante;
 	private UsuarioResponse recebedor;
@@ -20,12 +20,15 @@ public class EmprestimoResponse {
 	private LocalDateTime dataHoraDevolucao;
 	private boolean devolvido;
 	
-	public EmprestimoResponse(Emprestimo emprestimo) {
+	public EmprestimoDetalhadoResponse(Emprestimo emprestimo) {
 		this.ID = emprestimo.getID();
-		this.item = new ItemDetalhadoResponse(emprestimo.getItem());
+		this.item = new ItemResumoResponse(emprestimo.getItem());
 		this.emprestador = new UsuarioResponse(emprestimo.getEmprestador());
-		this.recebedor = new UsuarioResponse(emprestimo.getRecebedor());
 		this.solicitante = new UsuarioResponse(emprestimo.getSolicitante());
+		if (emprestimo.getRecebedor() != null) {
+			this.recebedor = new UsuarioResponse(emprestimo.getRecebedor());
+		}
+		this.dataHoraDevolucao = emprestimo.getDataHoraDevolucao();
 		this.dataHoraEmprestimo = emprestimo.getDataHoraEmprestimo();
 		this.devolvido = emprestimo.isDevolvido();
 	}

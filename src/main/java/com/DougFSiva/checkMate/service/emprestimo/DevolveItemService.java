@@ -6,7 +6,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.response.EmprestimoResponse;
+import com.DougFSiva.checkMate.dto.response.EmprestimoResumoResponse;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComEmprestimoException;
 import com.DougFSiva.checkMate.model.Emprestimo;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -27,7 +27,7 @@ public class DevolveItemService {
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN','PROFESSOR', 'FUNCIONARIO')")
-	public EmprestimoResponse devolver(Long ID) {
+	public EmprestimoResumoResponse devolver(Long ID) {
 		Emprestimo emprestimo = repository.findByIdOrElseThrow(ID);
 		validarEmprestimoConcluido(emprestimo);
 		Usuario recebedor = buscaUsuarioAutenticado.buscar();
@@ -37,7 +37,7 @@ public class DevolveItemService {
 		Emprestimo emprestimoSalvo = repository.save(emprestimo);
 		logger.info(String.format(
 				"Empréstimo %d concluído por %s", emprestimo.getID(), recebedor.infoParaLog()));
-		return new EmprestimoResponse(emprestimoSalvo);
+		return new EmprestimoResumoResponse(emprestimoSalvo);
 	}
 	
 	private void validarEmprestimoConcluido(Emprestimo emprestimo) {

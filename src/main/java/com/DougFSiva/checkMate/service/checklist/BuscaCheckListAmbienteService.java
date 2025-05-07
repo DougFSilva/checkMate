@@ -42,7 +42,7 @@ public class BuscaCheckListAmbienteService {
 	@Transactional(readOnly = true)
 	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraEncerramento(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao) {
-		return repository.findByDataHoraEncerramento(dataInicial, dataFinal, paginacao)
+		return repository.findByDataHoraEncerramentoBetween(dataInicial, dataFinal, paginacao)
 				.map(CheckListAmbienteResumoResponse::new);
 	}
 

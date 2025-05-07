@@ -20,7 +20,7 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	
 	Page<CheckListAmbiente> findByAmbiente(Ambiente ambiente, Pageable paginacao);
 	
-	Page<CheckListAmbiente> findByDataHoraEncerramento(LocalDateTime dataInicial, LocalDateTime dataFinal,
+	Page<CheckListAmbiente> findByDataHoraEncerramentoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao);
 	
 	Page<CheckListAmbiente> findByStatus(CheckListAmbienteStatus status, Pageable paginacao);

@@ -42,7 +42,8 @@ public class CompartimentoController {
 	private final SalvaImagemCompartimentoService salvaImagemCompartimentoService;
 	
 	@PostMapping
-	public ResponseEntity<CompartimentoDetalhadoResponse> criarCompartimento(@Valid @RequestBody CompartimentoForm form) {
+	public ResponseEntity<CompartimentoDetalhadoResponse> criarCompartimento(
+			@Valid @RequestBody CompartimentoForm form) {
 		CompartimentoDetalhadoResponse compartimento = criaCompartimentoService.criar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}")
@@ -80,7 +81,8 @@ public class CompartimentoController {
 	}
 	
 	@GetMapping("/ambiente/{ambienteID}")
-	public ResponseEntity<List<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(@PathVariable Long ambienteID) {
+	public ResponseEntity<List<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(
+			@PathVariable Long ambienteID) {
 		List<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService.buscarPeloAmbiente(ambienteID);
 		return ResponseEntity.ok().body(compartimentos);
 	}

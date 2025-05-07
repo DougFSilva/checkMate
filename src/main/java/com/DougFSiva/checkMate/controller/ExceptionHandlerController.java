@@ -31,7 +31,8 @@ import jakarta.servlet.http.HttpServletRequest;
 public class ExceptionHandlerController {
 
 	@ExceptionHandler(EmailInvalidoException.class)
-	public ResponseEntity<ErroResponse> emailInvalidoException(EmailInvalidoException e, HttpServletRequest request) {
+	public ResponseEntity<ErroResponse> emailInvalidoException(EmailInvalidoException e, 
+			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
 				HttpStatus.BAD_REQUEST.value(), 
@@ -41,7 +42,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeAutenticacaoDeUsuarioException.class)
-	public ResponseEntity<ErroResponse> erroDeAutenticacaoDeUsuarioException(ErroDeAutenticacaoDeUsuarioException e,
+	public ResponseEntity<ErroResponse> erroDeAutenticacaoDeUsuarioException(
+			ErroDeAutenticacaoDeUsuarioException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -52,7 +54,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeMQTTException.class)
-	public ResponseEntity<ErroResponse> erroDeMQTTException(ErroDeMQTTException e, HttpServletRequest request) {
+	public ResponseEntity<ErroResponse> erroDeMQTTException(ErroDeMQTTException e, 
+			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
 				HttpStatus.INTERNAL_SERVER_ERROR.value(),
@@ -62,7 +65,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeOperacaoComAmbienteException.class)
-	public ResponseEntity<ErroResponse> erroDeOperacaoComAmbienteException(ErroDeOperacaoComAmbienteException e,
+	public ResponseEntity<ErroResponse> erroDeOperacaoComAmbienteException(
+			ErroDeOperacaoComAmbienteException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -73,7 +77,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeOperacaoComCheckListException.class)
-	public ResponseEntity<ErroResponse> erroDeOperacaoComCheckListException(ErroDeOperacaoComCheckListException e,
+	public ResponseEntity<ErroResponse> erroDeOperacaoComCheckListException(
+			ErroDeOperacaoComCheckListException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -95,7 +100,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeOperacaoComEmprestimoException.class)
-	public ResponseEntity<ErroResponse> erroDeOperacaoComEmprestimoException(ErroDeOperacaoComEmprestimoException e,
+	public ResponseEntity<ErroResponse> erroDeOperacaoComEmprestimoException(
+			ErroDeOperacaoComEmprestimoException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(),
@@ -106,7 +112,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeOperacaoComImagemException.class)
-	public ResponseEntity<ErroResponse> erroDeOperacaoComImagemException(ErroDeOperacaoComImagemException e,
+	public ResponseEntity<ErroResponse> erroDeOperacaoComImagemException(
+			ErroDeOperacaoComImagemException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -117,7 +124,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeOperacaoComOcorrenciaException.class)
-	public ResponseEntity<ErroResponse> erroDeOperacaoComOcorrenciaException(ErroDeOperacaoComOcorrenciaException e,
+	public ResponseEntity<ErroResponse> erroDeOperacaoComOcorrenciaException(
+			ErroDeOperacaoComOcorrenciaException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -128,7 +136,8 @@ public class ExceptionHandlerController {
 	}
 
 	@ExceptionHandler(ErroDeOperacaoComUsuarioException.class)
-	public ResponseEntity<ErroResponse> erroDeOperacaoComUsuarioException(ErroDeOperacaoComUsuarioException e,
+	public ResponseEntity<ErroResponse> erroDeOperacaoComUsuarioException(
+			ErroDeOperacaoComUsuarioException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -139,7 +148,8 @@ public class ExceptionHandlerController {
 	}
 	
 	@ExceptionHandler(ObjetoNaoEncontradoException.class)
-	public ResponseEntity<ErroResponse> objetoNaoEncontradoException(ObjetoNaoEncontradoException e,
+	public ResponseEntity<ErroResponse> objetoNaoEncontradoException(
+			ObjetoNaoEncontradoException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -150,7 +160,8 @@ public class ExceptionHandlerController {
 	}
 	
 	@ExceptionHandler(SenhaDeUsuarioInvalidaException.class)
-	public ResponseEntity<ErroResponse> senhaDeUsuarioInvalidaException(SenhaDeUsuarioInvalidaException e,
+	public ResponseEntity<ErroResponse> senhaDeUsuarioInvalidaException(
+			SenhaDeUsuarioInvalidaException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
@@ -212,7 +223,8 @@ public class ExceptionHandlerController {
 	}
 	
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
-	public ResponseEntity<ErroResponse> methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e,
+	public ResponseEntity<ErroResponse> methodArgumentTypeMismatchException(
+			MethodArgumentTypeMismatchException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
