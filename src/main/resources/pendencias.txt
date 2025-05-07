@@ -9,6 +9,10 @@
 - Atualizar DTO's para LAZY
 - Criar outras DTO's para buscas com detalhes
 - Falta Service BuscaItemCheckList
+- Melhorar mensagem de erro se o usuário tentar liberar um checklist que esteja encerrado
+- Refazer testes de geração e fluxo de checklists com um unico checklist para garantir
+- E se chechar um ItemCheckList por vez??
+- Não deixar fazer preenchimento de entrada ou saída duas vezes
 
 Analisar
 - Alterar cpf para email como username?

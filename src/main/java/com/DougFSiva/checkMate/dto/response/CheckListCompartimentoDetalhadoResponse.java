@@ -13,7 +13,7 @@ import lombok.ToString;
 public class CheckListCompartimentoDetalhadoResponse {
 
 	private Long ID;
-	private CheckListAmbienteResponse checkListAmbiente;
+	private CheckListAmbienteDetalhadoResponse checkListAmbiente;
 	private CompartimentoResumoResponse compartimento;
 	private LocalDateTime dataHoraPreenchimentoEntrada;
 	private LocalDateTime dataHoraPreenchimentoSaida;
@@ -24,7 +24,7 @@ public class CheckListCompartimentoDetalhadoResponse {
 	public CheckListCompartimentoDetalhadoResponse(CheckListCompartimento checkList) {
 		this.ID = checkList.getID();
 		this.compartimento = new CompartimentoResumoResponse(checkList.getCompartimento());
-		this.checkListAmbiente = new CheckListAmbienteResponse(checkList.getCheckListAmbiente());
+		this.checkListAmbiente = new CheckListAmbienteDetalhadoResponse(checkList.getCheckListAmbiente());
 		this.dataHoraPreenchimentoEntrada = checkList.getDataHoraPreenchimentoEntrada();
 		this.dataHoraPreenchimentoSaida = checkList.getDataHoraPreenchimentoSaida();
 		this.executorPreenchimentoEntrada = checkList.getExecutorPreenchimentoEntrada();

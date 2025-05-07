@@ -56,7 +56,7 @@ public class EncerraCheckListAmbienteService {
 			checkListCompartimento.getStatus() != CheckListCompartimentoStatus.SAIDA_PREENCHIDO);
 		if (existeNaoPreenchido) {
 			throw new ErroDeOperacaoComCheckListException(
-					"O check-list do ambiente só pode ser encerrado se todos os check-lists "
+					"O check-list do ambiente só pode ser encerrado se todos os check-lists"
 					+ " de saída dos compartimentos estiverem concluídos");
 		}
 	}

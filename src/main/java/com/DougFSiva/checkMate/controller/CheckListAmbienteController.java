@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListAmbienteDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoSemAmbienteResponse;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.service.checklist.AbreCheckListAmbienteService;
 import com.DougFSiva.checkMate.service.checklist.BuscaCheckListAmbienteService;
@@ -35,8 +37,8 @@ public class CheckListAmbienteController {
 	private final BuscaCheckListAmbienteService buscaCheckListAmbienteService;
 	
 	@PostMapping("/{ID}")
-	public ResponseEntity<CheckListAmbienteResponse> abrirCheckListDeAmbiente(@PathVariable Long ID) {
-		CheckListAmbienteResponse checkList = abreCheckListAmbienteService.abrir(ID);
+	public ResponseEntity<CheckListAmbienteDetalhadoResponse> abrirCheckListDeAmbiente(@PathVariable Long ID) {
+		CheckListAmbienteDetalhadoResponse checkList = abreCheckListAmbienteService.abrir(ID);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/ambiente/{ID}")
 				.buildAndExpand(checkList.getID())
@@ -57,43 +59,43 @@ public class CheckListAmbienteController {
 	}
 	
 	@GetMapping("/{ID}")
-	public ResponseEntity<CheckListAmbienteResponse> buscarCheckListDeAmbientePeloID(@PathVariable Long ID) {
-		CheckListAmbienteResponse checkList = buscaCheckListAmbienteService.buscarPeloID(ID);
+	public ResponseEntity<CheckListAmbienteDetalhadoResponse> buscarCheckListDeAmbientePeloID(@PathVariable Long ID) {
+		CheckListAmbienteDetalhadoResponse checkList = buscaCheckListAmbienteService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(checkList);
 	}
 
 	@GetMapping("/ambiente/{ambienteID}")
-	public ResponseEntity<Page<CheckListAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbiente(
+	public ResponseEntity<Page<CheckListAmbienteResumoSemAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbiente(
 			@PathVariable Long ambienteID,
 			Pageable paginacao) {
-		Page<CheckListAmbienteResponse> checkLists = buscaCheckListAmbienteService.buscarPeloAmbiente(ambienteID, paginacao);
+		Page<CheckListAmbienteResumoSemAmbienteResponse> checkLists = buscaCheckListAmbienteService.buscarPeloAmbiente(ambienteID, paginacao);
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
 	@GetMapping("/data-hora-encerramento")
-	public ResponseEntity<Page<CheckListAmbienteResponse>> buscarCheckListsDeAmbientePorDataHoraEncerramento(
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorDataHoraEncerramento(
 	        @RequestParam("dataInicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
 	        @RequestParam("dataFinal") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
 	        Pageable paginacao) {
 
-	    Page<CheckListAmbienteResponse> checkLists = buscaCheckListAmbienteService.buscarPelaDataHoraEncerramento(dataInicial, dataFinal, paginacao);
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService.buscarPelaDataHoraEncerramento(dataInicial, dataFinal, paginacao);
 	    return ResponseEntity.ok(checkLists);
 	}
 	
 	@GetMapping("/status/{status}")
-	public ResponseEntity<Page<CheckListAmbienteResponse>> buscarCheckListsDeAmbientePeloStatus(
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePeloStatus(
 	        @PathVariable CheckListAmbienteStatus status,
 	        Pageable paginacao) {
 
-	    Page<CheckListAmbienteResponse> checkLists = buscaCheckListAmbienteService.buscarPeloCheckListStatus(status, paginacao);
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService.buscarPeloCheckListStatus(status, paginacao);
 	    return ResponseEntity.ok(checkLists);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<CheckListAmbienteResponse>> buscarTodosCheckListsDeAmbiente(
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarTodosCheckListsDeAmbiente(
 	        Pageable paginacao) {
 
-	    Page<CheckListAmbienteResponse> checkLists = buscaCheckListAmbienteService.buscarTodos(paginacao);
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService.buscarTodos(paginacao);
 	    return ResponseEntity.ok(checkLists);
 	}
 	

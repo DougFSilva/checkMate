@@ -42,7 +42,7 @@ public class Ocorrencia {
 	private ItemCheckList itemCheckList;
 	
 	@ManyToOne
-	@JoinColumn(name = "responsavel_encerramento_id", nullable = false)
+	@JoinColumn(name = "responsavel_encerramento_id")
 	private Usuario responsavelEncerramento;
 	
     @OneToMany(mappedBy = "ocorrencia", cascade = CascadeType.ALL, orphanRemoval = true)

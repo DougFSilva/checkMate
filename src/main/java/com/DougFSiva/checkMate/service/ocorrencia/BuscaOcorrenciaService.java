@@ -41,7 +41,7 @@ public class BuscaOcorrenciaService {
 	@Transactional(readOnly = true)
 	public Page<OcorrenciaResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
-		return repository.findByItemCheckList_Compartimento_Ambiente(ambiente, paginacao)
+		return repository.findByItemCheckList_CheckListCompartimento_CheckListAmbiente_Ambiente(ambiente, paginacao)
 				.map(OcorrenciaResponse::new);
 	}
 	

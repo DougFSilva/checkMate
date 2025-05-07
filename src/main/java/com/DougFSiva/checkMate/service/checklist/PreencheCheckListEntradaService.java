@@ -38,7 +38,8 @@ public class PreencheCheckListEntradaService {
 	@PreAuthorize("isAuthenticated()")
 	public void preencher(PreencheCheckListForm form) {
 		CheckListCompartimento checkList = repository.findByIdOrElseThrow(form.checkListCompartimentoID());
-		validarCheckListAberto(checkList);
+		validarCheckListAmbienteAberto(checkList);
+		validarCheckListCompartimentoNaoPreechido(checkList);
 		validarItens(form.itens());
 		List<ItemCheckList> itens = itemCheckListRepository.findByCheckListCompartimento(checkList);
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
@@ -51,11 +52,18 @@ public class PreencheCheckListEntradaService {
 
 	}
 
-	private void validarCheckListAberto(CheckListCompartimento checkList) {
+	private void validarCheckListAmbienteAberto(CheckListCompartimento checkList) {
 		if (checkList.getCheckListAmbiente().getStatus() != CheckListAmbienteStatus.ABERTO) {
 			throw new ErroDeOperacaoComCheckListException(
 					"O check-list de compartimento de entrada só pode ser preenchido se o "
 					+ "check-list do ambiente estiver com o status 'Aberto'.");
+		}
+	}
+	
+	private void validarCheckListCompartimentoNaoPreechido(CheckListCompartimento checkList) {
+		if (checkList.getStatus() != CheckListCompartimentoStatus.NAO_PREENCHIDO) {
+			throw new ErroDeOperacaoComCheckListException(
+					"O check-list de compartimento de entrada já foi preenchido");
 		}
 	}
 

@@ -55,7 +55,7 @@ public class LiberaCheckListAmbienteService {
 			checkListCompartimento.getStatus() != CheckListCompartimentoStatus.ENTRADA_PREENCHIDO);
 		if (existeNaoPreenchido) {
 			throw new ErroDeOperacaoComCheckListException(
-					"O check-list do ambiente só pode ser liberado se todos os check-lists "
+					"O check-list do ambiente só pode ser liberado se todos os check-lists"
 					+ " de entrada dos compartimentos estiverem concluídos");
 		}
 	}

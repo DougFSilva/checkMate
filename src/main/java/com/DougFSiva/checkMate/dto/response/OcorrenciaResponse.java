@@ -15,7 +15,7 @@ public class OcorrenciaResponse {
 	private Long ID;
 	private LocalDateTime dataHora;
 	private String emissor;
-	private ItemCheckListResponse itemCheckList;
+	private ItemCheckListDetalhadoResponse itemCheckList;
 	private UsuarioResponse responsavelEncerramento;
 	private List<TratamentoOcorrenciaResponse> tratamento;
 	private boolean encerrada;
@@ -24,8 +24,10 @@ public class OcorrenciaResponse {
 		this.ID = ocorrencia.getID();
 		this.dataHora = ocorrencia.getDataHora();
 		this.emissor = ocorrencia.getEmissor();
-		this.itemCheckList = new ItemCheckListResponse(ocorrencia.getItemCheckList());
-		this.responsavelEncerramento = new UsuarioResponse(ocorrencia.getResponsavelEncerramento());
+		this.itemCheckList = new ItemCheckListDetalhadoResponse(ocorrencia.getItemCheckList());
+		if (ocorrencia.getResponsavelEncerramento() != null) {
+			this.responsavelEncerramento = new UsuarioResponse(ocorrencia.getResponsavelEncerramento());
+		}
 		this.tratamento = ocorrencia.getTratamentos()
 				.stream()
 				.map(TratamentoOcorrenciaResponse::new)

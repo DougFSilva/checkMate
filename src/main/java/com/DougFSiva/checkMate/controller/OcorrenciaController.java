@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,9 +35,10 @@ public class OcorrenciaController {
 	private final EncerraOcorrenciaService encerraOcorrenciaService;
 	private final BuscaOcorrenciaService buscaOcorrenciaService;
 	
-	@PostMapping
-	public ResponseEntity<OcorrenciaResponse> tratarOcorrencia(@Valid @RequestBody TrataOcorrenciaForm form) {
-		OcorrenciaResponse ocorrencia = trataOcorrenciaService.tratar(form);
+	@PatchMapping("/{ID}")
+	public ResponseEntity<OcorrenciaResponse> tratarOcorrencia(@Valid @RequestBody TrataOcorrenciaForm form, 
+			@PathVariable Long ID) {
+		OcorrenciaResponse ocorrencia = trataOcorrenciaService.tratar(ID, form);
 		return ResponseEntity.ok().body(ocorrencia);
 	}
 	

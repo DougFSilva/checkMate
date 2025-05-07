@@ -10,7 +10,7 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class CheckListAmbienteResponse {
+public class CheckListAmbienteDetalhadoResponse {
 
 	private Long ID;
 	private AmbienteResponse ambiente;
@@ -21,7 +21,7 @@ public class CheckListAmbienteResponse {
 	private UsuarioResponse responsavelEncerramento;
 	private CheckListAmbienteStatus status;
 	
-	public CheckListAmbienteResponse(CheckListAmbiente checklist) {
+	public CheckListAmbienteDetalhadoResponse(CheckListAmbiente checklist) {
 		this.ID = checklist.getID();
 		this.ambiente = new AmbienteResponse(checklist.getAmbiente());
 		this.dataHoraLiberacao = checklist.getDataHoraLiberacao();

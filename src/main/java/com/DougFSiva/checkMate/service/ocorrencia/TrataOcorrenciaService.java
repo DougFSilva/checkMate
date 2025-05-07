@@ -25,8 +25,8 @@ public class TrataOcorrenciaService {
 
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
-	public OcorrenciaResponse tratar(TrataOcorrenciaForm form) {
-		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(form.ocorrenciaID());
+	public OcorrenciaResponse tratar(Long ID, TrataOcorrenciaForm form) {
+		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(ID);
 		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(ocorrencia, buscaUsuarioAutenticado.buscar(), form.descricao());
 		validarOcorrenciaAberta(ocorrencia);
 		ocorrencia.addTratamento(tratamento);

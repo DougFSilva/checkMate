@@ -7,7 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResponse;
+import com.DougFSiva.checkMate.dto.response.CheckListAmbienteDetalhadoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
@@ -40,7 +40,7 @@ public class AbreCheckListAmbienteService {
 
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
-	public CheckListAmbienteResponse abrir(Long ambienteID) {
+	public CheckListAmbienteDetalhadoResponse abrir(Long ambienteID) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		Usuario usuario = buscaUsuarioAutenticado.buscar();
 		CheckListAmbiente checkList = new CheckListAmbiente(ambiente);
@@ -48,7 +48,7 @@ public class AbreCheckListAmbienteService {
 		CheckListAmbiente checkListSalvo = checkListAmbienteRepository.save(checkList);
 		criarChecklistsPorCompartimento (checkListSalvo);
 		logger.info(String.format("Aberto check-list para ambiente %s", ambiente.infoParaLog()));
-		return new CheckListAmbienteResponse(checkListSalvo);
+		return new CheckListAmbienteDetalhadoResponse(checkListSalvo);
 	}
 	
 	private void criarChecklistsPorCompartimento (CheckListAmbiente checkListAmbiente) {

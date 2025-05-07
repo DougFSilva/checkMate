@@ -1,6 +1,5 @@
 package com.DougFSiva.checkMate.model.checklist;
 
-import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.Item;
 
 import jakarta.persistence.Entity;
@@ -36,11 +35,8 @@ public class ItemCheckList {
 	private CheckListCompartimento checkListCompartimento;
 	
 	@ManyToOne
-	@JoinColumn(name = "compartimento_id", nullable = false)
-	private Compartimento compartimento;
-	
-	private String descricao;
-	private Integer quantidade;
+	@JoinColumn(name = "item_id", nullable = false)
+	private Item item;
 	
 	@Enumerated(EnumType.STRING)
 	private ItemCheckListStatus statusEntrada;
@@ -54,9 +50,7 @@ public class ItemCheckList {
 	
 	public ItemCheckList(CheckListCompartimento checkListCompartimento, Item item) {
 		this.checkListCompartimento = checkListCompartimento;
-		this.compartimento = item.getCompartimento();
-		this.descricao = item.getDescricao();
-		this.quantidade = item.getQuantidade();
+		this.item = item;
 		this.statusEntrada = ItemCheckListStatus.NAO_VERIFICADO;
 		this.statusSaida = ItemCheckListStatus.NAO_VERIFICADO;
 		this.imagem = item.getImagem();
