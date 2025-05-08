@@ -17,6 +17,7 @@ public record UsuarioForm(
 		String nome,
 		
 		@NotBlank(message = "O CPF não pode estar vazio.")
+		@org.hibernate.validator.constraints.br.CPF
 	    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter exatamente 11 dígitos.")
 		String CPF,
 		

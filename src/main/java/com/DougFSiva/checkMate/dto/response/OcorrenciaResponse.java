@@ -18,7 +18,7 @@ public class OcorrenciaResponse {
 	private LocalDateTime dataHora;
 	
 	private String emissor;
-	private ItemCheckListDetalhadoResponse itemCheckList;
+	private ItemCheckListResumoResponse itemCheckList;
 	private UsuarioResponse responsavelEncerramento;
 	private List<TratamentoOcorrenciaResponse> tratamento;
 	private boolean encerrada;
@@ -27,7 +27,7 @@ public class OcorrenciaResponse {
 		this.ID = ocorrencia.getID();
 		this.dataHora = ocorrencia.getDataHora();
 		this.emissor = ocorrencia.getEmissor();
-		this.itemCheckList = new ItemCheckListDetalhadoResponse(ocorrencia.getItemCheckList());
+		this.itemCheckList = new ItemCheckListResumoResponse(ocorrencia.getItemCheckList());
 		if (ocorrencia.getResponsavelEncerramento() != null) {
 			this.responsavelEncerramento = new UsuarioResponse(ocorrencia.getResponsavelEncerramento());
 		}

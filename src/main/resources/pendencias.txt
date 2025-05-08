@@ -4,17 +4,10 @@
 - Adicionar outros exceptions comum em excepetionHandler
 - Configurar tamanho maximo de imagem
 - Adicionar cache
-- Achar alguma forma de diferenciar itens ???
-- Atualizar DTO's para LAZY
-- Verificar todos os DTO's
 
 Analisar
-- Alterar cpf para email como username?
-- Formatar os responses se necessário
-- Verificar a real necessidade dos guardiões
+
 - Melhorar validação de CPF
-- Formatar DTO de datahora
 
 Testar:
 - Logs
-- MQTT
