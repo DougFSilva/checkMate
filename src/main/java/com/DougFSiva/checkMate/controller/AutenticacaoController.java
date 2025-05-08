@@ -29,15 +29,14 @@ public class AutenticacaoController {
 	
 	@PostMapping
 	public ResponseEntity<TokenResponse> autenticar(@Valid @RequestBody LoginForm form){
-		UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(form.email(), form.senha());
 		try {
+			UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(form.email(), form.senha());
 			Authentication authentication = authenticationManager.authenticate(login);
 			Usuario usuario = (Usuario) authentication.getPrincipal();
 			String token = tokenService.gerarToken(usuario.getEmail());
 			TokenResponse tokenResponse = new TokenResponse(token, "Bearer ", usuario, usuario.getPerfil());
 			return ResponseEntity.ok().body(tokenResponse);
 		} catch (AuthenticationException e) {
-			e.printStackTrace();
 			throw new ErroDeAutenticacaoDeUsuarioException("Usuário ou senha inválidos", e);
 		}	
 	}

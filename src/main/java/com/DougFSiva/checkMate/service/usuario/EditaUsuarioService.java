@@ -46,7 +46,7 @@ public class EditaUsuarioService {
 		usuario.setNome(form.nome());
 		usuario.setCPF(form.CPF());
 		usuario.setEmail(form.email());
-		usuario.setPerfil(new Perfil(form.tipoPerfil()));
+		usuario.setPerfil(new Perfil(TipoPerfil.peloNome(form.tipoPerfil())));
 		usuario.setDataValidade(form.dataValidade());
 		return usuario;
 	}

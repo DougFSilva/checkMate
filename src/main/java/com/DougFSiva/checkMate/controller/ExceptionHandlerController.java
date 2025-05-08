@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -47,10 +48,10 @@ public class ExceptionHandlerController {
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
 				LocalDateTime.now(), 
-				HttpStatus.BAD_REQUEST.value(), 
+				HttpStatus.UNAUTHORIZED.value(), 
 				e.getMessage(),
 				request.getRequestURI());
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(erro);
 	}
 
 	@ExceptionHandler(ErroDeMQTTException.class)
@@ -232,6 +233,18 @@ public class ExceptionHandlerController {
 				e.getMessage(),
 				request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+	}
+	
+	
+	@ExceptionHandler(BadCredentialsException.class)
+	public ResponseEntity<ErroResponse> badCredentialsException(BadCredentialsException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.UNAUTHORIZED.value(), 
+				e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(erro);
 	}
 	
 	@ExceptionHandler(Exception.class)

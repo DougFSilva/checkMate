@@ -9,6 +9,7 @@ import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
 import com.DougFSiva.checkMate.model.usuario.SenhaDeUsuario;
+import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
@@ -30,7 +31,7 @@ public class CriaUsuarioService {
 		validaUsuarioService.validarUnicoEmail(form.email());
 		validaUsuarioService.validarUnicoCPF(form.CPF());
 		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);
-		Perfil perfil = new Perfil(form.tipoPerfil());
+		Perfil perfil = new Perfil(TipoPerfil.peloNome(form.tipoPerfil()));
 		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());
 		Usuario usuarioSalvo = repository.save(usuario);
 		logger.info(String.format("Usuário %s criado", usuarioSalvo.infoParaLog()));

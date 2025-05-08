@@ -2,8 +2,6 @@ package com.DougFSiva.checkMate.dto.form;
 
 import java.time.LocalDate;
 
-import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -25,8 +23,8 @@ public record UsuarioForm(
 	    @Email(message = "E-mail inválido.")
 		String email,
 		
-		@NotNull(message = "O tipo de perfil deve ser informado.")
-		TipoPerfil tipoPerfil,
+		@NotBlank(message = "O tipo de perfil deve ser informado.")
+		String tipoPerfil,
 		
 		@NotNull(message = "A data de validade deve ser informada")
 		LocalDate dataValidade) {

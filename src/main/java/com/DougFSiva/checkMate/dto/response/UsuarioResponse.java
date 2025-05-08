@@ -18,6 +18,7 @@ public class UsuarioResponse {
 	private String nome;
 	private String CPF;
 	private String email;
+	private boolean senhaAlterada;
 	private String perfil;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
@@ -28,6 +29,7 @@ public class UsuarioResponse {
 		this.nome = usuario.getNome();
 		this.CPF = usuario.getCPF();
 		this.email = usuario.getEmail();
+		this.senhaAlterada = usuario.getSenhaAlterada();
 		this.perfil = usuario.getPerfil().getTipo().name();
 		this.dataValidade = usuario.getDataValidade();
 	}
