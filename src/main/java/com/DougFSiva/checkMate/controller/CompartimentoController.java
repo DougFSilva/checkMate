@@ -45,7 +45,10 @@ public class CompartimentoController {
 	private final SalvaImagemCompartimentoService salvaImagemCompartimentoService;
 	
 	@PostMapping
-	@Operation(summary = "Criar compartimento", description = "Cria um novo compartimento com as informações fornecidas.")
+	@Operation(
+			summary = "Criar compartimento", 
+			description = "Cria um novo compartimento com as informações fornecidas."
+	)
 	public ResponseEntity<CompartimentoDetalhadoResponse> criarCompartimento(
 			@Valid @RequestBody CompartimentoForm form) {
 		CompartimentoDetalhadoResponse compartimento = criaCompartimentoService.criar(form);
@@ -57,14 +60,20 @@ public class CompartimentoController {
 	}
 	
 	@DeleteMapping("/{ID}")
-	@Operation(summary = "Deletar compartimento", description = "Deleta o compartimento especificado pelo ID.")
+	@Operation(
+			summary = "Deletar compartimento", 
+			description = "Deleta o compartimento especificado pelo ID."
+	)
 	public ResponseEntity<Void> deletarCompartimento(@PathVariable Long ID) {
 		deletaCompartimentoService.deletar(ID);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@PutMapping("/{ID}")
-	@Operation(summary = "Editar compartimento", description = "Edita as informações de um compartimento especificado pelo ID.")
+	@Operation(
+			summary = "Editar compartimento", 
+			description = "Edita as informações de um compartimento especificado pelo ID."
+	)
 	public ResponseEntity<CompartimentoDetalhadoResponse> editarCompartimento(
 			@PathVariable Long ID, 
 			@Valid @RequestBody CompartimentoForm form) {
@@ -73,7 +82,10 @@ public class CompartimentoController {
 	}
 	
 	@PostMapping("/imagem/{ID}")
-	@Operation(summary = "Salvar imagem de compartimento", description = "Salva a imagem associada ao compartimento especificado pelo ID.")
+	@Operation(
+			summary = "Salvar imagem de compartimento", 
+			description = "Salva a imagem associada ao compartimento especificado pelo ID."
+	)
 	public ResponseEntity<CompartimentoDetalhadoResponse> salvarImagemDeCompartimento(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
@@ -83,14 +95,20 @@ public class CompartimentoController {
 	}
 	
 	@GetMapping("/{ID}")
-	@Operation(summary = "Buscar compartimento por ID", description = "Retorna as informações detalhadas do compartimento especificado pelo ID.")
+	@Operation(
+			summary = "Buscar compartimento por ID", 
+			description = "Retorna as informações detalhadas do compartimento especificado pelo ID."
+	)
 	public ResponseEntity<CompartimentoDetalhadoResponse> buscarCompartimentoPeloID(@PathVariable Long ID) {
 		CompartimentoDetalhadoResponse compartimento = buscaCompartimentoService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
 	@GetMapping("/ambiente/{ambienteID}")
-	@Operation(summary = "Buscar compartimentos por ambiente", description = "Retorna uma lista de compartimentos filtrados pelo ambiente especificado.")
+	@Operation(
+			summary = "Buscar compartimentos por ambiente", 
+			description = "Retorna uma lista de compartimentos filtrados pelo ambiente especificado."
+	)
 	public ResponseEntity<List<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(
 			@PathVariable Long ambienteID) {
 		List<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService
@@ -99,7 +117,10 @@ public class CompartimentoController {
 	}
 	
 	@GetMapping
-	@Operation(summary = "Buscar todos os compartimentos", description = "Retorna todos os compartimentos.")
+	@Operation(
+			summary = "Buscar todos os compartimentos", 
+			description = "Retorna todos os compartimentos."
+	)
 	public ResponseEntity<Page<CompartimentoResumoResponse>> buscarTodosCompartimentos(
 			Pageable paginacao) {
 		Page<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService

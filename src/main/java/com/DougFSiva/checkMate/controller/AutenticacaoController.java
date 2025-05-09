@@ -31,7 +31,10 @@ public class AutenticacaoController {
 	private final TokenService tokenService;
 	
 	@PostMapping
-    @Operation(summary = "Autenticar usuário", description = "Autentica o usuário e retorna um token JWT para acesso às demais funcionalidades da API.")
+    @Operation(
+    		summary = "Autenticar usuário", 
+    		description = "Autentica o usuário e retorna um token JWT para acesso às demais funcionalidades da API."
+    )
 	public ResponseEntity<TokenResponse> autenticar(@Valid @RequestBody LoginForm form){
 		try {
 			UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(form.email(), form.senha());

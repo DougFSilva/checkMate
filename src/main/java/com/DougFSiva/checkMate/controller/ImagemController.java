@@ -27,7 +27,10 @@ public class ImagemController {
 	private final BuscaImagemService buscaImagemService;
 
 	@GetMapping("/**")
-	@Operation(summary = "Buscar imagem", description = "Retorna uma imagem a partir de um caminho especificado na URL.")
+	@Operation(
+			summary = "Buscar imagem", 
+			description = "Retorna uma imagem a partir de um caminho especificado na URL."
+	)
 	public ResponseEntity<Resource> buscarImagem(HttpServletRequest request) {
 		String pathImagem = request.getRequestURI().replace("/imagens/", "");
 	    Resource arquivo = buscaImagemService.buscar(pathImagem);

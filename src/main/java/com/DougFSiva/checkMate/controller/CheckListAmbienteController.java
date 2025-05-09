@@ -31,7 +31,10 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(value = "/checklists-ambiente")
 @RequiredArgsConstructor
-@Tag(name = "CheckLists de Ambiente", description = "Endpoints para gerenciamento de checklists de ambiente")
+@Tag(
+		name = "CheckLists de Ambiente", 
+		description = "Endpoints para gerenciamento de checklists de ambiente"
+)
 public class CheckListAmbienteController {
 
 	private final AbreCheckListAmbienteService abreCheckListAmbienteService;
@@ -40,7 +43,10 @@ public class CheckListAmbienteController {
 	private final BuscaCheckListAmbienteService buscaCheckListAmbienteService;
 	
 	@PostMapping("/{ID}")
-    @Operation(summary = "Abrir checklist de ambiente", description = "Abre o checklist para um ambiente especificado pelo ID.")
+    @Operation(
+    		summary = "Abrir checklist de ambiente", 
+    		description = "Abre o checklist para um ambiente especificado pelo ID."
+    )
 	public ResponseEntity<CheckListAmbienteDetalhadoResponse> abrirCheckListDeAmbiente(@PathVariable Long ID) {
 		CheckListAmbienteDetalhadoResponse checkList = abreCheckListAmbienteService.abrir(ID);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -51,21 +57,30 @@ public class CheckListAmbienteController {
 	}
 	
 	@PostMapping("/liberar/{ID}")
-    @Operation(summary = "Liberar checklist de ambiente", description = "Libera o checklist de ambiente após ser realizado o prenchimento de entrada.")
+    @Operation(
+    		summary = "Liberar checklist de ambiente", 
+    		description = "Libera o checklist de ambiente após ser realizado o prenchimento de entrada."
+    )
 	public ResponseEntity<Void> liberarCheckList(@PathVariable Long ID) {
 		liberaCheckListAmbienteService.liberarCheckList(ID);
 		return ResponseEntity.ok().build();
 	}
 	
 	@PostMapping("/encerrar/{ID}")
-    @Operation(summary = "Encerrar checklist de ambiente", description = "Encerra o checklist de ambiente.")
+    @Operation(
+    		summary = "Encerrar checklist de ambiente", 
+    		description = "Encerra o checklist de ambiente."
+    )
 	public ResponseEntity<Void> encerrarCheckList(@PathVariable Long ID) {
 		encerraCheckListAmbienteService.encerrar(ID);
 		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping("/{ID}")
-    @Operation(summary = "Buscar checklist de ambiente por ID", description = "Retorna o checklist de ambiente pelo seu ID.")
+    @Operation(
+    		summary = "Buscar checklist de ambiente por ID", 
+    		description = "Retorna o checklist de ambiente pelo seu ID."
+    )
 	public ResponseEntity<CheckListAmbienteDetalhadoResponse> buscarCheckListDeAmbientePeloID(
 			@PathVariable Long ID) {
 		CheckListAmbienteDetalhadoResponse checkList = buscaCheckListAmbienteService.buscarPeloID(ID);
@@ -73,7 +88,10 @@ public class CheckListAmbienteController {
 	}
 
 	@GetMapping("/ambiente/{ambienteID}")
-    @Operation(summary = "Buscar checklists de ambiente por ambiente", description = "Retorna uma lista de checklists de ambiente filtrados por ambiente.")
+    @Operation(
+    		summary = "Buscar checklists de ambiente por ambiente", 
+    		description = "Retorna uma lista de checklists de ambiente filtrados por ambiente."
+    )
 	public ResponseEntity<Page<CheckListAmbienteResumoSemAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbiente(
 			@PathVariable Long ambienteID,
 			Pageable paginacao) {
@@ -83,7 +101,10 @@ public class CheckListAmbienteController {
 	}
 	
 	@GetMapping("/data-hora-encerramento")
-    @Operation(summary = "Buscar checklists de ambiente por intervalo de data e hora de encerramento", description = "Retorna checklists de ambiente filtrados por intervalo de data e hora de encerramento.")
+    @Operation(
+    		summary = "Buscar checklists de ambiente por intervalo de data e hora de encerramento", 
+    		description = "Retorna checklists de ambiente filtrados por intervalo de data e hora de encerramento."
+    )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorDataHoraEncerramento(
 	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
 	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
@@ -94,7 +115,10 @@ public class CheckListAmbienteController {
 	}
 	
 	@GetMapping("/status/{status}")
-    @Operation(summary = "Buscar checklists de ambiente por status", description = "Retorna checklists de ambiente filtrados pelo status.")
+    @Operation(
+    		summary = "Buscar checklists de ambiente por status", 
+    		description = "Retorna checklists de ambiente filtrados pelo status."
+    )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePeloStatus(
 	        @PathVariable CheckListAmbienteStatus status,
 	        Pageable paginacao) {
@@ -105,7 +129,10 @@ public class CheckListAmbienteController {
 	}
 	
 	@GetMapping
-    @Operation(summary = "Buscar todos os checklists de ambiente", description = "Retorna todos os checklists de ambiente.")
+    @Operation(
+    		summary = "Buscar todos os checklists de ambiente", 
+    		description = "Retorna todos os checklists de ambiente."
+    )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarTodosCheckListsDeAmbiente(
 	        Pageable paginacao) {
 

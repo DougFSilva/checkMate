@@ -62,7 +62,10 @@ public class UsuarioController {
 	}
 	
 	@PutMapping("/{ID}")
-	@Operation(summary = "Editar usuário", description = "Edita um usuário existente com os dados fornecidos")
+	@Operation(
+			summary = "Editar usuário", 
+			description = "Edita um usuário existente com os dados fornecidos"
+	)
 	public ResponseEntity<UsuarioResponse> editarUsuario(@PathVariable Long ID, 
 			@Valid @RequestBody UsuarioForm form) {
 		UsuarioResponse usuario = editaUsuarioService.editar(ID, form);
@@ -84,7 +87,10 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/nome/{nome}")
-	@Operation(summary = "Buscar por nome", description = "Retorna uma página de usuários que contenham o nome informado")
+	@Operation(
+			summary = "Buscar por nome", 
+			description = "Retorna uma página de usuários que contenham o nome informado"
+	)
 	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloNome(@PathVariable String nome, 
 			Pageable paginacao){
 		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloNome(nome, paginacao);
@@ -92,7 +98,10 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/perfil/{perfil}")
-	@Operation(summary = "Buscar por perfil", description = "Retorna uma página de usuários com o perfil informado")
+	@Operation(
+			summary = "Buscar por perfil", 
+			description = "Retorna uma página de usuários com o perfil informado"
+	)
 	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloTipoDePerfil(
 			@PathVariable TipoPerfil perfil, Pageable paginacao){
 		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloTipoPerfil(perfil, paginacao);

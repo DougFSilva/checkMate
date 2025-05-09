@@ -42,7 +42,10 @@ import lombok.RequiredArgsConstructor;
 		private final SalvaImagemAmbienteService salvaImagemAmbienteService;
 		
 		@PostMapping
-	    @Operation(summary = "Criar ambiente", description = "Cria um novo ambiente com os dados fornecidos")
+	    @Operation(
+	    		summary = "Criar ambiente", 
+	    		description = "Cria um novo ambiente com os dados fornecidos"
+	    )
 		public ResponseEntity<AmbienteResponse> criarAmbiente(@Valid @RequestBody AmbienteForm form) {
 			AmbienteResponse ambiente = this.criaAmbienteService.criar(form);
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -60,7 +63,10 @@ import lombok.RequiredArgsConstructor;
 		}
 		
 		@PutMapping("/{ID}")
-	    @Operation(summary = "Editar ambiente", description = "Edita um ambiente existente com os novos dados fornecidos")
+	    @Operation(
+	    		summary = "Editar ambiente", 
+	    		description = "Edita um ambiente existente com os novos dados fornecidos"
+	    )
 		public ResponseEntity<AmbienteResponse> editarAmbiente(
 				@PathVariable Long ID,
 				@Valid @RequestBody AmbienteForm form) {
@@ -69,7 +75,10 @@ import lombok.RequiredArgsConstructor;
 		}
 		
 		@PostMapping("/imagem/{ID}")
-	    @Operation(summary = "Salvar imagem", description = "Associa uma imagem ao ambiente especificado")
+	    @Operation(
+	    		summary = "Salvar imagem", 
+	    		description = "Associa uma imagem ao ambiente especificado"
+	    )
 		public ResponseEntity<AmbienteResponse> salvarImagemDeAmbiente(
 				@PathVariable Long ID,
 				@RequestParam("file") MultipartFile imagem) {
@@ -85,14 +94,20 @@ import lombok.RequiredArgsConstructor;
 		}
 	
 		@GetMapping("/nome/{nome}")
-	    @Operation(summary = "Buscar por nome", description = "Retorna uma lista de ambientes que contenham o nome informado")
+	    @Operation(
+	    		summary = "Buscar por nome", 
+	    		description = "Retorna uma lista de ambientes que contenham o nome informado"
+	    )
 		public ResponseEntity<List<AmbienteResponse>> buscarAmbientesPeloNome(@PathVariable String nome) {
 			List<AmbienteResponse> ambientes = buscaAmbienteService.buscarPeloNome(nome);
 			return ResponseEntity.ok().body(ambientes);
 		}
 	
 		@GetMapping
-	    @Operation(summary = "Listar todos", description = "Retorna todos os ambientes cadastrados")
+	    @Operation(
+	    		summary = "Listar todos",
+	    		description = "Retorna todos os ambientes cadastrados"
+	    )
 		public ResponseEntity<List<AmbienteResponse>> buscarTodosAmbientes() {
 			List<AmbienteResponse> ambientes = buscaAmbienteService.buscarTodos();
 			return ResponseEntity.ok().body(ambientes);

@@ -51,21 +51,30 @@ public class EmprestimoController {
 	}
 	
 	@PostMapping("/devolver/{ID}")
-	@Operation(summary = "Devolver item", description = "Devolve o item emprestado especificado pelo ID.")
+	@Operation(
+			summary = "Devolver item", 
+			description = "Devolve o item emprestado especificado pelo ID."
+	)
 	public ResponseEntity<EmprestimoResumoResponse> devolverItem(@PathVariable Long ID) {
 		EmprestimoResumoResponse emprestimo = devolveItemService.devolver(ID);
 		return ResponseEntity.ok().body(emprestimo);
 	}
 	
 	@GetMapping("/{ID}")
-	@Operation(summary = "Buscar empréstimo por ID", description = "Retorna as informações detalhadas do empréstimo pelo ID.")
+	@Operation(
+			summary = "Buscar empréstimo por ID", 
+			description = "Retorna as informações detalhadas do empréstimo pelo ID."
+	)
 	public ResponseEntity<EmprestimoDetalhadoResponse> buscarEmprestimoPeloID(@PathVariable Long ID) {
 		EmprestimoDetalhadoResponse emprestimo = buscaEmprestimoService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(emprestimo);
 	}
 	
 	@GetMapping("/item/{itemID}")
-	@Operation(summary = "Buscar empréstimos por item", description = "Retorna todos os empréstimos feitos de um item específico.")
+	@Operation(
+			summary = "Buscar empréstimos por item", 
+			description = "Retorna todos os empréstimos feitos de um item específico."
+	)
 	public ResponseEntity<Page<EmprestimoResumoSemItemResponse>> buscarEmprestimosPeloItem(
 			@PathVariable Long itemID,
 			Pageable paginacao) {
@@ -74,7 +83,10 @@ public class EmprestimoController {
 	}
 	
 	@GetMapping("/ambiente/{ambienteID}")
-	@Operation(summary = "Buscar empréstimos por ambiente", description = "Retorna todos os empréstimos realizados em um ambiente específico.")
+	@Operation(
+			summary = "Buscar empréstimos por ambiente", 
+			description = "Retorna todos os empréstimos realizados em um ambiente específico."
+	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPeloAmbiente(
 			@PathVariable Long ambienteID,
 			Pageable paginacao) {
@@ -84,7 +96,10 @@ public class EmprestimoController {
 	}
 	
 	@GetMapping("/status-devolvido/{status}")
-	@Operation(summary = "Buscar empréstimos pelo status de devolução", description = "Retorna empréstimos com base no status de devolução (devolvido ou não).")
+	@Operation(
+			summary = "Buscar empréstimos pelo status de devolução", 
+			description = "Retorna empréstimos com base no status de devolução (devolvido ou não)."
+	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPeloStatusDevolvido(
 	        @PathVariable boolean status,
 	        Pageable paginacao) {
@@ -95,7 +110,10 @@ public class EmprestimoController {
 	}
 	
 	@GetMapping("/data-emprestimo")
-	@Operation(summary = "Buscar empréstimos por data de empréstimo", description = "Retorna empréstimos realizados dentro de um intervalo de datas.")
+	@Operation(
+			summary = "Buscar empréstimos por data de empréstimo", 
+			description = "Retorna empréstimos realizados dentro de um intervalo de datas."
+	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPelaDataDeEmprestimo(
 	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicial,
 	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFinal,
@@ -107,7 +125,10 @@ public class EmprestimoController {
 	}
 	
 	@GetMapping("/data-devolucao")
-	@Operation(summary = "Buscar empréstimos por data de devolução", description = "Retorna empréstimos devolvidos dentro de um intervalo de datas.")
+	@Operation(
+			summary = "Buscar empréstimos por data de devolução", 
+			description = "Retorna empréstimos devolvidos dentro de um intervalo de datas."
+	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPelaDataDeDevolucao(
 	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicial,
 	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFinal,
