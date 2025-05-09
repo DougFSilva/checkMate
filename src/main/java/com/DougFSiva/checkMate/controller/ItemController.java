@@ -26,12 +26,15 @@ import com.DougFSiva.checkMate.service.item.DeletaItemService;
 import com.DougFSiva.checkMate.service.item.EditaItemService;
 import com.DougFSiva.checkMate.service.item.SalvaImagemItemService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping(value = "/itens")
 @RequiredArgsConstructor
+@Tag(name = "Itens", description = "Endpoints para genciamento de itens")
 public class ItemController {
 
 	private final BuscaItemService buscaItemService;
@@ -41,6 +44,7 @@ public class ItemController {
 	private final SalvaImagemItemService salvaImagemItemService;
 	
 	@PostMapping
+	@Operation(summary = "Criar item", description = "Cria um novo item com as informações fornecidas.")
 	public ResponseEntity<ItemDetalhadoResponse> criarItem(@Valid @RequestBody ItemForm form) {
 		ItemDetalhadoResponse item = criaItemService.criar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -51,12 +55,14 @@ public class ItemController {
 	}
 	
 	@DeleteMapping("/{ID}")
+	@Operation(summary = "Deletar item", description = "Deleta o item especificado pelo ID.")
 	public ResponseEntity<Void> deletarItem(@PathVariable Long ID) {
 		deletaItemService.deletar(ID);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@PutMapping("/{ID}")
+	@Operation(summary = "Editar item", description = "Edita as informações de um item especificado pelo ID.")
 	public ResponseEntity<ItemDetalhadoResponse> editarItem(
 			@PathVariable Long ID, 
 			@Valid @RequestBody ItemForm form) {
@@ -65,6 +71,7 @@ public class ItemController {
 	}
 	
 	@PostMapping("/imagem/{ID}")
+	@Operation(summary = "Salvar imagem de item", description = "Salva a imagem associada ao item especificado pelo ID.")
 	public ResponseEntity<ItemDetalhadoResponse> salvarImagemDeItem(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
@@ -73,12 +80,14 @@ public class ItemController {
 	}
 	
 	@GetMapping("/{ID}")
+	@Operation(summary = "Buscar item por ID", description = "Retorna as informações detalhadas do item especificado pelo ID.")
 	public ResponseEntity<ItemDetalhadoResponse> buscarItemPeloID(@PathVariable Long ID) {
 		ItemDetalhadoResponse item = buscaItemService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(item);
 	}
 	
 	@GetMapping("/compartimento/{compartimentoID}")
+	@Operation(summary = "Buscar itens por compartimento", description = "Retorna os itens do compartimento especificado, com suporte a paginação.")
 	public ResponseEntity<Page<ItemResumoResponse>> buscarItensPeloCompartimento(
 			@PathVariable Long compartimentoID,
 			Pageable paginacao) {
@@ -87,6 +96,7 @@ public class ItemController {
 	}
 	
 	@GetMapping
+	@Operation(summary = "Buscar todos os itens", description = "Retorna todos os itens.")
 	public ResponseEntity<Page<ItemResumoResponse>> buscarTodosItens(Pageable paginacao) {
 		Page<ItemResumoResponse> itens = buscaItemService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(itens);

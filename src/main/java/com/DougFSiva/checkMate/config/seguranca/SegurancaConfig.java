@@ -48,6 +48,13 @@ public class SegurancaConfig {
 		.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 		.authorizeHttpRequests(authorizeRequests -> authorizeRequests
 				.requestMatchers(HttpMethod.POST,"/auth").permitAll()
+				 .requestMatchers(
+			                "/swagger-ui/**",
+			                "/v3/api-docs/**",
+			                "/swagger-resources/**",
+			                "/swagger-ui.html",
+			                "/webjars/**"
+			            ).permitAll()
 				.anyRequest().authenticated())
 				.sessionManagement(sessionManagement -> 
 			sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

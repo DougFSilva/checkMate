@@ -16,18 +16,22 @@ import com.DougFSiva.checkMate.dto.response.TokenResponse;
 import com.DougFSiva.checkMate.exception.ErroDeAutenticacaoDeUsuarioException;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@Tag(name = "Autenticação", description = "Endpoints para autenticação de usuário")
 public class AutenticacaoController {
 
 	private final AuthenticationManager authenticationManager;
 	private final TokenService tokenService;
 	
 	@PostMapping
+    @Operation(summary = "Autenticar usuário", description = "Autentica o usuário e retorna um token JWT para acesso às demais funcionalidades da API.")
 	public ResponseEntity<TokenResponse> autenticar(@Valid @RequestBody LoginForm form){
 		try {
 			UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(form.email(), form.senha());

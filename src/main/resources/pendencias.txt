@@ -2,8 +2,10 @@
 
 - Comentários em aplication.properties
 - Adicionar documentação swagger
-Analisar
 
+Analisar
+Identação doc swagger
+Remover palavra paginacação para deixar padrao
 
 Testar:
-- Ao deletar apaga imagens também?
+

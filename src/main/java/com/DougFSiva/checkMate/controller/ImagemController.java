@@ -13,17 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException;
 import com.DougFSiva.checkMate.service.imagem.BuscaImagemService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/imagens")
 @RequiredArgsConstructor
+@Tag(name = "Imagens", description = "Endpoint para recuperação de imagens")
 public class ImagemController {
 
 	private final BuscaImagemService buscaImagemService;
 
 	@GetMapping("/**")
+	@Operation(summary = "Buscar imagem", description = "Retorna uma imagem a partir de um caminho especificado na URL.")
 	public ResponseEntity<Resource> buscarImagem(HttpServletRequest request) {
 		String pathImagem = request.getRequestURI().replace("/imagens/", "");
 	    Resource arquivo = buscaImagemService.buscar(pathImagem);
