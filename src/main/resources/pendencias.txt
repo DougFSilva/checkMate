@@ -1,10 +1,9 @@
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 
 - Comentários em aplication.properties
-- Adicionar outros exceptions comum em excepetionHandler
-- Configurar tamanho maximo de imagem
-
+- Adicionar documentação swagger
 Analisar
 
 
 Testar:
+- Ao deletar apaga imagens também?
