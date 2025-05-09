@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,6 +28,7 @@ public class EditaUsuarioService {
 
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
+	@CacheEvict(value = "usuarios", allEntries = true)
 	public UsuarioResponse editar(Long ID, UsuarioForm form) {
 		Usuario usuario = repository.findByIdOrElseThrow(ID);
 		validarUsuarioAutenticado(usuario);

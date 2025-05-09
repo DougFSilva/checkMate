@@ -29,6 +29,7 @@ public class AlteraSenhaDeUsuarioService {
 	@PreAuthorize("isAuthenticated()")
 	public void alterar(AlteraSenhaUsuarioForm form) {
 		Usuario usuario = buscarUsuarioAutenticado();
+		System.out.println(usuario);
 		if (!codificadorDeSenha.comparar(form.senhaAtual(), usuario.getSenha().getSenha())) {
 			throw new SenhaDeUsuarioInvalidaException("A senha antiga não confere com a senha atual do usuário!");
 		}

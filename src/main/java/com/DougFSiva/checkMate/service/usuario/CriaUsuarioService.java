@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,7 @@ public class CriaUsuarioService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
+	@CacheEvict(value = "usuarios", allEntries = true)
 	public UsuarioResponse criar(UsuarioForm form) {
 		validaUsuarioService.validarUnicoEmail(form.email());
 		validaUsuarioService.validarUnicoCPF(form.CPF());

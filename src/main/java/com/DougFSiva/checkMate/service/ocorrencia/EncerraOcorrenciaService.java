@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ocorrencia;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ public class EncerraOcorrenciaService {
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@CacheEvict(value = "ocorrencias", allEntries = true)
 	public void encerrar(Long id) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(id);
 		validarOcorrenciaTratada(ocorrencia);

@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.usuario;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,6 +19,7 @@ public class BuscaUsuarioService {
 
 	private final UsuarioRepository repository;
 
+	@Cacheable(value = "usuarios", key = "'usuarioID_' + #ID")
 	@PreAuthorize("hasRole('ADMIN')")
 	@Transactional(readOnly = true)
 	public UsuarioResponse buscarPeloID(Long ID) {
@@ -30,12 +32,14 @@ public class BuscaUsuarioService {
 		return repository.findByNomeContainingIgnoreCase(nome, paginacao).map(UsuarioResponse::new);
 	}
 	
+	@Cacheable(value = "usuarios", key = "'usuarioPeloPerfil_' + #tipoPerfil + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
 	@PreAuthorize("hasRole('ADMIN')")
 	@Transactional(readOnly = true)
 	public Page<UsuarioResponse> buscarPeloTipoPerfil(TipoPerfil tipoPerfil, Pageable paginacao) {
 		return repository.findByPerfil_Tipo(tipoPerfil, paginacao).map(UsuarioResponse::new);
 	}
 	
+	@Cacheable(value = "usuarios", key = "'todosUsuariosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
 	@PreAuthorize("hasRole('ADMIN')")
 	@Transactional(readOnly = true)
 	public Page<UsuarioResponse> buscarTodos(Pageable paginacao) {

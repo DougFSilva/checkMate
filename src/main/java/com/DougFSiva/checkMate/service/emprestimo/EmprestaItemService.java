@@ -2,6 +2,7 @@ package com.DougFSiva.checkMate.service.emprestimo;
 
 import java.time.LocalDateTime;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,7 @@ public class EmprestaItemService {
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN','PROFESSOR', 'FUNCIONARIO')")
+	@CacheEvict(value = "emprestimos", allEntries = true)
 	public EmprestimoResumoResponse emprestar(EmprestaItemForm form) {
 		Item item = itemRepository.findByIdOrElseThrow(form.itemID());
 		Usuario solicitante = usuarioRepository.findByIdOrElseThrow(form.solicitanteID());

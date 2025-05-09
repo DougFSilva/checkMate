@@ -70,7 +70,8 @@ public class CompartimentoController {
 	public ResponseEntity<CompartimentoDetalhadoResponse> salvarImagemDeCompartimento(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
-		CompartimentoDetalhadoResponse compartimento = salvaImagemCompartimentoService.salvar(imagem, ID);
+		CompartimentoDetalhadoResponse compartimento = salvaImagemCompartimentoService
+				.salvar(imagem, ID);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
@@ -83,13 +84,16 @@ public class CompartimentoController {
 	@GetMapping("/ambiente/{ambienteID}")
 	public ResponseEntity<List<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(
 			@PathVariable Long ambienteID) {
-		List<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService.buscarPeloAmbiente(ambienteID);
+		List<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService
+				.buscarPeloAmbiente(ambienteID);
 		return ResponseEntity.ok().body(compartimentos);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<CompartimentoResumoResponse>> buscarTodosCompartimentos(Pageable paginacao) {
-		Page<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService.buscarTodos(paginacao);
+	public ResponseEntity<Page<CompartimentoResumoResponse>> buscarTodosCompartimentos(
+			Pageable paginacao) {
+		Page<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService
+				.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(compartimentos);
 	}
 }

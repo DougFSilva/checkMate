@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.item;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ public class CriaItemService {
     
     @Transactional
 	@PreAuthorize("hasRole('ADMIN')")
+    @CacheEvict(value = "itens", allEntries = true)
 	public ItemDetalhadoResponse criar(ItemForm form) {
     	Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
     	Item item = new Item(compartimento, form.descricao(), form.quantidade());

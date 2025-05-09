@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ public class SalvaImagemAmbienteService {
 
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
+	@CacheEvict(value = "ambientes", allEntries = true)
 	public AmbienteResponse salvar(MultipartFile imagem, Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 

@@ -46,7 +46,8 @@ public class CheckListCompartimentoController {
 	@GetMapping("/{ID}")
 	public ResponseEntity<CheckListCompartimentoDetalhadoResponse> buscarCheckListDeCompartimentoPeloID(
 			@PathVariable Long ID) {
-		CheckListCompartimentoDetalhadoResponse checkList = buscaCheckListCompartimentoService.buscarPeloID(ID);
+		CheckListCompartimentoDetalhadoResponse checkList = buscaCheckListCompartimentoService
+				.buscarPeloID(ID);
 		return ResponseEntity.ok().body(checkList);
 	}
 	

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -245,6 +246,17 @@ public class ExceptionHandlerController {
 				e.getMessage(),
 				request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(erro);
+	}
+	
+	@ExceptionHandler(AuthorizationDeniedException.class)
+	public ResponseEntity<ErroResponse> authorizationDeniedException(AuthorizationDeniedException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.FORBIDDEN.value(), 
+				"Acesso negado, você não tem permissão para realizar essa operação",
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(erro);
 	}
 	
 	@ExceptionHandler(Exception.class)

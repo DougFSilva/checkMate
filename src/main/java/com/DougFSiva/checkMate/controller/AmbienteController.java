@@ -1,6 +1,6 @@
-package com.DougFSiva.checkMate.controller;
-
-import java.net.URI;
+	package com.DougFSiva.checkMate.controller;
+	
+	import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -26,66 +26,66 @@ import com.DougFSiva.checkMate.service.ambiente.SalvaImagemAmbienteService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
-@RestController
-@RequestMapping(value = "/ambientes")
-@RequiredArgsConstructor
-public class AmbienteController {
-
-	private final BuscaAmbienteService buscaAmbienteService;
-	private final CriaAmbienteService criaAmbienteService;
-	private final DeletaAmbienteService deletaAmbienteService;
-	private final EditaAmbienteService editaAmbienteService;
-	private final SalvaImagemAmbienteService salvaImagemAmbienteService;
 	
-	@PostMapping
-	public ResponseEntity<AmbienteResponse> criarAmbiente(@Valid @RequestBody AmbienteForm form) {
-		AmbienteResponse ambiente = this.criaAmbienteService.criar(form);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}")
-				.buildAndExpand(ambiente.getID())
-				.toUri();
-		return ResponseEntity.created(uri).body(ambiente);
-	}
+	@RestController
+	@RequestMapping(value = "/ambientes")
+	@RequiredArgsConstructor
+	public class AmbienteController {
 	
-	@DeleteMapping("/{ID}")
-	public ResponseEntity<Void> deletarAmbiente(@PathVariable Long ID) {
-		deletaAmbienteService.deletar(ID);
-		return ResponseEntity.noContent().build();
-	}
+		private final BuscaAmbienteService buscaAmbienteService;
+		private final CriaAmbienteService criaAmbienteService;
+		private final DeletaAmbienteService deletaAmbienteService;
+		private final EditaAmbienteService editaAmbienteService;
+		private final SalvaImagemAmbienteService salvaImagemAmbienteService;
+		
+		@PostMapping
+		public ResponseEntity<AmbienteResponse> criarAmbiente(@Valid @RequestBody AmbienteForm form) {
+			AmbienteResponse ambiente = this.criaAmbienteService.criar(form);
+			URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+					.path("/{id}")
+					.buildAndExpand(ambiente.getID())
+					.toUri();
+			return ResponseEntity.created(uri).body(ambiente);
+		}
+		
+		@DeleteMapping("/{ID}")
+		public ResponseEntity<Void> deletarAmbiente(@PathVariable Long ID) {
+			deletaAmbienteService.deletar(ID);
+			return ResponseEntity.noContent().build();
+		}
+		
+		@PutMapping("/{ID}")
+		public ResponseEntity<AmbienteResponse> editarAmbiente(
+				@PathVariable Long ID,
+				@Valid @RequestBody AmbienteForm form) {
+			AmbienteResponse ambiente = editaAmbienteService.editar(ID, form);
+			return ResponseEntity.ok().body(ambiente);
+		}
+		
+		@PostMapping("/imagem/{ID}")
+		public ResponseEntity<AmbienteResponse> salvarImagemDeAmbiente(
+				@PathVariable Long ID,
+				@RequestParam("file") MultipartFile imagem) {
+			AmbienteResponse ambiente = salvaImagemAmbienteService.salvar(imagem, ID);
+			return ResponseEntity.ok().body(ambiente);
+		}
+		
+		@GetMapping("/{ID}")
+		public ResponseEntity<AmbienteResponse> buscarAmbientePeloID(@PathVariable Long ID) {
+			AmbienteResponse ambiente = buscaAmbienteService.buscarPeloID(ID);
+			return ResponseEntity.ok().body(ambiente);
+		}
 	
-	@PutMapping("/{ID}")
-	public ResponseEntity<AmbienteResponse> editarAmbiente(
-			@PathVariable Long ID,
-			@Valid @RequestBody AmbienteForm form) {
-		AmbienteResponse ambiente = editaAmbienteService.editar(ID, form);
-		return ResponseEntity.ok().body(ambiente);
-	}
+		@GetMapping("/nome/{nome}")
+		public ResponseEntity<List<AmbienteResponse>> buscarAmbientesPeloNome(@PathVariable String nome) {
+			List<AmbienteResponse> ambientes = buscaAmbienteService.buscarPeloNome(nome);
+			return ResponseEntity.ok().body(ambientes);
+		}
 	
-	@PostMapping("/imagem/{ID}")
-	public ResponseEntity<AmbienteResponse> salvarImagemDeAmbiente(
-			@PathVariable Long ID,
-			@RequestParam("file") MultipartFile imagem) {
-		AmbienteResponse ambiente = salvaImagemAmbienteService.salvar(imagem, ID);
-		return ResponseEntity.ok().body(ambiente);
+		@GetMapping
+		public ResponseEntity<List<AmbienteResponse>> buscarTodosAmbientes() {
+			List<AmbienteResponse> ambientes = buscaAmbienteService.buscarTodos();
+			return ResponseEntity.ok().body(ambientes);
+		}
+		
 	}
-	
-	@GetMapping("/{ID}")
-	public ResponseEntity<AmbienteResponse> buscarAmbientePeloID(@PathVariable Long ID) {
-		AmbienteResponse ambiente = buscaAmbienteService.buscarPeloID(ID);
-		return ResponseEntity.ok().body(ambiente);
-	}
-
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<AmbienteResponse>> buscarAmbientesPeloNome(@PathVariable String nome) {
-		List<AmbienteResponse> ambientes = buscaAmbienteService.buscarPeloNome(nome);
-		return ResponseEntity.ok().body(ambientes);
-	}
-
-	@GetMapping
-	public ResponseEntity<List<AmbienteResponse>> buscarTodosAmbientes() {
-		List<AmbienteResponse> ambientes = buscaAmbienteService.buscarTodos();
-		return ResponseEntity.ok().body(ambientes);
-	}
-	
-}

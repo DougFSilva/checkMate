@@ -3,12 +3,9 @@
 - Comentários em aplication.properties
 - Adicionar outros exceptions comum em excepetionHandler
 - Configurar tamanho maximo de imagem
-- Adicionar cache
-- Modificar construtores de enum para melhorar resposta ao consumidor
 
 Analisar
 
 
 Testar:
 - Verificar onde está sendo usado logs e se está com a classe certa
-- Acesso a métodos com autorização negada

@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.checklist;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,7 @@ public class LiberaCheckListAmbienteService {
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
+	@CacheEvict(value = "checklistsAmbiente", allEntries = true)
 	public void liberarCheckList(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validaCheckListAberto(checkList);

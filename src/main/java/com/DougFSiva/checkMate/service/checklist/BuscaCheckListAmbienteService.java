@@ -2,6 +2,7 @@ package com.DougFSiva.checkMate.service.checklist;
 
 import java.time.LocalDateTime;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +26,7 @@ public class BuscaCheckListAmbienteService {
 	private final CheckListAmbienteRepository repository;
 	private final AmbienteRepository ambienteRepository;
 
+	@Cacheable(value = "checklistsAmbiente", key = "'checklistID_' + #ID")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public CheckListAmbienteDetalhadoResponse buscarPeloID(Long ID) {

@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.compartimento;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ public class SalvaImagemCompartimentoService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
+	@CacheEvict(value = "compartimentos", allEntries = true)
 	public CompartimentoDetalhadoResponse salvar(MultipartFile imagem, Long ID) {
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 
