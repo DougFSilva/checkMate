@@ -40,7 +40,7 @@ public class EditaUsuarioService {
 		}
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
-		logger.info(String.format("Usuário %s editado para %s!", usuario.infoParaLog(), usuarioSalvo));
+		logger.info(String.format("Usuário %s editado", usuario.infoParaLog()));
 		return new UsuarioResponse(usuarioSalvo);
 	}
 	

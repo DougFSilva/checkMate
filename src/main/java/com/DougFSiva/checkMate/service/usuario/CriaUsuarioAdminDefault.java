@@ -22,7 +22,7 @@ public class CriaUsuarioAdminDefault {
 	@Value("${user.admin.senha}")
 	private String senha;
 
-    private static final LoggerPadrao logger = new LoggerPadrao(CriaUsuarioService.class);
+    private static final LoggerPadrao logger = new LoggerPadrao(CriaUsuarioAdminDefault.class);
 	private final UsuarioRepository repository;
 	private final CodificadorDeSenha codificadorDeSenha;
 	
@@ -38,7 +38,7 @@ public class CriaUsuarioAdminDefault {
 					new Perfil(TipoPerfil.ADMIN), 
 					LocalDate.of(2100,2 ,2));
 			repository.save(admin);
-			logger.info("Criado usuário admin");
+			logger.info("Criado usuário admin default");
 		}
 	}
 }

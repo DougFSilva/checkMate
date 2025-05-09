@@ -36,7 +36,7 @@ public class CriaCompartimentoService {
 		String imagem = ImagemConfig.getNomeImagemCompartimentoDefault();
 		compartimento.setImagem(imagem);
 		Compartimento compartimentoSalvo = repository.save(compartimento);
-		logger.info(String.format("Criado compartimento %s", compartimento.infoParaLog()));
+		logger.info(String.format("Compartimento %s criado", compartimento.infoParaLog()));
 		return new CompartimentoDetalhadoResponse(compartimentoSalvo);
 	}
 	

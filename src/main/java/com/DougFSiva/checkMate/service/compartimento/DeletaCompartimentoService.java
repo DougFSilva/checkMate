@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DeletaCompartimentoService {
 
-	private static final LoggerPadrao logger = new LoggerPadrao(EditaCompartimentoService.class);
+	private static final LoggerPadrao logger = new LoggerPadrao(DeletaCompartimentoService.class);
 	private final CompartimentoRepository repository;
 	private final ItemRepository itemRepository;
 	private final DeletaImagemService imagemService;
@@ -35,7 +35,7 @@ public class DeletaCompartimentoService {
 		}
 		repository.delete(compartimento);
 		deletarImagem(compartimento);
-		logger.info(String.format("Deletado compartimento %s", compartimento.infoParaLog()));
+		logger.info(String.format("Compartimento %s deletado", compartimento.infoParaLog()));
 	}
 	
 	private void deletarImagem(Compartimento compartimento) {

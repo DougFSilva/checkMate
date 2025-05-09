@@ -35,7 +35,7 @@ public class DeletaItemService {
     	}
     	repository.delete(item);
     	deletarImagem(item);
-    	logger.info(String.format("Deletado item %s", item.infoParaLog()));
+    	logger.info(String.format("Item %s deletado", item.infoParaLog()));
     }
     
     private void deletarImagem(Item item) {

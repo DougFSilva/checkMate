@@ -41,7 +41,7 @@ public class DeletaAmbienteService {
 		}
 		repository.delete(ambiente);
 		deletarImagem(ambiente);
-		logger.info(String.format("Deletado Ambiente %s", ambiente.infoParaLog()));
+		logger.info(String.format("Ambiente %s Deletado", ambiente.infoParaLog()));
 	}
 	
 	private void deletarImagem(Ambiente ambiente) {

@@ -34,7 +34,7 @@ public class TrataOcorrenciaService {
 		ocorrencia.addTratamento(tratamento);
 		Ocorrencia ocorrenciaSalva = repository.save(ocorrencia);
 		logger.info(String.format(
-				"Adicionado tratamento à ocorrência com ID %d", ocorrenciaSalva.getID()));
+				"Adicionado tratamento à ocorrência %d", ocorrenciaSalva.getID()));
 		return new OcorrenciaResponse(ocorrenciaSalva);
 	}
 	

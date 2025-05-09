@@ -8,4 +8,3 @@ Analisar
 
 
 Testar:
-- Verificar onde está sendo usado logs e se está com a classe certa

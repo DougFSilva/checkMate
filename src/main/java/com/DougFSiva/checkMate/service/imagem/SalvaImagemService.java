@@ -19,7 +19,7 @@ public class SalvaImagemService {
 	@Value("${app.dir.imagens}")
 	private String diretorioBase;
 
-	@Value("${app.imagem.max.file-size}")
+	@Value("${app.imagem.max.file-sizeMB}")
 	private int tamanhoImagem;
 
 	private static final Set<String> TIPOS_PERMITIDOS = Set.of("image/jpeg", "image/png");
