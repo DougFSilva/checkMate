@@ -1,11 +1,7 @@
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 
-- Comentários em aplication.properties
-- Adicionar documentação swagger
-
+- Eliminar CheckLists mais antigos ou então apagar por data, mantendo o ultimo ano
 Analisar
-Identação doc swagger
-Remover palavra paginacação para deixar padrao
-
+- Incluir service para deletar Checklist somente se esse não tiver sido concluído
+- Verificar se funcionário pode abrir cecklist
 Testar:
-

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoSemAmbienteRe
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.service.checklist.AbreCheckListAmbienteService;
 import com.DougFSiva.checkMate.service.checklist.BuscaCheckListAmbienteService;
+import com.DougFSiva.checkMate.service.checklist.DeletaCheckListAmbiente;
 import com.DougFSiva.checkMate.service.checklist.EncerraCheckListAmbienteService;
 import com.DougFSiva.checkMate.service.checklist.LiberaCheckListAmbienteService;
 
@@ -40,7 +42,9 @@ public class CheckListAmbienteController {
 	private final AbreCheckListAmbienteService abreCheckListAmbienteService;
 	private final LiberaCheckListAmbienteService liberaCheckListAmbienteService;
 	private final EncerraCheckListAmbienteService encerraCheckListAmbienteService;
+	private final DeletaCheckListAmbiente deletaCheckListAmbiente;
 	private final BuscaCheckListAmbienteService buscaCheckListAmbienteService;
+	
 	
 	@PostMapping("/{ID}")
     @Operation(
@@ -74,6 +78,16 @@ public class CheckListAmbienteController {
 	public ResponseEntity<Void> encerrarCheckList(@PathVariable Long ID) {
 		encerraCheckListAmbienteService.encerrar(ID);
 		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping("/{ID}")
+	@Operation(
+    		summary = "Deletar checklist de ambiente", 
+    		description = "Deleta o checklist de ambiente pelo ID."
+    )
+	public ResponseEntity<Void> deletaCheckList(@PathVariable Long ID) {
+		deletaCheckListAmbiente.deletar(ID);
+		return ResponseEntity.noContent().build();
 	}
 	
 	@GetMapping("/{ID}")
