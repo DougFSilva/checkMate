@@ -35,7 +35,7 @@ public class EncerraCheckListAmbienteService {
 	private final PublicadorMqtt publicadorMqtt;
 	
 	@Transactional
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@CacheEvict(value = "checklistsAmbiente", allEntries = true)
 	public void encerrar(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);

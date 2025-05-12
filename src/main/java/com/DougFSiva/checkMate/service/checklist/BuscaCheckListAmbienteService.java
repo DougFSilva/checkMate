@@ -39,10 +39,21 @@ public class BuscaCheckListAmbienteService {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByAmbiente(ambiente, paginacao).map(CheckListAmbienteResumoSemAmbienteResponse::new);
 	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
+	public Page<CheckListAmbienteResumoSemAmbienteResponse> buscarPeloAmbienteEStatus(
+			Long ambienteID, CheckListAmbienteStatus status, Pageable paginacao) {
+		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
+		return repository.findByAmbienteAndStatus(ambiente, status, paginacao)
+				.map(CheckListAmbienteResumoSemAmbienteResponse::new);
+	}
 
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraEncerramento(LocalDateTime dataInicial, LocalDateTime dataFinal,
+	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraEncerramento(
+			LocalDateTime dataInicial, 
+			LocalDateTime dataFinal,
 			Pageable paginacao) {
 		return repository.findByDataHoraEncerramentoBetween(dataInicial, dataFinal, paginacao)
 				.map(CheckListAmbienteResumoResponse::new);
@@ -50,7 +61,9 @@ public class BuscaCheckListAmbienteService {
 
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<CheckListAmbienteResumoResponse> buscarPeloCheckListStatus(CheckListAmbienteStatus status, Pageable paginacao) {
+	public Page<CheckListAmbienteResumoResponse> buscarPeloCheckListStatus(
+			CheckListAmbienteStatus status, 
+			Pageable paginacao) {
 		return repository.findByStatus(status, paginacao).map(CheckListAmbienteResumoResponse::new);
 	}
 

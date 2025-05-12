@@ -114,6 +114,20 @@ public class CheckListAmbienteController {
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
+	@GetMapping("/ambiente/{ambienteID}/status/{status}")
+    @Operation(
+    		summary = "Buscar checklists de ambiente por ambiente e pelo status", 
+    		description = "Retorna uma lista de checklists de ambiente filtrados por ambiente e status."
+    )
+	public ResponseEntity<Page<CheckListAmbienteResumoSemAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbienteEStatus(
+			@PathVariable Long ambienteID,
+			@PathVariable CheckListAmbienteStatus status,
+			Pageable paginacao) {
+		Page<CheckListAmbienteResumoSemAmbienteResponse> checkLists = buscaCheckListAmbienteService
+				.buscarPeloAmbienteEStatus(ambienteID, status, paginacao);
+		return ResponseEntity.ok().body(checkLists);
+	}
+	
 	@GetMapping("/data-hora-encerramento")
     @Operation(
     		summary = "Buscar checklists de ambiente por intervalo de data e hora de encerramento", 

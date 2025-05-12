@@ -2,6 +2,6 @@
 
 - Eliminar CheckLists mais antigos ou então apagar por data, mantendo o ultimo ano
 Analisar
-- Incluir service para deletar Checklist somente se esse não tiver sido concluído
-- Verificar se funcionário pode abrir cecklist
+- Exportar checklists em PDF
+
 Testar:

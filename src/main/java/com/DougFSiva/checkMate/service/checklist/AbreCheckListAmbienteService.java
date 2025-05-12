@@ -39,7 +39,7 @@ public class AbreCheckListAmbienteService {
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 
 	@Transactional
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public CheckListAmbienteDetalhadoResponse abrir(Long ambienteID) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		Usuario usuario = buscaUsuarioAutenticado.buscar();

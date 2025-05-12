@@ -32,7 +32,7 @@ public class DeletaCheckListAmbiente {
 	private final CheckListCompartimentoRepository checkListCompartimentoRepository;
 	
 	@Transactional
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@Caching(evict = {
 			@CacheEvict(value = "checklistsAmbiente", allEntries = true),
 			@CacheEvict(value = "checklistsCompartimento", allEntries = true)	
