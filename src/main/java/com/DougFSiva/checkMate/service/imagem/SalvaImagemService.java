@@ -19,7 +19,7 @@ public class SalvaImagemService {
 	@Value("${app.dir.imagens}")
 	private String diretorioBase;
 
-	@Value("${app.imagem.max.file-sizeMB}")
+	@Value("${app.imagem.max.file-sizeKB}")
 	private int tamanhoImagem;
 
 	private static final Set<String> TIPOS_PERMITIDOS = Set.of("image/jpeg", "image/png");
@@ -50,9 +50,9 @@ public class SalvaImagemService {
 	}
 
 	private void validarTamanhoDaImagem(MultipartFile imagem) {
-		if (imagem.getSize() > tamanhoImagem * 1024 * 1024) {
+		if (imagem.getSize() > tamanhoImagem * 1024) {
 			throw new ErroDeOperacaoComImagemException(
-					String.format("O arquivo não pode exceder %dMB.", tamanhoImagem));
+					String.format("O arquivo não pode exceder %dKB.", tamanhoImagem));
 		}
 	}
 

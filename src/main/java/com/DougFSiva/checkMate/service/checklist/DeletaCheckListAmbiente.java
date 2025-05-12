@@ -12,7 +12,6 @@ import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCheckListException;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
-import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.repository.CheckListAmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
@@ -25,7 +24,6 @@ import lombok.RequiredArgsConstructor;
 public class DeletaCheckListAmbiente {
 	
 	private static final LoggerPadrao logger = new LoggerPadrao(DeletaCheckListAmbiente.class);
-
 
 	private final CheckListAmbienteRepository repository;
 	private final ItemCheckListRepository  itemCheckListRepository;
@@ -41,10 +39,7 @@ public class DeletaCheckListAmbiente {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validarCheckListAberto(checkList);
 		List<CheckListCompartimento> checkListsCompartimento = checkListCompartimentoRepository.findByCheckListAmbiente(checkList);
-		checkListsCompartimento.forEach(c -> {
-			List<ItemCheckList> itensCheckList = itemCheckListRepository.findByCheckListCompartimento(c);
-			itemCheckListRepository.deleteAll(itensCheckList);
-		});
+		itemCheckListRepository.deleteByCheckListCompartimentoIn(checkListsCompartimento);
 		checkListCompartimentoRepository.deleteAll(checkListsCompartimento);
 		repository.delete(checkList);
 		logger.info(String.format("Check-list %d deletado", checkList.getID()));

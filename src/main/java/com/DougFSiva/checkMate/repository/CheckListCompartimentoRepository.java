@@ -15,5 +15,7 @@ public interface CheckListCompartimentoRepository extends JpaRepository<CheckLis
 				String.format("Check-list de compartimento com ID %d não encontrado!", ID)));
 	}
 	
+	void deleteByCheckListAmbienteIn(List<CheckListAmbiente> checkLists);
+	
 	List<CheckListCompartimento> findByCheckListAmbiente(CheckListAmbiente checkListAmbiente);
 }
