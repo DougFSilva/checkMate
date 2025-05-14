@@ -1,7 +1,6 @@
 - Pensar em alguma estratégia para questão de banco de dados muito grande
 
-- Eliminar CheckLists mais antigos ou então apagar por data, mantendo o ultimo ano
-Analisar
 - Exportar checklists em PDF
-
+- Modificar dados do application.properties como variáveis de ambiente
+- Adicionar o detalhe que o token posssui claims na documentação swagger
 Testar:

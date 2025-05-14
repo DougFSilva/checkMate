@@ -1,11 +1,15 @@
 package com.DougFSiva.checkMate.config.seguranca;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.SecretKey;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -22,10 +26,15 @@ public class TokenService {
     @Value("${jwt.expiration}")
     private long tempoExpiracao;
 
-    public String gerarToken(String username) {
+    public String gerarToken(Usuario usuario) {
         SecretKey key = Keys.hmacShaKeyFor(secret.getBytes());
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("email", usuario.getEmail());
+        claims.put("perfil", usuario.getPerfil().getTipo().getNome());
+        claims.put("nome", usuario.getNome());
         return Jwts.builder()
-                .setSubject(username)
+        		.setClaims(claims)
+                .setSubject(usuario.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + tempoExpiracao * 1000 * 60 * 60))
                 .signWith(key, SignatureAlgorithm.HS256)

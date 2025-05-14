@@ -40,8 +40,8 @@ public class AutenticacaoController {
 			UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(form.email(), form.senha());
 			Authentication authentication = authenticationManager.authenticate(login);
 			Usuario usuario = (Usuario) authentication.getPrincipal();
-			String token = tokenService.gerarToken(usuario.getEmail());
-			TokenResponse tokenResponse = new TokenResponse(token, "Bearer ", usuario, usuario.getPerfil());
+			String token = tokenService.gerarToken(usuario);
+			TokenResponse tokenResponse = new TokenResponse(token, "Bearer ");
 			return ResponseEntity.ok().body(tokenResponse);
 		} catch (AuthenticationException e) {
 			throw new ErroDeAutenticacaoDeUsuarioException("Usuário ou senha inválidos", e);
