@@ -29,9 +29,9 @@ public class TokenService {
     public String gerarToken(Usuario usuario) {
         SecretKey key = Keys.hmacShaKeyFor(secret.getBytes());
         Map<String, Object> claims = new HashMap<>();
-        claims.put("email", usuario.getEmail());
         claims.put("perfil", usuario.getPerfil().getTipo().getNome());
         claims.put("nome", usuario.getNome());
+        claims.put("senhaAlterada", usuario.getSenhaAlterada());
         return Jwts.builder()
         		.setClaims(claims)
                 .setSubject(usuario.getEmail())
