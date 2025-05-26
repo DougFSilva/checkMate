@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.DougFSiva.checkMate.dto.response.CompartimentoDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.CompartimentoResumoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
+import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.CompartimentoRepository;
+import com.DougFSiva.checkMate.repository.ItemRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,12 +23,15 @@ public class BuscaCompartimentoService {
 
 	private final CompartimentoRepository repository;
 	private final AmbienteRepository ambienteRepository;
+	private final ItemRepository itemRepository;
 	
 	@Cacheable(value = "compartimentos", key = "'compartimentoID_' + #ID")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public CompartimentoDetalhadoResponse buscarPeloID(Long ID) {
-		return new CompartimentoDetalhadoResponse(repository.findByIdOrElseThrow(ID));
+		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
+		int itensPorCompartimento = itemRepository.countByCompartimento(compartimento);
+		return new CompartimentoDetalhadoResponse(compartimento, itensPorCompartimento);
 	}
 	
 	@Cacheable(value = "compartimentos", key = "'compartimentosPeloAmbiente_' + #ambienteID")

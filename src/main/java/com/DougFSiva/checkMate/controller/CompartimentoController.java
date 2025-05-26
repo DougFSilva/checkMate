@@ -48,9 +48,9 @@ public class CompartimentoController {
 			summary = "Criar compartimento", 
 			description = "Cria um novo compartimento com as informações fornecidas."
 	)
-	public ResponseEntity<CompartimentoDetalhadoResponse> criarCompartimento(
+	public ResponseEntity<CompartimentoResumoResponse> criarCompartimento(
 			@Valid @RequestBody CompartimentoForm form) {
-		CompartimentoDetalhadoResponse compartimento = criaCompartimentoService.criar(form);
+		CompartimentoResumoResponse compartimento = criaCompartimentoService.criar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}")
 				.buildAndExpand(compartimento.getID())
@@ -73,10 +73,10 @@ public class CompartimentoController {
 			summary = "Editar compartimento", 
 			description = "Edita as informações de um compartimento especificado pelo ID."
 	)
-	public ResponseEntity<CompartimentoDetalhadoResponse> editarCompartimento(
+	public ResponseEntity<CompartimentoResumoResponse> editarCompartimento(
 			@PathVariable Long ID, 
 			@Valid @RequestBody CompartimentoForm form) {
-		CompartimentoDetalhadoResponse compartimento = editaCompartimentoService.editar(ID, form);
+		CompartimentoResumoResponse compartimento = editaCompartimentoService.editar(ID, form);
 		return ResponseEntity.ok().body(compartimento);
 	}
 	
@@ -85,10 +85,10 @@ public class CompartimentoController {
 			summary = "Salvar imagem de compartimento", 
 			description = "Salva a imagem associada ao compartimento especificado pelo ID."
 	)
-	public ResponseEntity<CompartimentoDetalhadoResponse> salvarImagemDeCompartimento(
+	public ResponseEntity<CompartimentoResumoResponse> salvarImagemDeCompartimento(
 			@PathVariable Long ID,
 			@RequestParam("file") MultipartFile imagem) {
-		CompartimentoDetalhadoResponse compartimento = salvaImagemCompartimentoService
+		CompartimentoResumoResponse compartimento = salvaImagemCompartimentoService
 				.salvar(imagem, ID);
 		return ResponseEntity.ok().body(compartimento);
 	}
