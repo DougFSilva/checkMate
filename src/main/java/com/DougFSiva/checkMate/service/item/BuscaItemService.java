@@ -43,4 +43,5 @@ public class BuscaItemService {
 	public Page<ItemResumoResponse> buscarTodos(Pageable paginacao) {
 		return repository.findAll(paginacao).map(ItemResumoResponse::new);
 	}
+	
 }

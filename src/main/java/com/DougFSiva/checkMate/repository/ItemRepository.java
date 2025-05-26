@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
+import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.Item;
 
@@ -23,4 +24,10 @@ public interface ItemRepository extends JpaRepository<Item, Long>{
 	List<Item> findByCompartimentoAndVerificavel(Compartimento compartimento, boolean verificavel);
 	
 	boolean existsByCompartimento(Compartimento compartimento);
+	
+	int countByCompartimento(Compartimento compartimento);
+	
+	int countByCompartimento_Ambiente(Ambiente ambiente);
+	
+	
 }

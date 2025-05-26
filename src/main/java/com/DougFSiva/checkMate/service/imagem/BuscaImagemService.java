@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException;
@@ -17,7 +16,6 @@ public class BuscaImagemService {
 	@Value("${app.dir.imagens}")
 	private String diretorioBase;
 
-	@PreAuthorize("isAuthenticated()")
 	public Resource buscar(String nomeImagem) {
 		if (nomeImagem.contains("..")) {
 			throw new ErroDeOperacaoComImagemException("Nome de imagem inválido");

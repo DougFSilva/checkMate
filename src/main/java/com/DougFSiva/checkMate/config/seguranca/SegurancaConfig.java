@@ -55,6 +55,7 @@ public class SegurancaConfig {
 			                "/swagger-ui.html",
 			                "/webjars/**"
 			            ).permitAll()
+				.requestMatchers("/imagens/**").permitAll()
 				.anyRequest().authenticated())
 				.sessionManagement(sessionManagement -> 
 			sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

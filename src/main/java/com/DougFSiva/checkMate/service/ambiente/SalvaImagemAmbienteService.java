@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.DougFSiva.checkMate.config.imagem.ImagemConfig;
-import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
+import com.DougFSiva.checkMate.dto.response.AmbienteResumoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.service.imagem.SalvaImagemService;
@@ -27,17 +27,17 @@ public class SalvaImagemAmbienteService {
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
 	@CacheEvict(value = "ambientes", allEntries = true)
-	public AmbienteResponse salvar(MultipartFile imagem, Long ID) {
+	public AmbienteResumoResponse salvar(MultipartFile imagem, Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 
 				ImagemConfig.PASTA_IMAGEM_AMBIENTE, 
 				ambiente.getID(), 
-				ambiente.getDescricao());
+				ambiente.getNome());
 		String nomeImagemSalva = salvaImagemService.salvarImagem(imagem, nomeImagem);
 		ambiente.setImagem(nomeImagemSalva);
 		Ambiente ambienteSalvo = repository.save(ambiente);
 		logger.info(String.format("Alterada imagem de ambiente %s", ambiente.infoParaLog()));
-		return new AmbienteResponse(ambienteSalvo);
+		return new AmbienteResumoResponse(ambienteSalvo);
 	}
 
 }

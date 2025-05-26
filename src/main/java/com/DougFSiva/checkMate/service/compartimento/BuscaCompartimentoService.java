@@ -1,8 +1,5 @@
 package com.DougFSiva.checkMate.service.compartimento;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,9 +32,9 @@ public class BuscaCompartimentoService {
 	@Cacheable(value = "compartimentos", key = "'compartimentosPeloAmbiente_' + #ambienteID")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public List<CompartimentoResumoResponse> buscarPeloAmbiente(Long ambienteID) {
+	public Page<CompartimentoResumoResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
-		return repository.findByAmbiente(ambiente).stream().map(CompartimentoResumoResponse::new).collect(Collectors.toList());
+		return repository.findByAmbiente(ambiente, paginacao).map(CompartimentoResumoResponse::new);
 	}
 	
 	@Cacheable(value = "compartimentos", key = "'todosCompartimentosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")

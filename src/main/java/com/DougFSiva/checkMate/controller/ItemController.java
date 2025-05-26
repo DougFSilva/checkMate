@@ -115,7 +115,6 @@ public class ItemController {
 	public ResponseEntity<Page<ItemResumoResponse>> buscarTodosItens(Pageable paginacao) {
 		Page<ItemResumoResponse> itens = buscaItemService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(itens);
-
 	}
 	
 }

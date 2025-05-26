@@ -14,7 +14,7 @@ import lombok.ToString;
 public class CheckListAmbienteDetalhadoResponse {
 
 	private Long ID;
-	private AmbienteResponse ambiente;
+	private AmbienteResumoResponse ambiente;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraLiberacao;
@@ -28,7 +28,7 @@ public class CheckListAmbienteDetalhadoResponse {
 	
 	public CheckListAmbienteDetalhadoResponse(CheckListAmbiente checklist) {
 		this.ID = checklist.getID();
-		this.ambiente = new AmbienteResponse(checklist.getAmbiente());
+		this.ambiente = new AmbienteResumoResponse(checklist.getAmbiente());
 		this.dataHoraLiberacao = checklist.getDataHoraLiberacao();
 		this.dataHoraEncerramento = checklist.getDataHoraEncerramento();
 		this.responsavelAbertura = new UsuarioResponse(checklist.getResponsavelAbertura());

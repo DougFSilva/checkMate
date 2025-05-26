@@ -1,7 +1,6 @@
 package com.DougFSiva.checkMate.controller;
 
 import java.net.URI;
-import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -109,10 +108,11 @@ public class CompartimentoController {
 			summary = "Buscar compartimentos por ambiente", 
 			description = "Retorna uma lista de compartimentos filtrados pelo ambiente especificado."
 	)
-	public ResponseEntity<List<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(
-			@PathVariable Long ambienteID) {
-		List<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService
-				.buscarPeloAmbiente(ambienteID);
+	public ResponseEntity<Page<CompartimentoResumoResponse>> buscarCompartimentosPeloAmbiente(
+			@PathVariable Long ambienteID,
+			Pageable paginacao) {
+		Page<CompartimentoResumoResponse> compartimentos = buscaCompartimentoService
+				.buscarPeloAmbiente(ambienteID, paginacao);
 		return ResponseEntity.ok().body(compartimentos);
 	}
 	

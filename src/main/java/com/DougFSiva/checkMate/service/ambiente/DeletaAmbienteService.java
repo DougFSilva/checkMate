@@ -33,11 +33,11 @@ public class DeletaAmbienteService {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (checkListRepository.existsByAmbiente(ambiente)) {
 			throw new ErroDeOperacaoComAmbienteException(
-					"Não é possível deletar ambiente, pois existema checklists associados a ele!");
+					"Não é possível deletar ambiente, pois existem checklists associados a ele!");
 		}
 		if (compartimentoRepository.existsByAmbiente(ambiente)) {
 			throw new ErroDeOperacaoComAmbienteException(
-					"Não é possível deletar ambiente, pois existema compartimentos associados a ele!");
+					"Não é possível deletar ambiente, pois existem compartimentos associados a ele!");
 		}
 		repository.delete(ambiente);
 		deletarImagem(ambiente);

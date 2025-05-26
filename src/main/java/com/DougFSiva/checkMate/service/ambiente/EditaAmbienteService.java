@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.AmbienteForm;
-import com.DougFSiva.checkMate.dto.response.AmbienteResponse;
+import com.DougFSiva.checkMate.dto.response.AmbienteResumoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
@@ -24,7 +24,7 @@ public class EditaAmbienteService {
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
 	@CacheEvict(value = "ambientes", allEntries = true)
-	public AmbienteResponse editar(Long ID, AmbienteForm form) {
+	public AmbienteResumoResponse editar(Long ID, AmbienteForm form) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (!form.nome().equals(ambiente.getNome())) {
 			validaAmbiente.validarUnicoNome(form.nome());
@@ -34,7 +34,7 @@ public class EditaAmbienteService {
 		ambiente.setLocalizacao(form.localizacao());
 		Ambiente ambienteSalvo = repository.save(ambiente);
 		logger.info(String.format("Ambiente %s Editado", ambiente.infoParaLog()));
-		return new AmbienteResponse(ambienteSalvo);
+		return new AmbienteResumoResponse(ambienteSalvo);
 	}
 	
 }

@@ -4,3 +4,9 @@
 - Modificar dados do application.properties como variáveis de ambiente
 - Adicionar o detalhe que o token posssui claims na documentação swagger
 Testar:
+
+- Adicionr eliminar cache devido paginacao ambeintes
+
+- Alterar PathVariable para RequestParam onde será feito pesquisa com filtro
+- Alterar os Cacheable para adicionar o sort do pageable
+- Editar buscar compartimento pelo ambiente para retornar page
