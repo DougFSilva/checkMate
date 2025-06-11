@@ -12,6 +12,7 @@ public class CompartimentoDetalhadoResponse {
 	private Long ID;
 	private AmbienteResumoResponse ambiente;
 	private String codigo;
+	private String nome;
 	private String descricao;
 	private String imagem;
 	private int contagemItens;
@@ -20,6 +21,7 @@ public class CompartimentoDetalhadoResponse {
 		this.ID = compartimento.getID();
 		this.ambiente = new AmbienteResumoResponse(compartimento.getAmbiente());
 		this.codigo = compartimento.getCodigo();
+		this.nome = compartimento.getNome();
 		this.descricao = compartimento.getDescricao();
 		this.imagem = compartimento.getImagem();
 		this.contagemItens = contagemItens;

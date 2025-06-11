@@ -2,8 +2,6 @@ package com.DougFSiva.checkMate.service.checklist;
 
 import java.util.List;
 
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Caching;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,10 +29,6 @@ public class DeletaCheckListAmbiente {
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
-	@Caching(evict = {
-			@CacheEvict(value = "checklistsAmbiente", allEntries = true),
-			@CacheEvict(value = "checklistsCompartimento", allEntries = true)	
-	})
 	public void deletar(Long ID) {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validarCheckListAberto(checkList);

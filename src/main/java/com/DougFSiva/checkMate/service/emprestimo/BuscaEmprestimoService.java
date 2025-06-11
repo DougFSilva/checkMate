@@ -36,7 +36,7 @@ public class BuscaEmprestimoService {
 		return new EmprestimoDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 	
-	@Cacheable(value = "emprestimos", key = "'emprestimosPeloItem_' + #itemID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value = "emprestimos", key = "'emprestimosPeloItem_' + #itemID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<EmprestimoResumoSemItemResponse> buscarPeloItem(Long itemID, Pageable paginacao) {
@@ -44,7 +44,7 @@ public class BuscaEmprestimoService {
 		return repository.findByItem(item, paginacao).map(EmprestimoResumoSemItemResponse::new);
 	}
 
-	@Cacheable(value = "emprestimos", key = "'emprestimosPeloAmbiente_' + #ambienteID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value = "emprestimos", key = "'emprestimosPeloAmbiente_' + #ambienteID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<EmprestimoResumoResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
@@ -52,7 +52,7 @@ public class BuscaEmprestimoService {
 		return repository.findByItem_Compartimento_Ambiente(ambiente, paginacao).map(EmprestimoResumoResponse::new);
 	}
 
-	@Cacheable(value = "emprestimos", key = "'emprestimosPeloStatus_' + #devolvido + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value = "emprestimos", key = "'emprestimosPeloStatus_' + #devolvido + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<EmprestimoResumoResponse> buscarPeloStatusDevolvido(boolean devolvido, Pageable paginacao) {
@@ -75,7 +75,7 @@ public class BuscaEmprestimoService {
 				dataInicial.atStartOfDay(), dataFinal.atTime(LocalTime.MAX), paginacao).map(EmprestimoResumoResponse::new);
 	}
 	
-	@Cacheable(value = "emprestimos", key = "'todosEmprestimosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value = "emprestimos", key = "'todosEmprestimosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<EmprestimoResumoResponse> buscarTodos(Pageable pagimacao) {

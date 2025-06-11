@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.compartimento;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,10 @@ public class EditaCompartimentoService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	@CacheEvict(value = "compartimentos", allEntries = true)
+	@Caching(evict = {
+    	    @CacheEvict(value = "compartimentos_resumo_por_ambiente", allEntries = true ),
+    	    @CacheEvict(value = "compartimentos_resumo_todos", allEntries = true)
+	})
 	public CompartimentoResumoResponse editar(Long ID, CompartimentoForm form) {
 		Compartimento compartimento = repository.findByIdOrElseThrow(ID);
 		if (!form.codigo().equals(compartimento.getCodigo())) {

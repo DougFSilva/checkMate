@@ -28,7 +28,7 @@ public class DeletaAmbienteService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	@CacheEvict(value = "ambientes", allEntries = true)
+	@CacheEvict(value = "ambientes_resumo_todos", allEntries = true)
 	public void deletar(Long ID) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (checkListRepository.existsByAmbiente(ambiente)) {

@@ -36,11 +36,11 @@ public class Item {
 	private String imagem;
 	private boolean verificavel;
 	
-	public Item(Compartimento compartimento, String descricao, Integer quantidade) {
+	public Item(Compartimento compartimento, String descricao, Integer quantidade, boolean verificavel) {
 		this.compartimento = compartimento;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
-		this.verificavel = true;
+		this.verificavel = verificavel;
 	}
 	
 	public String infoParaLog() {

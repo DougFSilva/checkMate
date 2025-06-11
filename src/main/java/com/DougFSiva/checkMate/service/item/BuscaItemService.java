@@ -22,14 +22,14 @@ public class BuscaItemService {
 	private final ItemRepository repository;
 	private final CompartimentoRepository compartimentoRepository;
 	
-	@Cacheable(value = "itens", key = "'item_' + #ID" )
+	@Cacheable(value = "itens_detalhado", key = "'item_' + #ID" )
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public ItemDetalhadoResponse buscarPeloID(Long ID) {
 		return new ItemDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 	
-	@Cacheable(value = "itens", key = "'ItensPeloCompartimento_' + #compartimentoID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value = "itens_resumo_por_compartimento", key = "'ItensPeloCompartimento_' + #compartimentoID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize  + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<ItemResumoResponse> buscarPeloCompartimento(Long compartimentoID, Pageable paginacao) {
@@ -37,7 +37,7 @@ public class BuscaItemService {
 		return repository.findByCompartimento(compartimento, paginacao).map(ItemResumoResponse::new);
 	}
 	
-	@Cacheable(value="itens", key = "'todosItensPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value="itens_resumo_todos", key = "'todosItensPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize  + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<ItemResumoResponse> buscarTodos(Pageable paginacao) {

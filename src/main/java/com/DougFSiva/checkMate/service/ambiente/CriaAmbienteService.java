@@ -24,7 +24,7 @@ public class CriaAmbienteService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	@CacheEvict(value = "ambientes", allEntries = true)
+	@CacheEvict(value = "ambientes_resumo_todos", allEntries = true)
 	public AmbienteResumoResponse criar(AmbienteForm form) {
 		validaAmbiente.validarUnicoNome(form.nome());
 		Ambiente ambiente = new Ambiente(form.nome(), form.descricao(), form.localizacao());

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.ambiente;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +24,10 @@ public class EditaAmbienteService {
 		
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-	@CacheEvict(value = "ambientes", allEntries = true)
+	@Caching(evict = {
+			@CacheEvict(value = "ambientes_detalhado", allEntries = true),
+			@CacheEvict(value = "ambientes_resumo_todos", allEntries = true)
+	})
 	public AmbienteResumoResponse editar(Long ID, AmbienteForm form) {
 		Ambiente ambiente = repository.findByIdOrElseThrow(ID);
 		if (!form.nome().equals(ambiente.getNome())) {

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.item;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +27,15 @@ public class CriaItemService {
     
     @Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-    @CacheEvict(value = "itens", allEntries = true)
+    @Caching(evict = {
+    	    @CacheEvict(value = "itens_resumo_por_compartimento", allEntries = true ),
+    	    @CacheEvict(value = "itens_resumo_todos", allEntries = true ),
+    	    @CacheEvict(value = "compartimentos_detalhado", allEntries = true ),
+    	    @CacheEvict(value = "ambientes_detalhado", allEntries = true )
+    })
 	public ItemDetalhadoResponse criar(ItemForm form) {
     	Compartimento compartimento = compartimentoRepository.findByIdOrElseThrow(form.compartimentoID());
-    	Item item = new Item(compartimento, form.descricao(), form.quantidade());
+    	Item item = new Item(compartimento, form.descricao(), form.quantidade(), form.verificavel());
     	item.setImagem(ImagemConfig.getNomeImagemItemDefault());
     	Item itemSalvo = repository.save(item);
     	logger.info(String.format("Criado item %s", item.infoParaLog()));

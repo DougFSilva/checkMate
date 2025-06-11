@@ -24,7 +24,7 @@ public class BuscaAmbienteService {
 	private final CompartimentoRepository compartimentoRepository;
 	private final ItemRepository itemRepository;
 	
-	@Cacheable(value = "ambientes", key = "'ambienteID_' + #ID")
+	@Cacheable(value = "ambientes_detalhado", key = "'ambienteID_' + #ID")
 	@PreAuthorize("isAuthenticated()")
     @Transactional(readOnly = true)
 	public AmbienteDetalhadoResponse buscarPeloID(Long ID) {
@@ -42,7 +42,7 @@ public class BuscaAmbienteService {
 	}
 	
 	@Cacheable(
-			value = "ambientes", 
+			value = "ambientes_resumo_todos", 
 			key = "'todosAmbientes_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)

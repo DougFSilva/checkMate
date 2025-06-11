@@ -2,7 +2,6 @@ package com.DougFSiva.checkMate.service.checklist;
 
 import java.util.List;
 
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,7 +23,6 @@ public class BuscaCheckListCompartimentoService {
 	private final CheckListCompartimentoRepository repository;
 	private final CheckListAmbienteRepository checkListAmbienteRepository;
 	
-	@Cacheable(value = "checklistsCompartimento", key = "'checklistID_' + #ID")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public CheckListCompartimentoDetalhadoResponse buscarPeloID(Long ID) {

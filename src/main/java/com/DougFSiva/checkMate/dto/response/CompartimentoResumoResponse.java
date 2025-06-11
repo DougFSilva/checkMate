@@ -11,12 +11,14 @@ public class CompartimentoResumoResponse {
 
 	private Long ID;
 	private String codigo;
+	private String nome;
 	private String descricao;
 	private String imagem;
 	
 	public CompartimentoResumoResponse(Compartimento compartimento) {
 		this.ID = compartimento.getID();
 		this.codigo = compartimento.getCodigo();
+		this.nome = compartimento.getNome();
 		this.descricao = compartimento.getDescricao();
 		this.imagem = compartimento.getImagem();
 	}

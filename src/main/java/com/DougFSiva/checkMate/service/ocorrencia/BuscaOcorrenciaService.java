@@ -2,7 +2,6 @@ package com.DougFSiva.checkMate.service.ocorrencia;
 
 import java.time.LocalDateTime;
 
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,7 +22,6 @@ public class BuscaOcorrenciaService {
 	private final OcorrenciaRepository repository;
 	private final AmbienteRepository ambienteRepository;
 
-	@Cacheable(value = "ocorrencias", key = "'ocorrenciaID_' + #ID")
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@Transactional(readOnly = true)
 	public OcorrenciaResponse buscarPeloID(Long ID) {
@@ -39,7 +37,6 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResponse::new);
 	}
 	
-	@Cacheable(value = "ocorrencias", key = "'ocorrenciasPeloAmbiente_' + #ambienteID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@Transactional(readOnly = true)
 	public Page<OcorrenciaResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
@@ -48,7 +45,6 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResponse::new);
 	}
 	
-	@Cacheable(value = "ocorrencias", key = "'todasOcorrenciasPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public Page<OcorrenciaResponse> buscarTodas(Pageable paginacao) {
 		return repository.findAll(paginacao)

@@ -25,7 +25,7 @@ public class BuscaCompartimentoService {
 	private final AmbienteRepository ambienteRepository;
 	private final ItemRepository itemRepository;
 	
-	@Cacheable(value = "compartimentos", key = "'compartimentoID_' + #ID")
+	@Cacheable(value = "compartimentos_detalhado", key = "'compartimentoID_' + #ID")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public CompartimentoDetalhadoResponse buscarPeloID(Long ID) {
@@ -34,7 +34,9 @@ public class BuscaCompartimentoService {
 		return new CompartimentoDetalhadoResponse(compartimento, itensPorCompartimento);
 	}
 	
-	@Cacheable(value = "compartimentos", key = "'compartimentosPeloAmbiente_' + #ambienteID")
+	@Cacheable(
+		value = "compartimentos_resumo_por_ambiente", 
+		key = "'compartimentosPeloAmbiente_' + #ambienteID + '_pagina_' + #paginacao.pageNumber +  '_tamanho_' +  #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<CompartimentoResumoResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
@@ -42,7 +44,7 @@ public class BuscaCompartimentoService {
 		return repository.findByAmbiente(ambiente, paginacao).map(CompartimentoResumoResponse::new);
 	}
 	
-	@Cacheable(value = "compartimentos", key = "'todosCompartimentosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize")
+	@Cacheable(value = "compartimentos_resumo_todos", key = "'todosCompartimentosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<CompartimentoResumoResponse> buscarTodos(Pageable paginacao) {
