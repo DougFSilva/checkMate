@@ -3550,3 +3550,465 @@ Caused by: java.net.SocketTimeoutException: Read timed out
 2025-06-10 22:01:19 [Thread-399] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-06-10 22:01:19 [Thread-399] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-45 - Shutdown initiated...
 2025-06-10 22:01:19 [Thread-399] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-45 - Shutdown completed.
+2025-06-10 22:01:19 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 3880 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-06-10 22:01:19 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-10 22:01:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-10 22:01:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 10 JPA repository interfaces.
+2025-06-10 22:01:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-10 22:01:20 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-10 22:01:20 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-10 22:01:20 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-10 22:01:20 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-10 22:01:20 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 585 ms
+2025-06-10 22:01:20 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-10 22:01:20 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-10 22:01:20 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-10 22:01:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-46 - Starting...
+2025-06-10 22:01:20 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-46 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53b71cb9
+2025-06-10 22:01:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-46 - Start completed.
+2025-06-10 22:01:20 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-10 22:01:20 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-46)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-10 22:01:20 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-10 22:01:20 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-10 22:01:20 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-10 22:01:20 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-06-10 22:01:21 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-10 22:01:21 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-10 22:01:21 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-10 22:01:21 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.96 seconds (process running for 2550.807)
+2025-06-10 22:01:21 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-06-10 22:03:05 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-10 22:03:05 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-10 22:03:05 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-06-10 22:03:05 [http-nio-8080-exec-2] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-06-10 22:03:11 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:03:13 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:03:41 [http-nio-8080-exec-6] INFO  c.D.c.s.ambiente.CriaAmbienteService - u_admin@email.com: Compartimento (236) Armário de parede criado
+2025-06-10 22:03:46 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:03:58 [http-nio-8080-exec-1] INFO  c.D.c.service.item.CriaItemService - u_admin@email.com: Criado item (3374) Chave de fenda
+2025-06-10 22:04:10 [http-nio-8080-exec-8] INFO  c.D.c.service.item.CriaItemService - u_admin@email.com: Criado item (3375) Alicate universal
+2025-06-10 22:04:18 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:21 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:22 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:23 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:24 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:25 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:27 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:29 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:31 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:34 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:37 [http-nio-8080-exec-6] INFO  c.D.c.service.item.DeletaItemService - u_admin@email.com: Item (3374) Chave de fenda deletado
+2025-06-10 22:04:39 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:44 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComCompartimentoException: Não é possível deletar compartimento, pois há itens associados a ele]
+2025-06-10 22:04:45 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:49 [http-nio-8080-exec-4] INFO  c.D.c.service.item.DeletaItemService - u_admin@email.com: Item (3375) Alicate universal deletado
+2025-06-10 22:04:50 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:04:55 [http-nio-8080-exec-9] INFO  c.D.c.s.c.DeletaCompartimentoService - u_admin@email.com: Compartimento (236) Armário de parede deletado
+2025-06-10 22:05:04 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:05:17 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-10 22:05:53 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 07:57:13 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-11 07:57:13 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 5580 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-06-11 07:57:13 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 07:57:13 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 07:57:13 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 07:57:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 07:57:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 171 ms. Found 10 JPA repository interfaces.
+2025-06-11 07:57:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-11 07:57:18 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-11 07:57:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-11 07:57:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-11 07:57:18 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-11 07:57:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4402 ms
+2025-06-11 07:57:18 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 07:57:18 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-06-11 07:57:18 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-11 07:57:19 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 07:57:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-11 07:57:19 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1812ada3
+2025-06-11 07:57:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-11 07:57:19 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-11 07:57:19 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 07:57:21 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 07:57:21 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 07:57:22 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 07:57:22 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-06-11 07:57:24 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-11 07:57:25 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-11 07:57:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 07:57:25 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 12.164 seconds (process running for 12.788)
+2025-06-11 08:34:04 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 08:34:04 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-11 08:34:04 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-11 08:34:04 [http-nio-8080-exec-2] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-06-11 09:09:18 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:09:27 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:09:42 [http-nio-8080-exec-8] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (3372) Alicate BB
+2025-06-11 09:09:44 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:09:47 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:09:59 [http-nio-8080-exec-3] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (3372) Alicate BB
+2025-06-11 09:10:01 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:13:15 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:13:17 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:13:28 [http-nio-8080-exec-5] INFO  c.D.c.service.item.DeletaItemService - u_admin@email.com: Item (3372) Alicate BB deletado
+2025-06-11 09:15:12 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-11 09:15:12 [Thread-10] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 09:15:12 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:12 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-11 09:15:12 [Thread-10] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:12 [Thread-10] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-06-11 09:15:12 [Thread-10] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:15:12 [Thread-10] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-11 09:15:12 [Thread-10] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-11 09:15:12 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 5580 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-06-11 09:15:12 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 09:15:13 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 09:15:13 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 10 JPA repository interfaces.
+2025-06-11 09:15:13 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-11 09:15:13 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:13 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-11 09:15:13 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-11 09:15:13 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-11 09:15:13 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1045 ms
+2025-06-11 09:15:13 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 09:15:13 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-11 09:15:13 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 09:15:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-06-11 09:15:13 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a0a4d82
+2025-06-11 09:15:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-06-11 09:15:13 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-11 09:15:13 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 09:15:13 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 09:15:14 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:15:14 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 09:15:14 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-06-11 09:15:15 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-11 09:15:15 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 09:15:15 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 3.084 seconds (process running for 4683.046)
+2025-06-11 09:15:15 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-06-11 09:15:48 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-11 09:15:48 [Thread-12] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 09:15:48 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:48 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-11 09:15:48 [Thread-12] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:48 [Thread-12] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-06-11 09:15:48 [Thread-12] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:15:48 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-06-11 09:15:48 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-06-11 09:15:48 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 5580 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-06-11 09:15:48 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 09:15:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 09:15:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 10 JPA repository interfaces.
+2025-06-11 09:15:48 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-11 09:15:48 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:48 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-11 09:15:48 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-11 09:15:48 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-11 09:15:48 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 497 ms
+2025-06-11 09:15:49 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 09:15:49 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-11 09:15:49 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 09:15:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-06-11 09:15:49 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b88f89c
+2025-06-11 09:15:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-06-11 09:15:49 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-11 09:15:49 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 09:15:49 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 09:15:49 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:15:49 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 09:15:49 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-06-11 09:15:50 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-11 09:15:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:15:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 09:15:50 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 2.213 seconds (process running for 4718.317)
+2025-06-11 09:15:50 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-06-11 09:16:09 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-11 09:16:09 [Thread-21] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 09:16:09 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:16:09 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-11 09:16:09 [Thread-21] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:16:09 [Thread-21] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-06-11 09:16:09 [Thread-21] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:16:09 [Thread-21] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-06-11 09:16:09 [Thread-21] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-06-11 09:16:09 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 5580 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-06-11 09:16:09 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 09:16:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 09:16:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
+2025-06-11 09:16:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-11 09:16:10 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:16:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-11 09:16:10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-11 09:16:10 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-11 09:16:10 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 454 ms
+2025-06-11 09:16:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 09:16:10 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-11 09:16:10 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 09:16:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2025-06-11 09:16:10 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61bbfb99
+2025-06-11 09:16:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2025-06-11 09:16:10 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-11 09:16:10 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 09:16:10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 09:16:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:16:11 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 09:16:11 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-06-11 09:16:11 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-11 09:16:11 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:16:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 09:16:11 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.75 seconds (process running for 4739.415)
+2025-06-11 09:16:11 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-06-11 09:17:37 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-11 09:17:37 [Thread-30] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 09:17:37 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:17:37 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-11 09:17:37 [Thread-30] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:17:37 [Thread-30] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-06-11 09:17:37 [Thread-30] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:17:37 [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2025-06-11 09:17:37 [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2025-06-11 09:17:37 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Starting CheckMateApplication using Java 21.0.5 with PID 5580 (C:\Users\Douglas\Documents\Eclipse\checkMate\target\classes started by Douglas in C:\Users\Douglas\Documents\Eclipse\checkMate)
+2025-06-11 09:17:37 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 09:17:37 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 09:17:37 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 10 JPA repository interfaces.
+2025-06-11 09:17:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-11 09:17:37 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:17:37 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-11 09:17:37 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-11 09:17:37 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-11 09:17:37 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 363 ms
+2025-06-11 09:17:37 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 09:17:37 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-11 09:17:37 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 09:17:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2025-06-11 09:17:37 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ab23d71
+2025-06-11 09:17:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2025-06-11 09:17:37 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-11 09:17:37 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 9.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 09:17:37 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 09:17:37 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 09:17:38 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 09:17:38 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2025-06-11 09:17:38 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-11 09:17:38 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-11 09:17:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 09:17:38 [restartedMain] INFO  c.D.checkMate.CheckMateApplication - Started CheckMateApplication in 1.56 seconds (process running for 4826.492)
+2025-06-11 09:17:38 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-06-11 09:17:48 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 09:17:48 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-11 09:17:48 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-11 09:17:48 [http-nio-8080-exec-2] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (1233) Alicate de bico reto
+2025-06-11 09:17:48 [http-nio-8080-exec-4] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-06-11 09:18:00 [http-nio-8080-exec-7] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (1233) Alicate de bico reto
+2025-06-11 09:18:09 [http-nio-8080-exec-2] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (1233) Alicate de bico reto
+2025-06-11 09:18:12 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:20:42 [http-nio-8080-exec-7] INFO  c.D.c.service.item.EditaItemService - u_admin@email.com: Item (1233) Alicate de bico reto Alicate de bico reto Alicate de bico reto editado
+2025-06-11 09:25:08 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:25:14 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:27:25 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:27:29 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:48:01 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:54:31 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:54:36 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 09:57:22 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:05:50 [http-nio-8080-exec-8] INFO  c.D.c.s.a.SalvaImagemAmbienteService - u_admin@email.com: Alterada imagem de ambiente (13) Laboratório de Automação Industrial
+2025-06-11 10:06:00 [http-nio-8080-exec-4] INFO  c.D.c.s.c.SalvaImagemCompartimentoService - u_admin@email.com: Alterada imagem de compartimento (87) Armário 15
+2025-06-11 10:06:06 [http-nio-8080-exec-8] INFO  c.D.c.s.c.SalvaImagemCompartimentoService - u_admin@email.com: Alterada imagem de compartimento (82) Armário 22
+2025-06-11 10:06:22 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:06:28 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: O arquivo não pode exceder 500KB.]
+2025-06-11 10:07:22 [http-nio-8080-exec-4] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (1231) Alicate de corte diagonal
+2025-06-11 10:07:33 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:07:40 [http-nio-8080-exec-3] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (1233) Alicate de bico reto Alicate de bico reto Alicate de bico reto
+2025-06-11 10:07:46 [http-nio-8080-exec-4] INFO  c.D.c.s.item.SalvaImagemItemService - u_admin@email.com: Alterada imagem de Item (1233) Alicate de bico reto Alicate de bico reto Alicate de bico reto
+2025-06-11 10:07:48 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:08:40 [http-nio-8080-exec-6] INFO  c.D.c.s.a.EditaAmbienteService - u_admin@email.com: Ambiente (13) Laboratório de Eletrônica 2 Editado
+2025-06-11 10:08:45 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:09:34 [http-nio-8080-exec-5] INFO  c.D.c.s.c.EditaCompartimentoService - u_admin@email.com: Comapartimento (87) Armário 01 editado
+2025-06-11 10:10:19 [http-nio-8080-exec-9] INFO  c.D.c.s.c.EditaCompartimentoService - u_admin@email.com: Comapartimento (82) Armário 02 editado
+2025-06-11 10:10:23 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:10:27 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:10:29 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:11:19 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:11:27 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:11:53 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:16:06 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:19:27 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:25:27 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:26:01 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:27:34 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:27:38 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:27:57 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:27:59 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:29:33 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:35:18 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:36:06 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:42:20 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:42:24 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 10:57:54 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:02:05 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:03:35 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:16:01 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:18:02 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:18:34 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:19:10 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:19:36 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:19:45 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:21:18 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:23:54 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:24:08 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:33:37 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:34:23 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:34:26 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:35:46 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:36:29 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:39:07 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:39:09 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:40:00 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:50:36 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:55:01 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 12:55:37 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:02:08 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:02:33 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:02:48 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:03:42 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:04:03 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:14:05 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:14:37 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:19:37 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:20:11 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:20:28 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:27:46 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:28:11 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:28:26 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:32:05 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:33:40 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:44:41 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:44:43 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:32 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:32 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2808 não encontrado!]
+2025-06-11 13:45:32 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2808 não encontrado!]
+2025-06-11 13:45:33 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:38 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:38 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2808 não encontrado!]
+2025-06-11 13:45:38 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2808 não encontrado!]
+2025-06-11 13:45:44 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:46 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:46 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2806 não encontrado!]
+2025-06-11 13:45:46 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2806 não encontrado!]
+2025-06-11 13:45:50 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:52 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:45:52 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2806 não encontrado!]
+2025-06-11 13:45:52 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException: Compartimento com ID 2806 não encontrado!]
+2025-06-11 13:46:14 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:46:16 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:46:23 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:46:53 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:48:43 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:49:24 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:50:55 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:52:16 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:54:23 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:55:02 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:55:05 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:55:07 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 13:55:15 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:18:12 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:22:06 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:22:10 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:23:43 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:23:44 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:23:56 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:24:00 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:30:48 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:30:51 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:30:55 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:30:57 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:30:58 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:01 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:03 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:05 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:12 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:18 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:44 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:31:51 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:13 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:26 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:30 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:39 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:45 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:46 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:52 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:34:54 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:35:31 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:35:33 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:35:45 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:35:54 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:35:57 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:35:59 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:36:01 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:36:39 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:36:43 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:36:45 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:37:34 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:44:12 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException: Tipo de arquivo não suportado]
+2025-06-11 14:59:26 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-11 14:59:26 [Thread-39] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 14:59:26 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-06-11 14:59:26 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-11 14:59:26 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-06-11 14:59:26 [Thread-39] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'mqttClient': O cliente está conectado (32100)
+2025-06-11 14:59:26 [Thread-39] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 14:59:26 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2025-06-11 14:59:26 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.

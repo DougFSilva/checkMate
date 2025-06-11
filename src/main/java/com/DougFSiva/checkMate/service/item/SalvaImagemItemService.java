@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.item;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,11 @@ public class SalvaImagemItemService {
 	
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
-    @CacheEvict(value = "itens", allEntries = true)
+	@Caching(evict = {
+			@CacheEvict(value = "itens_detalhado", allEntries = true),
+			@CacheEvict(value = "itens_resumo_por_compartimento", allEntries = true),
+			@CacheEvict(value = "itens_resumo_todos", allEntries = true)
+	})
 	public ItemDetalhadoResponse salvar(MultipartFile imagem, Long ID) {
 		Item item = repository.findByIdOrElseThrow(ID);
 		String nomeImagem = String.format("%s/%d-%s", 

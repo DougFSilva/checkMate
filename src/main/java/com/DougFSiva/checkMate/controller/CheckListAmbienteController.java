@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,7 +61,7 @@ public class CheckListAmbienteController {
 		return ResponseEntity.created(uri).body(checkList);
 	}
 	
-	@PostMapping("/liberar/{ID}")
+	@PatchMapping("/liberar/{ID}")
     @Operation(
     		summary = "Liberar checklist de ambiente", 
     		description = "Libera o checklist de ambiente após ser realizado o prenchimento de entrada."
@@ -70,7 +71,7 @@ public class CheckListAmbienteController {
 		return ResponseEntity.ok().build();
 	}
 	
-	@PostMapping("/encerrar/{ID}")
+	@PatchMapping("/encerrar/{ID}")
     @Operation(
     		summary = "Encerrar checklist de ambiente", 
     		description = "Encerra o checklist de ambiente."
