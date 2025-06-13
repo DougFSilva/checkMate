@@ -10,3 +10,4 @@ Testar:
 - Alterar PathVariable para RequestParam onde será feito pesquisa com filtro
 - Alterar os Cacheable para adicionar o sort do pageable
 - Editar buscar compartimento pelo ambiente para retornar page
+- Inserir dataHoraAbertura para que o usuário preencha o checklist correto

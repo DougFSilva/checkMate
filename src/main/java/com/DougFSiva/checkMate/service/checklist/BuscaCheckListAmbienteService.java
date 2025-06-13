@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.CheckListAmbienteDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoResponse;
-import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoSemAmbienteResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -33,18 +32,18 @@ public class BuscaCheckListAmbienteService {
 
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<CheckListAmbienteResumoSemAmbienteResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
+	public Page<CheckListAmbienteResumoResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
-		return repository.findByAmbiente(ambiente, paginacao).map(CheckListAmbienteResumoSemAmbienteResponse::new);
+		return repository.findByAmbiente(ambiente, paginacao).map(CheckListAmbienteResumoResponse::new);
 	}
 	
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<CheckListAmbienteResumoSemAmbienteResponse> buscarPeloAmbienteEStatus(
+	public Page<CheckListAmbienteResumoResponse> buscarPeloAmbienteEStatus(
 			Long ambienteID, CheckListAmbienteStatus status, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByAmbienteAndStatus(ambiente, status, paginacao)
-				.map(CheckListAmbienteResumoSemAmbienteResponse::new);
+				.map(CheckListAmbienteResumoResponse::new);
 	}
 
 	@PreAuthorize("isAuthenticated()")

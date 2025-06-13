@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.DougFSiva.checkMate.dto.response.CheckListAmbienteDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoResponse;
-import com.DougFSiva.checkMate.dto.response.CheckListAmbienteResumoSemAmbienteResponse;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.service.checklist.AbreCheckListAmbienteService;
 import com.DougFSiva.checkMate.service.checklist.BuscaCheckListAmbienteService;
@@ -107,10 +106,10 @@ public class CheckListAmbienteController {
     		summary = "Buscar checklists de ambiente por ambiente", 
     		description = "Retorna uma lista de checklists de ambiente filtrados por ambiente."
     )
-	public ResponseEntity<Page<CheckListAmbienteResumoSemAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbiente(
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePeloAmbiente(
 			@PathVariable Long ambienteID,
 			Pageable paginacao) {
-		Page<CheckListAmbienteResumoSemAmbienteResponse> checkLists = buscaCheckListAmbienteService
+		Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
 				.buscarPeloAmbiente(ambienteID, paginacao);
 		return ResponseEntity.ok().body(checkLists);
 	}
@@ -120,11 +119,11 @@ public class CheckListAmbienteController {
     		summary = "Buscar checklists de ambiente por ambiente e pelo status", 
     		description = "Retorna uma lista de checklists de ambiente filtrados por ambiente e status."
     )
-	public ResponseEntity<Page<CheckListAmbienteResumoSemAmbienteResponse>> buscarCheckListsDeAmbientePeloAmbienteEStatus(
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePeloAmbienteEStatus(
 			@PathVariable Long ambienteID,
 			@PathVariable CheckListAmbienteStatus status,
 			Pageable paginacao) {
-		Page<CheckListAmbienteResumoSemAmbienteResponse> checkLists = buscaCheckListAmbienteService
+		Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
 				.buscarPeloAmbienteEStatus(ambienteID, status, paginacao);
 		return ResponseEntity.ok().body(checkLists);
 	}

@@ -1,5 +1,6 @@
 package com.DougFSiva.checkMate.service.checklist;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,6 +45,7 @@ public class AbreCheckListAmbienteService {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		Usuario usuario = buscaUsuarioAutenticado.buscar();
 		CheckListAmbiente checkList = new CheckListAmbiente(ambiente);
+		checkList.setDataHoraAbertura(LocalDateTime.now());
 		checkList.setResponsavelAbertura(usuario);
 		CheckListAmbiente checkListSalvo = checkListAmbienteRepository.save(checkList);
 		criarChecklistsPorCompartimento (checkListSalvo);

@@ -36,6 +36,7 @@ public class CheckListAmbiente {
 	@ManyToOne
 	@JoinColumn(name = "ambiente_id", nullable = false)
 	private Ambiente ambiente;
+	private LocalDateTime dataHoraAbertura;
 	private LocalDateTime dataHoraLiberacao;
 	private LocalDateTime dataHoraEncerramento;
 	

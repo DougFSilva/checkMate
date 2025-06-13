@@ -17,6 +17,9 @@ public class CheckListAmbienteDetalhadoResponse {
 	private AmbienteResumoResponse ambiente;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	private LocalDateTime dataHoraAbertura;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraLiberacao;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
@@ -29,6 +32,7 @@ public class CheckListAmbienteDetalhadoResponse {
 	public CheckListAmbienteDetalhadoResponse(CheckListAmbiente checklist) {
 		this.ID = checklist.getID();
 		this.ambiente = new AmbienteResumoResponse(checklist.getAmbiente());
+		this.dataHoraAbertura = checklist.getDataHoraAbertura();
 		this.dataHoraLiberacao = checklist.getDataHoraLiberacao();
 		this.dataHoraEncerramento = checklist.getDataHoraEncerramento();
 		this.responsavelAbertura = new UsuarioResponse(checklist.getResponsavelAbertura());
