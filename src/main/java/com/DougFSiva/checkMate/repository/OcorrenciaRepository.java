@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
+import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
@@ -18,6 +20,8 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
 		return findById(ID).orElseThrow(() -> new ObjetoNaoEncontradoException(
 				String.format("Ocorrência com ID %d não encontrado!", ID)));
 	}
+	
+	void deleteByItemCheckListIn(List<ItemCheckList> item);
 	
     Page<Ocorrencia> findByDataHoraBetween(LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
 

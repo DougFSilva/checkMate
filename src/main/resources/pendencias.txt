@@ -10,4 +10,4 @@ Testar:
 - Alterar PathVariable para RequestParam onde será feito pesquisa com filtro
 - Alterar os Cacheable para adicionar o sort do pageable
 - Editar buscar compartimento pelo ambiente para retornar page
-- Não permitir salvar itemchecklist não ok sem observação
+- Ao deletar checklist preenchido na entrada foi gerada ocorrência, portanto deletar ocorrência

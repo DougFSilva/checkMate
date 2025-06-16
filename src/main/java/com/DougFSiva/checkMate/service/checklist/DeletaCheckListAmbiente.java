@@ -10,9 +10,11 @@ import com.DougFSiva.checkMate.exception.ErroDeOperacaoComCheckListException;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
+import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.repository.CheckListAmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
+import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ public class DeletaCheckListAmbiente {
 	private final CheckListAmbienteRepository repository;
 	private final ItemCheckListRepository  itemCheckListRepository;
 	private final CheckListCompartimentoRepository checkListCompartimentoRepository;
+	private final OcorrenciaRepository ocorrenciaRepository;
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
@@ -33,6 +36,7 @@ public class DeletaCheckListAmbiente {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validarCheckListAberto(checkList);
 		List<CheckListCompartimento> checkListsCompartimento = checkListCompartimentoRepository.findByCheckListAmbiente(checkList);
+		deletarOcorrencias(checkListsCompartimento);
 		itemCheckListRepository.deleteByCheckListCompartimentoIn(checkListsCompartimento);
 		checkListCompartimentoRepository.deleteAll(checkListsCompartimento);
 		repository.delete(checkList);
@@ -43,6 +47,13 @@ public class DeletaCheckListAmbiente {
 		if (checkList.getStatus() != CheckListAmbienteStatus.ABERTO) {
 			throw new ErroDeOperacaoComCheckListException("Somente um check-list aberto pode ser deletado");
 		}
+	}
+	
+	private void deletarOcorrencias(List<CheckListCompartimento> checklists) {
+		checklists.forEach(checklist -> {
+			List<ItemCheckList> itensCheckList = itemCheckListRepository.findByCheckListCompartimento(checklist);
+			ocorrenciaRepository.deleteByItemCheckListIn(itensCheckList);
+		});
 	}
 	
 }
