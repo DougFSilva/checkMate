@@ -41,6 +41,7 @@ public class PreencheCheckListEntradaService {
 		validarCheckListAmbienteAberto(checkList);
 		validarCheckListCompartimentoNaoPreechido(checkList);
 		validarItens(form.itens());
+		validarItensNaoOKSemObservacao(form.itens());
 		List<ItemCheckList> itens = itemCheckListRepository.findByCheckListCompartimento(checkList);
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
 		itemCheckListRepository.saveAll(itensAtualizados);
@@ -75,6 +76,18 @@ public class PreencheCheckListEntradaService {
 		        throw new ErroDeOperacaoComCheckListException(
 		            "Não é possível validar o check-list pois há itens não verificados");
 		    }
+	}
+	
+	private void validarItensNaoOKSemObservacao(List<ItemCheckListForm> itens) {
+		itens.forEach(item -> {
+			if (
+					item.status() != ItemCheckListStatus.OK 
+					&& item.observacao().isBlank()) {
+				throw new ErroDeOperacaoComCheckListException(
+			            "Não é possível validar o check-list. Para itens com status diferente de 'OK' é "
+			            + "obrigatório o preenchimento da obsevação");
+			}
+		});
 	}
 
 	private List<ItemCheckList> atualizarItens(List<ItemCheckList> itens, List<ItemCheckListForm> itensForm) {

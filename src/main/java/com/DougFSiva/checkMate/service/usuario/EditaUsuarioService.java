@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.UsuarioForm;
-import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
+import com.DougFSiva.checkMate.dto.response.UsuarioDetalhadoResponse;
 import com.DougFSiva.checkMate.exception.UsuarioSemPermissaoException;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
 import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
@@ -29,7 +29,7 @@ public class EditaUsuarioService {
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
 	@CacheEvict(value = "usuarios", allEntries = true)
-	public UsuarioResponse editar(Long ID, UsuarioForm form) {
+	public UsuarioDetalhadoResponse editar(Long ID, UsuarioForm form) {
 		Usuario usuario = repository.findByIdOrElseThrow(ID);
 		validarUsuarioAutenticado(usuario);
 		if (!form.email().equals(usuario.getEmail())) {
@@ -41,7 +41,7 @@ public class EditaUsuarioService {
 		Usuario usuarioAtualizado = atualizarDadosDoUsuario(usuario, form);
 		Usuario usuarioSalvo = repository.save(usuarioAtualizado);
 		logger.info(String.format("Usuário %s editado", usuario.infoParaLog()));
-		return new UsuarioResponse(usuarioSalvo);
+		return new UsuarioDetalhadoResponse(usuarioSalvo);
 	}
 	
 	private Usuario atualizarDadosDoUsuario(Usuario usuario, UsuarioForm form) {

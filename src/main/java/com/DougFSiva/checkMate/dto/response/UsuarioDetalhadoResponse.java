@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class UsuarioResponse {
+public class UsuarioDetalhadoResponse {
 
 	private Long ID;
 	private String nome;
@@ -24,7 +24,7 @@ public class UsuarioResponse {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataValidade;
 	
-	public UsuarioResponse(Usuario usuario) {
+	public UsuarioDetalhadoResponse(Usuario usuario) {
 		this.ID = usuario.getID();
 		this.nome = usuario.getNome();
 		this.CPF = usuario.getCPF();

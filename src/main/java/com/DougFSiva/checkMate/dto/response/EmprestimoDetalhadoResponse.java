@@ -14,9 +14,9 @@ public class EmprestimoDetalhadoResponse {
 
 	private Long ID;
 	private ItemResumoResponse item;
-	private UsuarioResponse emprestador;
-	private UsuarioResponse solicitante;
-	private UsuarioResponse recebedor;
+	private UsuarioDetalhadoResponse emprestador;
+	private UsuarioDetalhadoResponse solicitante;
+	private UsuarioDetalhadoResponse recebedor;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraEmprestimo;
@@ -29,10 +29,10 @@ public class EmprestimoDetalhadoResponse {
 	public EmprestimoDetalhadoResponse(Emprestimo emprestimo) {
 		this.ID = emprestimo.getID();
 		this.item = new ItemResumoResponse(emprestimo.getItem());
-		this.emprestador = new UsuarioResponse(emprestimo.getEmprestador());
-		this.solicitante = new UsuarioResponse(emprestimo.getSolicitante());
+		this.emprestador = new UsuarioDetalhadoResponse(emprestimo.getEmprestador());
+		this.solicitante = new UsuarioDetalhadoResponse(emprestimo.getSolicitante());
 		if (emprestimo.getRecebedor() != null) {
-			this.recebedor = new UsuarioResponse(emprestimo.getRecebedor());
+			this.recebedor = new UsuarioDetalhadoResponse(emprestimo.getRecebedor());
 		}
 		this.dataHoraDevolucao = emprestimo.getDataHoraDevolucao();
 		this.dataHoraEmprestimo = emprestimo.getDataHoraEmprestimo();

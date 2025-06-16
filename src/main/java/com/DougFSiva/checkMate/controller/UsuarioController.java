@@ -18,7 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.DougFSiva.checkMate.dto.form.AlteraSenhaUsuarioForm;
 import com.DougFSiva.checkMate.dto.form.UsuarioForm;
-import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
+import com.DougFSiva.checkMate.dto.response.UsuarioDetalhadoResponse;
 import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
 import com.DougFSiva.checkMate.service.usuario.AlteraSenhaDeUsuarioService;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioService;
@@ -45,8 +45,8 @@ public class UsuarioController {
 	
 	@PostMapping
 	@Operation(summary = "Criar usuário", description = "Cria um novo usuário com os dados fornecidos")
-	public ResponseEntity<UsuarioResponse> criaUsuario(@Valid @RequestBody UsuarioForm form) {
-		UsuarioResponse usuario = criaUsuarioService.criar(form);
+	public ResponseEntity<UsuarioDetalhadoResponse> criaUsuario(@Valid @RequestBody UsuarioForm form) {
+		UsuarioDetalhadoResponse usuario = criaUsuarioService.criar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{ID}")
 				.buildAndExpand(usuario.getID())
@@ -66,9 +66,9 @@ public class UsuarioController {
 			summary = "Editar usuário", 
 			description = "Edita um usuário existente com os dados fornecidos"
 	)
-	public ResponseEntity<UsuarioResponse> editarUsuario(@PathVariable Long ID, 
+	public ResponseEntity<UsuarioDetalhadoResponse> editarUsuario(@PathVariable Long ID, 
 			@Valid @RequestBody UsuarioForm form) {
-		UsuarioResponse usuario = editaUsuarioService.editar(ID, form);
+		UsuarioDetalhadoResponse usuario = editaUsuarioService.editar(ID, form);
 		return ResponseEntity.ok().body(usuario);
 	}
 	
@@ -81,8 +81,8 @@ public class UsuarioController {
 	
 	@GetMapping("/{ID}")
 	@Operation(summary = "Buscar por ID", description = "Retorna um usuário pelo seu ID")
-	public ResponseEntity<UsuarioResponse> buscarUsuarioPeloID(@PathVariable Long ID) {
-		UsuarioResponse usuario = buscaUsuarioService.buscarPeloID(ID);
+	public ResponseEntity<UsuarioDetalhadoResponse> buscarUsuarioPeloID(@PathVariable Long ID) {
+		UsuarioDetalhadoResponse usuario = buscaUsuarioService.buscarPeloID(ID);
 		return ResponseEntity.ok().body(usuario);
 	}
 	
@@ -91,9 +91,9 @@ public class UsuarioController {
 			summary = "Buscar por nome", 
 			description = "Retorna uma página de usuários que contenham o nome informado"
 	)
-	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloNome(@PathVariable String nome, 
+	public ResponseEntity<Page<UsuarioDetalhadoResponse>> buscarUsuariosPeloNome(@PathVariable String nome, 
 			Pageable paginacao){
-		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloNome(nome, paginacao);
+		Page<UsuarioDetalhadoResponse> usuarios = buscaUsuarioService.buscarPeloNome(nome, paginacao);
 		return ResponseEntity.ok().body(usuarios);
 	}
 	
@@ -102,16 +102,16 @@ public class UsuarioController {
 			summary = "Buscar por perfil", 
 			description = "Retorna uma página de usuários com o perfil informado"
 	)
-	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloTipoDePerfil(
+	public ResponseEntity<Page<UsuarioDetalhadoResponse>> buscarUsuariosPeloTipoDePerfil(
 			@PathVariable TipoPerfil perfil, Pageable paginacao){
-		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloTipoPerfil(perfil, paginacao);
+		Page<UsuarioDetalhadoResponse> usuarios = buscaUsuarioService.buscarPeloTipoPerfil(perfil, paginacao);
 		return ResponseEntity.ok().body(usuarios);
 	}
 	
 	@GetMapping
 	@Operation(summary = "Listar todos", description = "Retorna todos os usuários")
-	public ResponseEntity<Page<UsuarioResponse>> buscarTodosUsuarios(Pageable paginacao){
-		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarTodos(paginacao);
+	public ResponseEntity<Page<UsuarioDetalhadoResponse>> buscarTodosUsuarios(Pageable paginacao){
+		Page<UsuarioDetalhadoResponse> usuarios = buscaUsuarioService.buscarTodos(paginacao);
 		return ResponseEntity.ok().body(usuarios);
 	}
 	
