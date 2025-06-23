@@ -45,7 +45,19 @@ public class BuscaCheckListAmbienteService {
 		return repository.findByAmbienteAndStatus(ambiente, status, paginacao)
 				.map(CheckListAmbienteResumoResponse::new);
 	}
-
+	
+	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
+	public Page<CheckListAmbienteResumoResponse> buscarPeloAmbienteEDataHoraEncerramento(
+			Long ambienteID,
+			LocalDateTime dataInicial, 
+			LocalDateTime dataFinal,
+			Pageable paginacao) {
+		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
+		return repository.findByAmbienteAndDataHoraEncerramentoBetween(ambiente, dataInicial, dataFinal, paginacao)
+				.map(CheckListAmbienteResumoResponse::new);
+	}
+	
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraEncerramento(

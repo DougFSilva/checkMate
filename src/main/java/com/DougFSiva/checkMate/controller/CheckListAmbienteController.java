@@ -128,6 +128,22 @@ public class CheckListAmbienteController {
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
+	@GetMapping("/ambiente/{ambienteID}/data-hora-encerramento")
+    @Operation(
+    		summary = "Buscar checklists de ambiente por ambeinte e intervalo de data e hora de encerramento", 
+    		description = "Retorna checklists de ambiente filtrados por ambiente e intervalo de data e hora "
+    				+ "de encerramento."
+    )
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorAmbienteEDataHoraEncerramento(
+			@PathVariable Long ambienteID,
+	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
+	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
+	        Pageable paginacao) {
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
+	    		.buscarPeloAmbienteEDataHoraEncerramento(ambienteID, dataInicial, dataFinal, paginacao);
+	    return ResponseEntity.ok(checkLists);
+	}
+	
 	@GetMapping("/data-hora-encerramento")
     @Operation(
     		summary = "Buscar checklists de ambiente por intervalo de data e hora de encerramento", 

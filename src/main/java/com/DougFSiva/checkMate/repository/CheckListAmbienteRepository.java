@@ -18,17 +18,21 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 		return findById(ID).orElseThrow(() -> new ObjetoNaoEncontradoException(
 				String.format("Check-list de ambiente com ID %d não encontrado!", ID)));
 	}
-	
+
 	Page<CheckListAmbiente> findByAmbiente(Ambiente ambiente, Pageable paginacao);
-	
-	Page<CheckListAmbiente> findByAmbienteAndStatus(Ambiente ambiente, CheckListAmbienteStatus status, Pageable paginacao);
-	
+
+	Page<CheckListAmbiente> findByAmbienteAndStatus(Ambiente ambiente, CheckListAmbienteStatus status,
+			Pageable paginacao);
+
+	Page<CheckListAmbiente> findByAmbienteAndDataHoraEncerramentoBetween(Ambiente ambiente, LocalDateTime dataInicial,
+			LocalDateTime dataFinal, Pageable paginacao);
+
 	Page<CheckListAmbiente> findByDataHoraEncerramentoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao);
-	
+
 	List<CheckListAmbiente> findByDataHoraEncerramentoIsNotNullAndDataHoraEncerramentoBefore(LocalDateTime dataHora);
-	
+
 	Page<CheckListAmbiente> findByStatus(CheckListAmbienteStatus status, Pageable paginacao);
-	
+
 	boolean existsByAmbiente(Ambiente ambiente);
 }

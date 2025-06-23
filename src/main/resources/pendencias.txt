@@ -10,4 +10,5 @@ Testar:
 - Alterar PathVariable para RequestParam onde será feito pesquisa com filtro
 - Alterar os Cacheable para adicionar o sort do pageable
 - Editar buscar compartimento pelo ambiente para retornar page
-- Ao deletar checklist preenchido na entrada foi gerada ocorrência, portanto deletar ocorrência
+- Apagar checklists com status abertos automaticamente ao virar o dia
+- Ao virar o dia se houver checklist de ambiente liberado enviar um email para o responsável de abertura e abrir ocorrência?
