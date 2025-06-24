@@ -11,25 +11,25 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class OcorrenciaResponse {
+public class OcorrenciaDetalhadoResponse {
 
 	private Long ID;
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHora;
 	
 	private String emissor;
-	private ItemCheckListResumoResponse itemCheckList;
-	private UsuarioDetalhadoResponse responsavelEncerramento;
+	private ItemCheckListDetalhadoResponse itemCheckList;
+	private UsuarioResumoResponse responsavelEncerramento;
 	private List<TratamentoOcorrenciaResponse> tratamento;
 	private boolean encerrada;
 	
-	public OcorrenciaResponse(Ocorrencia ocorrencia) {
+	public OcorrenciaDetalhadoResponse(Ocorrencia ocorrencia) {
 		this.ID = ocorrencia.getID();
 		this.dataHora = ocorrencia.getDataHora();
 		this.emissor = ocorrencia.getEmissor();
-		this.itemCheckList = new ItemCheckListResumoResponse(ocorrencia.getItemCheckList());
+		this.itemCheckList = new ItemCheckListDetalhadoResponse(ocorrencia.getItemCheckList());
 		if (ocorrencia.getResponsavelEncerramento() != null) {
-			this.responsavelEncerramento = new UsuarioDetalhadoResponse(ocorrencia.getResponsavelEncerramento());
+			this.responsavelEncerramento = new UsuarioResumoResponse(ocorrencia.getResponsavelEncerramento());
 		}
 		this.tratamento = ocorrencia.getTratamentos()
 				.stream()

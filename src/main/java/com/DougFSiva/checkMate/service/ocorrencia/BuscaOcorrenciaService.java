@@ -8,7 +8,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.DougFSiva.checkMate.dto.response.OcorrenciaResponse;
+import com.DougFSiva.checkMate.dto.response.OcorrenciaDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.OcorrenciaResumoResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
 import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
@@ -24,31 +25,31 @@ public class BuscaOcorrenciaService {
 
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@Transactional(readOnly = true)
-	public OcorrenciaResponse buscarPeloID(Long ID) {
-		return new OcorrenciaResponse(repository.findByIdOrElseThrow(ID));
+	public OcorrenciaDetalhadoResponse buscarPeloID(Long ID) {
+		return new OcorrenciaDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@Transactional(readOnly = true)
-	public Page<OcorrenciaResponse> buscarPelaDataHora(LocalDateTime dataInicial, LocalDateTime dataFinal,
+	public Page<OcorrenciaResumoResponse> buscarPelaDataHora(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao) {
 		return repository
 				.findByDataHoraBetween(dataInicial, dataFinal, paginacao)
-				.map(OcorrenciaResponse::new);
+				.map(OcorrenciaResumoResponse::new);
 	}
 	
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	@Transactional(readOnly = true)
-	public Page<OcorrenciaResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
+	public Page<OcorrenciaResumoResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByItemCheckList_CheckListCompartimento_CheckListAmbiente_Ambiente(ambiente, paginacao)
-				.map(OcorrenciaResponse::new);
+				.map(OcorrenciaResumoResponse::new);
 	}
 	
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
-	public Page<OcorrenciaResponse> buscarTodas(Pageable paginacao) {
+	public Page<OcorrenciaResumoResponse> buscarTodas(Pageable paginacao) {
 		return repository.findAll(paginacao)
-				.map(OcorrenciaResponse::new);
+				.map(OcorrenciaResumoResponse::new);
 	}
 
 }

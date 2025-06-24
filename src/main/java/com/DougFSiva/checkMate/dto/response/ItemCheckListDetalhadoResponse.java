@@ -11,7 +11,7 @@ import lombok.ToString;
 public class ItemCheckListDetalhadoResponse {
 
 	private Long ID;
-	private CheckListCompartimentoResumoResponse checkListCompartimento;
+	private CheckListCompartimentoDetalhadoResponse checkListCompartimento;
 	private ItemResumoResponse item;
 	private ItemCheckListStatus statusEntrada;
 	private ItemCheckListStatus statusSaida;
@@ -20,7 +20,7 @@ public class ItemCheckListDetalhadoResponse {
 	
 	public ItemCheckListDetalhadoResponse(ItemCheckList item) {
 		this.ID = item.getID();
-		this.checkListCompartimento = new CheckListCompartimentoResumoResponse(item.getCheckListCompartimento());
+		this.checkListCompartimento = new CheckListCompartimentoDetalhadoResponse(item.getCheckListCompartimento());
 		this.item = new ItemResumoResponse(item.getItem());
 		this.statusEntrada = item.getStatusEntrada();
 		this.statusSaida = item.getStatusSaida();

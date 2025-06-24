@@ -10,12 +10,12 @@ import lombok.ToString;
 public class TratamentoOcorrenciaResponse {
 
 	private Long ID;
-	private UsuarioDetalhadoResponse autor;
+	private UsuarioResumoResponse autor;
 	private String descricao;
 	
 	public TratamentoOcorrenciaResponse(TratamentoOcorrencia tratamento) {
 		this.ID = tratamento.getID();
-		this.autor = new UsuarioDetalhadoResponse(tratamento.getAutor());
+		this.autor = new UsuarioResumoResponse(tratamento.getAutor());
 		this.descricao = tratamento.getDescricao();
 	}
 

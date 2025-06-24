@@ -106,20 +106,22 @@ public class PreencheCheckListSaidaService {
 	}
 	
 	private void gerarOcorrenciaSeAnormalidade(List<ItemCheckList> itens) {
-	    List<Ocorrencia> ocorrencias = itens.stream()
-	        .filter(item -> item.getStatusEntrada() != ItemCheckListStatus.OK)
-	        .map(this::criarOcorrencia)
-	        .collect(Collectors.toList());
+		itens.stream()
+		 	.filter(item -> item.getStatusSaida() != ItemCheckListStatus.OK)
+		 	.forEach(this::criarOcorrencia);
 	    
-	    ocorrenciaRepository.saveAll(ocorrencias);
 	}
 
-	private Ocorrencia criarOcorrencia(ItemCheckList item) {
-	    return new Ocorrencia(
-	        LocalDateTime.now(),
-	        buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList(),
-	        item
-	    );
+	private void criarOcorrencia(ItemCheckList item) {
+		if (!ocorrenciaRepository.existsByItemCheckList(item)) {
+			Ocorrencia ocorrencia = new Ocorrencia(
+			        LocalDateTime.now(),
+			        buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList(),
+			        item
+			    );
+			ocorrenciaRepository.save(ocorrencia);
+		}
+	    
 	}
 
 }

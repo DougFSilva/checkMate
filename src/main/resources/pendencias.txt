@@ -12,3 +12,4 @@ Testar:
 - Editar buscar compartimento pelo ambiente para retornar page
 - Apagar checklists com status abertos automaticamente ao virar o dia
 - Ao virar o dia se houver checklist de ambiente liberado enviar um email para o responsável de abertura e abrir ocorrência?
+- Validar email

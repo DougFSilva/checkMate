@@ -32,4 +32,6 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
     Page<Ocorrencia> findByResponsavelEncerramento(Usuario responsavelEncerramento, Pageable paginacao);
     
     Page<Ocorrencia> findAll(Pageable paginacao);
+    
+    boolean existsByItemCheckList(ItemCheckList item);
 }

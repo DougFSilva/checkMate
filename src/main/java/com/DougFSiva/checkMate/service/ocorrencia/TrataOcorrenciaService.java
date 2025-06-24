@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.TrataOcorrenciaForm;
-import com.DougFSiva.checkMate.dto.response.OcorrenciaResponse;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComOcorrenciaException;
 import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
 import com.DougFSiva.checkMate.model.ocorrrencia.TratamentoOcorrencia;
@@ -25,7 +24,7 @@ public class TrataOcorrenciaService {
 
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
-	public OcorrenciaResponse tratar(Long ID, TrataOcorrenciaForm form) {
+	public void tratar(Long ID, TrataOcorrenciaForm form) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(ID);
 		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(ocorrencia, buscaUsuarioAutenticado.buscar(), form.descricao());
 		validarOcorrenciaAberta(ocorrencia);
@@ -33,7 +32,6 @@ public class TrataOcorrenciaService {
 		Ocorrencia ocorrenciaSalva = repository.save(ocorrencia);
 		logger.info(String.format(
 				"Adicionado tratamento à ocorrência %d", ocorrenciaSalva.getID()));
-		return new OcorrenciaResponse(ocorrenciaSalva);
 	}
 	
 	private void validarOcorrenciaAberta(Ocorrencia ocorrencia) {
