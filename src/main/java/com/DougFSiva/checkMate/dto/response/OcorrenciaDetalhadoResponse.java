@@ -14,7 +14,7 @@ import lombok.ToString;
 public class OcorrenciaDetalhadoResponse {
 
 	private Long ID;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
 	private LocalDateTime dataHora;
 	
 	private String emissor;

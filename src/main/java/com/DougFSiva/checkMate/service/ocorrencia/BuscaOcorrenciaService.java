@@ -46,6 +46,10 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResumoResponse::new);
 	}
 	
+	public Page<OcorrenciaResumoResponse> buscarPeloStatusEncerrada(boolean encerrada, Pageable paginacao) {
+		return repository.findByEncerrada(encerrada, paginacao).map(OcorrenciaResumoResponse::new);
+	}	
+	
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public Page<OcorrenciaResumoResponse> buscarTodas(Pageable paginacao) {
 		return repository.findAll(paginacao)

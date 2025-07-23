@@ -16,13 +16,13 @@ public class CheckListAmbienteResumoResponse {
 	private Long ID;
 	private AmbienteResumoResponse ambiente;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
 	private LocalDateTime dataHoraAbertura;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
 	private LocalDateTime dataHoraLiberacao;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
 	private LocalDateTime dataHoraEncerramento;
 	private CheckListAmbienteStatus status;
 	

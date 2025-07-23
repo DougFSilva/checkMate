@@ -1,5 +1,7 @@
 package com.DougFSiva.checkMate.service.ocorrencia;
 
+import java.time.LocalDateTime;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +28,11 @@ public class TrataOcorrenciaService {
 	@PreAuthorize("isAuthenticated()")
 	public void tratar(Long ID, TrataOcorrenciaForm form) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(ID);
-		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(ocorrencia, buscaUsuarioAutenticado.buscar(), form.descricao());
+		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(
+				ocorrencia, 
+				LocalDateTime.now(),
+				buscaUsuarioAutenticado.buscar(), 
+				form.descricao());
 		validarOcorrenciaAberta(ocorrencia);
 		ocorrencia.addTratamento(tratamento);
 		Ocorrencia ocorrenciaSalva = repository.save(ocorrencia);

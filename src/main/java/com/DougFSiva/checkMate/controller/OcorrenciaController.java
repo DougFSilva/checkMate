@@ -95,6 +95,18 @@ public class OcorrenciaController {
 		return ResponseEntity.ok().body(ocorrencias);
 	}
 	
+	@GetMapping("/status")
+	@Operation(
+			summary = "Buscar ocorrências pelo status encerrada", 
+			description = "Retorna todas as ocorrências pelo status encerrada."
+	)
+	public ResponseEntity<Page<OcorrenciaResumoResponse>> buscarOcorrenciasPeloStatusEncerrada(
+			@RequestParam("encerrada") boolean encerrada,
+			Pageable paginacao) {
+		Page<OcorrenciaResumoResponse> ocorrencias = buscaOcorrenciaService.buscarPeloStatusEncerrada(encerrada, paginacao);
+		return ResponseEntity.ok().body(ocorrencias);
+	}	
+	
 	@GetMapping
 	@Operation(
 			summary = "Buscar todas as ocorrências", 
