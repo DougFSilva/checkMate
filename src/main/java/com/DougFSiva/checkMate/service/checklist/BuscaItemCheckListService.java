@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.ItemCheckListDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.ItemCheckListResumoResponse;
+import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
 import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
+import com.DougFSiva.checkMate.repository.ItemRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class BuscaItemCheckListService {
 
 	private final ItemCheckListRepository repository;
+	private final ItemRepository itemRepository;
 	private final CheckListCompartimentoRepository checkListCompartimentoRepository;
 	
 	@Transactional(readOnly = true)
@@ -35,6 +38,12 @@ public class BuscaItemCheckListService {
 		.stream()
 		.map(ItemCheckListResumoResponse::new)
 		.collect(Collectors.toList());
+	}
+	
+	@Transactional(readOnly = true)
+	public Page<ItemCheckListResumoResponse> buscarTodosPeloItem(Long itemID,Pageable paginacao) {
+		Item item = itemRepository.findByIdOrElseThrow(itemID);
+		return repository.findByItem(item, paginacao).map(ItemCheckListResumoResponse::new);
 	}
 	
 	@Transactional(readOnly = true)

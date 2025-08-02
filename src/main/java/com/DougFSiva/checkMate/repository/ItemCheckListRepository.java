@@ -2,6 +2,8 @@ package com.DougFSiva.checkMate.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
@@ -17,6 +19,8 @@ public interface ItemCheckListRepository extends JpaRepository<ItemCheckList, Lo
 	}
 	
 	List<ItemCheckList> findByCheckListCompartimento(CheckListCompartimento checkList);
+	
+	Page<ItemCheckList> findByItem(Item item, Pageable paginacao);
 	
 	void deleteByCheckListCompartimentoIn(List<CheckListCompartimento> checkList);
 	

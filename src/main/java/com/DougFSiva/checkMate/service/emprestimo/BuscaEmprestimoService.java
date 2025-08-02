@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.response.EmprestimoDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.EmprestimoResumoResponse;
-import com.DougFSiva.checkMate.dto.response.EmprestimoResumoSemItemResponse;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.repository.AmbienteRepository;
@@ -39,9 +38,9 @@ public class BuscaEmprestimoService {
 	@Cacheable(value = "emprestimos", key = "'emprestimosPeloItem_' + #itemID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<EmprestimoResumoSemItemResponse> buscarPeloItem(Long itemID, Pageable paginacao) {
+	public Page<EmprestimoDetalhadoResponse> buscarPeloItem(Long itemID, Pageable paginacao) {
 		Item item = itemRepository.findByIdOrElseThrow(itemID);
-		return repository.findByItem(item, paginacao).map(EmprestimoResumoSemItemResponse::new);
+		return repository.findByItem(item, paginacao).map(EmprestimoDetalhadoResponse::new);
 	}
 
 	@Cacheable(value = "emprestimos", key = "'emprestimosPeloAmbiente_' + #ambienteID + '_pagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")

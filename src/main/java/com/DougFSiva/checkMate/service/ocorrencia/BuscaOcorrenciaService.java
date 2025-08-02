@@ -46,6 +46,16 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResumoResponse::new);
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@Transactional(readOnly = true)
+	public Page<OcorrenciaResumoResponse> buscarPeloAmbienteEDataHora(
+			Long ambienteID, LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao) {
+		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
+		return repository.findByItemCheckList_CheckListCompartimento_CheckListAmbiente_AmbienteAndDataHoraBetween(
+				ambiente, dataInicial, dataFinal, paginacao)
+				.map(OcorrenciaResumoResponse::new);
+	}
+	
 	public Page<OcorrenciaResumoResponse> buscarPeloStatusEncerrada(boolean encerrada, Pageable paginacao) {
 		return repository.findByEncerrada(encerrada, paginacao).map(OcorrenciaResumoResponse::new);
 	}	

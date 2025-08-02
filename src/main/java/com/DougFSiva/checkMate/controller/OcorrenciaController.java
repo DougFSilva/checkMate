@@ -95,6 +95,22 @@ public class OcorrenciaController {
 		return ResponseEntity.ok().body(ocorrencias);
 	}
 	
+	@GetMapping("/ambiente-data")
+	@Operation(
+			summary = "Buscar ocorrências por ambiente", 
+			description = "Retorna todas as ocorrências registradas em um ambiente específico."
+	)
+	public ResponseEntity<Page<OcorrenciaResumoResponse>> buscarOcorrenciasPeloAmbienteEDataHora(
+			@RequestParam("ambienteID") Long ambienteID,
+			@RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataInicial,
+			@RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataFinal,
+			Pageable paginacao
+			){
+		Page<OcorrenciaResumoResponse> ocorrencias = buscaOcorrenciaService.buscarPeloAmbienteEDataHora(
+				ambienteID, dataInicial, dataFinal, paginacao);
+		return ResponseEntity.ok().body(ocorrencias);
+	}
+	
 	@GetMapping("/status")
 	@Operation(
 			summary = "Buscar ocorrências pelo status encerrada", 

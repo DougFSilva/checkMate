@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.DougFSiva.checkMate.dto.form.EmprestaItemForm;
 import com.DougFSiva.checkMate.dto.response.EmprestimoDetalhadoResponse;
 import com.DougFSiva.checkMate.dto.response.EmprestimoResumoResponse;
-import com.DougFSiva.checkMate.dto.response.EmprestimoResumoSemItemResponse;
 import com.DougFSiva.checkMate.service.emprestimo.BuscaEmprestimoService;
 import com.DougFSiva.checkMate.service.emprestimo.DevolveItemService;
 import com.DougFSiva.checkMate.service.emprestimo.EmprestaItemService;
@@ -75,10 +74,10 @@ public class EmprestimoController {
 			summary = "Buscar empréstimos por item", 
 			description = "Retorna todos os empréstimos feitos de um item específico."
 	)
-	public ResponseEntity<Page<EmprestimoResumoSemItemResponse>> buscarEmprestimosPeloItem(
+	public ResponseEntity<Page<EmprestimoDetalhadoResponse>> buscarEmprestimosPeloItem(
 			@PathVariable Long itemID,
 			Pageable paginacao) {
-		Page<EmprestimoResumoSemItemResponse> emprestimos = buscaEmprestimoService.buscarPeloItem(itemID, paginacao);
+		Page<EmprestimoDetalhadoResponse> emprestimos = buscaEmprestimoService.buscarPeloItem(itemID, paginacao);
 		return ResponseEntity.ok().body(emprestimos);
 	}
 	

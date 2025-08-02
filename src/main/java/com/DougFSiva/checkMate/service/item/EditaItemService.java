@@ -27,6 +27,7 @@ public class EditaItemService {
     @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     @Caching(evict = {
+    		@CacheEvict(value = "itens_detalhado", allEntries = true),
     	    @CacheEvict(value = "itens_resumo_por_compartimento", allEntries = true ),
     	    @CacheEvict(value = "itens_resumo_todos", allEntries = true )
     })

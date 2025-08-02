@@ -47,6 +47,18 @@ public class ItemCheckListController {
 				.buscarPeloCheckListCompartimento(checkListCompartimentoID);
 		return ResponseEntity.ok().body(itens);
 	}
+	
+	@GetMapping("/item/{itemID}")
+	@Operation(
+			summary = "Buscar todos os itens de checklist pelo ID do item", 
+			description = "Retorna uma lista de todos os itens de checklist pelo ID do item."
+	)
+	public ResponseEntity<Page<ItemCheckListResumoResponse>> buscarTodosItensCheckListPeloItem(
+			@PathVariable Long itemID,
+			Pageable paginacao) {
+		Page<ItemCheckListResumoResponse> itens = buscaItemCheckListService.buscarTodosPeloItem(itemID, paginacao);
+		return ResponseEntity.ok().body(itens);
+	}
 
 	@GetMapping
 	@Operation(

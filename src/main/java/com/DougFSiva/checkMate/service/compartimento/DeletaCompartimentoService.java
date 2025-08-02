@@ -30,6 +30,7 @@ public class DeletaCompartimentoService {
 	@Caching(evict = {
     	    @CacheEvict(value = "compartimentos_resumo_por_ambiente", allEntries = true ),
     	    @CacheEvict(value = "compartimentos_resumo_todos", allEntries = true),
+    	    @CacheEvict(value = "compartimentos_detalhado", allEntries = true),
     	    @CacheEvict(value = "ambientes_detalhado", allEntries = true )
 	})
 	public void deletar(Long ID) {

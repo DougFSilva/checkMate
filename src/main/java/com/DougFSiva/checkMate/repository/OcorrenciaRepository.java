@@ -27,6 +27,9 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
 
     Page<Ocorrencia> findByItemCheckList_CheckListCompartimento_CheckListAmbiente_Ambiente(Ambiente ambiente, Pageable paginacao);
     
+    Page<Ocorrencia> findByItemCheckList_CheckListCompartimento_CheckListAmbiente_AmbienteAndDataHoraBetween(
+    		Ambiente ambiente, LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
+    
     Page<Ocorrencia> findByItemCheckList_CheckListCompartimento(CheckListCompartimento checkList, Pageable paginacao);
     
     Page<Ocorrencia> findByResponsavelEncerramento(Usuario responsavelEncerramento, Pageable paginacao);
