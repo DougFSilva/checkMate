@@ -8,8 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,25 +38,25 @@ public class EmprestimoController {
 	private final DevolveItemService devolveItemService;
 	private final BuscaEmprestimoService buscaEmprestimoService;
 	
-	@PostMapping("/emprestar")
+	@PatchMapping("/emprestar")
 	@Operation(summary = "Emprestar item", description = "Realiza o empréstimo de um item.")
-	public ResponseEntity<EmprestimoResumoResponse> emprestarItem(@Valid @RequestBody EmprestaItemForm form ) {
+	public ResponseEntity<Void> emprestarItem(@Valid @RequestBody EmprestaItemForm form ) {
 		EmprestimoResumoResponse emprestimo = emprestaItemService.emprestar(form);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{ID}")
 				.buildAndExpand(emprestimo.getID())
 				.toUri();
-		return ResponseEntity.created(uri).body(emprestimo);
+		return ResponseEntity.created(uri).build();
 	}
 	
-	@PostMapping("/devolver/{ID}")
+	@PatchMapping("/devolver/{ID}")
 	@Operation(
 			summary = "Devolver item", 
 			description = "Devolve o item emprestado especificado pelo ID."
 	)
-	public ResponseEntity<EmprestimoResumoResponse> devolverItem(@PathVariable Long ID) {
-		EmprestimoResumoResponse emprestimo = devolveItemService.devolver(ID);
-		return ResponseEntity.ok().body(emprestimo);
+	public ResponseEntity<Void> devolverItem(@PathVariable Long ID) {
+		devolveItemService.devolver(ID);
+		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping("/{ID}")

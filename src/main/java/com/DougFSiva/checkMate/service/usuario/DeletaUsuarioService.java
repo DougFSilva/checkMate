@@ -19,7 +19,7 @@ public class DeletaUsuarioService {
 	private final UsuarioRepository repository;
 
 	@Transactional
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'SISTEMA')")
 	@CacheEvict(value = "usuarios", allEntries = true)
 	public void deletar(Long ID) {
 		Usuario usuario = repository.findByIdOrElseThrow(ID);

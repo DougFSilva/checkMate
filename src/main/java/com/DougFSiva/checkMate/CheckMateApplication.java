@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.DougFSiva.checkMate.service.usuario.CriaUsuarioAdminDefault;
+import com.DougFSiva.checkMate.service.usuario.CriaUsuarioSistema;
 
 @SpringBootApplication
 @EnableScheduling
@@ -19,7 +19,7 @@ public class CheckMateApplication {
 	}
 	
 	@Bean
-	CommandLineRunner init(CriaUsuarioAdminDefault criaUsuarioAdminDefault) {
+	CommandLineRunner init(CriaUsuarioSistema criaUsuarioAdminDefault) {
 	    return args -> {
 	      criaUsuarioAdminDefault.criar();
 	    };

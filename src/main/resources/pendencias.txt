@@ -14,3 +14,4 @@ Testar:
 - Ao virar o dia se houver checklist de ambiente liberado enviar um email para o responsável de abertura e abrir ocorrência?
 - Validar email
 - Não permitir emprestar item que ja está emprestado
+- Descomentar validação de cpf

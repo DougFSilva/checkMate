@@ -27,7 +27,7 @@ public class CriaUsuarioService {
 	private final ValidaUsuarioService validaUsuarioService;
 	
 	@Transactional
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'SISTEMA')")
 	@CacheEvict(value = "usuarios", allEntries = true)
 	public UsuarioDetalhadoResponse criar(UsuarioForm form) {
 		validaUsuarioService.validarUnicoEmail(form.email());

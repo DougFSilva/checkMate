@@ -107,7 +107,8 @@ public class PreencheCheckListSaidaService {
 	
 	private void gerarOcorrenciaSeAnormalidade(List<ItemCheckList> itens) {
 		itens.stream()
-		 	.filter(item -> item.getStatusSaida() != ItemCheckListStatus.OK)
+		 	.filter(item -> item.getStatusSaida() != ItemCheckListStatus.OK
+		 			&& item.getStatusEntrada() != ItemCheckListStatus.EMPRESTADO)
 		 	.forEach(this::criarOcorrencia);
 	    
 	}

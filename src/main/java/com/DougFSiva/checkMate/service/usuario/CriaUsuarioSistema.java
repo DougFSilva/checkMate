@@ -17,28 +17,28 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CriaUsuarioAdminDefault {
+public class CriaUsuarioSistema {
 	
-	@Value("${user.admin.senha}")
+	@Value("${user.sistema.senha}")
 	private String senha;
 
-    private static final LoggerPadrao logger = new LoggerPadrao(CriaUsuarioAdminDefault.class);
+    private static final LoggerPadrao logger = new LoggerPadrao(CriaUsuarioSistema.class);
 	private final UsuarioRepository repository;
 	private final CodificadorDeSenha codificadorDeSenha;
 	
 	public void criar() {
-		String email = "admin@admin";
+		String email = "sistema2@sistema";
 		if (!repository.existsByEmail(email)) {
-			Usuario admin = new Usuario(
-					"admin", 
+			Usuario usuario = new Usuario(
+					"sistema", 
 					null, 
 					email, 
 					new SenhaDeUsuario(senha, codificadorDeSenha), 
 					true, 
-					new Perfil(TipoPerfil.ADMIN), 
+					new Perfil(TipoPerfil.SISTEMA), 
 					LocalDate.of(2100,2 ,2));
-			repository.save(admin);
-			logger.info("Criado usuário admin default");
+			repository.save(usuario);
+			logger.info("Criado usuário de sistema");
 		}
 	}
 }

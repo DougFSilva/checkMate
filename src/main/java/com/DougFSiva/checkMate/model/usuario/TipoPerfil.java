@@ -12,7 +12,8 @@ public enum TipoPerfil {
 	ADMIN(1, "ROLE_ADMIN", "ADMINISTRADOR"), 
 	PROFESSOR(2, "ROLE_PROFESSOR", "PROFESSOR"),
 	FUNCIONARIO(3, "ROLE_FUNCIONARIO", "FUNCIONARIO"), 
-	ALUNO(4, "ROLE_ALUNO", "ALUNO");
+	ALUNO(4, "ROLE_ALUNO", "ALUNO"),
+	SISTEMA(5, "ROLE_SISTEMA", "SISTEMA");
 
 	private long codigo;
 	private String descricao;
