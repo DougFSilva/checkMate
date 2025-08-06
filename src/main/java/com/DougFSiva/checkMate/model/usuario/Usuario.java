@@ -66,11 +66,11 @@ public class Usuario implements UserDetails{
 	}
 	
 	public String infoParaLog() {
-		return String.format("(%d) %s", this.ID, this.nome);
+		return String.format("(ID: #%d) %s", this.ID, this.nome);
 	}
 	
 	public String infoParaExecutorCheckList() {
-		return String.format("(%d) %s", this.ID, this.nome);
+		return String.format("(ID: #%d) %s", this.ID, this.nome);
 	}
 
 	@Override

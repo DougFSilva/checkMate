@@ -44,7 +44,7 @@ public class EncerraCheckListAmbienteService {
 		checkList.setStatus(CheckListAmbienteStatus.ENCERRADO);
 		repository.save(checkList);
 		publicadorMqtt.enviarMensagem(
-				topicoRoot + "/" + checkList.getAmbiente().getDescricao(), "ENCERRADO");
+				topicoRoot + "/" + checkList.getAmbiente().getID(), "ENCERRADO");
 		logger.info(String.format("Encerrado check-list para ambiente %s", 
 				checkList.getAmbiente().infoParaLog()));
 

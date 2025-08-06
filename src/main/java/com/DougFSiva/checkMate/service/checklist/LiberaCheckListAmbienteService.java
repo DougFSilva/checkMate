@@ -44,7 +44,7 @@ public class LiberaCheckListAmbienteService {
 		checkList.setStatus(CheckListAmbienteStatus.LIBERADO);
 		repository.save(checkList);
 		publicadorMqtt.enviarMensagem(
-				topicoRoot + "/" + checkList.getAmbiente().getDescricao(), "LIBERADO");
+				topicoRoot + "/" + checkList.getAmbiente().getID(), "LIBERADO");
 		logger.info(String.format("Liberado check-list para ambiente %s", 
 				checkList.getAmbiente().infoParaLog()));
 	}

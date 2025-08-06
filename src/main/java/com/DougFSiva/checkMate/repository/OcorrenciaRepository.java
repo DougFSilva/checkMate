@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.model.Ambiente;
+import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListCompartimento;
 import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
 import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
@@ -35,6 +36,8 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
     Page<Ocorrencia> findByResponsavelEncerramento(Usuario responsavelEncerramento, Pageable paginacao);
     
     Page<Ocorrencia> findByEncerrada(boolean encerrada, Pageable paginacao);
+    
+    List<Ocorrencia> findByItemCheckList_CheckListCompartimento_CheckListAmbiente(CheckListAmbiente checkList);
     
     Page<Ocorrencia> findAll(Pageable paginacao);
     

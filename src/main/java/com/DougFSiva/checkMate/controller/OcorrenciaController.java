@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -122,6 +123,17 @@ public class OcorrenciaController {
 		Page<OcorrenciaResumoResponse> ocorrencias = buscaOcorrenciaService.buscarPeloStatusEncerrada(encerrada, paginacao);
 		return ResponseEntity.ok().body(ocorrencias);
 	}	
+	
+	@GetMapping("/checklist-ambiente/{checkListAmbienteID}")
+	@Operation(
+			summary = "Buscar ocorrências pelo checklist de ambiente", 
+			description = "Retorna todas as ocorrências pelo checklist de ambiente."
+	)
+	public ResponseEntity<List<OcorrenciaResumoResponse>> buscarOcorrenciasPeloCheckListAmbiente(
+			@PathVariable Long checkListAmbienteID) {
+		List<OcorrenciaResumoResponse> ocorrencias = buscaOcorrenciaService.buscarPeloCheckListAmbiente(checkListAmbienteID);
+		return ResponseEntity.ok().body(ocorrencias);
+	}
 	
 	@GetMapping
 	@Operation(
