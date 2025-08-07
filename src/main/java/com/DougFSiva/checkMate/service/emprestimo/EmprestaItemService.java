@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.emprestimo;
 import java.time.LocalDateTime;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import com.DougFSiva.checkMate.repository.ItemRepository;
 import com.DougFSiva.checkMate.repository.UsuarioRepository;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioAutenticado;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
+import com.DougFSiva.checkMate.websocket.TipoMensagemWebsocket;
 
 import lombok.RequiredArgsConstructor;
 
@@ -30,6 +32,7 @@ public class EmprestaItemService {
 	private final ItemRepository itemRepository;
 	private final UsuarioRepository usuarioRepository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
+	private final SimpMessagingTemplate websocket;
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN','PROFESSOR', 'FUNCIONARIO')")
@@ -42,6 +45,8 @@ public class EmprestaItemService {
 		Emprestimo EmprestimoSalvo = repository.save(emprestimo);
 		logger.info(String.format("Item %s emprestado por %s para %s", 
 				item.infoParaLog(), emprestador.infoParaLog(), solicitante.infoParaLog()));
+		websocket.convertAndSend("/topic/emprestimos", TipoMensagemWebsocket.EMPRESTIMO_REALIZADO.toString());
+
 		return new EmprestimoResumoResponse(EmprestimoSalvo);
 	}
 	

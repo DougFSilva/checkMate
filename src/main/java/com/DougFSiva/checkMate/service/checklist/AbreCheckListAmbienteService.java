@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
 import com.DougFSiva.checkMate.repository.ItemRepository;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioAutenticado;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
+import com.DougFSiva.checkMate.websocket.TipoMensagemWebsocket;
 
 import lombok.RequiredArgsConstructor;
 
@@ -38,6 +40,7 @@ public class AbreCheckListAmbienteService {
 	private final ItemCheckListRepository itemCheckListRepository;
 	private final ItemRepository itemRepository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
+	private final SimpMessagingTemplate websocket;
 
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
@@ -50,6 +53,7 @@ public class AbreCheckListAmbienteService {
 		CheckListAmbiente checkListSalvo = checkListAmbienteRepository.save(checkList);
 		criarChecklistsPorCompartimento (checkListSalvo);
 		logger.info(String.format("Aberto check-list para ambiente %s", ambiente.infoParaLog()));
+		websocket.convertAndSend("/topic/checklistsambiente", TipoMensagemWebsocket.CHECKLIST_AMBIENTE_ABERTO.toString());
 		return new CheckListAmbienteDetalhadoResponse(checkListSalvo);
 	}
 	

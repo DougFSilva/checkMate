@@ -2,6 +2,7 @@ package com.DougFSiva.checkMate.service.checklist;
 
 import java.util.List;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
 import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
+import com.DougFSiva.checkMate.websocket.TipoMensagemWebsocket;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,6 +31,7 @@ public class DeletaCheckListAmbiente {
 	private final ItemCheckListRepository  itemCheckListRepository;
 	private final CheckListCompartimentoRepository checkListCompartimentoRepository;
 	private final OcorrenciaRepository ocorrenciaRepository;
+	private final SimpMessagingTemplate websocket;
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
@@ -41,6 +44,7 @@ public class DeletaCheckListAmbiente {
 		checkListCompartimentoRepository.deleteAll(checkListsCompartimento);
 		repository.delete(checkList);
 		logger.info(String.format("Check-list %d deletado", checkList.getID()));
+		websocket.convertAndSend("/topic/checklistsambiente", TipoMensagemWebsocket.CHECKLIST_AMBIENTE_DELETADO.toString());
 	}
 	
 	private void validarCheckListAberto(CheckListAmbiente checkList) {

@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.service.checklist;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import com.DougFSiva.checkMate.repository.CheckListAmbienteRepository;
 import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioAutenticado;
 import com.DougFSiva.checkMate.util.LoggerPadrao;
+import com.DougFSiva.checkMate.websocket.TipoMensagemWebsocket;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,6 +34,7 @@ public class LiberaCheckListAmbienteService {
 	private final CheckListCompartimentoRepository checkListCompartimentoRepository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
 	private final PublicadorMqtt publicadorMqtt;
+	private final SimpMessagingTemplate websocket;
 	
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
@@ -47,6 +50,8 @@ public class LiberaCheckListAmbienteService {
 				topicoRoot + "/" + checkList.getAmbiente().getID(), "LIBERADO");
 		logger.info(String.format("Liberado check-list para ambiente %s", 
 				checkList.getAmbiente().infoParaLog()));
+		websocket.convertAndSend("/topic/checklistsambiente", TipoMensagemWebsocket.CHECKLIST_AMBIENTE_LIBERADO.toString());
+
 	}
 	
 	private void validarCheckListEntradaPreenchido(CheckListAmbiente checkListAmbiente) {

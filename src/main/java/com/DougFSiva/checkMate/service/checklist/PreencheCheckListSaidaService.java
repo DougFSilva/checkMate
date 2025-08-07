@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ import com.DougFSiva.checkMate.repository.CheckListCompartimentoRepository;
 import com.DougFSiva.checkMate.repository.ItemCheckListRepository;
 import com.DougFSiva.checkMate.repository.OcorrenciaRepository;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioAutenticado;
+import com.DougFSiva.checkMate.websocket.TipoMensagemWebsocket;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,6 +35,7 @@ public class PreencheCheckListSaidaService {
 	private final ItemCheckListRepository itemCheckListRepository;
 	private final OcorrenciaRepository ocorrenciaRepository;
 	private final BuscaUsuarioAutenticado buscaUsuarioAutenticado;
+	private final SimpMessagingTemplate websocket;
 
 	@Transactional
 	@PreAuthorize("isAuthenticated()")
@@ -49,6 +52,7 @@ public class PreencheCheckListSaidaService {
 		checkList.setExecutorPreenchimentoSaida(buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList());
 		checkList.setStatus(CheckListCompartimentoStatus.SAIDA_PREENCHIDO);
 		repository.save(checkList);
+		websocket.convertAndSend("/topic/checklistscompartimento", TipoMensagemWebsocket.CHECKLIST_COMPARTIMENTO_SAIDA_PREENCHIDO.toString());
 
 	}
 
@@ -114,6 +118,7 @@ public class PreencheCheckListSaidaService {
 	}
 
 	private void criarOcorrencia(ItemCheckList item) {
+		websocket.convertAndSend("/topic/ocorrencias", TipoMensagemWebsocket.OCORRENCIA_ABERTA.toString());
 		if (!ocorrenciaRepository.existsByItemCheckList(item)) {
 			Ocorrencia ocorrencia = new Ocorrencia(
 			        LocalDateTime.now(),

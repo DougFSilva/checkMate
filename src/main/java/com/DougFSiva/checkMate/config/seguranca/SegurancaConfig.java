@@ -53,7 +53,8 @@ public class SegurancaConfig {
 			                "/v3/api-docs/**",
 			                "/swagger-resources/**",
 			                "/swagger-ui.html",
-			                "/webjars/**"
+			                "/webjars/**",
+			                "/ws/**"
 			            ).permitAll()
 				.requestMatchers("/imagens/**").permitAll()
 				.anyRequest().authenticated())
