@@ -73,10 +73,12 @@ public class SegurancaConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuracao = new CorsConfiguration();
-        configuracao.setAllowedOrigins(List.of(frontendOrigin));
+        configuracao.setAllowedOrigins(List.of(frontendOrigin)); // Descomentar
+        //configuracao.setAllowedOrigins(List.of("*")); // Apagar
         configuracao.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuracao.setAllowedHeaders(List.of("*"));
-        configuracao.setAllowCredentials(true);
+        configuracao.setAllowCredentials(true); //Descomentar
+        //configuracao.setAllowCredentials(false); // Apagar
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuracao);
         return source;

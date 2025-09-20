@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.mqtt;
+package com.DougFSiva.checkMate.config;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;

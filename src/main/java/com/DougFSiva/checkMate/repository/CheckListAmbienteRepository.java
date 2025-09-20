@@ -27,6 +27,9 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	Page<CheckListAmbiente> findByAmbienteAndDataHoraEncerramentoBetween(Ambiente ambiente, LocalDateTime dataInicial,
 			LocalDateTime dataFinal, Pageable paginacao);
 
+	Page<CheckListAmbiente> findByDataHoraAberturaBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
+			Pageable paginacao);
+	
 	Page<CheckListAmbiente> findByDataHoraEncerramentoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao);
 
@@ -35,4 +38,5 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	Page<CheckListAmbiente> findByStatus(CheckListAmbienteStatus status, Pageable paginacao);
 
 	boolean existsByAmbiente(Ambiente ambiente);
+	
 }

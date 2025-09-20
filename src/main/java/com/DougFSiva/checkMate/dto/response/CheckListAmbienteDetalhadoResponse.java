@@ -25,9 +25,9 @@ public class CheckListAmbienteDetalhadoResponse {
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraEncerramento;
 	
-	private UsuarioResumoResponse responsavelAbertura;
-	private UsuarioResumoResponse responsavelLiberacao;
-	private UsuarioResumoResponse responsavelEncerramento;
+	private UsuarioResponse responsavelAbertura;
+	private UsuarioResponse responsavelLiberacao;
+	private UsuarioResponse responsavelEncerramento;
 	private CheckListAmbienteStatus status;
 	
 	public CheckListAmbienteDetalhadoResponse(CheckListAmbiente checklist) {
@@ -36,12 +36,12 @@ public class CheckListAmbienteDetalhadoResponse {
 		this.dataHoraAbertura = checklist.getDataHoraAbertura();
 		this.dataHoraLiberacao = checklist.getDataHoraLiberacao();
 		this.dataHoraEncerramento = checklist.getDataHoraEncerramento();
-		this.responsavelAbertura = new UsuarioResumoResponse(checklist.getResponsavelAbertura());
+		this.responsavelAbertura = new UsuarioResponse(checklist.getResponsavelAbertura());
 		if (checklist.getResponsavelLiberacao() != null) {
-			this.responsavelLiberacao = new UsuarioResumoResponse(checklist.getResponsavelLiberacao());
+			this.responsavelLiberacao = new UsuarioResponse(checklist.getResponsavelLiberacao());
 		}
 		if (checklist.getResponsavelEncerramento() != null) {
-			this.responsavelEncerramento = new UsuarioResumoResponse(checklist.getResponsavelEncerramento());
+			this.responsavelEncerramento = new UsuarioResponse(checklist.getResponsavelEncerramento());
 		}
 		this.status = checklist.getStatus();
 	}

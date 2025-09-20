@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.UsuarioForm;
-import com.DougFSiva.checkMate.dto.response.UsuarioDetalhadoResponse;
+import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.usuario.Perfil;
 import com.DougFSiva.checkMate.model.usuario.SenhaDeUsuario;
@@ -29,7 +29,7 @@ public class CriaUsuarioService {
 	@Transactional
 	@PreAuthorize("hasAnyRole('ADMIN', 'SISTEMA')")
 	@CacheEvict(value = "usuarios", allEntries = true)
-	public UsuarioDetalhadoResponse criar(UsuarioForm form) {
+	public UsuarioResponse criar(UsuarioForm form) {
 		validaUsuarioService.validarUnicoEmail(form.email());
 		validaUsuarioService.validarUnicoCPF(form.CPF());
 		SenhaDeUsuario senha = new SenhaDeUsuario("Ps@" + form.CPF(), codificadorDeSenha);
@@ -37,7 +37,7 @@ public class CriaUsuarioService {
 		Usuario usuario = new Usuario(form.nome(), form.CPF(), form.email(), senha, false, perfil, form.dataValidade());
 		Usuario usuarioSalvo = repository.save(usuario);
 		logger.info(String.format("Usuário %s criado", usuarioSalvo.infoParaLog()));
-		return new UsuarioDetalhadoResponse(usuarioSalvo);
+		return new UsuarioResponse(usuarioSalvo);
 	}
 	
 }

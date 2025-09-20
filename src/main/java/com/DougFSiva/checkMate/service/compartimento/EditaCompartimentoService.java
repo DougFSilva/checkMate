@@ -28,6 +28,7 @@ public class EditaCompartimentoService {
 	@Transactional
 	@PreAuthorize("hasRole('ADMIN')")
 	@Caching(evict = {
+    	    @CacheEvict(value = "compartimentos_detalhado", allEntries = true ),
     	    @CacheEvict(value = "compartimentos_resumo_por_ambiente", allEntries = true ),
     	    @CacheEvict(value = "compartimentos_resumo_todos", allEntries = true)
 	})

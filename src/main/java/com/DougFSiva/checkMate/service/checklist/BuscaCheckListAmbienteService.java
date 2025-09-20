@@ -60,6 +60,16 @@ public class BuscaCheckListAmbienteService {
 	
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
+	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraAbertura(
+			LocalDateTime dataInicial, 
+			LocalDateTime dataFinal,
+			Pageable paginacao) {
+		return repository.findByDataHoraAberturaBetween(dataInicial, dataFinal, paginacao)
+				.map(CheckListAmbienteResumoResponse::new);
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraEncerramento(
 			LocalDateTime dataInicial, 
 			LocalDateTime dataFinal,

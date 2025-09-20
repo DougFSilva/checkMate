@@ -1,4 +1,4 @@
-package com.DougFSiva.checkMate.websocket;
+package com.DougFSiva.checkMate.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

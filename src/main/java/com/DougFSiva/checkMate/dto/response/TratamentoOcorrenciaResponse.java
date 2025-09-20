@@ -15,13 +15,13 @@ public class TratamentoOcorrenciaResponse {
 	private Long ID;
 	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
 	private LocalDateTime dataHora;
-	private UsuarioResumoResponse autor;
+	private UsuarioResponse autor;
 	private String descricao;
 	
 	public TratamentoOcorrenciaResponse(TratamentoOcorrencia tratamento) {
 		this.ID = tratamento.getID();
 		this.dataHora = tratamento.getDataHora();
-		this.autor = new UsuarioResumoResponse(tratamento.getAutor());
+		this.autor = new UsuarioResponse(tratamento.getAutor());
 		this.descricao = tratamento.getDescricao();
 	}
 

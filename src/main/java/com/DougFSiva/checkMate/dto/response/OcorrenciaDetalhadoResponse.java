@@ -19,7 +19,7 @@ public class OcorrenciaDetalhadoResponse {
 	
 	private String emissor;
 	private ItemCheckListDetalhadoResponse itemCheckList;
-	private UsuarioResumoResponse responsavelEncerramento;
+	private UsuarioResponse responsavelEncerramento;
 	private List<TratamentoOcorrenciaResponse> tratamento;
 	private boolean encerrada;
 	
@@ -29,7 +29,7 @@ public class OcorrenciaDetalhadoResponse {
 		this.emissor = ocorrencia.getEmissor();
 		this.itemCheckList = new ItemCheckListDetalhadoResponse(ocorrencia.getItemCheckList());
 		if (ocorrencia.getResponsavelEncerramento() != null) {
-			this.responsavelEncerramento = new UsuarioResumoResponse(ocorrencia.getResponsavelEncerramento());
+			this.responsavelEncerramento = new UsuarioResponse(ocorrencia.getResponsavelEncerramento());
 		}
 		this.tratamento = ocorrencia.getTratamentos()
 				.stream()

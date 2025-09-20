@@ -144,6 +144,20 @@ public class CheckListAmbienteController {
 	    return ResponseEntity.ok(checkLists);
 	}
 	
+	@GetMapping("/data-hora-abertura")
+    @Operation(
+    		summary = "Buscar checklists de ambiente por intervalo de data e hora de abertura", 
+    		description = "Retorna checklists de ambiente filtrados por intervalo de data e hora de aberturaq."
+    )
+	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorDataHoraAbertura(
+	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
+	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
+	        Pageable paginacao) {
+	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
+	    		.buscarPelaDataHoraAbertura(dataInicial, dataFinal, paginacao);
+	    return ResponseEntity.ok(checkLists);
+	}
+	
 	@GetMapping("/data-hora-encerramento")
     @Operation(
     		summary = "Buscar checklists de ambiente por intervalo de data e hora de encerramento", 
