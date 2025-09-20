@@ -20,8 +20,6 @@ public class UsuarioResponse {
 	private String email;
 	private boolean senhaAlterada;
 	private String perfil;
-	
-	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataValidade;
 	
 	public UsuarioResponse(Usuario usuario) {
