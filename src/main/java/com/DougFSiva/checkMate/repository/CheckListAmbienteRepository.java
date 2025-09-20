@@ -6,11 +6,14 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbiente;
 import com.DougFSiva.checkMate.model.checklist.CheckListAmbienteStatus;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbiente, Long> {
 
@@ -20,7 +23,7 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	}
 
 	Page<CheckListAmbiente> findByAmbiente(Ambiente ambiente, Pageable paginacao);
-	
+
 	Page<CheckListAmbiente> findByAmbienteAndStatus(Ambiente ambiente, CheckListAmbienteStatus status,
 			Pageable paginacao);
 
@@ -29,7 +32,7 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 
 	Page<CheckListAmbiente> findByDataHoraAberturaBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao);
-	
+
 	Page<CheckListAmbiente> findByDataHoraEncerramentoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao);
 
@@ -38,5 +41,8 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	Page<CheckListAmbiente> findByStatus(CheckListAmbienteStatus status, Pageable paginacao);
 
 	boolean existsByAmbiente(Ambiente ambiente);
-	
+
+	@Query("SELECT CASE WHEN COUNT(c) > 0 THEN TRUE ELSE FALSE END FROM CheckListAmbiente c WHERE c.responsavelAbertura = :usuario OR c.responsavelLiberacao = :usuario OR c.responsavelEncerramento = :usuario")
+	boolean existsByResponsavel(@Param("usuario") Usuario usuario);
+
 }
