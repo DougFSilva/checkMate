@@ -18,7 +18,7 @@ public class OcorrenciaResumoResponse {
 	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
 	private LocalDateTime dataHora;
 	
-	private String emissor;
+	private UsuarioResponse emissor;
 	private String ambiente;
 	private String compartimento;
 	private ItemCheckListResumoResponse itemCheckList;
@@ -29,7 +29,7 @@ public class OcorrenciaResumoResponse {
 	public OcorrenciaResumoResponse(Ocorrencia ocorrencia) {
 		this.ID = ocorrencia.getID();
 		this.dataHora = ocorrencia.getDataHora();
-		this.emissor = ocorrencia.getEmissor();
+		this.emissor = new UsuarioResponse(ocorrencia.getEmissor());
 		this.itemCheckList = new ItemCheckListResumoResponse(ocorrencia.getItemCheckList());
 		Compartimento compartimento = ocorrencia.getItemCheckList().getCheckListCompartimento().getCompartimento();
 		this.ambiente = compartimento.getAmbiente().getNome();

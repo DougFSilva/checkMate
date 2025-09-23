@@ -17,7 +17,7 @@ public class OcorrenciaDetalhadoResponse {
 	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
 	private LocalDateTime dataHora;
 	
-	private String emissor;
+	private UsuarioResponse emissor;
 	private ItemCheckListDetalhadoResponse itemCheckList;
 	private UsuarioResponse responsavelEncerramento;
 	private List<TratamentoOcorrenciaResponse> tratamento;
@@ -26,7 +26,7 @@ public class OcorrenciaDetalhadoResponse {
 	public OcorrenciaDetalhadoResponse(Ocorrencia ocorrencia) {
 		this.ID = ocorrencia.getID();
 		this.dataHora = ocorrencia.getDataHora();
-		this.emissor = ocorrencia.getEmissor();
+		this.emissor = new UsuarioResponse(ocorrencia.getEmissor());
 		this.itemCheckList = new ItemCheckListDetalhadoResponse(ocorrencia.getItemCheckList());
 		if (ocorrencia.getResponsavelEncerramento() != null) {
 			this.responsavelEncerramento = new UsuarioResponse(ocorrencia.getResponsavelEncerramento());

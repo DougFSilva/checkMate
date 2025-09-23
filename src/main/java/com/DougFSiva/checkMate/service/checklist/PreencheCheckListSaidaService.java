@@ -49,7 +49,7 @@ public class PreencheCheckListSaidaService {
 		itemCheckListRepository.saveAll(itensAtualizados);
 		gerarOcorrenciaSeAnormalidade(itensAtualizados);
 		checkList.setDataHoraPreenchimentoSaida(LocalDateTime.now());
-		checkList.setExecutorPreenchimentoSaida(buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList());
+		checkList.setExecutorPreenchimentoSaida(buscaUsuarioAutenticado.buscar());
 		checkList.setStatus(CheckListCompartimentoStatus.SAIDA_PREENCHIDO);
 		repository.save(checkList);
 		websocket.convertAndSend("/topic/checklistscompartimento", TipoMensagemWebsocket.CHECKLIST_COMPARTIMENTO_SAIDA_PREENCHIDO.toString());
@@ -122,7 +122,7 @@ public class PreencheCheckListSaidaService {
 		if (!ocorrenciaRepository.existsByItemCheckList(item)) {
 			Ocorrencia ocorrencia = new Ocorrencia(
 			        LocalDateTime.now(),
-			        buscaUsuarioAutenticado.buscar().infoParaExecutorCheckList(),
+			        buscaUsuarioAutenticado.buscar(),
 			        item
 			    );
 			ocorrenciaRepository.save(ocorrencia);

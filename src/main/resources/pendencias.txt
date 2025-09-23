@@ -1,18 +1,19 @@
-- Pensar em alguma estratégia para questão de banco de dados muito grande
-
-- Exportar checklists em PDF
 - Modificar dados do application.properties como variáveis de ambiente
 - Adicionar o detalhe que o token posssui claims na documentação swagger
-Testar:
-
 - Adicionar eliminar cache devido paginacao ambientes
-
 - Alterar PathVariable para RequestParam onde será feito pesquisa com filtro
 - Alterar os Cacheable para adicionar o sort do pageable
 - Editar buscar compartimento pelo ambiente para retornar page
 - Apagar checklists com status abertos automaticamente ao virar o dia
 - Ao virar o dia se houver checklist de ambiente liberado enviar um email para o responsável de abertura e abrir ocorrência?
 - Validar email
-- Não permitir emprestar item que ja está emprestado
+- Não permitir emprestar item que já está emprestado
 - Descomentar validação de cpf
 - Desfazer alteração provisória em SegurancaConfig
+- Não apagar usuário após acabar validade, mas somente desabilitar o usuário, criar um serviço para renovar validade
+
+Futuro
+- Exportar checklists em PDF
+
+- Testar dataValidade usuário
+- Rever lógica de alteração de senha, pois o token é gerado com a informação de senhaA não alterada e isso precisaria ser atualziado no token ao trocar senha

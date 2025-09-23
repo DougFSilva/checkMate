@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.DougFSiva.checkMate.dto.form.AlteraSenhaUsuarioForm;
 import com.DougFSiva.checkMate.dto.form.UsuarioForm;
 import com.DougFSiva.checkMate.dto.response.UsuarioResponse;
 import com.DougFSiva.checkMate.model.usuario.TipoPerfil;
-import com.DougFSiva.checkMate.service.usuario.AlteraSenhaDeUsuarioService;
 import com.DougFSiva.checkMate.service.usuario.BuscaUsuarioService;
 import com.DougFSiva.checkMate.service.usuario.CriaUsuarioService;
 import com.DougFSiva.checkMate.service.usuario.DeletaUsuarioService;
@@ -37,7 +34,6 @@ import lombok.RequiredArgsConstructor;
 @Tag(name = "Usuários", description = "Endpoints para gerenciamento de usuários")
 public class UsuarioController {
 
-	private final AlteraSenhaDeUsuarioService alteraSenhaDeUsuarioService;
 	private final BuscaUsuarioService buscaUsuarioService;
 	private final CriaUsuarioService criaUsuarioService;
 	private final DeletaUsuarioService deletaUsuarioService;
@@ -70,13 +66,6 @@ public class UsuarioController {
 			@Valid @RequestBody UsuarioForm form) {
 		UsuarioResponse usuario = editaUsuarioService.editar(ID, form);
 		return ResponseEntity.ok().body(usuario);
-	}
-	
-	@PatchMapping("/alterar-senha")
-	@Operation(summary = "Alterar senha", description = "Altera a senha de um usuário existente")
-	public ResponseEntity<Void> AlterarSenha(@Valid @RequestBody AlteraSenhaUsuarioForm form) {
-		alteraSenhaDeUsuarioService.alterar(form);
-		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping("/{ID}")

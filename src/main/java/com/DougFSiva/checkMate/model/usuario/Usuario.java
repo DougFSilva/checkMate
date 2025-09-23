@@ -69,10 +69,6 @@ public class Usuario implements UserDetails{
 		return String.format("(ID: #%d) %s", this.ID, this.nome);
 	}
 	
-	public String infoParaExecutorCheckList() {
-		return String.format("(ID: #%d) %s", this.ID, this.nome);
-	}
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 	    return this.perfil != null ? Collections.singletonList(this.perfil) : Collections.emptyList();
@@ -86,6 +82,11 @@ public class Usuario implements UserDetails{
 	@Override
 	public String getUsername() {
 		return this.email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+	    return this.dataValidade == null || this.dataValidade.isAfter(LocalDate.now());
 	}
 	
 }

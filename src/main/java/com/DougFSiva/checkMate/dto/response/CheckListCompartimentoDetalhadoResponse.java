@@ -22,8 +22,8 @@ public class CheckListCompartimentoDetalhadoResponse {
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraPreenchimentoSaida;
-	private String executorPreenchimentoEntrada;
-	private String executorPreenchimentoSaida;
+	private UsuarioResponse executorPreenchimentoEntrada;
+	private UsuarioResponse executorPreenchimentoSaida;
 	private CheckListCompartimentoStatus status;
 	
 	public CheckListCompartimentoDetalhadoResponse(CheckListCompartimento checkList) {
@@ -32,8 +32,12 @@ public class CheckListCompartimentoDetalhadoResponse {
 		this.checkListAmbiente = new CheckListAmbienteResumoResponse(checkList.getCheckListAmbiente());
 		this.dataHoraPreenchimentoEntrada = checkList.getDataHoraPreenchimentoEntrada();
 		this.dataHoraPreenchimentoSaida = checkList.getDataHoraPreenchimentoSaida();
-		this.executorPreenchimentoEntrada = checkList.getExecutorPreenchimentoEntrada();
-		this.executorPreenchimentoSaida = checkList.getExecutorPreenchimentoSaida();
+		if (checkList.getExecutorPreenchimentoEntrada() != null) {
+			this.executorPreenchimentoEntrada = new UsuarioResponse(checkList.getExecutorPreenchimentoEntrada());
+		}
+		if (checkList.getExecutorPreenchimentoSaida() != null) {
+			this.executorPreenchimentoSaida = new UsuarioResponse(checkList.getExecutorPreenchimentoSaida());
+		}
 		this.status = checkList.getStatus();
 	}
 }

@@ -3,7 +3,6 @@ package com.DougFSiva.checkMate.dto.response;
 import java.time.LocalDate;
 
 import com.DougFSiva.checkMate.model.usuario.Usuario;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

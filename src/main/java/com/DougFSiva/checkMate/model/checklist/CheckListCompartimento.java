@@ -3,6 +3,7 @@ package com.DougFSiva.checkMate.model.checklist;
 import java.time.LocalDateTime;
 
 import com.DougFSiva.checkMate.model.Compartimento;
+import com.DougFSiva.checkMate.model.usuario.Usuario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -43,8 +44,14 @@ public class CheckListCompartimento {
 	
 	private LocalDateTime dataHoraPreenchimentoEntrada;
 	private LocalDateTime dataHoraPreenchimentoSaida;
-	private String executorPreenchimentoEntrada;
-	private String executorPreenchimentoSaida;
+	
+	@ManyToOne
+	@JoinColumn(name = "executor_preenchimento_entrada")
+	private Usuario executorPreenchimentoEntrada;
+	
+	@ManyToOne
+	@JoinColumn(name = "executor_preenchimento_saida")
+	private Usuario executorPreenchimentoSaida;
 	
 	@Enumerated(EnumType.STRING)
 	private CheckListCompartimentoStatus status;

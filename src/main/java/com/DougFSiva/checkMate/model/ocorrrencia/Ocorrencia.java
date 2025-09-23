@@ -35,7 +35,10 @@ public class Ocorrencia {
 	private Long ID;
 	
 	private LocalDateTime dataHora;
-	private String emissor;
+	
+	@ManyToOne
+	@JoinColumn(name = "emissor", nullable = false)
+	private Usuario emissor;
 	
 	@ManyToOne
 	@JoinColumn(name = "item_checklist_id", nullable = false)
@@ -50,7 +53,7 @@ public class Ocorrencia {
     
 	private boolean encerrada;
 	
-	public Ocorrencia(LocalDateTime dataHora, String emissor, ItemCheckList itemCheckList) {
+	public Ocorrencia(LocalDateTime dataHora, Usuario emissor, ItemCheckList itemCheckList) {
 		this.dataHora = dataHora;
 		this.emissor = emissor;
 		this.itemCheckList = itemCheckList;
