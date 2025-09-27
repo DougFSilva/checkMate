@@ -27,11 +27,12 @@ public class EditaUsuarioService {
 	private final ValidaUsuarioService validaUsuarioService;
 
 	@Transactional
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("hasAnyRole('ADMIN', 'SISTEMA', 'PROFESSOR')")
 	@CacheEvict(value = "usuarios", allEntries = true)
 	public UsuarioResponse editar(Long ID, UsuarioForm form) {
 		Usuario usuario = repository.findByIdOrElseThrow(ID);
-		validarUsuarioAutenticado(usuario);
+		validarPermissaoDeEdicao(usuario);
+		validarPermissaoDeAlteracaoDePerfil(usuario, TipoPerfil.peloNome(form.tipoPerfil()));
 		if (!form.email().equals(usuario.getEmail())) {
 			validaUsuarioService.validarUnicoEmail(form.email());
 		}
@@ -43,7 +44,7 @@ public class EditaUsuarioService {
 		logger.info(String.format("Usuário %s editado", usuario.infoParaLog()));
 		return new UsuarioResponse(usuarioSalvo);
 	}
-	
+
 	private Usuario atualizarDadosDoUsuario(Usuario usuario, UsuarioForm form) {
 		usuario.setNome(form.nome());
 		usuario.setCPF(form.CPF());
@@ -52,16 +53,36 @@ public class EditaUsuarioService {
 		usuario.setDataValidade(form.dataValidade());
 		return usuario;
 	}
-	
-	private void validarUsuarioAutenticado(Usuario usuario) {
-		Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
-	    Usuario usuarioAutenticado = (Usuario) autenticacao.getPrincipal();
-	    boolean mesmoUsuario = usuarioAutenticado.getID().equals(usuario.getID());
-	    boolean ehAdmin = usuarioAutenticado.getPerfil().getTipo() == TipoPerfil.ADMIN;
 
-	    if (!mesmoUsuario && !ehAdmin) {
-	        throw new UsuarioSemPermissaoException("Você não tem permissão para editar este usuário!");
-	    }
+	private void validarPermissaoDeEdicao(Usuario usuario) {
+		Usuario usuarioAutenticado = getUsuarioAutenticado();
+		TipoPerfil perfilUsuarioAutenticado = usuarioAutenticado.getPerfil().getTipo();
+		boolean mesmoUsuario = usuarioAutenticado.getID().equals(usuario.getID());
+		if (perfilUsuarioAutenticado == TipoPerfil.ADMIN 
+				|| perfilUsuarioAutenticado == TipoPerfil.SISTEMA
+				|| mesmoUsuario) return;
+		TipoPerfil perfilUsuario = usuario.getPerfil().getTipo();
+		if (perfilUsuario != TipoPerfil.ALUNO) {
+			throw new UsuarioSemPermissaoException(
+					"Usuário com perfil PROFESSOR só pode alterar o próprio usuário ou usuário ALUNO!");
+		}
 	}
 	
+	private void validarPermissaoDeAlteracaoDePerfil(Usuario usuario, TipoPerfil perfilDesejado) {
+		Usuario usuarioAutenticado = getUsuarioAutenticado();
+		TipoPerfil perfilUsuarioAutenticado = usuarioAutenticado.getPerfil().getTipo();
+		TipoPerfil perfilUsuario = usuario.getPerfil().getTipo();
+		if (perfilUsuarioAutenticado == TipoPerfil.PROFESSOR 
+				&& perfilUsuario == TipoPerfil.ALUNO 
+				&& perfilDesejado != TipoPerfil.ALUNO) {
+			throw new UsuarioSemPermissaoException(
+					"Usuário com perfil PROFESSOR não pode alterar o perfil do ALUNO!");
+		}
+	}
+	
+	private Usuario getUsuarioAutenticado() {
+		Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
+		return (Usuario) autenticacao.getPrincipal();
+	}
+
 }

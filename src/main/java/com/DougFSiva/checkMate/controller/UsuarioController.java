@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -75,24 +76,31 @@ public class UsuarioController {
 		return ResponseEntity.ok().body(usuario);
 	}
 	
-	@GetMapping("/nome/{nome}")
+	@GetMapping("/meu-usuario")
+	@Operation(summary = "Buscar pelo usuário autenticado", description = "Retorna o usuário autenticado")
+	public ResponseEntity<UsuarioResponse> buscarUsuarioAutenticado() {
+		UsuarioResponse usuario = buscaUsuarioService.buscarAutenticado();
+		return ResponseEntity.ok().body(usuario);
+	}
+	
+	@GetMapping("/nome")
 	@Operation(
 			summary = "Buscar por nome", 
 			description = "Retorna uma página de usuários que contenham o nome informado"
 	)
-	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloNome(@PathVariable String nome, 
+	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloNome(@RequestParam String nome, 
 			Pageable paginacao){
 		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloNome(nome, paginacao);
 		return ResponseEntity.ok().body(usuarios);
 	}
 	
-	@GetMapping("/perfil/{perfil}")
+	@GetMapping("/perfil")
 	@Operation(
 			summary = "Buscar por perfil", 
 			description = "Retorna uma página de usuários com o perfil informado"
 	)
 	public ResponseEntity<Page<UsuarioResponse>> buscarUsuariosPeloTipoDePerfil(
-			@PathVariable TipoPerfil perfil, Pageable paginacao){
+			@RequestParam TipoPerfil perfil, Pageable paginacao){
 		Page<UsuarioResponse> usuarios = buscaUsuarioService.buscarPeloTipoPerfil(perfil, paginacao);
 		return ResponseEntity.ok().body(usuarios);
 	}

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -47,7 +46,7 @@ public class SegurancaConfig {
 		http.csrf(csrf -> csrf.disable())
 		.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 		.authorizeHttpRequests(authorizeRequests -> authorizeRequests
-				.requestMatchers(HttpMethod.POST,"/auth").permitAll()
+				.requestMatchers("/auth/**").permitAll()
 				 .requestMatchers(
 			                "/swagger-ui/**",
 			                "/v3/api-docs/**",
@@ -73,12 +72,10 @@ public class SegurancaConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuracao = new CorsConfiguration();
-        configuracao.setAllowedOrigins(List.of(frontendOrigin)); // Descomentar
-        //configuracao.setAllowedOrigins(List.of("*")); // Apagar
+        configuracao.setAllowedOrigins(List.of(frontendOrigin));
         configuracao.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuracao.setAllowedHeaders(List.of("*"));
-        configuracao.setAllowCredentials(true); //Descomentar
-        //configuracao.setAllowCredentials(false); // Apagar
+        configuracao.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuracao);
         return source;

@@ -45,6 +45,8 @@ public class DeletaCheckListAmbiente {
 		repository.delete(checkList);
 		logger.info(String.format("Check-list %d deletado", checkList.getID()));
 		websocket.convertAndSend("/topic/checklistsambiente", TipoMensagemWebsocket.CHECKLIST_AMBIENTE_DELETADO.toString());
+		websocket.convertAndSend("/topic/ocorrencias", TipoMensagemWebsocket.OCORRENCIA_DELETADA.toString());
+
 	}
 	
 	private void validarCheckListAberto(CheckListAmbiente checkList) {

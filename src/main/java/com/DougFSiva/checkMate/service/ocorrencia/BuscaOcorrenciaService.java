@@ -28,13 +28,13 @@ public class BuscaOcorrenciaService {
 	private final CheckListAmbienteRepository checkListAmbienteRepository;
 	private final AmbienteRepository ambienteRepository;
 
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public OcorrenciaDetalhadoResponse buscarPeloID(Long ID) {
 		return new OcorrenciaDetalhadoResponse(repository.findByIdOrElseThrow(ID));
 	}
 
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<OcorrenciaResumoResponse> buscarPelaDataHora(LocalDateTime dataInicial, LocalDateTime dataFinal,
 			Pageable paginacao) {
@@ -43,7 +43,7 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResumoResponse::new);
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<OcorrenciaResumoResponse> buscarPeloAmbiente(Long ambienteID, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
@@ -51,7 +51,7 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResumoResponse::new);
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<OcorrenciaResumoResponse> buscarPeloAmbienteEDataHora(
 			Long ambienteID, LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao) {
@@ -61,11 +61,13 @@ public class BuscaOcorrenciaService {
 				.map(OcorrenciaResumoResponse::new);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public Page<OcorrenciaResumoResponse> buscarPeloStatusEncerrada(boolean encerrada, Pageable paginacao) {
 		return repository.findByEncerrada(encerrada, paginacao).map(OcorrenciaResumoResponse::new);
 	}	
 	
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public List<OcorrenciaResumoResponse> buscarPeloCheckListAmbiente(Long checkListAmbienteID) {
 		CheckListAmbiente checkList = checkListAmbienteRepository.findByIdOrElseThrow(checkListAmbienteID);
@@ -75,7 +77,7 @@ public class BuscaOcorrenciaService {
 				.collect(Collectors.toList());
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
+	@PreAuthorize("isAuthenticated()")
 	public Page<OcorrenciaResumoResponse> buscarTodas(Pageable paginacao) {
 		return repository.findAll(paginacao)
 				.map(OcorrenciaResumoResponse::new);

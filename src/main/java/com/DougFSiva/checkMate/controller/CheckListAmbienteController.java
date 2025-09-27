@@ -114,14 +114,15 @@ public class CheckListAmbienteController {
 		return ResponseEntity.ok().body(checkLists);
 	}
 	
-	@GetMapping("/ambiente/{ambienteID}/status/{status}")
+	@GetMapping("/ambiente/{ambienteID}/status")
     @Operation(
     		summary = "Buscar checklists de ambiente por ambiente e pelo status", 
     		description = "Retorna uma lista de checklists de ambiente filtrados por ambiente e status."
     )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePeloAmbienteEStatus(
 			@PathVariable Long ambienteID,
-			@PathVariable CheckListAmbienteStatus status,
+			@RequestParam CheckListAmbienteStatus status,
+
 			Pageable paginacao) {
 		Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
 				.buscarPeloAmbienteEStatus(ambienteID, status, paginacao);
@@ -172,13 +173,13 @@ public class CheckListAmbienteController {
 	    return ResponseEntity.ok(checkLists);
 	}
 	
-	@GetMapping("/status/{status}")
+	@GetMapping("/status")
     @Operation(
     		summary = "Buscar checklists de ambiente por status", 
     		description = "Retorna checklists de ambiente filtrados pelo status."
     )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePeloStatus(
-	        @PathVariable CheckListAmbienteStatus status,
+	        @RequestParam CheckListAmbienteStatus status,
 	        Pageable paginacao) {
 
 	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService

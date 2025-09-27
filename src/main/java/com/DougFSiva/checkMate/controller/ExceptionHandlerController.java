@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.DougFSiva.checkMate.dto.response.ErroResponse;
+import com.DougFSiva.checkMate.exception.ContaDeUsuarioExpiradaException;
 import com.DougFSiva.checkMate.exception.EmailInvalidoException;
 import com.DougFSiva.checkMate.exception.ErroDeAutenticacaoDeUsuarioException;
 import com.DougFSiva.checkMate.exception.ErroDeMQTTException;
@@ -22,6 +23,7 @@ import com.DougFSiva.checkMate.exception.ErroDeOperacaoComEmprestimoException;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComImagemException;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComOcorrenciaException;
 import com.DougFSiva.checkMate.exception.ErroDeOperacaoComUsuarioException;
+import com.DougFSiva.checkMate.exception.ErroInesperadoException;
 import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
 import com.DougFSiva.checkMate.exception.SenhaNaoAlteradaException;
@@ -172,6 +174,18 @@ public class ExceptionHandlerController {
 				request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 	}
+	
+	@ExceptionHandler(ContaDeUsuarioExpiradaException.class)
+	public ResponseEntity<ErroResponse> contaDeUsuarioExpiradaException(
+			ContaDeUsuarioExpiradaException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.FORBIDDEN.value(), 
+				e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(erro);
+	}
 
 	
 	@ExceptionHandler(UsuarioSemPermissaoException.class)
@@ -257,6 +271,17 @@ public class ExceptionHandlerController {
 				"Acesso negado, você não tem permissão para realizar essa operação",
 				request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(erro);
+	}
+	
+	@ExceptionHandler(ErroInesperadoException.class)
+	public ResponseEntity<ErroResponse> erroInesperadoException(ErroInesperadoException e,
+			HttpServletRequest request) {
+		ErroResponse erro = new ErroResponse(
+				LocalDateTime.now(), 
+				HttpStatus.INTERNAL_SERVER_ERROR.value(), 
+				"Erro inesperado: " + e.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(erro);
 	}
 	
 	@ExceptionHandler(Exception.class)

@@ -24,7 +24,7 @@ public class EncerraOcorrenciaService {
 	private final SimpMessagingTemplate websocket;
 	
 	@Transactional
-	@PreAuthorize("hasAnyRole('ADMIN')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public void encerrar(Long id) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(id);
 		validarOcorrenciaTratada(ocorrencia);

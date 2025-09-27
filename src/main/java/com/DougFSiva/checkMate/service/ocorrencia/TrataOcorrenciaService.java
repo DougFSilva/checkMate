@@ -28,7 +28,7 @@ public class TrataOcorrenciaService {
 	private final SimpMessagingTemplate websocket;
 
 	@Transactional
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR', 'FUNCIONARIO')")
 	public void tratar(Long ID, TrataOcorrenciaForm form) {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(ID);
 		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(

@@ -1,14 +1,11 @@
 package com.DougFSiva.checkMate.service.usuario;
 
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.AlteraSenhaUsuarioForm;
-import com.DougFSiva.checkMate.exception.ObjetoNaoEncontradoException;
+import com.DougFSiva.checkMate.exception.ErroDeOperacaoComUsuarioException;
 import com.DougFSiva.checkMate.exception.SenhaDeUsuarioInvalidaException;
 import com.DougFSiva.checkMate.model.usuario.CodificadorDeSenha;
 import com.DougFSiva.checkMate.model.usuario.SenhaDeUsuario;
@@ -27,11 +24,10 @@ public class AlteraSenhaDeUsuarioService {
 	private final CodificadorDeSenha codificadorDeSenha;
 	
 	@Transactional
-	@PreAuthorize("isAuthenticated()")
 	@CacheEvict(value = "usuarios", allEntries = true)
 	public void alterar(AlteraSenhaUsuarioForm form) {
-		Usuario usuario = buscarUsuarioAutenticado();
-		System.out.println(usuario);
+		Usuario usuario = repository.findByEmail(form.email()).orElseThrow(() -> 
+		new ErroDeOperacaoComUsuarioException(String.format("Usuário com email %s não encontrado!", form.email())));
 		if (!codificadorDeSenha.comparar(form.senhaAtual(), usuario.getSenha().getSenha())) {
 			throw new SenhaDeUsuarioInvalidaException("A senha antiga não confere com a senha atual do usuário!");
 		}
@@ -42,12 +38,5 @@ public class AlteraSenhaDeUsuarioService {
 		logger.info(String.format("Alterada senha do usuário %s!", usuario.infoParaLog()));
 	}
 	
-	private Usuario buscarUsuarioAutenticado() {
-		  Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
-		    String emailUsuarioAutenticado = autenticacao.getName();
-		    return repository.findByEmail(emailUsuarioAutenticado)
-			           .orElseThrow(() -> new ObjetoNaoEncontradoException(
-			        		   String.format("Usuário com email %s não encontrado!", emailUsuarioAutenticado)));
-	}
 	
 }

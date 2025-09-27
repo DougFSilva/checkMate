@@ -94,13 +94,13 @@ public class EmprestimoController {
 		return ResponseEntity.ok().body(emprestimos);
 	}
 	
-	@GetMapping("/status-devolvido/{status}")
+	@GetMapping("/status-devolvido")
 	@Operation(
 			summary = "Buscar empréstimos pelo status de devolução", 
 			description = "Retorna empréstimos com base no status de devolução (devolvido ou não)."
 	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPeloStatusDevolvido(
-	        @PathVariable boolean status,
+	        @RequestParam boolean status,
 	        Pageable paginacao) {
 
 	    Page<EmprestimoResumoResponse> emprestimos = buscaEmprestimoService.buscarPeloStatusDevolvido(status, 

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,6 +16,7 @@ import com.DougFSiva.checkMate.config.seguranca.TokenService;
 import com.DougFSiva.checkMate.dto.form.AlteraSenhaUsuarioForm;
 import com.DougFSiva.checkMate.dto.form.LoginForm;
 import com.DougFSiva.checkMate.dto.response.AuthResponse;
+import com.DougFSiva.checkMate.exception.ContaDeUsuarioExpiradaException;
 import com.DougFSiva.checkMate.exception.ErroDeAutenticacaoDeUsuarioException;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 import com.DougFSiva.checkMate.service.usuario.AlteraSenhaDeUsuarioService;
@@ -38,6 +40,7 @@ public class AutenticacaoController {
     @Operation(
     		summary = "Autenticar usuário", 
     		description = "Autentica o usuário e retorna um token JWT para acesso às demais funcionalidades da API."
+    				+ "Este token possui as claims perfil, nome e senha alterada, além do email e data de expiração"
     )
 	public ResponseEntity<AuthResponse> autenticar(@Valid @RequestBody LoginForm form){
 		 try {
@@ -54,7 +57,13 @@ public class AutenticacaoController {
 		        AuthResponse authResponse = new AuthResponse(token, "Bearer ", true);
 		        return ResponseEntity.ok().body(authResponse);
 
-		    } catch (AuthenticationException e) {
+		    } catch(AccountExpiredException e) {
+		    	throw new ContaDeUsuarioExpiradaException(
+		    			"Usuário com conta expirada. Contate um administrador e renove a data de validade para voltar a ter acesso");
+		    }
+		 
+		 	catch (AuthenticationException e) {
+		    	e.printStackTrace();
 		        throw new ErroDeAutenticacaoDeUsuarioException("Usuário ou senha inválidos", e);
 		    }
 	}

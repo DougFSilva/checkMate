@@ -31,6 +31,8 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
 
 	Page<Emprestimo> findByDataHoraDevolucaoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
 	
+	boolean existsByItemAndDevolvidoFalse(Item item);
+	
 	boolean existsByEmprestador(Usuario usuario);
 	
 	boolean existsBySolicitante(Usuario usuario);

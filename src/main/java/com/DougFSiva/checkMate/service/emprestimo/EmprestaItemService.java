@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.DougFSiva.checkMate.dto.form.EmprestaItemForm;
 import com.DougFSiva.checkMate.dto.response.EmprestimoResumoResponse;
+import com.DougFSiva.checkMate.exception.ErroDeOperacaoComEmprestimoException;
 import com.DougFSiva.checkMate.model.Emprestimo;
 import com.DougFSiva.checkMate.model.Item;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -39,6 +40,7 @@ public class EmprestaItemService {
 	@CacheEvict(value = "emprestimos", allEntries = true)
 	public EmprestimoResumoResponse emprestar(EmprestaItemForm form) {
 		Item item = itemRepository.findByIdOrElseThrow(form.itemID());
+		validarItemNaoEmprestado(item);
 		Usuario solicitante = usuarioRepository.findByIdOrElseThrow(form.solicitanteID());
 		Usuario emprestador = buscaUsuarioAutenticado.buscar();
 		Emprestimo emprestimo = new Emprestimo(item, emprestador, solicitante, LocalDateTime.now());
@@ -48,6 +50,12 @@ public class EmprestaItemService {
 		websocket.convertAndSend("/topic/emprestimos", TipoMensagemWebsocket.EMPRESTIMO_REALIZADO.toString());
 
 		return new EmprestimoResumoResponse(EmprestimoSalvo);
+	}
+	
+	private void validarItemNaoEmprestado(Item item) {
+		if (repository.existsByItemAndDevolvidoFalse(item)) {
+			throw new ErroDeOperacaoComEmprestimoException("Não é possível realizar o empréstimo pois o item foi emprestado e não foi devolvido!");
+		}
 	}
 	
 }
