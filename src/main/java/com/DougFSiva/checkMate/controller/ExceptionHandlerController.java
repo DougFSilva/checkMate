@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.controller;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> emailInvalidoException(EmailInvalidoException e, 
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -50,7 +51,7 @@ public class ExceptionHandlerController {
 			ErroDeAutenticacaoDeUsuarioException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.UNAUTHORIZED.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -61,7 +62,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> erroDeMQTTException(ErroDeMQTTException e, 
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.INTERNAL_SERVER_ERROR.value(),
 				e.getMessage(), 
 				request.getRequestURI());
@@ -73,7 +74,7 @@ public class ExceptionHandlerController {
 			ErroDeOperacaoComAmbienteException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -85,7 +86,7 @@ public class ExceptionHandlerController {
 			ErroDeOperacaoComCheckListException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -96,7 +97,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> erroDeOperacaoComCompartimentoException(
 			ErroDeOperacaoComCompartimentoException e, HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -108,7 +109,7 @@ public class ExceptionHandlerController {
 			ErroDeOperacaoComEmprestimoException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(),
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -120,7 +121,7 @@ public class ExceptionHandlerController {
 			ErroDeOperacaoComImagemException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -132,7 +133,7 @@ public class ExceptionHandlerController {
 			ErroDeOperacaoComOcorrenciaException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -144,7 +145,7 @@ public class ExceptionHandlerController {
 			ErroDeOperacaoComUsuarioException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -156,7 +157,7 @@ public class ExceptionHandlerController {
 			ObjetoNaoEncontradoException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.NOT_FOUND.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -168,7 +169,7 @@ public class ExceptionHandlerController {
 			SenhaDeUsuarioInvalidaException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -180,7 +181,7 @@ public class ExceptionHandlerController {
 			ContaDeUsuarioExpiradaException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.FORBIDDEN.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -192,7 +193,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> usuarioSemPermissaoException(UsuarioSemPermissaoException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.FORBIDDEN.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -203,7 +204,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> senhaNaoAlteradaException(SenhaNaoAlteradaException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.FORBIDDEN.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -220,7 +221,7 @@ public class ExceptionHandlerController {
 		        erros.append(msg).append(" ");
 		    });
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				erros.toString(),
 				request.getRequestURI());
@@ -231,7 +232,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> illegalArgumentException(IllegalArgumentException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -243,7 +244,7 @@ public class ExceptionHandlerController {
 			MethodArgumentTypeMismatchException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.BAD_REQUEST.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -255,7 +256,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> badCredentialsException(BadCredentialsException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.UNAUTHORIZED.value(), 
 				e.getMessage(),
 				request.getRequestURI());
@@ -266,7 +267,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> authorizationDeniedException(AuthorizationDeniedException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.FORBIDDEN.value(), 
 				"Acesso negado, você não tem permissão para realizar essa operação",
 				request.getRequestURI());
@@ -277,7 +278,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> erroInesperadoException(ErroInesperadoException e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.INTERNAL_SERVER_ERROR.value(), 
 				"Erro inesperado: " + e.getMessage(),
 				request.getRequestURI());
@@ -288,7 +289,7 @@ public class ExceptionHandlerController {
 	public ResponseEntity<ErroResponse> exception(Exception e,
 			HttpServletRequest request) {
 		ErroResponse erro = new ErroResponse(
-				LocalDateTime.now(), 
+				OffsetDateTime.now(ZoneOffset.UTC), 
 				HttpStatus.INTERNAL_SERVER_ERROR.value(), 
 				"Erro inesperado: " + e.getMessage(),
 				request.getRequestURI());

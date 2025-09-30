@@ -1,7 +1,8 @@
 package com.DougFSiva.checkMate.config.seguranca;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -39,7 +40,7 @@ public class SenhaAlteradaFilter extends OncePerRequestFilter {
 	                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
 	                response.setContentType("application/json");
 	                ErroResponse erro = new ErroResponse(
-	        				LocalDateTime.now(), 
+	        				OffsetDateTime.now(ZoneOffset.UTC), 
 	        				HttpStatus.FORBIDDEN.value(), 
 	        				"A senha ainda não foi alterada. Por favor, altere sua senha antes de continuar",
 	        				request.getRequestURI());

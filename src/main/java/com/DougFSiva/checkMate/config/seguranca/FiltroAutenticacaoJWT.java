@@ -1,7 +1,8 @@
 package com.DougFSiva.checkMate.config.seguranca;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -45,7 +46,7 @@ public class FiltroAutenticacaoJWT extends OncePerRequestFilter {
 	            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 	            response.setContentType("application/json");
 	            ErroResponse erro = new ErroResponse(
-	    				LocalDateTime.now(), 
+	    				OffsetDateTime.now(ZoneOffset.UTC), 
 	    				HttpStatus.INTERNAL_SERVER_ERROR.value(), 
 	    				e.getMessage(),
 	    				request.getRequestURI());
