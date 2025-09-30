@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.controller;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -74,8 +74,11 @@ public class OcorrenciaController {
 			description = "Busca todas as ocorrências dentro de um intervalo de datas."
 	)
 	public ResponseEntity<Page<OcorrenciaResumoResponse>> buscarOcorrenciasPelaData(
-			@RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataInicial,
-			@RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataFinal,
+			@RequestParam("data-inicial") 
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+			
+			@RequestParam("data-final") 
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 			Pageable paginacao
 			){
 		Page<OcorrenciaResumoResponse> ocorrencias = buscaOcorrenciaService.buscarPelaDataHora(
@@ -103,8 +106,11 @@ public class OcorrenciaController {
 	)
 	public ResponseEntity<Page<OcorrenciaResumoResponse>> buscarOcorrenciasPeloAmbienteEDataHora(
 			@RequestParam("ambienteID") Long ambienteID,
-			@RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataInicial,
-			@RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime dataFinal,
+			@RequestParam("data-inicial") 
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+			
+			@RequestParam("data-final") 
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 			Pageable paginacao
 			){
 		Page<OcorrenciaResumoResponse> ocorrencias = buscaOcorrenciaService.buscarPeloAmbienteEDataHora(

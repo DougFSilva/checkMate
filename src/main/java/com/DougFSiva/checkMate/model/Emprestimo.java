@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.model;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
@@ -47,11 +47,11 @@ public class Emprestimo {
 	@JoinColumn(name = "recebedor_id")
 	private Usuario recebedor;
 	
-	private LocalDateTime dataHoraEmprestimo;
-	private LocalDateTime dataHoraDevolucao;
+	private OffsetDateTime dataHoraEmprestimo;
+	private OffsetDateTime dataHoraDevolucao;
 	private boolean devolvido;
 	
-	public Emprestimo(Item item, Usuario emprestador, Usuario solicitante, LocalDateTime dataHoraEmprestimo) {
+	public Emprestimo(Item item, Usuario emprestador, Usuario solicitante, OffsetDateTime dataHoraEmprestimo) {
 		this.item = item;
 		this.emprestador = emprestador;
 		this.solicitante = solicitante;

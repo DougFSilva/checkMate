@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.model.ocorrrencia;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.DougFSiva.checkMate.model.checklist.ItemCheckList;
@@ -34,7 +34,7 @@ public class Ocorrencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 	
-	private LocalDateTime dataHora;
+	private OffsetDateTime dataHora;
 	
 	@ManyToOne
 	@JoinColumn(name = "emissor", nullable = false)
@@ -53,7 +53,7 @@ public class Ocorrencia {
     
 	private boolean encerrada;
 	
-	public Ocorrencia(LocalDateTime dataHora, Usuario emissor, ItemCheckList itemCheckList) {
+	public Ocorrencia(OffsetDateTime dataHora, Usuario emissor, ItemCheckList itemCheckList) {
 		this.dataHora = dataHora;
 		this.emissor = emissor;
 		this.itemCheckList = itemCheckList;

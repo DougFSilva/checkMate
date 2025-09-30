@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.checklist;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -48,7 +49,7 @@ public class PreencheCheckListSaidaService {
 		List<ItemCheckList> itensAtualizados = atualizarItens(itens, form.itens());
 		itemCheckListRepository.saveAll(itensAtualizados);
 		gerarOcorrenciaSeAnormalidade(itensAtualizados);
-		checkList.setDataHoraPreenchimentoSaida(LocalDateTime.now());
+		checkList.setDataHoraPreenchimentoSaida(OffsetDateTime.now(ZoneOffset.UTC));
 		checkList.setExecutorPreenchimentoSaida(buscaUsuarioAutenticado.buscar());
 		checkList.setStatus(CheckListCompartimentoStatus.SAIDA_PREENCHIDO);
 		repository.save(checkList);
@@ -121,7 +122,7 @@ public class PreencheCheckListSaidaService {
 		websocket.convertAndSend("/topic/ocorrencias", TipoMensagemWebsocket.OCORRENCIA_ABERTA.toString());
 		if (!ocorrenciaRepository.existsByItemCheckList(item)) {
 			Ocorrencia ocorrencia = new Ocorrencia(
-			        LocalDateTime.now(),
+			        OffsetDateTime.now(ZoneOffset.UTC),
 			        buscaUsuarioAutenticado.buscar(),
 			        item
 			    );

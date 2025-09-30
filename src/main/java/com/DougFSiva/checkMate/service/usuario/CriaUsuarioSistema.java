@@ -27,7 +27,7 @@ public class CriaUsuarioSistema {
 	private final CodificadorDeSenha codificadorDeSenha;
 	
 	public void criar() {
-		String email = "sistema2@sistema";
+		String email = "admin@admin.com";
 		if (!repository.existsByEmail(email)) {
 			Usuario usuario = new Usuario(
 					"sistema", 

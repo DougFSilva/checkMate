@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.repository;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -27,16 +27,16 @@ public interface CheckListAmbienteRepository extends JpaRepository<CheckListAmbi
 	Page<CheckListAmbiente> findByAmbienteAndStatus(Ambiente ambiente, CheckListAmbienteStatus status,
 			Pageable paginacao);
 
-	Page<CheckListAmbiente> findByAmbienteAndDataHoraEncerramentoBetween(Ambiente ambiente, LocalDateTime dataInicial,
-			LocalDateTime dataFinal, Pageable paginacao);
+	Page<CheckListAmbiente> findByAmbienteAndDataHoraEncerramentoBetween(Ambiente ambiente, OffsetDateTime dataInicial,
+			OffsetDateTime dataFinal, Pageable paginacao);
 
-	Page<CheckListAmbiente> findByDataHoraAberturaBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
+	Page<CheckListAmbiente> findByDataHoraAberturaBetween(OffsetDateTime dataInicial, OffsetDateTime dataFinal,
 			Pageable paginacao);
 
-	Page<CheckListAmbiente> findByDataHoraEncerramentoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal,
+	Page<CheckListAmbiente> findByDataHoraEncerramentoBetween(OffsetDateTime dataInicial, OffsetDateTime dataFinal,
 			Pageable paginacao);
 
-	List<CheckListAmbiente> findByDataHoraEncerramentoIsNotNullAndDataHoraEncerramentoBefore(LocalDateTime dataHora);
+	List<CheckListAmbiente> findByDataHoraEncerramentoIsNotNullAndDataHoraEncerramentoBefore(OffsetDateTime dataHora);
 
 	Page<CheckListAmbiente> findByStatus(CheckListAmbienteStatus status, Pageable paginacao);
 	

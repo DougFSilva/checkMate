@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.repository;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,9 +27,9 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
 
 	Page<Emprestimo> findByDevolvido(boolean devolvido, Pageable paginacao);
 	
-	Page<Emprestimo> findByDataHoraEmprestimoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
+	Page<Emprestimo> findByDataHoraEmprestimoBetween(OffsetDateTime dataInicial, OffsetDateTime dataFinal, Pageable paginacao);
 
-	Page<Emprestimo> findByDataHoraDevolucaoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
+	Page<Emprestimo> findByDataHoraDevolucaoBetween(OffsetDateTime dataInicial, OffsetDateTime dataFinal, Pageable paginacao);
 	
 	boolean existsByItemAndDevolvidoFalse(Item item);
 	

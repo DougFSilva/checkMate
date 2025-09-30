@@ -1,7 +1,6 @@
 package com.DougFSiva.checkMate.service.emprestimo;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.OffsetDateTime;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -60,18 +59,22 @@ public class BuscaEmprestimoService {
 
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<EmprestimoResumoResponse> buscarPelaDataDeEmprestimo(LocalDate dataInicial, LocalDate dataFinal,
+	public Page<EmprestimoResumoResponse> buscarPelaDataDeEmprestimo(OffsetDateTime dataInicial, OffsetDateTime dataFinal,
 			Pageable paginacao) {
+		OffsetDateTime inicio = dataInicial.withHour(0).withMinute(0).withSecond(0).withNano(0);
+	    OffsetDateTime fim = dataFinal.withHour(23).withMinute(59).withSecond(59).withNano(999_999_999);
 		return repository.findByDataHoraEmprestimoBetween(
-				dataInicial.atStartOfDay(), dataFinal.atTime(LocalTime.MAX), paginacao).map(EmprestimoResumoResponse::new);
+				inicio, fim, paginacao).map(EmprestimoResumoResponse::new);
 	}
 
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<EmprestimoResumoResponse> buscarPelaDataDeDevolucao(LocalDate dataInicial, LocalDate dataFinal,
+	public Page<EmprestimoResumoResponse> buscarPelaDataDeDevolucao(OffsetDateTime dataInicial, OffsetDateTime dataFinal,
 			Pageable paginacao) {
+		OffsetDateTime inicio = dataInicial.withHour(0).withMinute(0).withSecond(0).withNano(0);
+	    OffsetDateTime fim = dataFinal.withHour(23).withMinute(59).withSecond(59).withNano(999_999_999);
 		return repository.findByDataHoraDevolucaoBetween(
-				dataInicial.atStartOfDay(), dataFinal.atTime(LocalTime.MAX), paginacao).map(EmprestimoResumoResponse::new);
+				inicio, fim, paginacao).map(EmprestimoResumoResponse::new);
 	}
 	
 	@Cacheable(value = "emprestimos", key = "'todosEmprestimosPagina_' + #paginacao.pageNumber + '_tamanho_' + #paginacao.pageSize + '_sort_' + #paginacao.getSort().toString()")

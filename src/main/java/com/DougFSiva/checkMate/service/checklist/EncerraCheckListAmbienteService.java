@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.checklist;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -42,7 +43,7 @@ public class EncerraCheckListAmbienteService {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validarStatusCheckList(checkList);
 		validarTodosCheckListsSaidaPreenchidos(checkList);
-		checkList.setDataHoraEncerramento(LocalDateTime.now());
+		checkList.setDataHoraEncerramento(OffsetDateTime.now(ZoneOffset.UTC));
 		checkList.setResponsavelEncerramento(buscaUsuarioAutenticado.buscar());
 		checkList.setStatus(CheckListAmbienteStatus.ENCERRADO);
 		repository.save(checkList);

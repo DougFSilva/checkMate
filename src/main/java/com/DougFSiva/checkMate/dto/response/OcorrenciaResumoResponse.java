@@ -1,11 +1,10 @@
 package com.DougFSiva.checkMate.dto.response;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.ocorrrencia.Ocorrencia;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -15,9 +14,7 @@ import lombok.ToString;
 public class OcorrenciaResumoResponse {
 
 	private Long ID;
-	@JsonFormat(pattern = "dd/MM/yyyy - HH:mm:ss")
-	private LocalDateTime dataHora;
-	
+	private OffsetDateTime dataHora;
 	private UsuarioResponse emissor;
 	private String ambiente;
 	private String compartimento;

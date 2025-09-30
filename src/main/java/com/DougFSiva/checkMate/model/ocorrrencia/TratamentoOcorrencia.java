@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.model.ocorrrencia;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.DougFSiva.checkMate.model.usuario.Usuario;
 
@@ -30,7 +30,7 @@ public class TratamentoOcorrencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 	
-	private LocalDateTime dataHora;
+	private OffsetDateTime  dataHora;
 	
 	@ManyToOne
 	@JoinColumn(name = "ocorrencia_id", nullable = false)
@@ -42,7 +42,7 @@ public class TratamentoOcorrencia {
 	
 	private String descricao;
 	
-	public TratamentoOcorrencia(Ocorrencia ocorrencia, LocalDateTime dataHora, Usuario autor, String descricao) {
+	public TratamentoOcorrencia(Ocorrencia ocorrencia, OffsetDateTime  dataHora, Usuario autor, String descricao) {
 		this.ocorrencia = ocorrencia;
 		this.dataHora = dataHora;
 		this.autor = autor;

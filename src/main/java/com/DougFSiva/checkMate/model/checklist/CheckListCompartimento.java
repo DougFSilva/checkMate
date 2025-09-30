@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.model.checklist;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.DougFSiva.checkMate.model.Compartimento;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -42,8 +42,8 @@ public class CheckListCompartimento {
 	@JoinColumn(name = "compartimento_id", nullable = false)
 	private Compartimento compartimento;
 	
-	private LocalDateTime dataHoraPreenchimentoEntrada;
-	private LocalDateTime dataHoraPreenchimentoSaida;
+	private OffsetDateTime  dataHoraPreenchimentoEntrada;
+	private OffsetDateTime  dataHoraPreenchimentoSaida;
 	
 	@ManyToOne
 	@JoinColumn(name = "executor_preenchimento_entrada")

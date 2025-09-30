@@ -1,9 +1,8 @@
 package com.DougFSiva.checkMate.dto.response;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.DougFSiva.checkMate.model.Emprestimo;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -17,12 +16,8 @@ public class EmprestimoDetalhadoResponse {
 	private UsuarioResponse emprestador;
 	private UsuarioResponse solicitante;
 	private UsuarioResponse recebedor;
-	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-	private LocalDateTime dataHoraEmprestimo;
-	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-	private LocalDateTime dataHoraDevolucao;
+	private OffsetDateTime dataHoraEmprestimo;
+	private OffsetDateTime dataHoraDevolucao;
 	
 	private boolean devolvido;
 	

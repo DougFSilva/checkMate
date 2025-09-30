@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.service.checklist;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -50,8 +50,8 @@ public class BuscaCheckListAmbienteService {
 	@Transactional(readOnly = true)
 	public Page<CheckListAmbienteResumoResponse> buscarPeloAmbienteEDataHoraEncerramento(
 			Long ambienteID,
-			LocalDateTime dataInicial, 
-			LocalDateTime dataFinal,
+			OffsetDateTime dataInicial, 
+			OffsetDateTime dataFinal,
 			Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByAmbienteAndDataHoraEncerramentoBetween(ambiente, dataInicial, dataFinal, paginacao)
@@ -61,8 +61,8 @@ public class BuscaCheckListAmbienteService {
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraAbertura(
-			LocalDateTime dataInicial, 
-			LocalDateTime dataFinal,
+			OffsetDateTime dataInicial, 
+			OffsetDateTime dataFinal,
 			Pageable paginacao) {
 		return repository.findByDataHoraAberturaBetween(dataInicial, dataFinal, paginacao)
 				.map(CheckListAmbienteResumoResponse::new);
@@ -71,8 +71,8 @@ public class BuscaCheckListAmbienteService {
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<CheckListAmbienteResumoResponse> buscarPelaDataHoraEncerramento(
-			LocalDateTime dataInicial, 
-			LocalDateTime dataFinal,
+			OffsetDateTime dataInicial, 
+			OffsetDateTime dataFinal,
 			Pageable paginacao) {
 		return repository.findByDataHoraEncerramentoBetween(dataInicial, dataFinal, paginacao)
 				.map(CheckListAmbienteResumoResponse::new);

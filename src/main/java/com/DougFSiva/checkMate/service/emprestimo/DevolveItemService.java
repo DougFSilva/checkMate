@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.emprestimo;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -36,7 +37,7 @@ public class DevolveItemService {
 		Emprestimo emprestimo = repository.findByIdOrElseThrow(ID);
 		validarEmprestimoConcluido(emprestimo);
 		Usuario recebedor = buscaUsuarioAutenticado.buscar();
-		emprestimo.setDataHoraDevolucao(LocalDateTime.now());
+		emprestimo.setDataHoraDevolucao(OffsetDateTime.now(ZoneOffset.UTC));
 		emprestimo.setDevolvido(true);
 		emprestimo.setRecebedor(recebedor);
 		Emprestimo emprestimoSalvo = repository.save(emprestimo);

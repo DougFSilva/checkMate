@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.ocorrencia;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,7 +34,7 @@ public class TrataOcorrenciaService {
 		Ocorrencia ocorrencia = repository.findByIdOrElseThrow(ID);
 		TratamentoOcorrencia tratamento = new TratamentoOcorrencia(
 				ocorrencia, 
-				LocalDateTime.now(),
+				OffsetDateTime.now(ZoneOffset.UTC	),
 				buscaUsuarioAutenticado.buscar(), 
 				form.descricao());
 		validarOcorrenciaAberta(ocorrencia);

@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.tarefas;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +31,7 @@ public class DeletaCheckListsAntigosTask {
 	@Transactional
 	@Scheduled(cron = "0 0 1 * * ?")
 	public void deletarChecklistsAntigos() {
-		LocalDateTime dataCorte = LocalDateTime.now().minusDays(retencaoDias);
+		OffsetDateTime dataCorte = OffsetDateTime.now().minus(retencaoDias, ChronoUnit.DAYS);		
 		List<CheckListAmbiente> checkListsAmbiente = checkListAmbienteRepository
 				.findByDataHoraEncerramentoIsNotNullAndDataHoraEncerramentoBefore(dataCorte);
 		itemCheckListRepository.deleteByCheckListCompartimento_CheckListAmbienteIn(checkListsAmbiente);

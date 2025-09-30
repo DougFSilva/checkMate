@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.repository;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -24,12 +24,12 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
 	
 	void deleteByItemCheckListIn(List<ItemCheckList> item);
 	
-    Page<Ocorrencia> findByDataHoraBetween(LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
+    Page<Ocorrencia> findByDataHoraBetween(OffsetDateTime dataInicial, OffsetDateTime dataFinal, Pageable paginacao);
 
     Page<Ocorrencia> findByItemCheckList_CheckListCompartimento_CheckListAmbiente_Ambiente(Ambiente ambiente, Pageable paginacao);
     
     Page<Ocorrencia> findByItemCheckList_CheckListCompartimento_CheckListAmbiente_AmbienteAndDataHoraBetween(
-    		Ambiente ambiente, LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao);
+    		Ambiente ambiente, OffsetDateTime dataInicial, OffsetDateTime dataFinal, Pageable paginacao);
     
     Page<Ocorrencia> findByItemCheckList_CheckListCompartimento(CheckListCompartimento checkList, Pageable paginacao);
     

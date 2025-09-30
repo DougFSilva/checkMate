@@ -1,6 +1,7 @@
 package com.DougFSiva.checkMate.service.checklist;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -42,7 +43,7 @@ public class LiberaCheckListAmbienteService {
 		CheckListAmbiente checkList = repository.findByIdOrElseThrow(ID);
 		validaCheckListAberto(checkList);
 		validarCheckListEntradaPreenchido(checkList);
-		checkList.setDataHoraLiberacao(LocalDateTime.now());
+		checkList.setDataHoraLiberacao(OffsetDateTime.now(ZoneOffset.UTC));
 		checkList.setResponsavelLiberacao(buscaUsuarioAutenticado.buscar());
 		checkList.setStatus(CheckListAmbienteStatus.LIBERADO);
 		repository.save(checkList);

@@ -1,7 +1,7 @@
 package com.DougFSiva.checkMate.controller;
 
 import java.net.URI;
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -114,8 +114,11 @@ public class EmprestimoController {
 			description = "Retorna empréstimos realizados dentro de um intervalo de datas."
 	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPelaDataDeEmprestimo(
-	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicial,
-	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFinal,
+	        @RequestParam("data-inicial") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+	        
+	        @RequestParam("data-final")
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 	        Pageable paginacao) {
 
 	    Page<EmprestimoResumoResponse> emprestimos = buscaEmprestimoService.buscarPelaDataDeEmprestimo(
@@ -129,8 +132,11 @@ public class EmprestimoController {
 			description = "Retorna empréstimos devolvidos dentro de um intervalo de datas."
 	)
 	public ResponseEntity<Page<EmprestimoResumoResponse>> buscarEmprestimosPelaDataDeDevolucao(
-	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicial,
-	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFinal,
+	        @RequestParam("data-inicial") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+	        
+	        @RequestParam("data-final") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 	        Pageable paginacao) {
 
 	    Page<EmprestimoResumoResponse> emprestimos = buscaEmprestimoService.buscarPelaDataDeDevolucao(dataInicial, dataFinal, paginacao);

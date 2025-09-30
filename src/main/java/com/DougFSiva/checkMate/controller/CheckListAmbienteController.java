@@ -1,7 +1,7 @@
 package com.DougFSiva.checkMate.controller;
 
 import java.net.URI;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -137,8 +137,11 @@ public class CheckListAmbienteController {
     )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorAmbienteEDataHoraEncerramento(
 			@PathVariable Long ambienteID,
-	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
-	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
+	        @RequestParam("data-inicial")
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+			
+	        @RequestParam("data-final") 
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 	        Pageable paginacao) {
 	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
 	    		.buscarPeloAmbienteEDataHoraEncerramento(ambienteID, dataInicial, dataFinal, paginacao);
@@ -151,8 +154,11 @@ public class CheckListAmbienteController {
     		description = "Retorna checklists de ambiente filtrados por intervalo de data e hora de aberturaq."
     )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorDataHoraAbertura(
-	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
-	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
+	        @RequestParam("data-inicial") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+	        
+	        @RequestParam("data-final") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 	        Pageable paginacao) {
 	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
 	    		.buscarPelaDataHoraAbertura(dataInicial, dataFinal, paginacao);
@@ -165,8 +171,11 @@ public class CheckListAmbienteController {
     		description = "Retorna checklists de ambiente filtrados por intervalo de data e hora de encerramento."
     )
 	public ResponseEntity<Page<CheckListAmbienteResumoResponse>> buscarCheckListsDeAmbientePorDataHoraEncerramento(
-	        @RequestParam("data-inicial") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
-	        @RequestParam("data-final") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
+	        @RequestParam("data-inicial") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicial,
+	        
+	        @RequestParam("data-final") 
+	        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFinal,
 	        Pageable paginacao) {
 	    Page<CheckListAmbienteResumoResponse> checkLists = buscaCheckListAmbienteService
 	    		.buscarPelaDataHoraEncerramento(dataInicial, dataFinal, paginacao);

@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.model.checklist;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.DougFSiva.checkMate.model.Ambiente;
 import com.DougFSiva.checkMate.model.usuario.Usuario;
@@ -36,9 +36,9 @@ public class CheckListAmbiente {
 	@ManyToOne
 	@JoinColumn(name = "ambiente_id", nullable = false)
 	private Ambiente ambiente;
-	private LocalDateTime dataHoraAbertura;
-	private LocalDateTime dataHoraLiberacao;
-	private LocalDateTime dataHoraEncerramento;
+	private OffsetDateTime  dataHoraAbertura;
+	private OffsetDateTime  dataHoraLiberacao;
+	private OffsetDateTime  dataHoraEncerramento;
 	
 	@ManyToOne
 	@JoinColumn(name = "responsavel_abertura_id", nullable = false)

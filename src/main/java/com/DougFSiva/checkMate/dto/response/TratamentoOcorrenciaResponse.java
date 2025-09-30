@@ -1,9 +1,8 @@
 package com.DougFSiva.checkMate.dto.response;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.DougFSiva.checkMate.model.ocorrrencia.TratamentoOcorrencia;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -13,8 +12,7 @@ import lombok.ToString;
 public class TratamentoOcorrenciaResponse {
 
 	private Long ID;
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
-	private LocalDateTime dataHora;
+	private OffsetDateTime dataHora;
 	private UsuarioResponse autor;
 	private String descricao;
 	

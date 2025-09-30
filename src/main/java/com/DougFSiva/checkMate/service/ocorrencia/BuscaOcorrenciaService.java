@@ -1,6 +1,6 @@
 package com.DougFSiva.checkMate.service.ocorrencia;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +36,7 @@ public class BuscaOcorrenciaService {
 
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
-	public Page<OcorrenciaResumoResponse> buscarPelaDataHora(LocalDateTime dataInicial, LocalDateTime dataFinal,
+	public Page<OcorrenciaResumoResponse> buscarPelaDataHora(OffsetDateTime dataInicial, OffsetDateTime dataFinal,
 			Pageable paginacao) {
 		return repository
 				.findByDataHoraBetween(dataInicial, dataFinal, paginacao)
@@ -54,7 +54,7 @@ public class BuscaOcorrenciaService {
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(readOnly = true)
 	public Page<OcorrenciaResumoResponse> buscarPeloAmbienteEDataHora(
-			Long ambienteID, LocalDateTime dataInicial, LocalDateTime dataFinal, Pageable paginacao) {
+			Long ambienteID, OffsetDateTime dataInicial, OffsetDateTime dataFinal, Pageable paginacao) {
 		Ambiente ambiente = ambienteRepository.findByIdOrElseThrow(ambienteID);
 		return repository.findByItemCheckList_CheckListCompartimento_CheckListAmbiente_AmbienteAndDataHoraBetween(
 				ambiente, dataInicial, dataFinal, paginacao)
